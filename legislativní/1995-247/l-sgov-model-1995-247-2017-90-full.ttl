@@ -1,0 +1,319 @@
+# Ontologický model Zákona č. 247/1995 Sb. o volbách do Parlamentu České republiky ve znění zákona č. 90/2017 Sb.
+
+@prefix l-sgov-1995-247-2017-90-pojem: <https://data.gov.cz/slovník/legislativní/zákon/1995/247/znění/zákon/2017/90/pojem/> .
+@prefix l-sgov-1995-247-2017-90: <https://data.gov.cz/slovník/legislativní/zákon/1995/247/znění/zákon/2017/90> .
+@prefix l-gp-1995-247-2017-90: <https://data.gov.cz/slovník/legislativní/zákon/1995/247/znění/zákon/2017/90/glosář> .
+@prefix l-om-1995-247-2017-90: <https://data.gov.cz/slovník/legislativní/zákon/1995/247/znění/zákon/2017/90/model> .
+
+@prefix l-sgov-1995-247-pojem: <https://data.gov.cz/slovník/legislativní/zákon/1995/247/pojem/> .
+@prefix l-sgov-1995-247: <https://data.gov.cz/slovník/legislativní/zákon/1995/247> .
+@prefix l-gp-1995-247: <https://data.gov.cz/slovník/legislativní/zákon/1995/247/glosář> .
+@prefix l-om-1995-247: <https://data.gov.cz/slovník/legislativní/zákon/1995/247/model> .
+
+@prefix z-sgov-pojem: <https://data.gov.cz/slovník/základní/pojem/> .
+@prefix z-sgov: <https://data.gov.cz/slovník/základní> .
+
+
+l-om-1995-247-2017-90:
+  a z-sgov-pojem:model, z-sgov-pojem:legislativní-struktura, owl:Ontology ;
+  rdfs:label "Ontologický model Zákona č. 247/1995 Sb. o volbách do Parlamentu České republiky ve znění zákona č. 90/2017 Sb."@cs ;
+  dct:conformsTo <https://data.gov.cz/zdroj/legislativa/zákon/1995/247/znění/zákon/2017/90> ;
+  owl:imports l-gp-1995-247-2017-90:, z-sgov-pojem: .
+
+l-sgov-1995-247-2017-90-pojem:kandidát-ve-volbách-do-poslanecké-sněmovny
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:volič .
+
+l-sgov-1995-247-2017-90-pojem:člen-politické-strany-nebo-hnutí
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:volič .
+
+l-sgov-1995-247-2017-90-pojem:volič
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:občan .
+
+l-sgov-1995-247-2017-90-pojem:občan
+  rdfs:subClassOf z-sgov:člověk .
+
+l-sgov-1995-247-2017-90-pojem:politická-strana
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:politický-subjekt .
+
+l-sgov-1995-247-2017-90-pojem:politické-hnutí
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:politický-subjekt .
+
+l-sgov-1995-247-2017-90-pojem:koalice
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:politický-subjekt .
+
+l-sgov-1995-247-2017-90-pojem:politický-subjekt
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:politický-subjekt ;
+  rdfs:label "politický subjekt"@cs ;
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+
+l-sgov-1995-247-2017-90-pojem:krajský-úřad
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:volební-orgán .
+
+#l-sgov-1995-247-2017-90-pojem:název-volebního-kraje
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:volební-kraj .
+
+l-sgov-1995-247-2017-90-pojem:název-volebního-kraje
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:má-vlastnost ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:volební-kraj
+  ] .
+
+# l-sgov-1995-247-2017-90-pojem:jméno-kandidáta-ve-volbách-do-poslanecké-sněmovny
+#  rdfs:subPropertyOf z-sgov:jméno-člověka . ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:kandidát-ve-volbách-do-poslanecké-sněmovny .
+
+l-sgov-1995-247-2017-90-pojem:jméno-kandidáta-ve-volbách-do-poslanecké-sněmovny
+  rdfs:subClassOf z-sgov:jméno-člověka . ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:má-vlastnost ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidát-ve-volbách-do-poslanecké-sněmovny
+  ] .
+
+#l-sgov-1995-247-2017-90-pojem:název-politického-subjektu
+#  a z-sgov:typ-vlastnosti ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:politický-subjekt ;
+#  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+l-sgov-1995-247-2017-90-pojem:název-politického-subjektu
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:název-politického-subjektu ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:má-vlastnost ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:politický-subjekt
+  ] ;
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+
+# l-sgov-1995-247-2017-90-pojem:název-politické-strany
+#  rdfs:subPropertyOf l-sgov-1995-247-2017-90-pojem:název-politického-subjektu ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:politická-strana .
+
+l-sgov-1995-247-2017-90-pojem:název-politické-strany
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:název-politického-subjektu ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:má-vlastnost ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:politická-strana
+  ] .
+
+# l-sgov-1995-247-2017-90-pojem:název-politického-hnutí
+#  rdfs:subPropertyOf l-sgov-1995-247-2017-90-pojem:název-politického-subjektu ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:politické-hnutí .
+  
+l-sgov-1995-247-2017-90-pojem:název-politického-hnutí
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:název-politického-subjektu ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:má-vlastnost ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:politické-hnutí
+  ] .
+
+# l-sgov-1995-247-2017-90-pojem:název-koalice
+#  rdfs:subPropertyOf l-sgov-1995-247-2017-90-pojem:název-politického-subjektu ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:koalice .
+  
+l-sgov-1995-247-2017-90-pojem:název-koalice
+  rdfs:subClassOf l-sgov-1995-247-2017-90-pojem:název-politického-subjektu ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:má-vlastnost ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:koalice
+  ] .
+
+# l-sgov-1995-247-2017-90-pojem:má-složení
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:koalice .
+#  rdfs:range l-sgov-1995-247-2017-90-pojem:politická-strana, l-sgov-1995-247-2017-90-pojem:politické-hnutí .
+  
+l-sgov-1995-247-2017-90-pojem:má-složení
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:koalice
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom [owl:unionOf (l-sgov-1995-247-2017-90-pojem:politická-strana l-sgov-1995-247-2017-90-pojem:politické-hnutí)]
+  ] .
+
+l-sgov-1995-247-2017-90-pojem:podání-kandidátní-listiny-pro-volby-do-poslanecké-sněmovny
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:volby-do-poslanecké-sněmovny
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:politický-subjekt
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidátní-listina-pro-volby-do-poslanecké-sněmovny
+  ] .
+
+l-sgov-1995-247-2017-90-pojem:rozhodnutí-o-registraci-kandidátní-listiny-pro-volby-do-poslanecké-sněmovny
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:krajský-úřad
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidátní-listina-pro-volby-do-poslanecké-sněmovny
+  ] .
+
+l-sgov-1995-247-2017-90-pojem:rozhodnutí-o-odmítnutí-kandidátní-listiny-pro-volby-do-poslanecké-sněmovny
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:krajský-úřad
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidátní-listina-pro-volby-do-poslanecké-sněmovny
+  ] .
+
+#l-sgov-1995-247-2017-90-pojem:je-členem
+#  a z-sgov:typ-vztahu ;
+#  rdfs:label "je členem"@cs ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:člen-politické-strany-nebo-hnutí ;
+#  rdfs:range l-sgov-1995-247-2017-90-pojem:politická-strana, l-sgov-1995-247-2017-90-pojem:politické-hnutí ;
+#  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+l-sgov-1995-247-2017-90-pojem:je-členem
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:je-členem ;
+  rdfs:label "je členem"@cs ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:člen-politické-strany-nebo-hnutí
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom [owl:unionOf (l-sgov-1995-247-2017-90-pojem:politická-strana l-sgov-1995-247-2017-90-pojem:politické-hnutí)]
+  ] .
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+
+#l-sgov-1995-247-2017-90-pojem:je-na-kandidátní-listině
+#  a z-sgov:typ-vztahu ;
+#  rdfs:label "je na kandidátní listině"@cs ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:kandidát-ve-volbách-do-poslanecké-sněmovny ;
+#  rdfs:range l-sgov-1995-247-2017-90-pojem:kandidátní-listina-pro-volby-do-poslanecké-sněmovny ;
+#  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+l-sgov-1995-247-2017-90-pojem:je-na-kandidátní-listině
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:je-na-kandidátní-listině ;
+  rdfs:label "je na kandidátní listině"@cs ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidát-ve-volbách-do-poslanecké-sněmovny
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidátní-listina-pro-volby-do-poslanecké-sněmovny
+  ] .
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+#l-sgov-1995-247-2017-90-pojem:je-podána-ve-volebním-kraji
+#  a z-sgov:typ-vztahu ;
+#  rdfs:label "je podána ve volebním kraji"@cs ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:kandidátní-listina-pro-volby-do-poslanecké-sněmovny ;
+#  rdfs:range l-sgov-1995-247-2017-90-pojem:volební-kraj ;
+#  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+l-sgov-1995-247-2017-90-pojem:je-podána-ve-volebním-kraji
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:je-podána-ve-volebním-kraji ;
+  rdfs:label "je podána ve volebním kraji"@cs ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidátní-listina-pro-volby-do-poslanecké-sněmovny
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:volební-kraj
+  ] .
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+
+#l-sgov-1995-247-2017-90-pojem:obsahuje-kandidáta-ve-volbách-do-poslanecké-sněmovny
+#  a z-sgov:typ-vztahu ;
+#  rdfs:label "obsahuje"@cs ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:registr-kandidátů-ve-volbách-do-poslanecké-sněmovny ;
+#  rdfs:range l-sgov-1995-247-2017-90-pojem:kandidát-ve-volbách-do-poslanecké-sněmovny ;
+#  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+l-sgov-1995-247-2017-90-pojem:obsahuje-kandidáta-ve-volbách-do-poslanecké-sněmovny
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:obsahuje-kandidáta-ve-volbách-do-poslanecké-sněmovny ;
+  rdfs:label "obsahuje"@cs ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:registr-kandidátů-ve-volbách-do-poslanecké-sněmovny
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:kandidát-ve-volbách-do-poslanecké-sněmovny
+  ] .
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+
+#l-sgov-1995-247-2017-90-pojem:obsahuje-politický-subjekt
+#  a z-sgov:typ-vztahu ;
+#  rdfs:label "obsahuje"@cs ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:registr-kandidujících-politických-stran-politických-hnutí-a-koalic-ve-volbách-do-poslanecké-sněmovny ;
+#  rdfs:range l-sgov-1995-247-2017-90-pojem:politický-subjekt ;
+#  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+l-sgov-1995-247-2017-90-pojem:obsahuje-politický-subjekt
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:obsahuje-politický-subjekt ;
+  rdfs:label "obsahuje"@cs ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:registr-kandidujících-politických-stran-politických-hnutí-a-koalic-ve-volbách-do-poslanecké-sněmovny
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom l-sgov-1995-247-2017-90-pojem:politický-subjekt
+  ] .
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+
+#l-sgov-1995-247-2017-90-pojem:vyhotovuje-registr
+#  a z-sgov:typ-vztahu ;
+#  rdfs:label "vyhotovuje"@cs ;
+#  rdfs:domain l-sgov-1995-247-2017-90-pojem:český-statistický-úřad ;
+#  rdfs:range l-sgov-1995-247-2017-90-pojem:registr-kandidátů-ve-volbách-do-poslanecké-sněmovny, l-sgov-1995-247-2017-90-pojem:registr-kandidujících-politických-stran-politických-hnutí-a-koalic-ve-volbách-do-poslanecké-sněmovny ;
+#  rdfs:isDefinedBy l-om-1995-247-2017-90: .
+  
+l-sgov-1995-247-2017-90-pojem:vyhotovuje-registr
+  a z-sgov:okamžitý-stav-proměnného-prvku ;
+  z-sgov:je-stavem l-sgov-1995-247-pojem:vyhotovuje-registr ;
+  rdfs:label "vyhotovuje"@cs ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:hasValue l-sgov-1995-247-2017-90-pojem:český-statistický-úřad 
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+	owl:onProperty [ owl:inverseOf z-sgov-pojem:je-ve-vztahu ] ;
+    owl:allValuesFrom [owl:unionOf (l-sgov-1995-247-2017-90-pojem:registr-kandidátů-ve-volbách-do-poslanecké-sněmovny l-sgov-1995-247-2017-90-pojem:registr-kandidujících-politických-stran-politických-hnutí-a-koalic-ve-volbách-do-poslanecké-sněmovny)]
+  ] .
+  rdfs:isDefinedBy l-om-1995-247-2017-90: .
