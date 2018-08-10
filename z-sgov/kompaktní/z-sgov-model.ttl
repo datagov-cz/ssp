@@ -1,227 +1,87 @@
-@prefix : <https://slovnik.gov.cz/základní/model/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix z-sgov: <https://slovnik.gov.cz/základní/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix z-sgov-pojem: <https://slovnik.gov.cz/základní/pojem/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-z-sgov:model a owl:Ontology ;
-	owl:imports z-sgov:glosář ;
-	rdfs:label "Model z-sgov"@cs .
-# 
-# 
-# #################################################################
-# #
-# #    Object Properties
-# #
-# #################################################################
-# 
-# 
-# https://slovnik.gov.cz/základní/pojem/je-metatypem
+z-sgov-pojem:typ-vztahu
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:typ-proměnného-prvku .
 
-z-sgov-pojem:je-metatypem a owl:ObjectProperty ;
-	rdfs:subPropertyOf z-sgov-pojem:vztah .
-# 
-# https://slovnik.gov.cz/základní/pojem/proměnný-prvek
+z-sgov-pojem:neměnný-prvek
+        a       owl:Class .
 
-z-sgov-pojem:proměnný-prvek a owl:ObjectProperty .
-# 
-# https://slovnik.gov.cz/základní/pojem/specializuje
+z-sgov-pojem:typ-objektu
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:typ-proměnného-prvku .
 
-z-sgov-pojem:specializuje a owl:ObjectProperty ;
-	rdfs:subPropertyOf z-sgov-pojem:vztah .
-# 
-# https://slovnik.gov.cz/základní/pojem/vztah
+z-sgov-pojem:objekt  a   z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:proměnný-prvek .
 
-z-sgov-pojem:vztah a owl:ObjectProperty ;
-	rdfs:subPropertyOf z-sgov-pojem:proměnný-prvek .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Data properties
-# #
-# #################################################################
-# 
-# 
-# https://slovnik.gov.cz/základní/pojem/proměnný-prvek
+z-sgov-pojem:změna-proměnného-prvku
+        a                z-sgov-pojem:typ-události , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:událost .
 
-z-sgov-pojem:proměnný-prvek a owl:DatatypeProperty .
-# 
-# https://slovnik.gov.cz/základní/pojem/vlastnost
+z-sgov-pojem:vznik-proměnného-prvku
+        a                z-sgov-pojem:typ-události , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:událost .
 
-z-sgov-pojem:vlastnost a owl:DatatypeProperty ;
-	rdfs:subPropertyOf z-sgov-pojem:proměnný-prvek ;
-	rdfs:domain z-sgov-pojem:proměnný-prvek .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Classes
-# #
-# #################################################################
-# 
-# 
-# https://slovnik.gov.cz/základní/pojem/agent
+z-sgov-pojem:prostorový-objekt
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:pasivní-objekt .
 
-z-sgov-pojem:agent a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:objekt .
-# 
-# https://slovnik.gov.cz/základní/pojem/akce
+z-sgov-pojem:vlastnost
+        a                   z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty ;
+        rdfs:domain         z-sgov-pojem:proměnný-prvek ;
+        rdfs:subPropertyOf  z-sgov-pojem:proměnný-prvek .
 
-z-sgov-pojem:akce a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:událost .
-# 
-# https://slovnik.gov.cz/základní/pojem/neměnný-prvek
+z-sgov-pojem:vztah  a       z-sgov-pojem:typ-vztahu , owl:ObjectProperty ;
+        rdfs:subPropertyOf  z-sgov-pojem:proměnný-prvek .
 
-z-sgov-pojem:neměnný-prvek a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:prvek .
-# 
-# https://slovnik.gov.cz/základní/pojem/objekt
+z-sgov-pojem:typ  a      z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:pasivní-objekt .
 
-z-sgov-pojem:objekt a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:proměnný-prvek .
-# 
-# https://slovnik.gov.cz/základní/pojem/pasivní-objekt
+z-sgov:model  a      owl:Ontology ;
+        rdfs:label   "Model z-sgov"@cs ;
+        owl:imports  z-sgov:glosář .
 
-z-sgov-pojem:pasivní-objekt a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:objekt .
-# 
-# https://slovnik.gov.cz/základní/pojem/proměnný-prvek
+z-sgov-pojem:typ-vlastnosti
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:typ-proměnného-prvku .
 
-z-sgov-pojem:proměnný-prvek a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:prvek .
-# 
-# https://slovnik.gov.cz/základní/pojem/prostorový-objekt
+z-sgov-pojem:proměnný-prvek
+        a       owl:ObjectProperty , owl:DatatypeProperty , owl:Class .
 
-z-sgov-pojem:prostorový-objekt a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
-# 
-# https://slovnik.gov.cz/základní/pojem/prvek
+z-sgov-pojem:typ-proměnného-prvku
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:typ .
 
-z-sgov-pojem:prvek a owl:Class .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ
+z-sgov-pojem:agent  a    z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:objekt .
 
-z-sgov-pojem:typ a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-objektu
+z-sgov-pojem:pasivní-objekt
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:objekt .
 
-z-sgov-pojem:typ-objektu a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-proměnného-prvku
+z-sgov-pojem:zánik-proměnného-prvku
+        a                z-sgov-pojem:typ-události , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:událost .
 
-z-sgov-pojem:typ-proměnného-prvku a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:typ .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-události
+z-sgov-pojem:akce  a     z-sgov-pojem:typ-události , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:událost .
 
-z-sgov-pojem:typ-události a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:typ .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-vlastnosti
+z-sgov-pojem:je-metatypem
+        a                   z-sgov-pojem:typ-vztahu , owl:ObjectProperty ;
+        rdfs:subPropertyOf  z-sgov-pojem:vztah .
 
-z-sgov-pojem:typ-vlastnosti a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-vztahu
+z-sgov-pojem:událost  a  z-sgov-pojem:typ-události , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:neměnný-prvek .
 
-z-sgov-pojem:typ-vztahu a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku .
-# 
-# https://slovnik.gov.cz/základní/pojem/událost
+z-sgov-pojem:specializuje
+        a                   z-sgov-pojem:typ-vztahu , owl:ObjectProperty ;
+        rdfs:subPropertyOf  z-sgov-pojem:vztah .
 
-z-sgov-pojem:událost a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:neměnný-prvek .
-# 
-# https://slovnik.gov.cz/základní/pojem/vznik-proměnného-prvku
-
-z-sgov-pojem:vznik-proměnného-prvku a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:událost .
-# 
-# https://slovnik.gov.cz/základní/pojem/změna-proměnného-prvku
-
-z-sgov-pojem:změna-proměnného-prvku a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:událost .
-# 
-# https://slovnik.gov.cz/základní/pojem/zánik-proměnného-prvku
-
-z-sgov-pojem:zánik-proměnného-prvku a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:událost .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Individuals
-# #
-# #################################################################
-# 
-# 
-# https://slovnik.gov.cz/základní/pojem/agent
-
-z-sgov-pojem:agent a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/akce
-
-z-sgov-pojem:akce a z-sgov-pojem:typ-události .
-# 
-# https://slovnik.gov.cz/základní/pojem/objekt
-
-z-sgov-pojem:objekt a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/pasivní-objekt
-
-z-sgov-pojem:pasivní-objekt a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/prostorový-objekt
-
-z-sgov-pojem:prostorový-objekt a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ
-
-z-sgov-pojem:typ a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-objektu
-
-z-sgov-pojem:typ-objektu a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-proměnného-prvku
-
-z-sgov-pojem:typ-proměnného-prvku a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-události
-
-z-sgov-pojem:typ-události a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-vlastnosti
-
-z-sgov-pojem:typ-vlastnosti a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/typ-vztahu
-
-z-sgov-pojem:typ-vztahu a z-sgov-pojem:typ-objektu .
-# 
-# https://slovnik.gov.cz/základní/pojem/událost
-
-z-sgov-pojem:událost a z-sgov-pojem:typ-události .
-# 
-# https://slovnik.gov.cz/základní/pojem/vznik-proměnného-prvku
-
-z-sgov-pojem:vznik-proměnného-prvku a z-sgov-pojem:typ-události .
-# 
-# https://slovnik.gov.cz/základní/pojem/změna-proměnného-prvku
-
-z-sgov-pojem:změna-proměnného-prvku a z-sgov-pojem:typ-události .
-# 
-# https://slovnik.gov.cz/základní/pojem/zánik-proměnného-prvku
-
-z-sgov-pojem:zánik-proměnného-prvku a z-sgov-pojem:typ-události .
-# 
-# Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+z-sgov-pojem:typ-události
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:typ .
