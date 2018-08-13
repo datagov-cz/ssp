@@ -4,6 +4,9 @@
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
+z-sgov-pojem:má-vztažený-prvek-1
+        a       owl:ObjectProperty .
+
 z-sgov-pojem:neměnný-prvek
         a                z-sgov-pojem:typ-události , owl:Class ;
         rdfs:label       "Neměnný prvek"@cs ;
@@ -39,15 +42,24 @@ z-sgov-pojem:prostorový-objekt
         rdfs:subClassOf  z-sgov-pojem:pasivní-objekt .
 
 z-sgov-pojem:vlastnost
-        a                   owl:Class , z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty ;
-        rdfs:domain         z-sgov-pojem:proměnný-prvek ;
-        rdfs:label          "Vlastnost"@cs ;
-        rdfs:subPropertyOf  z-sgov-pojem:proměnný-prvek .
+        a                z-sgov-pojem:typ-vlastnosti , owl:Class ;
+        rdfs:label       "Vlastnost"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:proměnný-prvek ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  z-sgov-pojem:proměnný-prvek ;
+                           owl:onProperty     z-sgov-pojem:je-vlastností
+                         ] .
 
-z-sgov-pojem:vztah  a       z-sgov-pojem:typ-vztahu , owl:ObjectProperty ;
-        rdfs:domain         z-sgov-pojem:proměnný-prvek ;
-        rdfs:label          "Vztah"@cs ;
-        rdfs:subPropertyOf  z-sgov-pojem:proměnný-prvek .
+z-sgov-pojem:je-vlastností
+        a       owl:ObjectProperty .
+
+z-sgov-pojem:vztah  a    z-sgov-pojem:typ-vztahu , owl:Class ;
+        rdfs:label       "Vztah"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:proměnný-prvek ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  z-sgov-pojem:proměnný-prvek ;
+                           owl:onProperty     z-sgov-pojem:má-vztažený-prvek-1
+                         ] .
 
 z-sgov-pojem:typ  a      z-sgov-pojem:typ-objektu , owl:Class ;
         rdfs:label       "Typ"@cs ;
@@ -56,6 +68,8 @@ z-sgov-pojem:typ  a      z-sgov-pojem:typ-objektu , owl:Class ;
 <https://slovnik.gov.cz/základní/model>
         a               owl:Ontology ;
         rdfs:label      "Basic Vocabulary (Z-SGoV) - model"@en , "Základní slovník (Z-SGoV) - model"@cs ;
+        <http://purl.org/dc/elements/1.1/creator>
+                "Petr Křemen" ;
         <http://purl.org/dc/elements/1.1/description>
                 "Základní slovník popisuje základní vztahy."@cs ;
         <http://purl.org/dc/elements/1.1/rights>
@@ -79,10 +93,9 @@ z-sgov-pojem:typ-vlastnosti
         rdfs:subClassOf  z-sgov-pojem:typ-proměnného-prvku .
 
 z-sgov-pojem:proměnný-prvek
-        a                   z-sgov-pojem:typ-vztahu , owl:ObjectProperty , z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty , z-sgov-pojem:typ-objektu , owl:Class ;
-        rdfs:label          "Proměnný prvek"@cs ;
-        rdfs:subClassOf     z-sgov-pojem:prvek ;
-        rdfs:subPropertyOf  z-sgov-pojem:prvek .
+        a                z-sgov-pojem:typ-vztahu , z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty , z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Proměnný prvek"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:prvek .
 
 z-sgov-pojem:typ-proměnného-prvku
         a                z-sgov-pojem:typ-objektu , owl:Class ;
@@ -107,24 +120,30 @@ z-sgov-pojem:akce  a     z-sgov-pojem:typ-události , owl:Class ;
         rdfs:label       "Akce"@cs ;
         rdfs:subClassOf  z-sgov-pojem:událost .
 
-z-sgov-pojem:prvek  a  z-sgov-pojem:typ-události , z-sgov-pojem:typ-vztahu , owl:ObjectProperty , z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty , z-sgov-pojem:typ-objektu , owl:Class ;
+z-sgov-pojem:prvek  a  z-sgov-pojem:typ-události , z-sgov-pojem:typ-vztahu , z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty , z-sgov-pojem:typ-objektu , owl:Class ;
         rdfs:label  "Prvek"@cs .
 
 z-sgov-pojem:je-metatypem
-        a                   z-sgov-pojem:typ-vztahu , owl:ObjectProperty ;
-        rdfs:domain         z-sgov-pojem:typ ;
-        rdfs:label          "je metatypem"@cs ;
-        rdfs:subPropertyOf  z-sgov-pojem:vztah .
+        a                z-sgov-pojem:typ-vztahu , owl:Class ;
+        rdfs:label       "je metatypem"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:vztah ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  z-sgov-pojem:typ ;
+                           owl:onProperty     z-sgov-pojem:má-vztažený-prvek-1
+                         ] .
 
 z-sgov-pojem:událost  a  z-sgov-pojem:typ-události , owl:Class ;
         rdfs:label       "Událost"@cs ;
         rdfs:subClassOf  z-sgov-pojem:neměnný-prvek .
 
 z-sgov-pojem:specializuje
-        a                   z-sgov-pojem:typ-vztahu , owl:ObjectProperty ;
-        rdfs:domain         z-sgov-pojem:typ ;
-        rdfs:label          "specializuje"@cs ;
-        rdfs:subPropertyOf  z-sgov-pojem:vztah .
+        a                z-sgov-pojem:typ-vztahu , owl:Class ;
+        rdfs:label       "specializuje"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:vztah ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  z-sgov-pojem:typ ;
+                           owl:onProperty     z-sgov-pojem:má-vztažený-prvek-1
+                         ] .
 
 z-sgov-pojem:typ-události
         a                z-sgov-pojem:typ-objektu , owl:Class ;

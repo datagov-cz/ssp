@@ -20,11 +20,17 @@ v-sgov-pojem:osoba  a    <https://slovnik.gov.cz/základní/pojem/typ-objektu> ,
         rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/objekt> .
 
 v-sgov-pojem:má-zdrojový-předpis
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:ObjectProperty ;
-        rdfs:domain         v-sgov-pojem:legislativní-znalostní-struktura ;
-        rdfs:label          "má zdrojový předpis"@cs ;
-        rdfs:range          v-sgov-pojem:právní-předpis ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vztah> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:Class ;
+        rdfs:label       "má zdrojový předpis"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:právní-předpis ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:legislativní-znalostní-struktura ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 <https://slovnik.gov.cz/základní/pojem/prvek>
         a       owl:Class .
@@ -45,9 +51,9 @@ v-sgov-pojem:právnická-osoba
         rdfs:subClassOf  v-sgov-pojem:organizace-jako-subjekt-práva .
 
 v-sgov-pojem:způsobilost-k-právnímu-jednání
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
-        rdfs:label          "Způsobilost k právnímu jednání"@cs ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:Class ;
+        rdfs:label       "Způsobilost k právnímu jednání"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
 
 v-sgov-pojem:legislativní-znalostní-struktura
         a                <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -76,11 +82,17 @@ v-sgov-pojem:datová-sada
         rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/pasivní-objekt> .
 
 v-sgov-pojem:má-kontext
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:ObjectProperty ;
-        rdfs:domain         v-sgov-pojem:dokument ;
-        rdfs:label          "má kontext"@cs ;
-        rdfs:range          v-sgov-pojem:bezkontextový-dokument ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vztah> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:Class ;
+        rdfs:label       "má kontext"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:bezkontextový-dokument ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:dokument ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 v-sgov-pojem:právní-událost
         a                <https://slovnik.gov.cz/základní/pojem/typ-události> , owl:Class ;
@@ -109,6 +121,9 @@ v-sgov-pojem:stát  a     <https://slovnik.gov.cz/základní/pojem/typ-objektu> 
 <https://slovnik.gov.cz/základní/pojem/událost>
         a       owl:Class .
 
+<https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        a       owl:ObjectProperty .
+
 v-sgov-pojem:sekundární-objekt-práva
         a                <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Sekundární objekt práva"@cs ;
@@ -120,21 +135,24 @@ v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů
         rdfs:subClassOf  v-sgov-pojem:kontextový-dokument .
 
 v-sgov-pojem:povinnost
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
-        rdfs:label          "Povinnost"@cs ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:Class ;
+        rdfs:label       "Povinnost"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
 
 v-sgov-pojem:glosář  a   <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Glosář"@cs ;
         rdfs:subClassOf  v-sgov-pojem:znalostní-struktura .
 
 v-sgov-pojem:výkon-svrchované-moci
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:ObjectProperty ;
-        rdfs:domain         [ a            owl:Class ;
-                              owl:unionOf  ( v-sgov-pojem:stát v-sgov-pojem:subjekt-práva )
-                            ] ;
-        rdfs:label          "Výkon svrchované moci"@cs ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vztah> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:Class ;
+        rdfs:label       "Výkon svrchované moci"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( v-sgov-pojem:stát v-sgov-pojem:subjekt-práva )
+                                              ] ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 v-sgov-pojem:právní-předpis
         a                <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -165,9 +183,12 @@ v-sgov-pojem:orgán-veřejné-moci
         owl:versionIRI  <https://slovnik.gov.cz/veřejný-sektor/model/verze/1.0.0> .
 
 v-sgov-pojem:způsobilost-k-protiprávnímu-jednání
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
-        rdfs:label          "Způsobilost k protiprávnímu jednání"@cs ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:Class ;
+        rdfs:label       "Způsobilost k protiprávnímu jednání"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
+
+<https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a       owl:ObjectProperty .
 
 <https://slovnik.gov.cz/základní/pojem/proměnný-prvek>
         a       owl:Class .
@@ -192,9 +213,9 @@ v-sgov-pojem:typ-evidenčního-systému
         rdfs:label       "Typ evidenčního systému"@cs ;
         rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/typ-objektu> .
 
-v-sgov-pojem:právo  a       <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
-        rdfs:label          "Právo"@cs ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
+v-sgov-pojem:právo  a    <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:Class ;
+        rdfs:label       "Právo"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
 
 v-sgov-pojem:fyzická-osoba
         a                <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -228,23 +249,32 @@ v-sgov-pojem:model  a    <https://slovnik.gov.cz/základní/pojem/typ-objektu> ,
         rdfs:subClassOf  v-sgov-pojem:znalostní-struktura .
 
 v-sgov-pojem:právní-vztah
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:ObjectProperty ;
-        rdfs:label          "Právní vztah"@cs ;
-        rdfs:range          [ a            owl:Class ;
-                              owl:unionOf  ( v-sgov-pojem:sekundární-objekt-práva v-sgov-pojem:primární-objekt-práva )
-                            ] ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vztah> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:Class ;
+        rdfs:label       "Právní vztah"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( v-sgov-pojem:sekundární-objekt-práva v-sgov-pojem:primární-objekt-práva )
+                                              ] ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] .
 
 v-sgov-pojem:subjekt-práva
         a                <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Subjekt práva"@cs ;
         rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/agent> .
 
-v-sgov-pojem:eviduje  a     <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:ObjectProperty ;
-        rdfs:domain         v-sgov-pojem:evidenční-systém ;
-        rdfs:label          "eviduje"@cs ;
-        rdfs:range          <https://slovnik.gov.cz/základní/pojem/proměnný-prvek> ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vztah> .
+v-sgov-pojem:eviduje  a  <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:Class ;
+        rdfs:label       "eviduje"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovnik.gov.cz/základní/pojem/proměnný-prvek> ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:evidenční-systém ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 v-sgov-pojem:protiprávní-stav
         a                <https://slovnik.gov.cz/základní/pojem/typ-události> , owl:Class ;
@@ -272,11 +302,17 @@ v-sgov-pojem:právní-jednání
         rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/akce> , v-sgov-pojem:právní-skutečnost .
 
 v-sgov-pojem:je-evidencí-pro
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:ObjectProperty ;
-        rdfs:domain         v-sgov-pojem:typ-evidenčního-systému ;
-        rdfs:label          "je evidencí pro"@cs ;
-        rdfs:range          <https://slovnik.gov.cz/základní/pojem/typ> ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vztah> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vztahu> , owl:Class ;
+        rdfs:label       "je evidencí pro"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovnik.gov.cz/základní/pojem/typ> ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:typ-evidenčního-systému ;
+                           owl:onProperty     <https://slovnik.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 v-sgov-pojem:dokument
         a                <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -284,9 +320,9 @@ v-sgov-pojem:dokument
         rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/pasivní-objekt> .
 
 v-sgov-pojem:způsobilost-k-právům-a-povinnostem
-        a                   <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
-        rdfs:label          "Způsobilost k právům a povinnostem"@cs ;
-        rdfs:subPropertyOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
+        a                <https://slovnik.gov.cz/základní/pojem/typ-vlastnosti> , owl:Class ;
+        rdfs:label       "Způsobilost k právům a povinnostem"@cs ;
+        rdfs:subClassOf  <https://slovnik.gov.cz/základní/pojem/vlastnost> .
 
 v-sgov-pojem:písmeno  a  <https://slovnik.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Písmeno"@cs ;
