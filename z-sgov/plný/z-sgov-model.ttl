@@ -12,6 +12,16 @@ z-sgov-pojem:neměnný-prvek
         rdfs:label       "Neměnný prvek"@cs ;
         rdfs:subClassOf  z-sgov-pojem:prvek .
 
+z-sgov-pojem:mixin-rolí
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Mixin rolí"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-objektu .
+
+z-sgov-pojem:typ-kvalitativní-vlastnosti
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Typ kvalitativní vlastnosti"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-vlastnosti .
+
 z-sgov-pojem:typ-vztahu
         a                z-sgov-pojem:typ-objektu , owl:Class ;
         rdfs:label       "Typ vztahu"@cs ;
@@ -31,10 +41,19 @@ z-sgov-pojem:změna-proměnného-prvku
         rdfs:label       "Změna proměnného prvku"@cs ;
         rdfs:subClassOf  z-sgov-pojem:událost .
 
+z-sgov-pojem:typ-módu
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Typ módu"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-vlastnosti .
+
 z-sgov-pojem:vznik-proměnného-prvku
         a                z-sgov-pojem:typ-události , owl:Class ;
         rdfs:label       "Vznik proměnného prvku"@cs ;
         rdfs:subClassOf  z-sgov-pojem:událost .
+
+z-sgov-pojem:poddruh  a  z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Poddruh"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-objektu .
 
 z-sgov-pojem:prostorový-objekt
         a                z-sgov-pojem:typ-objektu , owl:Class ;
@@ -75,7 +94,7 @@ z-sgov-pojem:typ  a      z-sgov-pojem:typ-objektu , owl:Class ;
         <http://purl.org/dc/elements/1.1/title>
                 "Základní slovník (Z-SGoV)"@cs , "Basic Vocabulary (Z-SGoV)"@en ;
         <http://purl.org/dc/terms/created>
-                "13.08.2018" ;
+                "17.08.2018" ;
         <http://purl.org/ontology/bibo/status>
                 "Specifikace"@cs , "Specification"@en ;
         <http://purl.org/vocab/vann/preferredNamespacePrefix>
@@ -85,24 +104,37 @@ z-sgov-pojem:typ  a      z-sgov-pojem:typ-objektu , owl:Class ;
         owl:imports     <https://slovnik.gov.cz/základní/glosář> ;
         owl:versionIRI  <https://slovnik.gov.cz/základní/model/verze/1.0.0> .
 
+z-sgov-pojem:druh  a     z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Druh"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-objektu .
+
 z-sgov-pojem:typ-vlastnosti
         a                z-sgov-pojem:typ-objektu , owl:Class ;
         rdfs:label       "Typ vlastnosti"@cs ;
         rdfs:subClassOf  z-sgov-pojem:typ-proměnného-prvku .
+
+z-sgov-pojem:role  a     z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Role"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-objektu .
 
 z-sgov-pojem:proměnný-prvek
         a                z-sgov-pojem:typ-vztahu , z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty , z-sgov-pojem:typ-objektu , owl:Class ;
         rdfs:label       "Proměnný prvek"@cs ;
         rdfs:subClassOf  z-sgov-pojem:prvek .
 
-z-sgov-pojem:typ-proměnného-prvku
+z-sgov-pojem:kategorie
         a                z-sgov-pojem:typ-objektu , owl:Class ;
-        rdfs:label       "Typ proměnného prvku"@cs ;
-        rdfs:subClassOf  z-sgov-pojem:typ .
+        rdfs:label       "Kategorie"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-objektu .
 
 z-sgov-pojem:agent  a    z-sgov-pojem:typ-objektu , owl:Class ;
         rdfs:label       "Agent"@cs ;
         rdfs:subClassOf  z-sgov-pojem:objekt .
+
+z-sgov-pojem:typ-proměnného-prvku
+        a                z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Typ proměnného prvku"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ .
 
 z-sgov-pojem:pasivní-objekt
         a                z-sgov-pojem:typ-objektu , owl:Class ;
@@ -117,6 +149,14 @@ z-sgov-pojem:zánik-proměnného-prvku
 z-sgov-pojem:akce  a     z-sgov-pojem:typ-události , owl:Class ;
         rdfs:label       "Akce"@cs ;
         rdfs:subClassOf  z-sgov-pojem:událost .
+
+z-sgov-pojem:phase  a    z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Phase"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-objektu .
+
+z-sgov-pojem:mixin  a    z-sgov-pojem:typ-objektu , owl:Class ;
+        rdfs:label       "Mixin"@cs ;
+        rdfs:subClassOf  z-sgov-pojem:typ-objektu .
 
 z-sgov-pojem:prvek  a  z-sgov-pojem:typ-události , z-sgov-pojem:typ-vztahu , z-sgov-pojem:typ-vlastnosti , owl:DatatypeProperty , z-sgov-pojem:typ-objektu , owl:Class ;
         rdfs:label  "Prvek"@cs .
