@@ -1,848 +1,393 @@
-@prefix : <https://slovník.gov.cz/veřejný-sektor/model/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix v-sgov: <https://slovník.gov.cz/veřejný-sektor/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix v-sgov-pojem: <https://slovník.gov.cz/veřejný-sektor/pojem/> .
 
-v-sgov:model a owl:Ontology ;
-	owl:versionIRI <https://slovník.gov.cz/veřejný-sektor/model/verze/1.0.0> ;
-	owl:imports <https://slovník.gov.cz/základní/model/verze/1.0.0> , v-sgov:glosář ;
-	<http://purl.org/vocab/vann/preferredNamespaceUri> "https://slovník.gov.cz/veřejný-sektor" ;
-	<http://purl.org/dc/terms/created> "31.08.2018" ;
-	rdfs:label "Slovník veřejného sektoru (V-SGoV) - model"@cs ;
-	<http://purl.org/dc/elements/1.1/title> "Slovník veřejného sektoru (V-SGoV) - model"@cs ;
-	<http://purl.org/ontology/bibo/status> "Specification"@en ;
-	<http://purl.org/vocab/vann/preferredNamespacePrefix> "v-sgov" ;
-	<http://purl.org/ontology/bibo/status> "Specifikace"@cs ;
-	rdfs:label "Public Sector vocabulary (V-SGoV) - model"@en ;
-	<http://purl.org/dc/elements/1.1/title> "Public Sector vocabulary (V-SGoV) - model"@en ;
-	<http://purl.org/dc/elements/1.1/rights> <https://creativecommons.org/licenses/by-sa/4.0> .
-# 
-# 
-# #################################################################
-# #
-# #    Object Properties
-# #
-# #################################################################
-# 
-# 
-# https://slovník.gov.cz/základní/pojem/je-ve-vztahu
-
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty ;
-	owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
-# 
-# https://slovník.gov.cz/základní/pojem/je-vlastností
-
-<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty ;
-	owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-# 
-# https://slovník.gov.cz/základní/pojem/má-vlastnost
-
-<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
-# 
-# https://slovník.gov.cz/základní/pojem/má-vztažený-prvek
-
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty .
-# 
-# https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1
-
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> a owl:ObjectProperty ;
-	rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
-# 
-# https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2
-
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> a owl:ObjectProperty ;
-	rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Classes
-# #
-# #################################################################
-# 
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument
-
-v-sgov-pojem:bezkontextový-dokument a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:dokument .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada
-
-v-sgov-pojem:datová-sada a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/dokument
-
-v-sgov-pojem:dokument a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém
-
-v-sgov-pojem:evidenční-systém a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:datová-sada .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/eviduje
-
-v-sgov-pojem:eviduje a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid1 .
-
-_:genid1 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom v-sgov-pojem:evidenční-systém .
-
-v-sgov-pojem:eviduje rdfs:subClassOf _:genid2 .
-
-_:genid2 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom <https://slovník.gov.cz/základní/pojem/proměnný-prvek> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba
-
-v-sgov-pojem:fyzická-osoba a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:člověk-jako-subjekt-práva .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/glosář
-
-v-sgov-pojem:glosář a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:znalostní-struktura .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/hlava
-
-v-sgov-pojem:hlava a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém
-
-v-sgov-pojem:informační-systém a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro
-
-v-sgov-pojem:je-evidencí-pro a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid3 .
-
-_:genid3 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom v-sgov-pojem:typ-evidenčního-systému .
-
-v-sgov-pojem:je-evidencí-pro rdfs:subClassOf _:genid4 .
-
-_:genid4 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument
-
-v-sgov-pojem:kontextový-dokument a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:dokument .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura
-
-v-sgov-pojem:legislativní-znalostní-struktura a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:znalostní-struktura .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/model
-
-v-sgov-pojem:model a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:znalostní-struktura .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-glosář
-
-v-sgov-pojem:má-glosář a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid5 .
-
-_:genid5 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom v-sgov-pojem:slovník .
-
-v-sgov-pojem:má-glosář rdfs:subClassOf _:genid6 .
-
-_:genid6 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom v-sgov-pojem:glosář .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext
-
-v-sgov-pojem:má-kontext a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid7 .
-
-_:genid7 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom v-sgov-pojem:dokument .
-
-v-sgov-pojem:má-kontext rdfs:subClassOf _:genid8 .
-
-_:genid8 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom v-sgov-pojem:kontextový-dokument .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-model
-
-v-sgov-pojem:má-model a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid9 .
-
-_:genid9 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom v-sgov-pojem:slovník .
-
-v-sgov-pojem:má-model rdfs:subClassOf _:genid10 .
-
-_:genid10 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom v-sgov-pojem:model .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis
-
-v-sgov-pojem:má-zdrojový-předpis a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid11 .
-
-_:genid11 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom v-sgov-pojem:legislativní-znalostní-struktura .
-
-v-sgov-pojem:má-zdrojový-předpis rdfs:subClassOf _:genid12 .
-
-_:genid12 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom v-sgov-pojem:právní-předpis .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu
-
-v-sgov-pojem:má-část-právního-předpisu a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid13 .
-
-_:genid13 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom v-sgov-pojem:právní-předpis-ze-sbírky-zákonů .
-
-v-sgov-pojem:má-část-právního-předpisu rdfs:subClassOf _:genid14 .
-
-_:genid14 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva
-
-v-sgov-pojem:objekt-práva a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/odstavec
-
-v-sgov-pojem:odstavec a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/organizace
-
-v-sgov-pojem:organizace a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/agent> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/organizace-jako-subjekt-práva
-
-v-sgov-pojem:organizace-jako-subjekt-práva a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:organizace , v-sgov-pojem:subjekt-práva .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci
-
-v-sgov-pojem:orgán-veřejné-moci a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:organizace .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/osoba
-
-v-sgov-pojem:osoba a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/paragraf
-
-v-sgov-pojem:paragraf a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/povinnost
-
-v-sgov-pojem:povinnost a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/primární-objekt-práva
-
-v-sgov-pojem:primární-objekt-práva a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:objekt-práva .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-jednání
-
-v-sgov-pojem:protiprávní-jednání a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:právní-skutečnost , <https://slovník.gov.cz/základní/pojem/akce> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-stav
-
-v-sgov-pojem:protiprávní-stav a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:právní-skutečnost .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba
-
-v-sgov-pojem:právnická-osoba a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:organizace-jako-subjekt-práva .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání
-
-v-sgov-pojem:právní-jednání a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:právní-skutečnost , <https://slovník.gov.cz/základní/pojem/akce> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis
-
-v-sgov-pojem:právní-předpis a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:bezkontextový-dokument .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů
-
-v-sgov-pojem:právní-předpis-ze-sbírky-zákonů a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:právní-předpis .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost
-
-v-sgov-pojem:právní-skutečnost a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/událost> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-událost
-
-v-sgov-pojem:právní-událost a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:právní-skutečnost .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah
-
-v-sgov-pojem:právní-vztah a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid15 .
-
-_:genid15 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-	owl:allValuesFrom v-sgov-pojem:objekt-práva .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právo
-
-v-sgov-pojem:právo a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/písmeno
-
-v-sgov-pojem:písmeno a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/sekundární-objekt-práva
-
-v-sgov-pojem:sekundární-objekt-práva a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:objekt-práva .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/slovník
-
-v-sgov-pojem:slovník a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:znalostní-struktura .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/stát
-
-v-sgov-pojem:stát a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:organizace .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva
-
-v-sgov-pojem:subjekt-práva a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/agent> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému
-
-v-sgov-pojem:typ-evidenčního-systému a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/typ-znalostní-struktury-dle-úrovně
-
-v-sgov-pojem:typ-znalostní-struktury-dle-úrovně a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/typ> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/veřejnoprávní-korporace
-
-v-sgov-pojem:veřejnoprávní-korporace a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:organizace .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/výkon-svrchované-moci
-
-v-sgov-pojem:výkon-svrchované-moci a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah> , _:genid16 .
-
-_:genid16 a owl:Restriction ;
-	owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-	owl:allValuesFrom _:genid17 .
-
-_:genid17 a owl:Class ;
-	owl:unionOf _:genid19 .
-
-_:genid19 a rdf:List ;
-	rdf:first v-sgov-pojem:stát ;
-	rdf:rest _:genid18 .
-
-_:genid18 a rdf:List ;
-	rdf:first v-sgov-pojem:subjekt-práva ;
-	rdf:rest rdf:nil .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura
-
-v-sgov-pojem:znalostní-struktura a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-protiprávnímu-jednání
-
-v-sgov-pojem:způsobilost-k-protiprávnímu-jednání a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání
-
-v-sgov-pojem:způsobilost-k-právnímu-jednání a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem
-
-v-sgov-pojem:způsobilost-k-právům-a-povinnostem a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/člověk
-
-v-sgov-pojem:člověk a owl:Class ;
-	rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/agent> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/člověk-jako-subjekt-práva
-
-v-sgov-pojem:člověk-jako-subjekt-práva a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:subjekt-práva , v-sgov-pojem:člověk .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů
-
-v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů a owl:Class ;
-	rdfs:subClassOf v-sgov-pojem:kontextový-dokument .
-# 
-# https://slovník.gov.cz/základní/pojem/agent
-
-<https://slovník.gov.cz/základní/pojem/agent> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/akce
-
-<https://slovník.gov.cz/základní/pojem/akce> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/objekt
-
-<https://slovník.gov.cz/základní/pojem/objekt> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/pasivní-objekt
-
-<https://slovník.gov.cz/základní/pojem/pasivní-objekt> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/proměnný-prvek
-
-<https://slovník.gov.cz/základní/pojem/proměnný-prvek> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/typ
-
-<https://slovník.gov.cz/základní/pojem/typ> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/typ-objektu
-
-<https://slovník.gov.cz/základní/pojem/typ-objektu> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku
-
-<https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> a owl:Class .
-# 
-# https://slovník.gov.cz/základní/pojem/událost
-
-<https://slovník.gov.cz/základní/pojem/událost> a owl:Class .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Individuals
-# #
-# #################################################################
-# 
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument
-
-v-sgov-pojem:bezkontextový-dokument a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada
-
-v-sgov-pojem:datová-sada a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/dokument
-
-v-sgov-pojem:dokument a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém
-
-v-sgov-pojem:evidenční-systém a <https://slovník.gov.cz/základní/pojem/poddruh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/eviduje
-
-v-sgov-pojem:eviduje a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba
-
-v-sgov-pojem:fyzická-osoba a <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/glosář
-
-v-sgov-pojem:glosář a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/hlava
-
-v-sgov-pojem:hlava a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém
-
-v-sgov-pojem:informační-systém a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro
-
-v-sgov-pojem:je-evidencí-pro a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument
-
-v-sgov-pojem:kontextový-dokument a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura
-
-v-sgov-pojem:legislativní-znalostní-struktura a <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/model
-
-v-sgov-pojem:model a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-glosář
-
-v-sgov-pojem:má-glosář a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext
-
-v-sgov-pojem:má-kontext a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-model
-
-v-sgov-pojem:má-model a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis
-
-v-sgov-pojem:má-zdrojový-předpis a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu
-
-v-sgov-pojem:má-část-právního-předpisu a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva
-
-v-sgov-pojem:objekt-práva a <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/odstavec
-
-v-sgov-pojem:odstavec a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/organizace
-
-v-sgov-pojem:organizace a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/organizace-jako-subjekt-práva
-
-v-sgov-pojem:organizace-jako-subjekt-práva a <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci
-
-v-sgov-pojem:orgán-veřejné-moci a <https://slovník.gov.cz/základní/pojem/poddruh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/osoba
-
-v-sgov-pojem:osoba a <https://slovník.gov.cz/základní/pojem/mixin> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/paragraf
-
-v-sgov-pojem:paragraf a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/povinnost
-
-v-sgov-pojem:povinnost a <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/primární-objekt-práva
-
-v-sgov-pojem:primární-objekt-práva a <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-jednání
-
-v-sgov-pojem:protiprávní-jednání a <https://slovník.gov.cz/základní/pojem/typ-události> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-stav
-
-v-sgov-pojem:protiprávní-stav a <https://slovník.gov.cz/základní/pojem/typ-události> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba
-
-v-sgov-pojem:právnická-osoba a <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání
-
-v-sgov-pojem:právní-jednání a <https://slovník.gov.cz/základní/pojem/typ-události> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis
-
-v-sgov-pojem:právní-předpis a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů
-
-v-sgov-pojem:právní-předpis-ze-sbírky-zákonů a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost
-
-v-sgov-pojem:právní-skutečnost a <https://slovník.gov.cz/základní/pojem/typ-události> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-událost
-
-v-sgov-pojem:právní-událost a <https://slovník.gov.cz/základní/pojem/typ-události> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah
-
-v-sgov-pojem:právní-vztah a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právo
-
-v-sgov-pojem:právo a <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/písmeno
-
-v-sgov-pojem:písmeno a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/sekundární-objekt-práva
-
-v-sgov-pojem:sekundární-objekt-práva a <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/slovník
-
-v-sgov-pojem:slovník a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/stát
-
-v-sgov-pojem:stát a <https://slovník.gov.cz/základní/pojem/poddruh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva
-
-v-sgov-pojem:subjekt-práva a <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému
-
-v-sgov-pojem:typ-evidenčního-systému a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/typ-znalostní-struktury-dle-úrovně
-
-v-sgov-pojem:typ-znalostní-struktury-dle-úrovně a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/veřejnoprávní-korporace
-
-v-sgov-pojem:veřejnoprávní-korporace a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/výkon-svrchované-moci
-
-v-sgov-pojem:výkon-svrchované-moci a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura
-
-v-sgov-pojem:znalostní-struktura a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-protiprávnímu-jednání
-
-v-sgov-pojem:způsobilost-k-protiprávnímu-jednání a <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání
-
-v-sgov-pojem:způsobilost-k-právnímu-jednání a <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem
-
-v-sgov-pojem:způsobilost-k-právům-a-povinnostem a <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/člověk
-
-v-sgov-pojem:člověk a <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/člověk-jako-subjekt-práva
-
-v-sgov-pojem:člověk-jako-subjekt-práva a <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů
-
-v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů a <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Annotations
-# #
-# #################################################################
-# 
-# 
-
-v-sgov-pojem:bezkontextový-dokument rdfs:label "Bezkontextový dokument"@cs .
-# 
-
-v-sgov-pojem:datová-sada rdfs:label "Datová sada"@cs .
-# 
-
-v-sgov-pojem:dokument rdfs:label "Dokument"@cs .
-# 
-
-v-sgov-pojem:evidenční-systém rdfs:label "Evidenční systém"@cs .
-# 
-
-v-sgov-pojem:eviduje rdfs:label "eviduje"@cs .
-# 
-
-v-sgov-pojem:fyzická-osoba rdfs:label "Fyzická osoba"@cs .
-# 
-
-v-sgov-pojem:glosář rdfs:label "Glosář"@cs .
-# 
-
-v-sgov-pojem:hlava rdfs:label "Hlava"@cs .
-# 
-
-v-sgov-pojem:informační-systém rdfs:label "Informační systém"@cs .
-# 
-
-v-sgov-pojem:je-evidencí-pro rdfs:label "je evidencí pro"@cs .
-# 
-
-v-sgov-pojem:kontextový-dokument rdfs:label "Kontextový dokument"@cs .
-# 
-
-v-sgov-pojem:legislativní-znalostní-struktura rdfs:label "Legislativní znalostní struktura"@cs .
-# 
-
-v-sgov-pojem:model rdfs:label "Model"@cs .
-# 
-
-v-sgov-pojem:má-glosář rdfs:label "má glosář"@cs .
-# 
-
-v-sgov-pojem:má-kontext rdfs:label "má kontext"@cs .
-# 
-
-v-sgov-pojem:má-model rdfs:label "má model"@cs .
-# 
-
-v-sgov-pojem:má-zdrojový-předpis rdfs:label "má zdrojový předpis"@cs .
-# 
-
-v-sgov-pojem:má-část-právního-předpisu rdfs:label "má část právního předpisu"@cs .
-# 
-
-v-sgov-pojem:objekt-práva rdfs:label "Objekt práva"@cs .
-# 
-
-v-sgov-pojem:odstavec rdfs:label "Odstavec"@cs .
-# 
-
-v-sgov-pojem:organizace rdfs:label "Organizace"@cs .
-# 
-
-v-sgov-pojem:organizace-jako-subjekt-práva rdfs:label "Organizace jako subjekt práva"@cs .
-# 
-
-v-sgov-pojem:orgán-veřejné-moci rdfs:label "Orgán veřejné moci"@cs .
-# 
-
-v-sgov-pojem:osoba rdfs:label "Osoba"@cs .
-# 
-
-v-sgov-pojem:paragraf rdfs:label "Paragraf"@cs .
-# 
-
-v-sgov-pojem:povinnost rdfs:label "Povinnost"@cs .
-# 
-
-v-sgov-pojem:primární-objekt-práva rdfs:label "Primární objekt práva"@cs .
-# 
-
-v-sgov-pojem:protiprávní-jednání rdfs:label "Protiprávní jednání"@cs .
-# 
-
-v-sgov-pojem:protiprávní-stav rdfs:label "Protiprávní stav"@cs .
-# 
-
-v-sgov-pojem:právnická-osoba rdfs:label "Právnická osoba"@cs .
-# 
-
-v-sgov-pojem:právní-jednání rdfs:label "Právní jednání"@cs .
-# 
-
-v-sgov-pojem:právní-předpis rdfs:label "Právní předpis"@cs .
-# 
-
-v-sgov-pojem:právní-předpis-ze-sbírky-zákonů rdfs:label "Právní předpis ze sbírky zákonů"@cs .
-# 
-
-v-sgov-pojem:právní-skutečnost rdfs:label "Právní skutečnost"@cs .
-# 
-
-v-sgov-pojem:právní-událost rdfs:label "Právní událost"@cs .
-# 
-
-v-sgov-pojem:právní-vztah rdfs:label "Právní vztah"@cs .
-# 
-
-v-sgov-pojem:právo rdfs:label "Právo"@cs .
-# 
-
-v-sgov-pojem:písmeno rdfs:label "Písmeno"@cs .
-# 
-
-v-sgov-pojem:sekundární-objekt-práva rdfs:label "Sekundární objekt práva"@cs .
-# 
-
-v-sgov-pojem:slovník rdfs:label "Slovník"@cs .
-# 
-
-v-sgov-pojem:stát rdfs:label "Stát"@cs .
-# 
-
-v-sgov-pojem:subjekt-práva rdfs:label "Subjekt práva"@cs .
-# 
-
-v-sgov-pojem:typ-evidenčního-systému rdfs:label "Typ evidenčního systému"@cs .
-# 
-
-v-sgov-pojem:typ-znalostní-struktury-dle-úrovně rdfs:label "Typ znalostní struktury dle úrovně"@cs .
-# 
-
-v-sgov-pojem:veřejnoprávní-korporace rdfs:label "Veřejnoprávní korporace"@cs .
-# 
-
-v-sgov-pojem:výkon-svrchované-moci rdfs:label "Výkon svrchované moci"@cs .
-# 
-
-v-sgov-pojem:znalostní-struktura rdfs:label "Znalostní struktura"@cs .
-# 
-
-v-sgov-pojem:způsobilost-k-protiprávnímu-jednání rdfs:label "Způsobilost k protiprávnímu jednání"@cs .
-# 
-
-v-sgov-pojem:způsobilost-k-právnímu-jednání rdfs:label "Způsobilost k právnímu jednání"@cs .
-# 
-
-v-sgov-pojem:způsobilost-k-právům-a-povinnostem rdfs:label "Způsobilost k právům a povinnostem"@cs .
-# 
-
-v-sgov-pojem:člověk rdfs:label "Člověk"@cs .
-# 
-
-v-sgov-pojem:člověk-jako-subjekt-práva rdfs:label "Člověk jako subjekt práva"@cs .
-# 
-
-v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů rdfs:label "Část právního předpisu ze sbírky zákonů"@cs .
-# 
-# Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
+
+v-sgov-pojem:má-model
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "má model"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:model ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:slovník ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/typ-objektu>
+        a       owl:Class .
+
+v-sgov-pojem:výkon-svrchované-moci
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "Výkon svrchované moci"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( v-sgov-pojem:stát v-sgov-pojem:subjekt-práva )
+                                              ] ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/typ>
+        a       owl:Class .
+
+v-sgov-pojem:má-kontext
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "má kontext"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:kontextový-dokument ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:dokument ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/akce>
+        a       owl:Class .
+
+v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Část právního předpisu ze sbírky zákonů"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:kontextový-dokument .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+v-sgov-pojem:organizace-jako-subjekt-práva
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:label       "Organizace jako subjekt práva"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:subjekt-práva , v-sgov-pojem:organizace .
+
+v-sgov-pojem:způsobilost-k-právům-a-povinnostem
+        a                <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
+        rdfs:label       "Způsobilost k právům a povinnostem"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+v-sgov-pojem:organizace
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Organizace"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/agent> .
+
+<https://slovník.gov.cz/základní/pojem/pasivní-objekt>
+        a       owl:Class .
+
+v-sgov-pojem:hlava  a    <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Hlava"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
+
+v-sgov-pojem:typ-evidenčního-systému
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Typ evidenčního systému"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> , <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+v-sgov-pojem:informační-systém
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Informační systém"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+<https://slovník.gov.cz/základní/pojem/proměnný-prvek>
+        a       owl:Class .
+
+v-sgov-pojem:má-část-právního-předpisu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "má část právního předpisu"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:právní-předpis-ze-sbírky-zákonů ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+v-sgov-pojem:legislativní-znalostní-struktura
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
+        rdfs:label       "Legislativní znalostní struktura"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:znalostní-struktura .
+
+<https://slovník.gov.cz/základní/pojem/agent>
+        a       owl:Class .
+
+v-sgov-pojem:je-evidencí-pro
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "je evidencí pro"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:typ-evidenčního-systému ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+v-sgov-pojem:protiprávní-stav
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:label       "Protiprávní stav"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:právní-skutečnost .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
+
+v-sgov-pojem:osoba  a    <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin> , owl:Class ;
+        rdfs:label       "Osoba"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+v-sgov-pojem:eviduje  a  owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "eviduje"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/proměnný-prvek> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:evidenční-systém ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+v-sgov-pojem:objekt-práva
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
+        rdfs:label       "Objekt práva"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
+v-sgov-pojem:právní-vztah
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "Právní vztah"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:objekt-práva ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] .
+
+v-sgov-pojem:glosář  a   <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Glosář"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:znalostní-struktura .
+
+v-sgov-pojem:stát  a     <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
+        rdfs:label       "Stát"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:organizace .
+
+v-sgov-pojem:právní-předpis
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Právní předpis"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:bezkontextový-dokument .
+
+v-sgov-pojem:právní-předpis-ze-sbírky-zákonů
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Právní předpis ze sbírky zákonů"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:právní-předpis .
+
+v-sgov-pojem:má-zdrojový-předpis
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "má zdrojový předpis"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:právní-předpis ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:legislativní-znalostní-struktura ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+v-sgov-pojem:způsobilost-k-právnímu-jednání
+        a                <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
+        rdfs:label       "Způsobilost k právnímu jednání"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+v-sgov-pojem:právnická-osoba
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:label       "Právnická osoba"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:organizace-jako-subjekt-práva .
+
+v-sgov-pojem:typ-znalostní-struktury-dle-úrovně
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Typ znalostní struktury dle úrovně"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/typ> .
+
+v-sgov-pojem:primární-objekt-práva
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
+        rdfs:label       "Primární objekt práva"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:objekt-práva .
+
+<https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku>
+        a       owl:Class .
+
+v-sgov-pojem:právní-událost
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:label       "Právní událost"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:právní-skutečnost .
+
+v-sgov-pojem:subjekt-práva
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
+        rdfs:label       "Subjekt práva"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/agent> .
+
+v-sgov-pojem:písmeno  a  <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Písmeno"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
+
+v-sgov-pojem:znalostní-struktura
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Znalostní struktura"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+v-sgov-pojem:člověk  a   <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Člověk"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/agent> .
+
+v-sgov-pojem:paragraf
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Paragraf"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
+
+v-sgov-pojem:odstavec
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Odstavec"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
+
+v-sgov-pojem:právo  a    <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
+        rdfs:label       "Právo"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+v-sgov-pojem:fyzická-osoba
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:label       "Fyzická osoba"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:člověk-jako-subjekt-práva .
+
+v-sgov-pojem:dokument
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Dokument"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+v-sgov-pojem:model  a    <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Model"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:znalostní-struktura .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+v-sgov-pojem:evidenční-systém
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
+        rdfs:label       "Evidenční systém"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:datová-sada .
+
+v-sgov-pojem:způsobilost-k-protiprávnímu-jednání
+        a                <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
+        rdfs:label       "Způsobilost k protiprávnímu jednání"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+v-sgov-pojem:povinnost
+        a                <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
+        rdfs:label       "Povinnost"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+v-sgov-pojem:sekundární-objekt-práva
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
+        rdfs:label       "Sekundární objekt práva"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:objekt-práva .
+
+v-sgov:model  a         owl:Ontology ;
+        rdfs:label      "Slovník veřejného sektoru (V-SGoV) - model"@cs , "Public Sector vocabulary (V-SGoV) - model"@en ;
+        <http://purl.org/dc/elements/1.1/rights>
+                <https://creativecommons.org/licenses/by-sa/4.0> ;
+        <http://purl.org/dc/elements/1.1/title>
+                "Public Sector vocabulary (V-SGoV) - model"@en , "Slovník veřejného sektoru (V-SGoV) - model"@cs ;
+        <http://purl.org/dc/terms/created>
+                "03.09.2018" ;
+        <http://purl.org/ontology/bibo/status>
+                "Specifikace"@cs , "Specification"@en ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "v-sgov-pojem" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "https://slovník.gov.cz/veřejný-sektor/pojem/" ;
+        owl:imports     v-sgov:glosář , <https://slovník.gov.cz/základní/verze/1.0.0/model> ;
+        owl:versionIRI  <https://slovník.gov.cz/veřejný-sektor/model/verze/1.0.0> .
+
+v-sgov-pojem:orgán-veřejné-moci
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
+        rdfs:label       "Orgán veřejné moci"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:organizace .
+
+v-sgov-pojem:datová-sada
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Datová sada"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+v-sgov-pojem:veřejnoprávní-korporace
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Veřejnoprávní korporace"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:organizace .
+
+v-sgov-pojem:právní-skutečnost
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:label       "Právní skutečnost"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/událost> .
+
+v-sgov-pojem:bezkontextový-dokument
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Bezkontextový dokument"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:dokument .
+
+v-sgov-pojem:má-glosář
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:label       "má glosář"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:glosář ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  v-sgov-pojem:slovník ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+v-sgov-pojem:právní-jednání
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:label       "Právní jednání"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/akce> , v-sgov-pojem:právní-skutečnost .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+v-sgov-pojem:protiprávní-jednání
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:label       "Protiprávní jednání"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/akce> , v-sgov-pojem:právní-skutečnost .
+
+<https://slovník.gov.cz/základní/pojem/objekt>
+        a       owl:Class .
+
+v-sgov-pojem:slovník  a  <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
+        rdfs:label       "Slovník"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:znalostní-struktura .
+
+<https://slovník.gov.cz/základní/pojem/událost>
+        a       owl:Class .
+
+v-sgov-pojem:člověk-jako-subjekt-práva
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:label       "Člověk jako subjekt práva"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:člověk , v-sgov-pojem:subjekt-práva .
+
+v-sgov-pojem:kontextový-dokument
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
+        rdfs:label       "Kontextový dokument"@cs ;
+        rdfs:subClassOf  v-sgov-pojem:dokument .
