@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://slovnik.gov.cz/základní/mapování/"
-     xml:base="https://slovnik.gov.cz/základní/mapování/"
+<rdf:RDF xmlns="https://slovnik.gov.cz/veřejný-sektor/mapování/"
+     xml:base="https://slovnik.gov.cz/veřejný-sektor/mapování/"
      xmlns:schema="http://schema.org/"
      xmlns:ns="http://creativecommons.org/ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -26,16 +26,17 @@
      xmlns:bibo="http://purl.org/ontology/bibo/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ufo="http://onto.fel.cvut.cz/ontologies/ufo/">
-    <owl:Ontology rdf:about="https://slovnik.gov.cz/základní/mapování">
-        <owl:versionIRI rdf:resource="https://slovnik.gov.cz/základní/mapování/1.0.0"/>
+    <owl:Ontology rdf:about="https://slovnik.gov.cz/veřejný-sektor/mapování">
+        <owl:versionIRI rdf:resource="https://slovnik.gov.cz/veřejný-sektor/mapování/1.0.0"/>
         <owl:imports rdf:resource="http://data.europa.eu/m8g/cpov"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/legal#"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/locn#"/>
+        <owl:imports rdf:resource="https://slovník.gov.cz/veřejný-sektor/slovník"/>
         <owl:imports rdf:resource="http://onto.fel.cvut.cz/ontologies/ufo/1.0.2"/>
+        <owl:imports rdf:resource="https://slovnik.gov.cz/základní/mapování/1.0.0"/>
         <owl:imports rdf:resource="http://data.europa.eu/m8g/cccev"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/person"/>
         <owl:imports rdf:resource="http://data.europa.eu/m8g/cpsvap"/>
-        <owl:imports rdf:resource="https://slovník.gov.cz/základní/slovník"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
     </owl:Ontology>
     
@@ -167,6 +168,7 @@
     <!-- http://data.europa.eu/m8g/PublicOrganisation -->
 
     <rdf:Description rdf:about="http://data.europa.eu/m8g/PublicOrganisation">
+        <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/veřejný-sektor/pojem/organizace"/>
         <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/základní/pojem/agent"/>
     </rdf:Description>
     
@@ -504,6 +506,7 @@
     <!-- http://www.w3.org/ns/dcat#Dataset -->
 
     <rdf:Description rdf:about="http://www.w3.org/ns/dcat#Dataset">
+        <owl:equivalentClass rdf:resource="https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada"/>
         <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada"/>
     </rdf:Description>
     
@@ -513,6 +516,14 @@
 
     <rdf:Description rdf:about="http://www.w3.org/ns/dcat#Distribution">
         <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/základní/pojem/pasivní-objekt"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/legal#LegalEntity -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/legal#LegalEntity">
+        <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/veřejný-sektor/pojem/organizace-jako-subjekt-práva"/>
     </rdf:Description>
     
 
@@ -533,6 +544,20 @@
     
 
 
+    <!-- http://www.w3.org/ns/locn#geographicName -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/locn#geographicName">
+        <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/základní/pojem/vlastnost"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://slovník.gov.cz/základní/pojem/je-vlastností"/>
+                <owl:someValuesFrom rdf:resource="https://slovník.gov.cz/základní/pojem/prostorový-objekt"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/org#ChangeEvent -->
 
     <rdf:Description rdf:about="http://www.w3.org/ns/org#ChangeEvent">
@@ -546,6 +571,20 @@
     <rdf:Description rdf:about="http://www.w3.org/ns/org#FormalOrganization">
         <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/základní/pojem/agent"/>
     </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/person#residency -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/person#residency">
+        <rdfs:subClassOf rdf:resource="https://slovník.gov.cz/základní/pojem/vlastnost"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://slovník.gov.cz/základní/pojem/je-vlastností"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/person#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -607,13 +646,15 @@
 
     <!-- https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada -->
 
-    <owl:Class rdf:about="https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada"/>
+    <rdf:Description rdf:about="https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada"/>
     
 
 
-    <!-- https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura -->
+    <!-- https://slovník.gov.cz/veřejný-sektor/pojem/člověk -->
 
-    <owl:Class rdf:about="https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura"/>
+    <rdf:Description rdf:about="https://slovník.gov.cz/veřejný-sektor/pojem/člověk">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/person#Person"/>
+    </rdf:Description>
     
 
 
