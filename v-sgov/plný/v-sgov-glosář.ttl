@@ -1,490 +1,407 @@
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <https://slovník.gov.cz/veřejný-sektor/glosář/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix v-sgov: <https://slovník.gov.cz/veřejný-sektor/> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix v-sgov-pojem: <https://slovník.gov.cz/veřejný-sektor/pojem/> .
 
-v-sgov-pojem:má-model
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "has model"@en , "má model"@cs .
+v-sgov:glosář a owl:Ontology ;
+	owl:versionIRI <https://slovník.gov.cz/veřejný-sektor/glosář/verze/1.0.0> ;
+	owl:imports <https://slovník.gov.cz/základní/glosář/verze/1.0.0> ;
+	rdfs:label "Public Sector vocabulary (V-SGoV) - glossary"@en ;
+	<http://purl.org/vocab/vann/preferredNamespaceUri> "https://slovník.gov.cz/veřejný-sektor/pojem/" ;
+	rdfs:label "Slovník veřejného sektoru (V-SGoV) - glosář"@cs ;
+	<http://purl.org/ontology/bibo/status> "Specification"@en ;
+	<http://purl.org/dc/elements/1.1/title> "Public Sector vocabulary (V-SGoV) - glossary"@en ;
+	<http://purl.org/ontology/bibo/status> "Specifikace"@cs ;
+	<http://purl.org/dc/terms/created> "03.09.2018" ;
+	<http://purl.org/dc/elements/1.1/title> "Slovník veřejného sektoru (V-SGoV) - glosář"@cs ;
+	<http://purl.org/vocab/vann/preferredNamespacePrefix> "v-sgov-pojem" ;
+	<http://purl.org/dc/elements/1.1/rights> <https://creativecommons.org/licenses/by-sa/4.0> .
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://slovník.gov.cz/veřejný-sektor/glosář
 
-v-sgov-pojem:výkon-svrchované-moci
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "The exercise of sovereign power"@en , "Výkon svrchované moci"@cs .
+v-sgov:glosář a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument
 
-v-sgov-pojem:má-kontext
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "has context"@en , "má kontext"@cs .
+v-sgov-pojem:bezkontextový-dokument a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:dokument , <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Bezkontextový dokument"@cs , "Context-free Document"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada
 
-v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:kontextový-dokument , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Part of Legal Norm from the Collection of Laws of the Czech Republic"@en , "Část právního předpisu ze sbírky zákonů"@cs .
+v-sgov-pojem:datová-sada a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Dataset"@en , "Datová sada"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/dokument
 
-v-sgov-pojem:organizace-jako-subjekt-práva
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:subjekt-práva , v-sgov-pojem:organizace , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Organization as a legal subject"@en , "Organizace jako subjekt práva"@cs .
+v-sgov-pojem:dokument a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Document"@en , "Dokument"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém
 
-v-sgov-pojem:způsobilost-k-právům-a-povinnostem
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Eligibility to Rights and Obligations"@en , "Způsobilost k právům a povinnostem"@cs .
+v-sgov-pojem:evidenční-systém a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:datová-sada , <https://slovník.gov.cz/základní/pojem/poddruh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Evidence System"@en , "Evidenční systém"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/eviduje
 
-v-sgov-pojem:organizace
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/agent> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Organization"@en , "Organizace"@cs .
+v-sgov-pojem:eviduje a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "eviduje"@cs , "records"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba
 
-v-sgov-pojem:hlava  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Chapter"@en , "Hlava"@cs .
+v-sgov-pojem:fyzická-osoba a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:člověk-jako-subjekt-práva , <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Fyzická osoba"@cs , "Natural Person"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/glosář
 
-v-sgov-pojem:typ-evidenčního-systému
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Evidence System Type"@en , "Typ evidenčního systému"@cs .
+v-sgov-pojem:glosář a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Glossary"@en , "Glosář"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/hlava
 
-v-sgov-pojem:informační-systém
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Information System"@en , "Informační systém"@cs .
+v-sgov-pojem:hlava a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Chapter"@en , "Hlava"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém
 
-v-sgov-pojem:má-část-právního-předpisu
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "has legal norm part"@en , "má část právního předpisu"@cs .
+v-sgov-pojem:informační-systém a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Information System"@en , "Informační systém"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro
 
-v-sgov-pojem:legislativní-znalostní-struktura
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legislative Knowledge Structure"@en , "Legislativní znalostní struktura"@cs .
+v-sgov-pojem:je-evidencí-pro a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "is evidence for"@en , "je evidencí pro"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument
 
-v-sgov-pojem:je-evidencí-pro
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "is evidence for"@en , "je evidencí pro"@cs .
+v-sgov-pojem:kontextový-dokument a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:dokument , <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Context Document"@en , "Kontextový dokument"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura
 
-v-sgov-pojem:protiprávní-stav
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ-události> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Unlawful State"@en , "Protiprávní stav"@cs .
+v-sgov-pojem:legislativní-znalostní-struktura a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legislative Knowledge Structure"@en , "Legislativní znalostní struktura"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/model
 
-v-sgov-pojem:osoba  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Person"@en , "Osoba"@cs .
+v-sgov-pojem:model a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Model"@cs , "Model"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/má-glosář
 
-v-sgov-pojem:eviduje  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "records"@en , "eviduje"@cs .
+v-sgov-pojem:má-glosář a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "has glossary"@en , "má glosář"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext
 
-v-sgov-pojem:objekt-práva
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal Object"@en , "Objekt práva"@cs .
+v-sgov-pojem:má-kontext a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "has context"@en , "má kontext"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/má-model
 
-v-sgov-pojem:právní-vztah
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal Relationship"@en , "Právní vztah"@cs .
+v-sgov-pojem:má-model a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "has model"@en , "má model"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis
 
-v-sgov-pojem:glosář  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Glossary"@en , "Glosář"@cs .
+v-sgov-pojem:má-zdrojový-předpis a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "has source norm"@en , "má zdrojový předpis"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu
 
-v-sgov-pojem:stát  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:organizace , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "State"@en , "Stát"@cs .
+v-sgov-pojem:má-část-právního-předpisu a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "has legal norm part"@en , "má část právního předpisu"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva
 
-v-sgov-pojem:právní-předpis
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:bezkontextový-dokument , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal Norm"@en , "Právní předpis"@cs .
+v-sgov-pojem:objekt-práva a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal Object"@en , "Objekt práva"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/odstavec
 
-v-sgov-pojem:právní-předpis-ze-sbírky-zákonů
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:právní-předpis , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal norm from the Collection of Laws of the Czech Republic"@en , "Právní předpis ze sbírky zákonů"@cs .
+v-sgov-pojem:odstavec a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Odstavec"@cs , "Section"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/organizace
 
-v-sgov-pojem:má-zdrojový-předpis
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "has source norm"@en , "má zdrojový předpis"@cs .
+v-sgov-pojem:organizace a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/agent> , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Organizace"@cs , "Organization"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/organizace-jako-subjekt-práva
 
-v-sgov-pojem:způsobilost-k-právnímu-jednání
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Eligibility to Legal Proceedings"@en , "Způsobilost k právnímu jednání"@cs .
+v-sgov-pojem:organizace-jako-subjekt-práva a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:organizace , v-sgov-pojem:subjekt-práva , <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Organizace jako subjekt práva"@cs , "Organization as a legal subject"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci
 
-v-sgov-pojem:právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:organizace-jako-subjekt-práva , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal Person"@en , "Právnická osoba"@cs .
+v-sgov-pojem:orgán-veřejné-moci a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:organizace , <https://slovník.gov.cz/základní/pojem/poddruh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Orgán veřejné moci"@cs , "Public Authority"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/osoba
 
-v-sgov-pojem:typ-znalostní-struktury-dle-úrovně
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Knowledge Structure Type According to the Level"@en , "Typ znalostní struktury dle úrovně"@cs .
+v-sgov-pojem:osoba a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/mixin> , <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Osoba"@cs , "Person"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/paragraf
 
-v-sgov-pojem:primární-objekt-práva
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:objekt-práva , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Primary Legal Subject"@en , "Primární subjekt práva"@cs .
+v-sgov-pojem:paragraf a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Paragraf"@cs , "Paragraph"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/povinnost
 
-v-sgov-pojem:právní-událost
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ-události> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal Event"@en , "Právní událost"@cs .
+v-sgov-pojem:povinnost a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Obligation"@en , "Povinnost"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/primární-objekt-práva
 
-v-sgov-pojem:subjekt-práva
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/agent> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal Subject"@en , "Subjekt práva"@cs .
+v-sgov-pojem:primární-objekt-práva a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:objekt-práva , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Primary Legal Subject"@en , "Primární subjekt práva"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-jednání
 
-v-sgov-pojem:písmeno  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Letter"@en , "Písmeno"@cs .
+v-sgov-pojem:protiprávní-jednání a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-události> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Protiprávní jednání"@cs , "Unlawful act"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-stav
 
-v-sgov-pojem:znalostní-struktura
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Knowledge Structure"@en , "Znalostní struktura"@cs .
+v-sgov-pojem:protiprávní-stav a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-události> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Protiprávní stav"@cs , "Unlawful State"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba
 
-v-sgov-pojem:člověk  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/agent> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Human"@en , "Člověk"@cs .
+v-sgov-pojem:právnická-osoba a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:organizace-jako-subjekt-práva , <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal Person"@en , "Právnická osoba"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání
 
-v-sgov-pojem:paragraf
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Paragraph"@en , "Paragraf"@cs .
+v-sgov-pojem:právní-jednání a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-události> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal proceedings"@en , "Právní jednání"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis
 
-v-sgov-pojem:odstavec
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Section"@en , "Odstavec"@cs .
+v-sgov-pojem:právní-předpis a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:bezkontextový-dokument , <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal Norm"@en , "Právní předpis"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů
 
-v-sgov-pojem:právo  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Right"@en , "Právo"@cs .
+v-sgov-pojem:právní-předpis-ze-sbírky-zákonů a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:právní-předpis , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal norm from the Collection of Laws of the Czech Republic"@en , "Právní předpis ze sbírky zákonů"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost
 
-v-sgov-pojem:fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:člověk-jako-subjekt-práva , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Natural Person"@en , "Fyzická osoba"@cs .
+v-sgov-pojem:právní-skutečnost a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-události> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal Fact"@en , "Právní skutečnost"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právní-událost
 
-v-sgov-pojem:dokument
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Document"@en , "Dokument"@cs .
+v-sgov-pojem:právní-událost a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-události> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal Event"@en , "Právní událost"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah
 
-v-sgov-pojem:model  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Model"@en , "Model"@cs .
+v-sgov-pojem:právní-vztah a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal Relationship"@en , "Právní vztah"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/právo
 
-v-sgov-pojem:evidenční-systém
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:datová-sada , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Evidence System"@en , "Evidenční systém"@cs .
+v-sgov-pojem:právo a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Právo"@cs , "Right"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/písmeno
 
-v-sgov-pojem:způsobilost-k-protiprávnímu-jednání
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Eligibility for the infringement"@en , "Způsobilost k protiprávnímu jednání"@cs .
+v-sgov-pojem:písmeno a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Letter"@en , "Písmeno"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/sekundární-objekt-práva
 
-v-sgov-pojem:povinnost
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Obligation"@en , "Povinnost"@cs .
+v-sgov-pojem:sekundární-objekt-práva a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:objekt-práva , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Secondary Legal Subject"@en , "Sekundární subjekt práva"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/slovník
 
-v-sgov-pojem:sekundární-objekt-práva
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:objekt-práva , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Secondary Legal Subject"@en , "Sekundární subjekt práva"@cs .
+v-sgov-pojem:slovník a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Slovník"@cs , "Vocabulary"@en .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/stát
 
-v-sgov-pojem:orgán-veřejné-moci
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:organizace , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Public Authority"@en , "Orgán veřejné moci"@cs .
+v-sgov-pojem:stát a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:organizace , <https://slovník.gov.cz/základní/pojem/poddruh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "State"@en , "Stát"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva
 
-v-sgov-pojem:datová-sada
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Dataset"@en , "Datová sada"@cs .
+v-sgov-pojem:subjekt-práva a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/agent> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Legal Subject"@en , "Subjekt práva"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému
 
-v-sgov-pojem:veřejnoprávní-korporace
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:organizace , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Public Law Corporation"@en , "Veřejnoprávní korporace"@cs .
+v-sgov-pojem:typ-evidenčního-systému a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Evidence System Type"@en , "Typ evidenčního systému"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/typ-znalostní-struktury-dle-úrovně
 
-v-sgov-pojem:právní-skutečnost
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ-události> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal Fact"@en , "Právní skutečnost"@cs .
+v-sgov-pojem:typ-znalostní-struktury-dle-úrovně a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Knowledge Structure Type According to the Level"@en , "Typ znalostní struktury dle úrovně"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/veřejnoprávní-korporace
 
-v-sgov-pojem:bezkontextový-dokument
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:dokument , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Context-free Document"@en , "Bezkontextový dokument"@cs .
+v-sgov-pojem:veřejnoprávní-korporace a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:organizace , <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Public Law Corporation"@en , "Veřejnoprávní korporace"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/výkon-svrchované-moci
 
-v-sgov-pojem:má-glosář
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "has glossary"@en , "má glosář"@cs .
+v-sgov-pojem:výkon-svrchované-moci a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-vztahu> , <https://slovník.gov.cz/základní/pojem/vztah> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "The exercise of sovereign power"@en , "Výkon svrchované moci"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura
 
-v-sgov-pojem:právní-jednání
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ-události> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Legal proceedings"@en , "Právní jednání"@cs .
+v-sgov-pojem:znalostní-struktura a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/pasivní-objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Knowledge Structure"@en , "Znalostní struktura"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-protiprávnímu-jednání
 
-v-sgov-pojem:protiprávní-jednání
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ-události> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Unlawful act"@en , "Protiprávní jednání"@cs .
+v-sgov-pojem:způsobilost-k-protiprávnímu-jednání a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Eligibility for the infringement"@en , "Způsobilost k protiprávnímu jednání"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání
 
-v-sgov:glosář  a        owl:Ontology , <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-        rdfs:label      "Slovník veřejného sektoru (V-SGoV) - glosář"@cs , "Public Sector vocabulary (V-SGoV) - glossary"@en ;
-        <http://purl.org/dc/elements/1.1/rights>
-                <https://creativecommons.org/licenses/by-sa/4.0> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "Slovník veřejného sektoru (V-SGoV) - glosář"@cs , "Public Sector vocabulary (V-SGoV) - glossary"@en ;
-        <http://purl.org/dc/terms/created>
-                "03.09.2018" ;
-        <http://purl.org/ontology/bibo/status>
-                "Specifikace"@cs , "Specification"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "v-sgov-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/veřejný-sektor/pojem/" ;
-        owl:imports     <https://slovník.gov.cz/základní/verze/1.0.0/glosář> ;
-        owl:versionIRI  <https://slovník.gov.cz/veřejný-sektor/glosář/verze/1.0.0> .
+v-sgov-pojem:způsobilost-k-právnímu-jednání a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Eligibility to Legal Proceedings"@en , "Způsobilost k právnímu jednání"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem
 
-v-sgov-pojem:slovník  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:znalostní-struktura , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Vocabulary"@en , "Slovník"@cs .
+v-sgov-pojem:způsobilost-k-právům-a-povinnostem a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Eligibility to Rights and Obligations"@en , "Způsobilost k právům a povinnostem"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/člověk
 
-v-sgov-pojem:člověk-jako-subjekt-práva
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:člověk , v-sgov-pojem:subjekt-práva , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Human as a legal subject"@en , "Člověk jako subjekt práva"@cs .
+v-sgov-pojem:člověk a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://slovník.gov.cz/základní/pojem/agent> , <https://slovník.gov.cz/základní/pojem/druh> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Human"@en , "Člověk"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/člověk-jako-subjekt-práva
 
-v-sgov-pojem:kontextový-dokument
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                v-sgov-pojem:dokument , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                v-sgov:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Context Document"@en , "Kontextový dokument"@cs .
+v-sgov-pojem:člověk-jako-subjekt-práva a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:subjekt-práva , v-sgov-pojem:člověk , <https://slovník.gov.cz/základní/pojem/role> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Human as a legal subject"@en , "Člověk jako subjekt práva"@cs .
+# 
+# https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů
+
+v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů a owl:NamedIndividual , <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> v-sgov-pojem:kontextový-dokument , <https://slovník.gov.cz/základní/pojem/kategorie> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> v-sgov:glosář ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Part of Legal Norm from the Collection of Laws of the Czech Republic"@en , "Část právního předpisu ze sbírky zákonů"@cs .
+# 
+# Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
