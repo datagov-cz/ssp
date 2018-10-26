@@ -89,9 +89,6 @@ a-sgov-104-pojem:má-datum-převodu-činnosti-do
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
-<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>
-        a       owl:Class .
-
 a-sgov-104-pojem:má-kód-údaje
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj> ;
@@ -134,14 +131,14 @@ a-sgov-104-pojem:má-popis-úkonu
 
 a-sgov-104-pojem:má-datum-zařazení-do-kategorie
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie> ;
+        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/patří-do-kategorie> ;
         rdfs:label          "Má datum zařazení do kategorie"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 a-sgov-104-pojem:má-datum-vyřazení-z-kategorie
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie> ;
+        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/patří-do-kategorie> ;
         rdfs:label          "Má datum vyřazení z kategorie"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
@@ -190,13 +187,6 @@ a-sgov-104-pojem:má-pracoviště-přebírající-úkon
         rdfs:domain         a-sgov-104-pojem:převod-úkonu ;
         rdfs:label          "Má pracoviště přebírající úkon"@cs ;
         rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
-a-sgov-104-pojem:zařazuje-do-kategorie
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie> ;
-        rdfs:label          "Zařazuje do kategorie"@cs ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 a-sgov-104-pojem:má-přerušený-výkon-působnosti-orgánu-veřejné-moci-do
@@ -383,9 +373,6 @@ a-sgov-104-pojem:má-rozhodnutí-o-předání-působnosti
         rdfs:range          a-sgov-104-pojem:rozhodnutí-o-založení-veřejnoprávní-smlouvy ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
-<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>
-        a       owl:Class .
-
 a-sgov-104-pojem:má-platnost-činnosti-od
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost> ;
@@ -502,7 +489,7 @@ a-sgov-104-pojem:má-převedený-úkon
 
 a-sgov-104:model  a     owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "24.10.2018" ;
+                "26.10.2018" ;
         <http://purl.org/ontology/bibo/status>
                 "Specification"@en , "Specifikace"@cs ;
         <http://purl.org/vocab/vann/preferredNamespacePrefix>
@@ -510,8 +497,7 @@ a-sgov-104:model  a     owl:Ontology ;
         <http://purl.org/vocab/vann/preferredNamespaceUri>
                 "https://slovník.gov.cz/agendový/104/pojem/" ;
         owl:imports     a-sgov-104:glosář ;
-        owl:versionIRI  <https://slovník.gov.cz/agendový/104/model/verze/0.0.1> ;
-		rdfs:label "Model agendy 104 - Základní registr - registr práv a povinností"@cs .
+        owl:versionIRI  <https://slovník.gov.cz/agendový/104/model/verze/0.0.1> .
 
 a-sgov-104-pojem:má-stát-pracoviště
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -524,6 +510,13 @@ a-sgov-104-pojem:má-pozastavený-výkon-působnosti-orgánu-veřejné-moci-od
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci> ;
         rdfs:label          "Má pozastavený výkon působnosti orgánu veřejné moci od"@cs ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+a-sgov-104-pojem:má-kód-působnosti
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         a-sgov-104-pojem:působnost-v-agendě ;
+        rdfs:label          "Má kód působnosti"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
@@ -580,13 +573,6 @@ a-sgov-104-pojem:má-působnost
         rdfs:label          "Má působnost"@cs ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
-a-sgov-104-pojem:vykonává-úkon-na-pracovišti
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         a-sgov-104-pojem:výkon-úkonu ;
-        rdfs:label          "Vykonává úkon na pracovišti"@cs ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
 a-sgov-104-pojem:má-pozastavený-výkon-působnosti-orgánu-veřejné-moci-do
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci> ;
@@ -624,7 +610,7 @@ a-sgov-104-pojem:přebírá-činnost-v-rámci-působnosti
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         a-sgov-104-pojem:působnost-v-agendě ;
         rdfs:label          "Přebírá činnost v rámci působnosti"@cs ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost> ;
+        rdfs:range          a-sgov-104-pojem:převod-činnosti ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 a-sgov-104-pojem:má-datum-otevření-pracoviště
@@ -667,13 +653,6 @@ a-sgov-104-pojem:veřejnoprávní-smlouva-k-předání-působnosti
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Veřejnoprávní smlouva k předání působnosti"@cs ;
         rdfs:subClassOf  <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/veřejnoprávní-smlouva> .
-
-a-sgov-104-pojem:má-zařazený-subjekt
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie> ;
-        rdfs:label          "Má zařazený subjekt"@cs ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 a-sgov-104-pojem:vznikla-v-rámci-registrace
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
