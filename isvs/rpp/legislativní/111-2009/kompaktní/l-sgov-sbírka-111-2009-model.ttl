@@ -131,7 +131,7 @@ l-sgov-sbírka-111-2009:model
         <http://purl.org/dc/elements/1.1/title>
                 "Slovník zákona č. 111/2009 Sb. o základních registrech - model"@cs ;
         <http://purl.org/dc/terms/created>
-                "30.10.2018" ;
+                "31.10.2018" ;
         <http://purl.org/ontology/bibo/status>
                 "Specification"@en , "Specifikace"@cs ;
         <http://purl.org/vocab/vann/preferredNamespacePrefix>
@@ -184,6 +184,11 @@ l-sgov-sbírka-111-2009-pojem:má-právní-formu-osoby
         rdfs:range          l-sgov-sbírka-111-2009-pojem:právní-forma ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
+l-sgov-sbírka-111-2009-pojem:základní-územní-prvek
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:label       "Základní územní prvek"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
 l-sgov-sbírka-111-2009-pojem:má-datum-zahájení-výkonu-působnosti-orgánu-veřejné-moci
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci ;
@@ -210,11 +215,6 @@ l-sgov-sbírka-111-2009-pojem:agendový-informační-systém
         rdfs:label       "Agendový informační systém"@cs ;
         rdfs:subClassOf  <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy> .
 
-l-sgov-sbírka-111-2009-pojem:územní-prvek
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:label       "Územní prvek"@cs ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
-
 l-sgov-sbírka-111-2009-pojem:má-adresu-pracoviště
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:pracoviště ;
@@ -231,7 +231,7 @@ l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřej
 
 l-sgov-sbírka-111-2009-pojem:má-kód-územního-prvku
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-sbírka-111-2009-pojem:územní-prvek ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:základní-územní-prvek ;
         rdfs:label          "Má kód územního prvku"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
@@ -338,6 +338,13 @@ l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
         rdfs:label       "Ustanovení právního předpisu"@cs ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
+l-sgov-sbírka-111-2009-pojem:má-kód-adresního-místa
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:adresní-místo ;
+        rdfs:label          "Má kód adresního místa"@cs ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  l-sgov-sbírka-111-2009-pojem:má-kód-územního-prvku .
+
 l-sgov-sbírka-111-2009-pojem:ohlašuje-kategorii
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad ;
@@ -439,7 +446,7 @@ l-sgov-sbírka-111-2009-pojem:má-jméno-osoby-stojící-v-čele-orgánu-veřejn
 l-sgov-sbírka-111-2009-pojem:adresní-místo
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Adresní místo"@cs ;
-        rdfs:subClassOf  l-sgov-sbírka-111-2009-pojem:územní-prvek .
+        rdfs:subClassOf  l-sgov-sbírka-111-2009-pojem:základní-územní-prvek .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikátor-soukromoprávního-uživatele-údajů
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
