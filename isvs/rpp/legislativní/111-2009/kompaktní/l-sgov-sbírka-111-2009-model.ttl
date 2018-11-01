@@ -125,6 +125,13 @@ l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad
         rdfs:label       "Ústřední správní úřad"@cs ;
         rdfs:subClassOf  l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci .
 
+l-sgov-sbírka-111-2009-pojem:má-poskytovatele
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:poskytování-úkonu ;
+        rdfs:label          "Má poskytovatele"@cs ;
+        rdfs:range          <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
 l-sgov-sbírka-111-2009-pojem:vede-údaje-o-objektu-nebo-subjektu-údajů
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:agendový-informační-systém ;
@@ -138,7 +145,7 @@ l-sgov-sbírka-111-2009:model
         <http://purl.org/dc/elements/1.1/title>
                 "Slovník zákona č. 111/2009 Sb. o základních registrech - model"@cs ;
         <http://purl.org/dc/terms/created>
-                "31.10.2018" ;
+                "01.11.2018" ;
         <http://purl.org/ontology/bibo/status>
                 "Specification"@en , "Specifikace"@cs ;
         <http://purl.org/vocab/vann/preferredNamespacePrefix>
@@ -176,6 +183,13 @@ l-sgov-sbírka-111-2009-pojem:registrace-pro-výkon-agendy
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Registrace pro výkon agendy"@cs ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
+l-sgov-sbírka-111-2009-pojem:má-identifikátor-úkonu
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:úkon ;
+        rdfs:label          "Má identifikátor úkonu"@cs ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 l-sgov-sbírka-111-2009-pojem:má-název-orgánu-veřejné-moci
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
@@ -293,6 +307,11 @@ l-sgov-sbírka-111-2009-pojem:má-kód-agendy
 <https://slovník.gov.cz/agendový/104/pojem/oprávnění-k-přístupu-k-údaji>
         a       owl:Class .
 
+l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:label       "Elektronická forma úkonu"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
 l-sgov-sbírka-111-2009-pojem:má-pozastavený-výkon-působnosti-orgánu-veřejné-moci-od
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci ;
@@ -326,11 +345,25 @@ l-sgov-sbírka-111-2009-pojem:má-název-kategorie
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
+l-sgov-sbírka-111-2009-pojem:je-poskytován
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:úkon ;
+        rdfs:label          "Je poskytován"@cs ;
+        rdfs:range          l-sgov-sbírka-111-2009-pojem:poskytování-úkonu ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
 l-sgov-sbírka-111-2009-pojem:vykonává-činnost
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:role ;
         rdfs:label          "Vykonává činnost"@cs ;
         rdfs:range          l-sgov-sbírka-111-2009-pojem:činnost ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+l-sgov-sbírka-111-2009-pojem:má-elektronickou-formu-úkonu
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:úkon ;
+        rdfs:label          "Má elektronickou formu úkonu"@cs ;
+        rdfs:range          l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 l-sgov-sbírka-111-2009-pojem:má-číslo-právního-předpisu
@@ -339,6 +372,11 @@ l-sgov-sbírka-111-2009-pojem:má-číslo-právního-předpisu
         rdfs:label          "Má číslo právního předpisu"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+l-sgov-sbírka-111-2009-pojem:poskytování-úkonu
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:label       "Poskytování úkonu"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-111-2009-pojem:je-součástí-právního-předpisu
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -350,6 +388,11 @@ l-sgov-sbírka-111-2009-pojem:je-součástí-právního-předpisu
 l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Ustanovení právního předpisu"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
+l-sgov-sbírka-111-2009-pojem:úkon
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:label       "Úkon"@cs ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-111-2009-pojem:má-kód-adresního-místa
@@ -520,6 +563,13 @@ l-sgov-sbírka-111-2009-pojem:je-vykonávána-agendovým-informačním-systémem
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:agenda ;
         rdfs:label          "Je vykonávána agendovým informačním systémem"@cs ;
         rdfs:range          l-sgov-sbírka-111-2009-pojem:agendový-informační-systém ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+l-sgov-sbírka-111-2009-pojem:je-vykonáván-v-agendě
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:úkon ;
+        rdfs:label          "Je vykonáván v agendě"@cs ;
+        rdfs:range          l-sgov-sbírka-111-2009-pojem:agenda ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 l-sgov-sbírka-111-2009-pojem:stojí-v-čele-orgánu-veřejné-moci
