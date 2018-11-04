@@ -8,5 +8,5 @@ Sémantický slovník pojmů je nástrojem určeným pro popis otevřených dato
 
 ## Přístup k slovníku
 Tento GIT repozitář je zdrojem pro následující aplikace nad slovníkem:
-* [Prohlížeč](https://slovník.gov.cz/prohlížeč) -- fasetový vyhledávač pojmů napříč slovníky
+* [Prohlížeč](https://slovník.gov.cz/prohlížeč) - fasetový vyhledávač pojmů napříč slovníky
 * [SPARQL Endpoint](https://slovník.gov.cz/sparql)
