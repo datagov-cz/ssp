@@ -114,8 +114,10 @@ l-sgov-sbírka-111-2009-pojem:má-úplné-označení-ustanovení-včetně-označ
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 l-sgov-sbírka-111-2009-pojem:má-příjmení-osoby-stojící-v-čele-orgánu-veřejné-moci
-        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci ;
         rdfs:label          "Má příjmení osoby stojící v čele orgánu veřejné moci"@cs ;
+        rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad
@@ -256,7 +258,7 @@ l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřej
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 l-sgov-sbírka-111-2009-pojem:má-kód-územního-prvku
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:základní-územní-prvek ;
         rdfs:label          "Má kód územního prvku"@cs ;
         rdfs:range          rdfs:Literal ;
@@ -274,17 +276,17 @@ l-sgov-sbírka-111-2009-pojem:je-veden-nebo-vytvářen-v-rámci-agendy
         rdfs:label          "Je veden nebo vytvářen v rámci agendy"@cs ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
-l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřejné-moci-do
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci ;
-        rdfs:label          "Má přerušený výkon působnosti orgánu veřejné moci do"@cs ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
-
 l-sgov-sbírka-111-2009-pojem:má-rok-právního-předpisu
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:právní-předpis ;
         rdfs:label          "Má rok právního předpisu"@cs ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřejné-moci-do
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci ;
+        rdfs:label          "Má přerušený výkon působnosti orgánu veřejné moci do"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
@@ -305,17 +307,17 @@ l-sgov-sbírka-111-2009-pojem:má-kód-agendy
 <https://slovník.gov.cz/agendový/104/pojem/oprávnění-k-přístupu-k-údaji>
         a       owl:Class .
 
-l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:label       "Elektronická forma úkonu"@cs ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
-
 l-sgov-sbírka-111-2009-pojem:má-pozastavený-výkon-působnosti-orgánu-veřejné-moci-od
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci ;
         rdfs:label          "Má pozastavený výkon působnosti orgánu veřejné moci od"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:label       "Elektronická forma úkonu"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -371,11 +373,6 @@ l-sgov-sbírka-111-2009-pojem:má-číslo-právního-předpisu
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
-l-sgov-sbírka-111-2009-pojem:poskytování-úkonu
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:label       "Poskytování úkonu"@cs ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
-
 l-sgov-sbírka-111-2009-pojem:je-součástí-právního-předpisu
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu ;
@@ -383,14 +380,14 @@ l-sgov-sbírka-111-2009-pojem:je-součástí-právního-předpisu
         rdfs:range          l-sgov-sbírka-111-2009-pojem:právní-předpis ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
+l-sgov-sbírka-111-2009-pojem:poskytování-úkonu
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:label       "Poskytování úkonu"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
 l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:label       "Ustanovení právního předpisu"@cs ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
-
-l-sgov-sbírka-111-2009-pojem:úkon
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:label       "Úkon"@cs ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-111-2009-pojem:má-kód-adresního-místa
@@ -399,6 +396,11 @@ l-sgov-sbírka-111-2009-pojem:má-kód-adresního-místa
         rdfs:label          "Má kód adresního místa"@cs ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  l-sgov-sbírka-111-2009-pojem:má-kód-územního-prvku .
+
+l-sgov-sbírka-111-2009-pojem:úkon
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:label       "Úkon"@cs ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-111-2009-pojem:ohlašuje-kategorii
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -492,8 +494,10 @@ l-sgov-sbírka-111-2009-pojem:má-název-právního-předpisu
         a       owl:Class .
 
 l-sgov-sbírka-111-2009-pojem:má-jméno-osoby-stojící-v-čele-orgánu-veřejné-moci
-        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci ;
         rdfs:label          "Má jméno osoby stojící v čele orgánu veřejné moci"@cs ;
+        rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 l-sgov-sbírka-111-2009-pojem:adresní-místo
@@ -588,8 +592,10 @@ l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
         rdfs:subClassOf  l-sgov-sbírka-111-2009-pojem:osoba , l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů .
 
 l-sgov-sbírka-111-2009-pojem:je-vnitřní-organizační-jednotkou
-        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci ;
         rdfs:label          "Je vnitřní organizační jednotkou"@cs ;
+        rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-soukromoprávního-uživatele-údajů
@@ -612,8 +618,10 @@ l-sgov-sbírka-111-2009-pojem:má-typ-datové-schránky
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 l-sgov-sbírka-111-2009-pojem:má-jméno-a-příjmení-osoby-stojící-v-čele-orgánu-veřejné-moci
-        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci ;
         rdfs:label          "Má jméno a příjmení osoby stojící v čele orgánu veřejné moci"@cs ;
+        rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 l-sgov-sbírka-111-2009-pojem:má-obchodní-firmu-nebo-název-nebo-označení-osoby-nebo-jméno-nebo--popřípadně-jména-nebo--a-příjmení-soukromoprávního-uživatele-údajů
