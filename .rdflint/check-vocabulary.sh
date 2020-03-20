@@ -6,3 +6,4 @@ java -jar .rdflint/rdflint-custom.jar \
   -targetdir $VOCABULARY \
   -outputdir ./rdflint-output/$VOCABULARY \
   -minErrorLevel ERROR \
+
