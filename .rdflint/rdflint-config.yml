@@ -1,0 +1,36 @@
+baseUri: https://slovník.gov.cz/základní/
+rules:
+- name: Glossary terms have preferred label in Czech
+  target: ".*-glosář.ttl"
+  query: |
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    SELECT *
+    WHERE {
+      ?term a skos:Concept .
+      FILTER NOT EXISTS {
+        ?term skos:prefLabel ?prefLabel
+        FILTER(lang(?prefLabel)='cs')
+      }
+    }
+  valid: |
+    while(rs.hasNext()) {
+      log.error("- missing for " + rs.next())
+    }
+- name: Glossary terms have definition in Czech
+  target: ".*-glosář.ttl"
+  query: |
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    SELECT *
+    WHERE {
+      ?term a skos:Concept .
+      FILTER NOT EXISTS {
+        ?term skos:definition ?definition
+        FILTER(lang(?definition)='cs')
+      }
+    }
+  valid: |
+    while(rs.hasNext()) {
+      log.warn("- missing for "+ rs.next())
+    }
