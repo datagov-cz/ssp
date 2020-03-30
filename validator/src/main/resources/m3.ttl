@@ -1,0 +1,20 @@
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix z-sgov-pojem:  <https://slovník.gov.cz/základní/pojem/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:m3
+    a              sh:NodeShape ;
+    sh:message     "Proměnný prvek nemá definován ontological typ."@cs,
+                   "Endurant type does not have defined an ontological type."@en ;
+    sh:targetClass z-sgov-pojem:typ-objektu, z-sgov-pojem:typ-vztahu, z-sgov-pojem:typ-vlastnosti,
+                   z-sgov-pojem:typ-proměnného-prvku ;
+    sh:severity    sh:Warning ;
+    sh:or          ( [ sh:class z-sgov-pojem:druh ]
+                     [ sh:class z-sgov-pojem:poddruh ]
+                     [ sh:class z-sgov-pojem:role ]
+                     [ sh:class z-sgov-pojem:fáze ]
+                     [ sh:class z-sgov-pojem:kategorie ]
+                     [ sh:class z-sgov-pojem:mixin ]
+                     [ sh:class z-sgov-pojem:mixinrolí ]
+                     [ sh:class z-sgov-pojem:mixinfází ] )
+.

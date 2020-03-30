@@ -1,0 +1,14 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g4
+    a                      sh:NodeShape ;
+    sh:severity            sh:Warning ;
+    sh:message             "Pojem nemá definici v češtině."@cs,
+                           "The concept does not have a single definition in Czech."@en ;
+    sh:targetClass         skos:Concept ;
+    sh:path                skos:definition ;
+    sh:qualifiedValueShape [ sh:languageIn ( "cs" ) ] ;
+    sh:qualifiedMinCount   1
+.

@@ -1,0 +1,19 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g1
+    a              sh:NodeShape ;
+    sh:message     "Pojem má více identifikačních názvů v jednom jazyce (povolený je pouze jeden)."@cs,
+                   "The concept has more identification labels in a single language (only one is allowed)."@en ;
+    sh:targetClass skos:Concept ;
+    sh:sparql      [ a         sh:SPARQLConstraint ;
+                     sh:select """
+			SELECT $this (?lang AS ?value)
+			{
+				$this <http://www.w3.org/2004/02/skos/core#prefLabel> ?label .
+				BIND(lang(?label) AS ?lang)
+			}
+			GROUP BY $this ?lang
+			HAVING (count(*) > 1)
+			""" ; ] .

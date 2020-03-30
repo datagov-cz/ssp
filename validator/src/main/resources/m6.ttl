@@ -1,0 +1,24 @@
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix z-sgov-pojem:  <https://slovník.gov.cz/základní/pojem/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:m6
+    a              sh:NodeShape ;
+    sh:message
+                   "Druh, kategorie, mixin ani poddruh nesmí specializovat od typů Role, Fáze, Mixin rolí, ani Mixin fází."@cs,
+                   "Neither of Kind, Category, Mixin, Subkind can be specialized from Role, Phase, Role mixin, or Phase mixin."@en ;
+    sh:targetClass z-sgov-pojem:druh, z-sgov-pojem:kategorie, z-sgov-pojem:mixin, z-sgov-pojem:poddruh ;
+    sh:property    [ sh:path                rdfs:subClassOf ;
+                     sh:qualifiedValueShape [ sh:class z-sgov-pojem:role ] ;
+                     sh:qualifiedMaxCount   0 ] ;
+    sh:property    [ sh:path                rdfs:subClassOf ;
+                     sh:qualifiedValueShape [ sh:class z-sgov-pojem:fáze ] ;
+                     sh:qualifiedMaxCount   0 ] ;
+    sh:property    [ sh:path                rdfs:subClassOf ;
+                     sh:qualifiedValueShape [ sh:class z-sgov-pojem:mixinrolí ] ;
+                     sh:qualifiedMaxCount   0 ] ;
+    sh:property    [ sh:path                rdfs:subClassOf ;
+                     sh:qualifiedValueShape [ sh:class z-sgov-pojem:mixinfází ] ;
+                     sh:qualifiedMaxCount   0 ] ;
+.
