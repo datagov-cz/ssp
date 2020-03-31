@@ -1,0 +1,43 @@
+@prefix rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix z-sgov-pojem:  <https://slovník.gov.cz/základní/pojem/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:m2a
+    a              sh:NodeShape ;
+    sh:message
+                   "Pojem je nejvýše jedním z následujících typů Typ objektu, Typ vztahu, Typ vlastnosti, Typ události."@cs,
+                   "A concept is of exactly one type out of Object type, Relator type, Intrinsic Trope type, Event type."@en ;
+    sh:targetClass skos:Concept ;
+    sh:sparql      [ a         sh:SPARQLConstraint ;
+                     sh:select """
+			PREFIX z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/>
+			SELECT $this (GROUP_CONCAT(?type;separator=",") AS ?value)
+			{
+				$this a ?type .
+				FILTER(?type IN ( z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:typ-objektu,  z-sgov-pojem:typ-vztahu, z-sgov-pojem:typ-události))
+			}
+			GROUP BY $this
+			HAVING (count(*) > 1)
+			""" ; ]
+.
+
+j-sgov-obecný:m2b
+    a              sh:NodeShape ;
+    sh:message
+                   "Pojem musí být buď typem události nebo typem proměnného prvku (objektu, vlastnosti, vztahu), nikoliv však obojí současně."@cs,
+                   "A concept is either an event type or an endurant type (object, property, relationship), not both."@en ;
+    sh:targetClass skos:Concept ;
+    sh:sparql      [ a         sh:SPARQLConstraint ;
+                     sh:select """
+			PREFIX z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/>
+			SELECT $this (GROUP_CONCAT(?type;separator=",") AS ?value)
+			{
+				$this a ?type .
+				FILTER(?type IN ( z-sgov-pojem:typ-události,  z-sgov-pojem:typ-proměnného-prvku))
+			}
+			GROUP BY $this
+			HAVING (count(*) != 1)
+			""" ; ]
+.
