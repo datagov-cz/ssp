@@ -2,9 +2,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+orbs:
+  gradle: circleci/gradle@x.y
+version: 2.1
 jobs:
-  build:
+  rdflint:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -22,9 +24,15 @@ jobs:
       TERM: dumb
 
     steps:
-    - checkout
-    - run:
-        name: run rdflint
-        command: |
-          .rdflint/check-vocabulary.sh z-sgov
-          .rdflint/check-vocabulary.sh v-sgov
+      - checkout
+      - run:
+          name: RDF Lint
+          command: |
+            .rdflint/check-vocabulary.sh z-sgov
+            .rdflint/check-vocabulary.sh v-sgov
+  test:
+    steps:
+      - run:
+          name: SGoV Validation
+          command: |
+            gradle test
