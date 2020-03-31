@@ -15,7 +15,6 @@ import org.apache.jena.util.FileUtils;
 import org.topbraid.jenax.progress.SimpleProgressMonitor;
 import org.topbraid.jenax.util.JenaUtil;
 import org.topbraid.shacl.rules.RuleUtil;
-import org.topbraid.shacl.util.ModelPrinter;
 import org.topbraid.shacl.validation.ResourceValidationReport;
 import org.topbraid.shacl.validation.ValidationReport;
 import org.topbraid.shacl.validation.ValidationUtil;
@@ -64,7 +63,6 @@ import org.topbraid.shacl.validation.ValidationUtil;
         Model inferredModel = RuleUtil
             .executeRules(dataModel, shapesModel, null, new SimpleProgressMonitor("inference"));
         dataModel.add(inferredModel);
-        log.info(ModelPrinter.get().print(dataModel));
 
         final Resource report = ValidationUtil.validateModel(dataModel, shapesModel, true);
 
