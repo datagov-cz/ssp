@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  rdflint:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -14,11 +14,25 @@ jobs:
 
     steps:
       - checkout
-#       - run:
-#           name: RDF Lint
-#           command: |
-#             .rdflint/check-vocabulary.sh z-sgov
-#             .rdflint/check-vocabulary.sh v-sgov
+      - run:
+          name: RDF Lint
+          command: |
+            .rdflint/check-vocabulary.sh z-sgov
+            .rdflint/check-vocabulary.sh v-sgov      
+  sgov-validate:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+      
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
       - run:
           name: SGoV Validation
           command: |
@@ -27,9 +41,16 @@ jobs:
           name: Save validation results
           command: |
             mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
+            find . -type f -regex ".*/build/test-results/.*" -exec cp {} ~/test-results/junit/ \;
           when: always
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
-          path: ~/test-results/junit 
+          path: ~/test-results/junit           
+
+workflows:
+  version: 2
+  validate:
+    jobs:
+      - rdflint
+      - sgov-validate
