@@ -25,7 +25,7 @@ import org.topbraid.shacl.validation.ValidationUtil;
     private static Set<String> modelRules = new HashSet<>();
 
     static {
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 1; i <= 9; i++) {
             glossaryRules.add("g" + i + ".ttl");
         }
         for (int i = 1; i <= 7; i++) {

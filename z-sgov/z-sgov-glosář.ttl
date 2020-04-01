@@ -1,0 +1,392 @@
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix z-sgov:       <https://slovník.gov.cz/základní/> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+z-sgov:glosář
+    a                                                     owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI                                        <https://slovník.gov.cz/základní/glosář/verze/1.0.1> ;
+    <http://purl.org/vocab/vann/preferredNamespaceUri>    "https://slovník.gov.cz/základní/pojem/" ;
+    rdfs:label                                            "Základní slovník (Z-SGoV) - glosář"@cs ;
+    <http://purl.org/ontology/bibo/status>                "Specification"@en ;
+    <http://purl.org/dc/elements/1.1/title>               "Základní slovník (Z-SGoV) - glosář"@cs ;
+    <http://purl.org/vocab/vann/preferredNamespacePrefix> "z-sgov-pojem" ;
+    <http://purl.org/ontology/bibo/status>                "Specifikace"@cs ;
+    <http://purl.org/dc/terms/created>                    "03.09.2018" ;
+    <http://purl.org/dc/elements/1.1/description>         "Základní slovník popisuje základní vztahy."@cs ;
+    rdfs:label                                            "Basic Vocabulary (Z-SGoV) - glossary"@en ;
+    <http://purl.org/dc/elements/1.1/title>               "Basic Vocabulary (Z-SGoV) - glossary"@en ;
+    <http://purl.org/dc/elements/1.1/rights>              <https://creativecommons.org/licenses/by-sa/4.0> .
+
+z-sgov-pojem:agent
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:objekt ;
+    skos:definition
+                   "Agent (Analogicky s UFO Agent) představuje v čase proměnný prvek, který je proaktivní a může vykonávat akce."@cs,
+                   "Agent (in analogy to UFO Agent)  represents an object, which is proactive and thus can perform actions."@en ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Agent"@cs, "Agent"@en .
+
+z-sgov-pojem:akce
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:událost ;
+    skos:definition "Action (in analogy to UFO Action) represents an event performed by an agent."@en,
+                    "Akce (v UFO Action) představuje událost vykonanou agentem."@cs ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Action"@en, "Akce"@cs .
+
+z-sgov-pojem:druh
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:sortál ;
+    skos:definition "Druh je rigidní typ objektu, který poskytuje princip identity."@cs,
+                    "Kind is a rigid sortal supplying principle of identity ."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Druh"@cs, "Kind"@en .
+
+z-sgov-pojem:fáze
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:sortál ;
+    skos:definition "Fáze je anti-rigidní typ pro jediný princip identity, závislý na vlastnoti."@cs,
+                    "Phase is an anti-rigid sortal - an individual has this type whenever an intrinsic trope inheres in it."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Fáze"@cs, "Phase"@en .
+
+z-sgov-pojem:je-instancí-typu
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která dává do vztahu prvek a jeho typ."@cs,
+                    "Type of link, which relates an entity and its type."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "has type"@en, "je instancí typu"@cs .
+
+z-sgov-pojem:je-metatypem
+    a              skos:Concept ;
+    skos:definition
+                   "Relator, which connects a type and its metatype, i.e. a type of higher orderu. Instances of a metatype are other types."@en,
+                   "Typ vztahu, který dává do souvislosti typ a jeho metatyp, tedy typ vyššího řádu. Instancemi metatypu jsou jiné typy."@cs ; ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "is metatype of"@en, "je metatypem"@cs .
+
+z-sgov-pojem:je-stavem
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která propojuje okamžitý stav proměnného prvku a tento proměnný prvek."@cs,
+                    "Type of link which connects a snapshot with its endurant."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "is snapshot of"@en, "je stavem"@cs .
+
+z-sgov-pojem:je-ve-vztahu
+    a              skos:Concept ;
+    skos:definition
+                   "Typ vazby, která propojuje proměnný prvek a vztah, jímž je proměnný prvek vztažen. Např. 'František Novák' 'je ve vztahu' 'Manželství Františka Nováka'"@cs,
+                   "Type of link, which connects an endurant and a relation which mediates the endurant."@en ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "is mediated by"@en, "je ve vztahu"@cs .
+
+z-sgov-pojem:je-vlastností
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která spojuje vlastnost s proměnným prvkem, jehož je vlastností."@cs,
+                    "Type of link, which connects an intrinsic trope with an endurant, it inheres in."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "inheres in"@en, "je vlastností"@cs .
+
+z-sgov-pojem:je-vykonána
+    a               skos:Concept ;
+    skos:definition "Propojuje akci a agenta, který jí vykonává"@cs,
+                    "Type of link which connects an action and the agent who performs the action."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "is performed by"@en, "je vykonána"@cs .
+
+z-sgov-pojem:kategorie
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:nesortál ;
+    skos:definition "Category is a rigid mixin"@en, "Kategorie je rigidní mixin"@cs ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Category"@en, "Kategorie"@cs .
+
+z-sgov-pojem:mixin
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:nesortál ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Mixin"@cs, "Mixin"@en .
+
+z-sgov-pojem:mixin-rolí
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:nesortál ;
+    skos:definition "Mixin rolí je anti-rigidní mixin"@cs, "Role mixin is an anti-rigid mixin"@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Mixin rolí"@cs, "Role Mixin"@en .
+
+z-sgov-pojem:mixin-fází
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:nesortál ;
+    skos:definition "Mixin fází je anti-rigidní nesortál"@cs, "Phase mixin is an anti-rigid nesortál"@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Mixin fází"@cs, "Phase Mixin"@en .
+
+z-sgov-pojem:má-koncový-stav
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která propojuje událost a okamžité stavy prvků, které jsou na jejím konci."@cs,
+                    "Type of link which connects an event and a snapshots which are on its end."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "has final snapshot"@en, "má koncový stav"@cs .
+
+z-sgov-pojem:má-počáteční-stav
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která propojuje událost a okamžité stavy prvků, které jsou na jejím začátku."@cs,
+                    "Type of link which connects an event and a snapshots which are on its beginning."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "has initial snapshot"@en, "má počáteční stav"@cs .
+
+z-sgov-pojem:má-prostorové-určení
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která propojuje událost/okamžitý stav s prostorovým určením, kterého se týkají."@cs,
+                    "Type of link which connects an event/snapshot with its spatial extension."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "has spatial span"@en, "má prostorové určení"@cs .
+
+z-sgov-pojem:má-vlastnost
+    a              skos:Concept ;
+    skos:definition
+                   "Type of link which connects an endurant with its intrinsic trope, e.g. 'Franta' 'has intrinsic trope' 'age of Franta'"@en,
+                   "Propojuje proměnný prvek s jeho vlastností, např. \"Franta\" \"má vlastnost\" \"jméno Franty\""@cs ; ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "has intrinsic trope"@en, "má vlastnost"@cs .
+
+z-sgov-pojem:má-vztažený-prvek
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která propojuje vztah a prvky, které tento vztah určují"@cs,
+                    "Type of link which connects a relation and endurants mediated by the relation."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "mediates"@en, "má vztažený prvek"@cs .
+
+z-sgov-pojem:má-účastníka
+    a              skos:Concept ;
+    skos:definition
+                   "Tato vazba spojuje událost a proměnný prvek, který se jí účastní. Např. Fotbalista se účastní fotbalového zápasu."@cs,
+                   "This link connects an event and an endurant which participates in the event. For example, a soccer player participates in a football match."@en ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "has participant"@en, "má účastníka"@cs .
+
+z-sgov-pojem:má-časové-určení
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která propojuje neměnný prvek s jeho časovým určením."@cs,
+                    "Type of link connecting a perdurant with its temporal specification."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "has temporal span"@en, "má časové určení"@cs .
+
+z-sgov-pojem:neměnný-prvek
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:prvek ;
+    skos:definition "Neměnný prvek (analogicky s UFO Perdurant) je prvek, který nemění v čase svoje vlastnosti."@cs,
+                    "Perdurant (in analogy with UFO Perdurant) is an entity, which does not change in time."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Neměnný prvek"@cs, "Perdurant"@en .
+
+z-sgov-pojem:nesortál
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:typ-proměnného-prvku ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Nesortál"@cs, "Non-sortal"@en .
+
+z-sgov-pojem:objekt
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:proměnný-prvek ;
+    skos:definition
+                   "Object (in analogy to UFO Object) we understand an endurant, existence of which is not directly dependent on the existence of other endurants."@en,
+                   "Objektem (analogicky s UFO Object) rozumíme proměnný prvek, jehož existence není přímo závislá na existenci jiných entit. Objekt může existovat i jako součást jiného objektu, ale může být vyjmut a existovat i nadále."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Object"@en, "Objekt"@cs .
+
+z-sgov-pojem:okamžitý-stav-proměnného-prvku
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:neměnný-prvek ;
+    skos:definition
+                   "A snapshot (a generalization of UFO Object snapshot) represents a perdurant, reifies the occurrence of a particular endurant at particular moment."@en,
+                   "Okamžitý stav proměnného prvku (analogicky se zobecněním UFO Object snapshot) představuje v čase neměnný prvek, který reprezentuje výskyt konkrétního proměnného prvku v konkrétním okamžiku."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Okamžitý stav proměnného prvku"@cs, "Snapshot"@en .
+
+z-sgov-pojem:pasivní-objekt
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:objekt ;
+    skos:definition "Pasivním objektem je objekt, který není agentem"@cs,
+                    "Passive object is an object that is not agent."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Pasivní objekt"@cs, "Passive object"@en .
+
+z-sgov-pojem:poddruh
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:typ-proměnného-prvku ;
+    skos:definition "Poddruh je rigidní typ, který princip identity přejímá od druhu, od kterého specializuje."@cs,
+                    "Subkind is a rigid sortal which takes the principle of identity from the kind it specializes from."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Poddruh"@cs, "Subkind"@en .
+
+z-sgov-pojem:proměnný-prvek
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:prvek ;
+    skos:definition
+                   "Endurant (in analogy with UFO Endurant) is an entity, which can be created/destroyed, and can change its tropesin time."@en,
+                   "Proměnným prvkem (analogicky s UFO Endurant) je prvek, který vzniká a zaniká a může měnit své vlastnosti v čase."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Endurant"@en, "Proměnný prvek"@cs .
+
+z-sgov-pojem:prostorový-objekt
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:pasivní-objekt ;
+    skos:definition
+                   "Prostorový objekt označuje objekt, který vymezuje prostorovou oblast, a to buď absolutně (GPS, adresa), nebo relativně vzhledem k jinému prvku (prostorové ohraničení proměnného prvku)"@cs,
+                   "Spatial object is an object demarking a spatial area, either absolutely (GPS, address), or relatively to other endurant (spatial boundary of the endurant)"@en ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Prostorový objekt"@cs, "Spatial object"@en .
+
+z-sgov-pojem:prvek
+    a              skos:Concept ;
+    skos:definition
+                   "Entity (in analogy with UFO Entity) is any identifiable concept that we use for the  description of the world."@en,
+                   "Prvkem (analogicky s UFO Entity) je míněn jakýkoliv identifikovatelný koncept, který používáme pro popis světa."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Entity"@en, "Prvek"@cs .
+
+z-sgov-pojem:role
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:sortál ;
+    skos:definition
+                   "Role is an anti-rigid sortal - an individual has this type whenever it is mediated by some particular relator."@en,
+                   "Role je anti-rigidní typ pro jediný princip identity, závislý na vztahu."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Role"@cs, "Role"@en .
+
+z-sgov-pojem:sortál
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:typ-proměnného-prvku ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Sortal"@en, "Sortál"@cs .
+
+z-sgov-pojem:specializuje
+    a               skos:Concept ;
+    skos:definition "Typ vazby, která dává do souvislosti typ a jeho nadtyp, tedy typ širší, obecnější."@cs,
+                    "Type of link that relates a type with its supertype, i.e. a broader, more general type."@en ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "specializes"@en, "specializuje"@cs .
+
+z-sgov-pojem:typ
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:pasivní-objekt ;
+    skos:definition
+                   "Typ (analogicky s UFO Powertype) představuje v čase proměnnou entitu (význam typu se může v čase vyvíjet, například novelizacemi právního předpisu), která je použita pro klasifikaci jiného prvku a definuje tím jejich vlastnosti a možné vztahy s jinými prvky. Různé typy mohou být použity pro klasifikaci různých typů prvků - typy událostí, typy objektů, metatypy (typy jiných typů), atp."@cs,
+                   "Type (in analogy to UFO Powertype) represents an endurant (meaning of a type might change in time, e.g. novel versions of laws), which is used to categorize another entity. Different types  can be distinguished - event types, object types, types of other types, etc."@en ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Typ"@cs, "Type"@en .
+
+z-sgov-pojem:typ-kvalitativní-vlastnosti
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:typ-vlastnosti ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Quality type"@en, "Typ kvalitativní vlastnosti"@cs .
+
+z-sgov-pojem:typ-módu
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:typ-vlastnosti ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Mode type"@en, "Typ módu"@cs .
+
+z-sgov-pojem:typ-objektu
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:typ-proměnného-prvku ;
+    skos:definition
+                   "Typ objektu (typ[objekt]) popisuje kategorii která může být objektu přiřazena.  Příklady instancí: konkrétní typ letadla (Airbus 380), objekt/subjekt RPP (např. malé plavidlo),"@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Object type"@en, "Typ objektu"@cs .
+
+z-sgov-pojem:typ-proměnného-prvku
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:typ ;
+    skos:definition "Instance typu proměnného prvku typují objekty, vztahy a vlastnosti"@cs ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Endurant type"@en, "Typ proměnného prvku"@cs .
+
+z-sgov-pojem:typ-události
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:typ ;
+    skos:definition "Typ, do nějž lze Událost klasifikovat. Příkladem je typ události Narození."@cs ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Event type"@en, "Typ události"@cs .
+
+z-sgov-pojem:typ-vlastnosti
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:typ-proměnného-prvku ;
+    skos:definition
+                   "Typ vlastnosti popisuje kategorie proměnných prvků, které jsou závislé na existenci jiného proměnného prvku. Příklady instancí: konkrétní typ letadla (Airbus 380), objekt/subjekt RPP (např. malé plavidlo),"@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Intrinsic Trope Type"@en, "Typ vlastnosti"@cs .
+
+z-sgov-pojem:typ-vztahu
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:typ-proměnného-prvku ;
+    skos:definition
+                   "Instance typu vztahu jsou vztahy mezi objekty, tedy např. Manželství Martina Nováka a Martiny Novákové je  vztah mezi objekty Martin Novák a Martina Nováková "@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Relator type"@en, "Typ vztahu"@cs .
+
+z-sgov-pojem:událost
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:neměnný-prvek ;
+    skos:definition
+                   "Event (in analogy to UFO Event) represents a perdurant, which occured and which changes some of the endurants (whenever an event changes a trope, it changes also endurants these trope inhere in)"@en,
+                   "Událost (v UFO Event) představuje v čase neměnnou entitu, která nastala a která mění některý z objektů (v případech, kdy událost mění jiný proměnný prvek - vlastnost, nebo vztah - mění tím i jeden nebo více objektů, neboť tyto proměnné prvky jsou na objektech závislé a jejich okamžité stavy určují okamžitý stav daného objektu)"@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Event"@en, "Událost"@cs .
+
+z-sgov-pojem:vlastnost
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:proměnný-prvek ;
+    skos:definition
+                   "An intrinsic trope (in analogy to UFO Intrinsic Trope) we understand an endurant, existence of which directly depends on the existence of another endurant."@en,
+                   "Oproti objektu vlastností (analogicky s UFO Intrinsic Trope) rozumíme proměnný prvek, jehož existence je přímo závislá na existenci jednoho jiného proměnného prvku."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Intrinsic Trope"@en, "Vlastnost"@cs .
+
+z-sgov-pojem:vznik-proměnného-prvku
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:událost ;
+    skos:definition "Endurant creation denotes an event, which creates an endurant, e.g. Human birth."@en,
+                    "Vznik proměnného prvku označuje událost, která vytváří proměnný prvek."@cs ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Endurant creation"@en, "Vznik proměnného prvku"@cs .
+
+z-sgov-pojem:vztah
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:proměnný-prvek ;
+    skos:definition
+                   "A relator (in analogy with UFO relation) is any endurant, existence of which is directly dependent on the existence of two or more other endurants."@en,
+                   "Oproti objektu vztahem (analogicky s UFO Relation) rozumíme proměnný prvek, jehož existence je přímo závislá na existenci dvou a více jiných proměnných prvcích."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Relation"@en, "Vztah"@cs .
+
+z-sgov-pojem:změna-proměnného-prvku
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:událost ;
+    skos:definition
+                   "Endurant change denotes an event that changes tropes (intrinsic and/or relators) of an endurant, e.g. human marriage"@en,
+                   "Změna proměnného prvku označuje událost, která mění vlastnosti a vztahy proměnného prvku."@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Endurant change"@en, "Změna proměnného prvku"@cs .
+
+z-sgov-pojem:zánik-proměnného-prvku
+    a               skos:Concept ;
+    skos:broader    z-sgov-pojem:událost ;
+    skos:definition "Endurant destruction denotes an event that destroys an endurant, e.g. human death."@en,
+                    "Zánik proměnného prvku označuje událost, která ruší proměnný prvek."@cs ;
+    skos:inScheme   z-sgov:glosář ;
+    skos:prefLabel  "Endurant destruction"@en, "Zánik proměnného prvku"@cs .
+
+z-sgov-pojem:časový-prvek
+    a              skos:Concept ;
+    skos:broader   z-sgov-pojem:prvek ;
+    skos:definition
+                   "Temporal entity denotes the time specification of a perdurant (current year/day, time interval), or relatively to another entity (existence of an endurant, event duration, etc.)"@en,
+                   "Časový prvek je prvek, který vymezuje časové období - a to buď přímou hodnotou (aktuální rok/den, časový interval), nebo relativně vzhledem k jinému prvku (doba existence daného proměnného prvku, trvání události)"@cs ;
+    skos:inScheme  z-sgov:glosář ;
+    skos:prefLabel "Temporal Entity"@en, "Časový prvek"@cs .
