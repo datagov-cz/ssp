@@ -1,0 +1,21 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g9
+    a              sh:NodeShape ;
+    sh:message     "Pojem má stejný identifikační název jako jiný ze stejného glosáře."@cs,
+                   "The concept has the same identification label as another one from the same glossary."@en ;
+    sh:targetClass skos:Concept ;
+    sh:sparql      [ a         sh:SPARQLConstraint ;
+                     sh:select """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+			SELECT $this (?another AS ?value)
+			{
+				$this skos:inScheme ?glossary ;
+				    skos:prefLabel ?label .
+				?another skos:inScheme ?glossary ;
+				    skos:prefLabel ?label .
+				FILTER($this != ?another)
+			}""" ; ]
+.
