@@ -1,0 +1,16 @@
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix z-sgov-pojem:  <https://slovník.gov.cz/základní/pojem/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+
+j-sgov-obecný:m1
+    a              sh:NodeShape ;
+    sh:message
+                   "Pojem nemá definován obsahový stereotyp (Objekt, Vlastnost, Vztah, Událost), ani není odvozen od pojmu, který jej definován má."@cs,
+                   "The concept has not defined the type (Object, Aspect, Relation, Event)."@en ;
+    sh:targetClass skos:Concept ;
+    sh:or          ( [ sh:class z-sgov-pojem:typ-události ]
+                     [ sh:class z-sgov-pojem:typ-vztahu ]
+                     [ sh:class z-sgov-pojem:typ-vlastnosti ]
+                     [ sh:class z-sgov-pojem:typ-objektu ] )
+.

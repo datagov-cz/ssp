@@ -1,0 +1,14 @@
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix z-sgov-pojem:  <https://slovník.gov.cz/základní/pojem/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:m5a
+    a              sh:NodeShape ;
+    sh:message     "Typ proměnného prvku nesmí být specializován od více pojmů typu Druh."@cs,
+                   "Endurant type must not be specialized from multiple concepts of type Kind."@en ;
+    sh:targetClass z-sgov-pojem:typ-proměnného-prvku ;
+    sh:property    [ sh:path                rdfs:subClassOf ;
+                     sh:qualifiedValueShape [ sh:class z-sgov-pojem:druh ] ;
+                     sh:qualifiedMaxCount   1 ] ; # this
+.

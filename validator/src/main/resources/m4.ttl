@@ -1,0 +1,14 @@
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix z-sgov-pojem:  <https://slovník.gov.cz/základní/pojem/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:m4
+    a              sh:NodeShape ;
+    sh:message     "Pojem typu Role, Fáze, Poddruh musí být specializován od pojmu typu Druh."@cs,
+                   "The concept of type Role, Phase or Subkind must be specialized from a concept of type Kind."@en ;
+    sh:targetClass z-sgov-pojem:role, z-sgov-pojem:poddruh, z-sgov-pojem:fáze ;
+    sh:property    [ sh:path                rdfs:subClassOf ;
+                     sh:qualifiedValueShape [ sh:class z-sgov-pojem:druh ] ;
+                     sh:qualifiedMinCount   1 ; ] ;
+.

@@ -1,0 +1,174 @@
+@prefix rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix xsd:           <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tc1:           <https://slovník.gov.cz/jazyk/obecný/test-case/1/> .
+@prefix z-sgov-pojem:  <https://slovník.gov.cz/základní/pojem/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+@prefix owl:           <http://www.w3.org/2002/07/owl#> .
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+
+<>
+    sh:entailment <http://www.w3.org/ns/entailment/RDFS> .
+
+<>
+    sh:entailment sh:Rules .
+
+
+j-sgov-obecný:odvoď-podtřídu-objektu-z-typu-objektu
+    a              sh:NodeShape ;
+    sh:targetClass z-sgov-pojem:typ-objektu ;
+    sh:rule        [ a            sh:TripleRule ;
+                     sh:subject   sh:this ;
+                     sh:predicate rdfs:subClassOf ;
+                     sh:object    z-sgov-pojem:objekt ] .
+
+j-sgov-obecný:odvoď-podtřídu-vlastnosti-z-typu-vlastnosti
+    a              sh:NodeShape ;
+    sh:targetClass z-sgov-pojem:typ-vlastnosti ;
+    sh:rule        [ a            sh:TripleRule ;
+                     sh:subject   sh:this ;
+                     sh:predicate rdfs:subClassOf ;
+                     sh:object    z-sgov-pojem:vlastnost ] .
+
+j-sgov-obecný:odvoď-podtřídu-vztahu-z-typu-vztahu
+    a              sh:NodeShape ;
+    sh:targetClass z-sgov-pojem:typ-vztahu ;
+    sh:rule        [ a            sh:TripleRule ;
+                     sh:subject   sh:this ;
+                     sh:predicate rdfs:subClassOf ;
+                     sh:object    z-sgov-pojem:vztahu ] .
+
+j-sgov-obecný:odvoď-podtřídu-události-z-typu-události
+    a              sh:NodeShape ;
+    sh:targetClass z-sgov-pojem:typ-události ;
+    sh:rule        [ a            sh:TripleRule ;
+                     sh:subject   sh:this ;
+                     sh:predicate rdfs:subClassOf ;
+                     sh:object    z-sgov-pojem:událost ] .
+
+j-sgov-obecný:odvoď-obsahový-typ-z-ontologického
+    a              sh:NodeShape ;
+    sh:targetClass z-sgov-pojem:druh, z-sgov-pojem:role, z-sgov-pojem:mixinrolí, z-sgov-pojem:fáze,
+                   z-sgov-pojem:mixinfází, z-sgov-pojem:poddruh, z-sgov-pojem:kategorie, z-sgov-pojem:mixin ;
+    sh:rule        [ a            sh:TripleRule ;
+                     sh:subject   sh:this ;
+                     sh:predicate rdf:type ;
+                     sh:object    z-sgov-pojem:typ-proměnného-prvku ] .
+
+j-sgov-obecný:odvoď-obsahový-typ-z-ontologického
+    a              sh:NodeShape ;
+    sh:targetClass z-sgov-pojem:typ-objektu, z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:typ-vztahu ;
+    sh:rule        [ a            sh:TripleRule ;
+                     sh:subject   sh:this ;
+                     sh:predicate rdf:type ;
+                     sh:object    z-sgov-pojem:typ-proměnného-prvku ] .
+
+#j-sgov-obecný:odvoď-podtřídu-z-typu
+#    a              sh:NodeShape ;
+#    sh:targetClass skos:Concept ;
+#    sh:rule        [ a            sh:SPARQLRule ;
+#                     sh:order     1 ;
+#                     sh:construct """
+#            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+#            PREFIX z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/>
+#			CONSTRUCT {
+#				$this rdfs:subClassOf ?typ .
+#			} WHERE {
+#				$this a ?metatyp .
+#				FILTER(?metatyp in (
+#				    z-sgov-pojem:typ-proměnného-prvku,
+#				    z-sgov-pojem:typ-neměnného-prvku,
+#				    z-sgov-pojem:typ-objektu,
+#				    z-sgov-pojem:typ-události,
+#				    z-sgov-pojem:typ-vlastnosti,
+#				    z-sgov-pojem:typ-vztahu
+#				    )
+#				)
+#				BIND(
+#				    IF(?typ=z-sgov-pojem:typ-proměnného-prvku,z-sgov-pojem:proměnný-prvek,
+#				    IF(?typ=z-sgov-pojem:typ-neměnného-prvku,z-sgov-pojem:neměnný-prvek,
+#				    IF(?typ=z-sgov-pojem:typ-objektu,z-sgov-pojem:objekt,
+#				    IF(?typ=z-sgov-pojem:typ-události,z-sgov-pojem:událost,
+#				    IF(?typ=z-sgov-pojem:typ-vlastnosti,z-sgov-pojem:vlastnost,
+#				    IF(?typ=z-sgov-pojem:typ-vztahu,z-sgov-pojem:vztah,
+#				        z-sgov-pojem:prvek
+#				    )))))) AS ?typ
+#				)
+#			}
+#			""" ; ] .
+
+#j-sgov-obecný:odvoď-typ-proměnného-prvku-z-podtřídy
+#    a              sh:NodeShape ;
+#    sh:targetClass skos:Concept ;
+## needed for now not to trigger this rule for RDFS voc,
+## see https://stackoverflow.com/questions/60876963/how-to-create-a-shacl-rule-to-infer-rdftype-from-rdfssubclassof
+#    sh:rule        [ a            sh:TripleRule ;
+#                     sh:subject   sh:this ;
+#                     sh:predicate rdf:type ;
+#                     sh:object    z-sgov-pojem:typ-proměnného-prvku ;
+#                     sh:order     2 ;
+#                     sh:condition [ sh:property [ sh:path rdfs:subClassOf ;
+#                                                  sh:node [ sh:node z-sgov-pojem:proměnný-prvek ] ] ] ] .
+
+#j-sgov-obecný:prefixy:
+#    a owl:Ontology ;
+#    owl:imports sh: ;
+#    sh:declare [ sh:prefix    "rdfs" ;
+#                 sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ; ] ;
+#    sh:declare [ sh:prefix    "z-sgov-pojem" ;
+#                 sh:namespace "https://slovník.gov.cz/základní/pojem/"^^xsd:anyURI ; ] .
+
+j-sgov-obecný:odvoď-typ-z-podtřídy
+    a              sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:rule        [ a            sh:SPARQLRule ;
+                     sh:order     2 ;
+                     sh:construct """
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/>
+			CONSTRUCT {
+				$this a ?metatyp .
+			} WHERE {
+				$this rdfs:subClassOf ?typ .
+				FILTER(?typ in (
+				    z-sgov-pojem:proměnný-prvek,
+				    z-sgov-pojem:neměnný-prvek,
+				    z-sgov-pojem:objekt,
+				    z-sgov-pojem:událost,
+				    z-sgov-pojem:vlastnost,
+				    z-sgov-pojem:vztah
+				    )
+				)
+				BIND(
+				    IF(?typ=z-sgov-pojem:proměnný-prvek,z-sgov-pojem:typ-proměnného-prvku,
+				    IF(?typ=z-sgov-pojem:neměnný-prvek,z-sgov-pojem:typ-neměnného-prvku,
+				    IF(?typ=z-sgov-pojem:objekt,z-sgov-pojem:typ-objektu,
+				    IF(?typ=z-sgov-pojem:událost,z-sgov-pojem:typ-události,
+				    IF(?typ=z-sgov-pojem:vlastnost,z-sgov-pojem:typ-vlastnosti,
+				    IF(?typ=z-sgov-pojem:vztah,z-sgov-pojem:typ-vztahu,
+				        z-sgov-pojem:typ
+				    )))))) AS ?metatyp
+				)
+			}
+			""" ; ] .
+
+
+#        ?typ <https://slovník.gov.cz/základní/pojem/je-kanonickou-instancí> ?metatyp .
+#### MOVE TO z-sgov
+
+#z-sgov-pojem:proměnný-prvek a sh:NodeShape ;
+#    z-sgov-pojem:je-kanonickou-instancí z-sgov-pojem:typ-proměnného-prvku .
+#
+#z-sgov-pojem:objekt a sh:NodeShape;
+#    z-sgov-pojem:je-kanonickou-instancí z-sgov-pojem:typ-objektu .
+#
+#z-sgov-pojem:událost a sh:NodeShape;
+#    z-sgov-pojem:je-kanonickou-instancí z-sgov-pojem:typ-události .
+#
+#z-sgov-pojem:vztah a sh:NodeShape;
+#    z-sgov-pojem:je-kanonickou-instancí z-sgov-pojem:typ-vztahu .
+#
+#z-sgov-pojem:vlastnost a sh:NodeShape;
+#    z-sgov-pojem:je-kanonickou-instancí z-sgov-pojem:typ-vlastnosti .
+#### END MOVE TO z-sgov
