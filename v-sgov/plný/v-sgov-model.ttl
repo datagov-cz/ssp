@@ -1,9 +1,10 @@
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix v-sgov: <https://slovník.gov.cz/veřejný-sektor/> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-sgov:       <https://slovník.gov.cz/veřejný-sektor/> .
 @prefix v-sgov-pojem: <https://slovník.gov.cz/veřejný-sektor/pojem/> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
 <https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
         a       owl:ObjectProperty .
@@ -521,3 +522,11 @@ v-sgov-pojem:kontextový-dokument
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
         rdfs:label       "Kontextový dokument"@cs ;
         rdfs:subClassOf  v-sgov-pojem:dokument .
+
+v-sgov-pojem:základní-jazyk
+    a                              v-sgov-pojem:znalostní-struktura ;
+    v-sgov-pojem:má-obsahový-typ   z-sgov-pojem:druh, z-sgov-pojem:poddruh, z-sgov-pojem:role, z-sgov-pojem:fáze,
+                                   z-sgov-pojem:mixinfází, z-sgov-pojem:mixinrolí, z-sgov-pojem:kategorie,
+                                   z-sgov-pojem:mixin ;
+    v-sgov-pojem:má-modelovací-typ z-sgov-pojem:typ-objektu, z-sgov-pojem:typ-vztahu, z-sgov-pojem:typ-vlastnosti,
+                                   z-sgov-pojem:typ-události .

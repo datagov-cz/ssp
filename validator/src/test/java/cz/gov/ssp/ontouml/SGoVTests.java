@@ -91,6 +91,6 @@ import org.topbraid.shacl.vocabulary.SH;
     }
 
     @Test public void testVSGoV() throws IOException {
-        testFolder("z-sgov", Validator.getModelRules());
+        testFolder("v-sgov", Validator.getVocabularyRules());
     }
 }
