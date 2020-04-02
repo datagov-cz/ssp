@@ -51,7 +51,7 @@ import org.topbraid.shacl.vocabulary.SH;
                 result.getMessage())));
 
         if (r.conforms()) {
-            Assertions.assertEquals(Outcome.Pass, outcome);
+            Assertions.assertEquals(outcome, Outcome.Pass);
         } else {
             Assertions.assertTrue(
                 r.results().stream().anyMatch(a -> a.getSeverity().equals(outcome.url)));
