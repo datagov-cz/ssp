@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
 import org.topbraid.jenax.progress.SimpleProgressMonitor;
@@ -55,6 +56,26 @@ import org.topbraid.shacl.validation.ValidationUtil;
         return shapesModel;
     }
 
+    public void checkGlossary(String file) throws FileNotFoundException {
+        final Model model = ModelFactory.createDefaultModel();
+        model.read(new FileReader(file), null, FileUtils.langTurtle);
+        checkModel(model, getGlossaryRulesModel());
+    }
+
+    public void checkModel(Model model, Model rulesModel) {
+        final Model dataModel =
+            JenaUtil.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, model);
+
+        OntDocumentManager.getInstance().setProcessImports(false);
+
+        final ValidationReport r = validate(dataModel, rulesModel);
+
+        r.results().forEach(result -> log.info(MessageFormat
+            .format("[{0}] Node {1} failing for value {2} with message: {3} ",
+                result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
+                result.getMessage())));
+    }
+
     public ValidationReport validate(final Model dataModel, final Model shapesModel) {
         log.info("Validating model {}", dataModel);
         shapesModel.read(Validator.class.getResourceAsStream("/inference-rules.ttl"), null,
@@ -67,21 +88,5 @@ import org.topbraid.shacl.validation.ValidationUtil;
         final Resource report = ValidationUtil.validateModel(dataModel, shapesModel, true);
 
         return new ResourceValidationReport(report);
-    }
-
-    public void checkGlossary(String file) throws FileNotFoundException {
-        final Model dataModel =
-            JenaUtil.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, null);
-
-        OntDocumentManager.getInstance().setProcessImports(false);
-        dataModel.read(new FileReader(file), null, FileUtils.langTurtle);
-
-        final Validator validator = new Validator();
-        final ValidationReport r = validator.validate(dataModel, getGlossaryRulesModel());
-
-        r.results().forEach(result -> log.info(MessageFormat
-            .format("[{0}] Node {1} failing for value {2} with message: {3} ",
-                result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
-                result.getMessage())));
     }
 }
