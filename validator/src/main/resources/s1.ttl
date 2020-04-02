@@ -1,0 +1,23 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:s1
+    a              sh:NodeShape ;
+    sh:message     "Všechny pojmy z glosáře jsou použity v modelu."@cs,
+                   "All glossary concepts are used in the model."@en ;
+    sh:severity    sh:Warning ;
+    sh:targetClass skos:Concept ;
+    sh:sparql      [ a         sh:SPARQLConstraint ;
+                     sh:select """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			SELECT $this (?glossary AS ?value)
+			{
+    		    $this skos:inScheme ?glossary .
+			    FILTER NOT EXISTS {
+			        $this a ?type
+			        FILTER(?type in (owl:Class,owl:ObjectProperty,owl:DataProperty))
+				}
+			}""" ; ]
+.
