@@ -1,0 +1,21 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g5a
+    a              sh:NodeShape ;
+    sh:message     "Identifikační název pojmu je příliš dlouhý (maximum je 150 znaků)."@cs,
+                   "The preferred label is too long (150 characters is max) ."@en ;
+    sh:targetClass skos:Concept ;
+    sh:path        skos:prefLabel ;
+    sh:maxLength   150
+.
+
+j-sgov-obecný:g5b
+    a              sh:NodeShape ;
+    sh:message     "Identifikační název pojmu je příliš krátký (minimum jsou 2 znaky)."@cs,
+                   "The preferred label is too short (2 characters is min) ."@en ;
+    sh:targetClass skos:Concept ;
+    sh:path        skos:prefLabel ;
+    sh:minLength   2
+.

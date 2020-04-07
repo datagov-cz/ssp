@@ -1,0 +1,23 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g6a
+    a              sh:NodeShape ;
+    sh:severity    sh:Warning ;
+    sh:message     "Definice pojmu je příliš dlouhá (maximum je 1000 znaků)."@cs,
+                   "The preferred label is too long (1000 characters is max) ."@en ;
+    sh:targetClass skos:Concept ;
+    sh:path        skos:definition ;
+    sh:maxLength   1000
+.
+
+j-sgov-obecný:g6b
+    a              sh:NodeShape ;
+    sh:severity    sh:Warning ;
+    sh:message     "Definice pojmu je příliš krátka (minimum je 10 znaků)."@cs,
+                   "The preferred label is too short (10 characters is min) ."@en ;
+    sh:targetClass skos:Concept ;
+    sh:path        skos:definition ;
+    sh:minLength   10
+.

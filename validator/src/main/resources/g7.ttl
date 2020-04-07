@@ -1,0 +1,26 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g7a
+    a              sh:NodeShape ;
+    sh:message     "Pojem není přiřazen ke glosáři."@cs, "The concept is not linked to a glossary."@en ;
+    sh:targetClass skos:Concept ;
+    sh:path        skos:inScheme ;
+    sh:minCount    1
+.
+
+j-sgov-obecný:g7b
+    a              sh:NodeShape ;
+    sh:message     "Pojem je přiřazen k více glosářům (povolený je pouze jeden)."@cs,
+                   "The concept is linked to more glossaries(only one is allowed)."@en ;
+    sh:targetClass skos:Concept ;
+    sh:sparql      [ a         sh:SPARQLConstraint ;
+                     sh:select """
+			SELECT $this (GROUP_CONCAT(?glossary;separator=",") AS ?value)
+			{
+				$this <http://www.w3.org/2004/02/skos/core#inScheme> ?glossary .
+			}
+			GROUP BY $this
+			HAVING (count(*) > 1)
+			""" ; ] .
