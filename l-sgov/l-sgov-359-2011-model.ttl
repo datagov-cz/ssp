@@ -110,7 +110,7 @@ l-sgov-359-2011:model
         a               owl:Ontology , <https://slovník.gov.cz/veřejný-sektor/pojem/model> ;
         rdfs:label      "Vocabulary of the Decree No. 359/2011 Col., about the Base Register for Territorial Identification, Addresses and Real Estates. - model"@en , "Slovník vyhlášky č. 359/2011 Sb., o základním registru územní identifikace, adres a nemovitostí. - model"@cs ;
         <http://purl.org/dc/terms/created>
-                "01.04.2020" ;
+                "23.04.2020" ;
         <http://purl.org/dc/terms/creator>
                 "Michal Med" ;
         <http://purl.org/dc/terms/rights>
@@ -123,7 +123,7 @@ l-sgov-359-2011:model
                 "l-sgov-359-2011-pojem" ;
         <http://purl.org/vocab/vann/preferredNamespaceUri>
                 "https://slovník.gov.cz/legislativní/sbírka/359/2011/pojem/" ;
-        owl:imports     l-sgov-359-2011:glosář , <https://slovník.gov.cz/legislativní/sbírka/111/2009/model> ;
+        owl:imports     l-sgov-359-2011:glosář , <https://slovník.gov.cz/legislativní/sbírka/111/2009/model> , <https://slovník.gov.cz/legislativní/sbírka/326/2000/model> ;
         owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/359/2011/model/verze/1.0.0> .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/část-obce>
@@ -165,9 +165,7 @@ l-sgov-359-2011-pojem:leží-uvnitř-polygonu-územního-prvku
 
 l-sgov-359-2011-pojem:poštovní-směrovací-číslo
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         [ a            owl:Class ;
-                              owl:unionOf  ( <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa> l-sgov-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle )
-                            ] ;
+        rdfs:domain         l-sgov-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
@@ -208,6 +206,12 @@ l-sgov-359-2011-pojem:územní-prvek-nebo-územně-evidenční-jednotka
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
+l-sgov-359-2011-pojem:uvádí-číslo-orientační-adresy
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-359-2011-pojem:první-řádek-zápisu-adresy ;
+        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa> ;
+        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/katastrální-území>
         a       owl:Class .
 
@@ -237,16 +241,8 @@ l-sgov-359-2011-pojem:hranice-polygonu-území-obce
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
         rdfs:subClassOf  l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku .
 
-l-sgov-359-2011-pojem:uvádí-číslo-orientační
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:první-řádek-zápisu-adresy ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa> ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
-
 l-sgov-359-2011-pojem:polohová-přesnost-lokalizačních-údajů
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/lokalizační-údaje> ;
-        rdfs:range          rdfs:Literal ;
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-komponent>
