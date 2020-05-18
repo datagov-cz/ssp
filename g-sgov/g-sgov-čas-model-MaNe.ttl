@@ -1,0 +1,66 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix g-sgov-čas-pojem: <https://slovník.gov.cz/generický/čas/pojem/> .
+@prefix g-sgov-čas: <https://slovník.gov.cz/generický/čas/> .
+
+<https://slovník.gov.cz/základní/pojem/časový-prvek>
+        a       owl:Class .
+
+g-sgov-čas-pojem:je-nespecifikovaný
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         g-sgov-čas-pojem:časový-okamžik ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+g-sgov-čas-pojem:má-konec
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         <https://slovník.gov.cz/základní/pojem/časový-prvek> ;
+        rdfs:range          g-sgov-čas-pojem:časový-okamžik ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+g-sgov-čas-pojem:časový-okamžik
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/časový-prvek> .
+
+g-sgov-čas-pojem:datum
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         g-sgov-čas-pojem:časový-okamžik ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+g-sgov-čas-pojem:datum-a-čas
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         g-sgov-čas-pojem:časový-okamžik ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+g-sgov-čas-pojem:časový-interval
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/časový-prvek> .
+
+g-sgov-čas-pojem:čas  a     owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         g-sgov-čas-pojem:časový-okamžik ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+g-sgov-čas-pojem:má-začátek
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         <https://slovník.gov.cz/základní/pojem/časový-prvek> ;
+        rdfs:range          g-sgov-čas-pojem:časový-okamžik ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+g-sgov-čas:model  a     owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
+        <http://purl.org/dc/terms/created>
+                "2020-05-18" ;
+        <http://purl.org/dc/terms/title>
+                "Generický slovník pro čas - model"@cs ;
+        <http://purl.org/ontology/bibo/status>
+                "Specification"@en , "Specifikace"@cs ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "g-sgov-čas-pojem" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "https://slovník.gov.cz/generický/čas/pojem/" ;
+        owl:imports     g-sgov-čas:glosář ;
+        owl:versionIRI  <https://slovník.gov.cz/generický/čas/model/verze/0.0.1> .
