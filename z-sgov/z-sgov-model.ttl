@@ -133,15 +133,6 @@ z-sgov-pojem:typ-modální-vlastnosti
 z-sgov-pojem:proměnný-prvek
         a                owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:prvek ;
-        rdfs:subClassOf  [ a                            owl:Restriction ;
-                           owl:minQualifiedCardinality  "1"^^xsd:long ;
-                           owl:onClass                  z-sgov-pojem:typ-proměnného-prvku ;
-                           owl:onProperty               z-sgov-pojem:je-instancí-typu
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  z-sgov-pojem:typ-proměnného-prvku ;
-                           owl:onProperty     z-sgov-pojem:je-instancí-typu
-                         ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  z-sgov-pojem:vztah ;
                            owl:onProperty     z-sgov-pojem:je-ve-vztahu
@@ -212,11 +203,6 @@ z-sgov-pojem:nesortál
         a                owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:typ-proměnného-prvku .
 
-z-sgov-pojem:je-instancí-typu
-        a            owl:ObjectProperty ;
-        rdfs:domain  z-sgov-pojem:proměnný-prvek ;
-        rdfs:range   z-sgov-pojem:typ-proměnného-prvku .
-
 z-sgov-pojem:poddruh  a  owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:sortál .
 
@@ -235,6 +221,7 @@ z-sgov:model  a         <http://onto.fel.cvut.cz/ontologies/slovník/agendový/p
                 "z-sgov-pojem" ;
         <http://purl.org/vocab/vann/preferredNamespaceUri>
                 "https://slovník.gov.cz/základní/pojem/" ;
+        owl:imports     z-sgov:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/základní/model/verze/1.0.0> .
 
 z-sgov-pojem:mixin-fází
