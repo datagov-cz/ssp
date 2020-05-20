@@ -1,0 +1,48 @@
+@prefix g-sgov-částky: <https://slovník.gov.cz/generický/částky/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix g-sgov-částky-pojem: <https://slovník.gov.cz/generický/částky/pojem/> .
+
+g-sgov-částky-pojem:výše
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         g-sgov-částky-pojem:částka ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+g-sgov-částky:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
+        <http://purl.org/dc/terms/created>
+                "2020-05-19" ;
+        <http://purl.org/dc/terms/title>
+                "Generický slovník peněžních částek - model"@cs ;
+        <http://purl.org/ontology/bibo/status>
+                "Specification"@en , "Specifikace"@cs ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "g-sgov-částky-pojem" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "https://slovník.gov.cz/generický/částky/pojem/" ;
+        owl:imports     g-sgov-částky:glosář ;
+        owl:versionIRI  <https://slovník.gov.cz/generický/částky/model/verze/0.0.1> .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/jednotka>
+        a       owl:Class .
+
+g-sgov-částky-pojem:má-jednotku
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-částky-pojem:částka ;
+        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/jednotka> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+g-sgov-částky-pojem:má-měnu
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-částky-pojem:částka ;
+        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/měna> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/měna>
+        a       owl:Class .
+
+g-sgov-částky-pojem:částka
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
