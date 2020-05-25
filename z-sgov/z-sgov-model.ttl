@@ -37,7 +37,7 @@ z-sgov-pojem:typ-objektu
 z-sgov-pojem:má-účastníka
         a            owl:ObjectProperty ;
         rdfs:domain  z-sgov-pojem:událost ;
-        rdfs:range   z-sgov-pojem:proměnný-prvek .
+        rdfs:range   z-sgov-pojem:okamžitý-stav-proměnného-prvku .
 
 z-sgov-pojem:typ  a      owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:pasivní-objekt .
@@ -90,41 +90,27 @@ z-sgov-pojem:neměnný-prvek
                          ] ;
         rdfs:subClassOf  [ a                            owl:Restriction ;
                            owl:maxQualifiedCardinality  "1"^^xsd:long ;
-                           owl:onClass                  z-sgov-pojem:časový-prvek ;
+                           owl:onClass                  z-sgov-pojem:časová-specifikace ;
                            owl:onProperty               z-sgov-pojem:má-časové-určení
                          ] ;
         rdfs:subClassOf  [ a                            owl:Restriction ;
                            owl:minQualifiedCardinality  "1"^^xsd:long ;
-                           owl:onClass                  z-sgov-pojem:časový-prvek ;
+                           owl:onClass                  z-sgov-pojem:časová-specifikace ;
                            owl:onProperty               z-sgov-pojem:má-časové-určení
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  z-sgov-pojem:časový-prvek ;
+                           owl:allValuesFrom  z-sgov-pojem:časová-specifikace ;
                            owl:onProperty     z-sgov-pojem:má-časové-určení
                          ] .
 
 z-sgov-pojem:má-časové-určení
         a            owl:ObjectProperty ;
         rdfs:domain  z-sgov-pojem:neměnný-prvek ;
-        rdfs:range   z-sgov-pojem:časový-prvek .
+        rdfs:range   z-sgov-pojem:časová-specifikace .
 
 z-sgov-pojem:okamžitý-stav-proměnného-prvku
         a                owl:Class ;
-        rdfs:subClassOf  z-sgov-pojem:neměnný-prvek ;
-        rdfs:subClassOf  [ a                            owl:Restriction ;
-                           owl:maxQualifiedCardinality  "1"^^xsd:long ;
-                           owl:onClass                  z-sgov-pojem:proměnný-prvek ;
-                           owl:onProperty               z-sgov-pojem:je-stavem
-                         ] ;
-        rdfs:subClassOf  [ a                            owl:Restriction ;
-                           owl:minQualifiedCardinality  "1"^^xsd:long ;
-                           owl:onClass                  z-sgov-pojem:proměnný-prvek ;
-                           owl:onProperty               z-sgov-pojem:je-stavem
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  z-sgov-pojem:proměnný-prvek ;
-                           owl:onProperty     z-sgov-pojem:je-stavem
-                         ] .
+        rdfs:subClassOf  z-sgov-pojem:proměnný-prvek .
 
 z-sgov-pojem:typ-modální-vlastnosti
         a                owl:Class ;
@@ -191,9 +177,17 @@ z-sgov-pojem:kategorie
         a                owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:nesortál .
 
+z-sgov-pojem:typ-množství
+        a                owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:sortál .
+
 z-sgov-pojem:typ-proměnného-prvku
         a                owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:typ .
+
+z-sgov-pojem:množství
+        a                owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:pasivní-objekt .
 
 z-sgov-pojem:typ-události
         a                owl:Class ;
@@ -208,7 +202,7 @@ z-sgov-pojem:poddruh  a  owl:Class ;
 
 z-sgov:model  a         <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-05-19" ;
+                "2020-05-21" ;
         <http://purl.org/dc/terms/description>
                 "Základní slovník popisuje základní vztahy."@cs ;
         <http://purl.org/dc/terms/rights>
@@ -228,11 +222,6 @@ z-sgov-pojem:mixin-fází
         a                owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:nesortál .
 
-z-sgov-pojem:je-stavem
-        a            owl:ObjectProperty ;
-        rdfs:domain  z-sgov-pojem:okamžitý-stav-proměnného-prvku ;
-        rdfs:range   z-sgov-pojem:proměnný-prvek .
-
 z-sgov-pojem:typ-vlastnosti
         a                owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:typ-proměnného-prvku .
@@ -250,10 +239,6 @@ z-sgov-pojem:je-vykonána
         a            owl:ObjectProperty ;
         rdfs:domain  z-sgov-pojem:akce ;
         rdfs:range   z-sgov-pojem:agent .
-
-z-sgov-pojem:časový-prvek
-        a                owl:Class ;
-        rdfs:subClassOf  z-sgov-pojem:prvek .
 
 z-sgov-pojem:vznik-proměnného-prvku
         a                owl:Class ;
@@ -281,6 +266,10 @@ z-sgov-pojem:má-vztažený-prvek
         a            owl:ObjectProperty ;
         rdfs:domain  z-sgov-pojem:vztah ;
         rdfs:range   z-sgov-pojem:proměnný-prvek .
+
+z-sgov-pojem:časová-specifikace
+        a                owl:Class ;
+        rdfs:subClassOf  z-sgov-pojem:pasivní-objekt .
 
 z-sgov-pojem:objekt  a   owl:Class ;
         rdfs:subClassOf  z-sgov-pojem:proměnný-prvek .
@@ -311,11 +300,11 @@ z-sgov-pojem:událost  a  owl:Class ;
                          ] ;
         rdfs:subClassOf  [ a                            owl:Restriction ;
                            owl:minQualifiedCardinality  "1"^^xsd:long ;
-                           owl:onClass                  z-sgov-pojem:proměnný-prvek ;
+                           owl:onClass                  z-sgov-pojem:okamžitý-stav-proměnného-prvku ;
                            owl:onProperty               z-sgov-pojem:má-účastníka
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  z-sgov-pojem:proměnný-prvek ;
+                           owl:allValuesFrom  z-sgov-pojem:okamžitý-stav-proměnného-prvku ;
                            owl:onProperty     z-sgov-pojem:má-účastníka
                          ] .
 
