@@ -11,9 +11,18 @@ l-sgov-sbírka-361-2000-pojem:osvědčuje
         rdfs:range          l-sgov-sbírka-361-2000-pojem:řidičské-oprávnění ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
+l-sgov-sbírka-361-2000-pojem:dopustil-se-přestupku
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> ;
+        rdfs:range          l-sgov-sbírka-361-2000-pojem:přestupek ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
 l-sgov-sbírka-361-2000-pojem:řidičský-průkaz
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/dokument> , l-sgov-sbírka-361-2000-pojem:účastník-provozu-na-pozemních-komunikacích .
+
+<https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technicky-nezpůsobilé-silniční-vozidlo>
+        a       owl:Class .
 
 l-sgov-sbírka-361-2000-pojem:datum-platnosti-řidičského-průkazu
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
@@ -30,6 +39,12 @@ l-sgov-sbírka-361-2000-pojem:jméno-držitele-na-řidičském-průkazu
         rdfs:domain         l-sgov-sbírka-361-2000-pojem:řidičský-průkaz ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+l-sgov-sbírka-361-2000-pojem:řídí-technicky-nezpůsobilé-vozidlo
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-sbírka-361-2000-pojem:řidič-technicky-nezpůsobilého-vozidla ;
+        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technicky-nezpůsobilé-silniční-vozidlo> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 l-sgov-sbírka-361-2000-pojem:skupina-vozidel
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -62,9 +77,19 @@ l-sgov-sbírka-361-2000:model
         owl:imports     l-sgov-sbírka-361-2000:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/361/2000/model/verze/0.0.1> .
 
+l-sgov-sbírka-361-2000-pojem:dopustil-se-přestupku-řízení-technicky-nezpůsobilého-vozidla
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-sbírka-361-2000-pojem:řidič-technicky-nezpůsobilého-vozidla ;
+        rdfs:range          l-sgov-sbírka-361-2000-pojem:řízení-technicky-nezpůsobilého-vozidla ;
+        rdfs:subPropertyOf  l-sgov-sbírka-361-2000-pojem:dopustil-se-přestupku .
+
 l-sgov-sbírka-361-2000-pojem:řidič-evidovaný-v-registru-řidičů
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  l-sgov-sbírka-361-2000-pojem:držitel-řidičského-oprávnění , l-sgov-sbírka-361-2000-pojem:řidič .
+
+l-sgov-sbírka-361-2000-pojem:přestupek
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/motorové-vozidlo> .
 
 <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba>
         a       owl:Class .
@@ -78,6 +103,16 @@ l-sgov-sbírka-361-2000-pojem:řidičský-průkaz-vydaný-cizím-státem
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/fyzická-osoba>
         a       owl:Class .
+
+l-sgov-sbírka-361-2000-pojem:řidič-technicky-nezpůsobilého-vozidla
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  l-sgov-sbírka-361-2000-pojem:řidič .
+
+l-sgov-sbírka-361-2000-pojem:řídí-vozidlo
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         l-sgov-sbírka-361-2000-pojem:řidič ;
+        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 l-sgov-sbírka-361-2000-pojem:mezinárodní-řidičský-průkaz
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -104,9 +139,16 @@ l-sgov-sbírka-361-2000-pojem:řidičský-průkaz-české-republiky
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  l-sgov-sbírka-361-2000-pojem:řidičský-průkaz .
 
+l-sgov-sbírka-361-2000-pojem:řízení-technicky-nezpůsobilého-vozidla
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  l-sgov-sbírka-361-2000-pojem:přestupek .
+
 l-sgov-sbírka-361-2000-pojem:mezinárodní-řidičský-průkaz-vydaný-českou-republikou
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  l-sgov-sbírka-361-2000-pojem:mezinárodní-řidičský-průkaz .
+
+<https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/motorové-vozidlo>
+        a       owl:Class .
 
 l-sgov-sbírka-361-2000-pojem:řidič
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -121,6 +163,9 @@ l-sgov-sbírka-361-2000-pojem:má-držitele
         rdfs:domain         l-sgov-sbírka-361-2000-pojem:řidičské-oprávnění ;
         rdfs:range          l-sgov-sbírka-361-2000-pojem:držitel-řidičského-oprávnění ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
+
+<https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>
+        a       owl:Class .
 
 l-sgov-sbírka-361-2000-pojem:uděleno-pro-skupinu-vozidel
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
