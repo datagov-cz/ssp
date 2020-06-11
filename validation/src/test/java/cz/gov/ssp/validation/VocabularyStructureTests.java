@@ -109,16 +109,21 @@ public class VocabularyStructureTests {
         Assertions.assertTrue(slovnik.get() && glosar.get() && model.get());
     }
 
-    @ParameterizedTest(name = "Vocabulary root folder {0}") @MethodSource("getGenericSGoVFolders")
-    public void checkGenericSGoVDirectory(String directory) throws IOException {
-        final Path path = Paths.get(directory);
+    @ParameterizedTest(name = "Vocabulary root directory {0}")
+    @MethodSource("getGenericSGoVFolders")
+    public void checkGenericSGoVDirectory(String vocabularyParent) throws IOException {
+        final Path path = Paths.get(vocabularyParent);
+        final String vocabularyType = getVocabularyName(vocabularyParent);
         Files
             .list(path)
-            .filter(f ->
-                !Files.isDirectory(f) || !f.getFileName().startsWith(path.getFileName())
-            )
-            .forEach(f ->
-                log.warn("Unsupported file {}", f.getFileName().toString())
-            );
+            .forEach(f -> {
+                if (Files.isDirectory(f) && !f.getFileName().toString()
+                    .startsWith(vocabularyType)) {
+                    log.warn("Wrong directory name {}", f.getFileName().toString());
+                } else if (Files.isRegularFile(f)) {
+                    log.warn("Unexpected file present in a vocabulary root directory {}",
+                        f.getFileName().toString());
+                }
+            });
     }
 }
