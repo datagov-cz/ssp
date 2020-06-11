@@ -1,5 +1,8 @@
 package cz.gov.ssp.validation;
 
+import static cz.github.sgov.server.Validator.getVocabularyRules;
+
+
 import cz.github.sgov.server.Validator;
 import java.io.File;
 import java.io.IOException;
@@ -7,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 import org.apache.jena.ontology.OntDocumentManager;
@@ -15,7 +19,6 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.util.FileUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
@@ -29,14 +32,14 @@ public class SGoVTests {
 
     private static final Logger log = LoggerFactory.getLogger(SGoVTests.class);
 
-    private static Stream<String> getGlossaries() throws IOException {
-        return Files.walk(Paths.get("../")).filter(Files::isRegularFile).map(Path::toFile)
-            .filter(f -> f.getName().endsWith("-glosář.ttl")).map(File::getAbsolutePath);
-    }
-
     @BeforeEach
     public void init() {
         SHACLPreferences.setProduceFailuresMode(true);
+    }
+
+    private static Stream<String> getGlossaries() throws IOException {
+        return Files.walk(Paths.get("../")).filter(Files::isRegularFile).map(Path::toFile)
+            .filter(f -> f.getName().contains("glosář")).map(File::getAbsolutePath);
     }
 
     @ParameterizedTest(name = "Testing glossary {0}") @MethodSource("getGlossaries")
@@ -60,12 +63,21 @@ public class SGoVTests {
             res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
     }
 
-    private void testFolder(String folder, Set<String> rules) throws IOException {
+    private static Set<String> getVocabularies() {
+        final Set<String> vocabularies = new HashSet<>();
+        vocabularies.add(Layout.ZSGOV);
+        vocabularies.add(Layout.VSGOV);
+        return vocabularies;
+    }
+
+    @ParameterizedTest(name = "Testing vocabulary content {0}") @MethodSource("getVocabularies")
+    public void testVocabularyContent(String vocabularyFolder) throws IOException {
+        final Set<String> rules = getVocabularyRules();
         String root = "../";
         Stream<String> files =
             Files.walk(Paths.get(root)).filter(Files::isRegularFile).map(Path::toFile)
-                 .filter(f -> f.getPath().startsWith(root + folder))
-                 .filter(f -> f.getName().endsWith(".ttl")).map(File::getAbsolutePath);
+                .filter(f -> f.getPath().startsWith(root + vocabularyFolder))
+                .filter(f -> f.getName().endsWith(".ttl")).map(File::getAbsolutePath);
 
         final Validator validator = new Validator();
 
@@ -87,13 +99,5 @@ public class SGoVTests {
 
         Assertions.assertTrue(r.results().stream().allMatch(
             res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
-    }
-
-    @Test public void testZSGoV() throws IOException {
-        testFolder("z-sgov", Validator.getVocabularyRules());
-    }
-
-    @Test public void testVSGoV() throws IOException {
-        testFolder("v-sgov", Validator.getVocabularyRules());
     }
 }
