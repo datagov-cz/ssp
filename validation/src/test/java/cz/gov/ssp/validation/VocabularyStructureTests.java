@@ -20,13 +20,6 @@ public class VocabularyStructureTests {
 
     private static final Logger log = LoggerFactory.getLogger(VocabularyStructureTests.class);
 
-    private static final String ZSGOV = "z-sgov";
-    private static final String VSGOV = "v-sgov";
-    private static final String GSGOV = "g-sgov";
-    private static final String LSGOV = "l-sgov";
-    private static final String ASGOV = "a-sgov";
-    private static final String DSGOV = "d-sgov";
-
     private static Set<String> getSubdirectories(String directory) throws IOException {
         final Path path = Paths.get(directory);
         Set<String> files = Files
@@ -43,21 +36,21 @@ public class VocabularyStructureTests {
 
     private static Set<String> getVocabularyFolders() throws IOException {
         final Set<String> vocabularyFolders = new HashSet<>();
-        vocabularyFolders.add(getRelativeDir(ZSGOV));
-        vocabularyFolders.add(getRelativeDir(VSGOV));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(GSGOV)));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(LSGOV)));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(ASGOV)));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(DSGOV)));
+        vocabularyFolders.add(getRelativeDir(Layout.ZSGOV));
+        vocabularyFolders.add(getRelativeDir(Layout.VSGOV));
+        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.GSGOV)));
+        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.LSGOV)));
+        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.ASGOV)));
+        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.DSGOV)));
         return vocabularyFolders;
     }
 
     private static Set<String> getGenericSGoVFolders() {
         final Set<String> set = new HashSet<>();
-        set.add(getRelativeDir(GSGOV));
-        set.add(getRelativeDir(LSGOV));
-        set.add(getRelativeDir(ASGOV));
-        set.add(getRelativeDir(DSGOV));
+        set.add(getRelativeDir(Layout.GSGOV));
+        set.add(getRelativeDir(Layout.LSGOV));
+        set.add(getRelativeDir(Layout.ASGOV));
+        set.add(getRelativeDir(Layout.DSGOV));
         return set;
     }
 
