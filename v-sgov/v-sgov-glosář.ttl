@@ -4,6 +4,16 @@
 @prefix v-sgov: <https://slovník.gov.cz/veřejný-sektor/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix v-sgov-pojem: <https://slovník.gov.cz/veřejný-sektor/pojem/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#>
+
+v-sgov-pojem:má-lokalizaci-popisem
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:má-lokalizaci , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "má lokalizaci popisem"@cs .
 
 v-sgov-pojem:výkon-svrchované-moci
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -57,6 +67,15 @@ v-sgov-pojem:způsobilost-k-právům-a-povinnostem
                 v-sgov:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Capacity to Rights and Duties"@en , "Způsobilost k právům a povinnostem"@cs .
+
+v-sgov-pojem:lokalizace-prostorového-objektu
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Lokalizace prostorového objektu"@cs .
 
 v-sgov-pojem:organizace
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -161,6 +180,15 @@ v-sgov-pojem:legislativní-znalostní-struktura
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Legislative Knowledge Structure"@en , "Legislativní znalostní struktura"@cs .
 
+v-sgov-pojem:má-lokalizaci-názvem
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:má-lokalizaci-popisem , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "má lokalizaci názvem"@cs .
+
 v-sgov-pojem:rok  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#broader>
                 <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
@@ -246,6 +274,15 @@ v-sgov-pojem:stát  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "State"@en , "Stát"@cs .
 
+v-sgov-pojem:geografický-název
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:lokalizace-popisem , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Geografický název"@cs .
+
 v-sgov-pojem:právní-předpis
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#broader>
@@ -256,6 +293,15 @@ v-sgov-pojem:právní-předpis
                 v-sgov:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Legal Norm"@en , "Právní předpis"@cs .
+
+v-sgov-pojem:týden-v-měsíci
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Týden v měsíci"@cs .
 
 v-sgov-pojem:právní-předpis-ze-sbírky-zákonů
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -279,14 +325,23 @@ v-sgov-pojem:má-zdrojový-předpis
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "has source norm"@en , "má zdrojový předpis"@cs .
 
-v-sgov-pojem:týden-v-měsíci
+v-sgov-pojem:má-platnost
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         <http://www.w3.org/2004/02/skos/core#inScheme>
                 v-sgov:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Týden v měsíci"@cs .
+                "má platnost"@cs .
+
+v-sgov-pojem:má-definiční-lokalizaci
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:má-lokalizaci , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "má definiční lokalizaci"@cs .
 
 v-sgov-pojem:způsobilost-k-právnímu-jednání
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -309,6 +364,15 @@ v-sgov-pojem:právnická-osoba
                 v-sgov:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Právnická osoba"@cs , "Legal Entity"@en .
+
+v-sgov-pojem:má-lokalizaci
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "má lokalizaci"@cs .
 
 v-sgov-pojem:typ-znalostní-struktury-dle-úrovně
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -435,6 +499,15 @@ v-sgov-pojem:hodina  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Hodina"@cs .
 
+v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:prostorový-objekt , v-sgov-pojem:lokalizace-prostorového-objektu , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Lokalizace vyjádřená prostorovým objektem"@cs .
+
 v-sgov-pojem:znalostní-struktura
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#broader>
@@ -446,6 +519,15 @@ v-sgov-pojem:znalostní-struktura
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Knowledge Structure"@en , "Znalostní struktura"@cs .
 
+v-sgov-pojem:má-geometrii
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:má-lokalizaci , <https://slovník.gov.cz/základní/pojem/typ-vztahu> , geosparql:hasGeometry ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "má geometrii"@cs .
+
 v-sgov-pojem:člověk  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#broader>
                 <https://slovník.gov.cz/základní/pojem/agent> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> ;
@@ -455,6 +537,15 @@ v-sgov-pojem:člověk  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
                 v-sgov:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Human"@en , "Člověk"@cs .
+
+v-sgov-pojem:prostorový-objekt
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , geosparql:Feature ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Prostorový objekt"@cs .
 
 v-sgov-pojem:paragraf
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -499,6 +590,15 @@ v-sgov-pojem:právo  a  <http://www.w3.org/2004/02/skos/core#Concept> ;
                 v-sgov:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Right"@en , "Právo"@cs .
+
+v-sgov-pojem:má-vztah-k-prostorovému-objektu
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:má-lokalizaci , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "má vztah k prostorovému objektu"@cs .
 
 v-sgov-pojem:fyzická-osoba
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -586,6 +686,15 @@ v-sgov-pojem:sekundární-objekt-práva
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Secondary Legal Subject"@en , "Sekundární subjekt práva"@cs .
 
+v-sgov-pojem:geometrie
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:lokalizace-prostorového-objektu , <https://slovník.gov.cz/základní/pojem/typ-objektu> , geosparql:Geometry ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Geometrie"@cs .
+
 v-sgov-pojem:časový-okamžik
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#broader>
@@ -625,6 +734,15 @@ v-sgov-pojem:datová-sada
                 v-sgov:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
                 "Dataset"@en , "Datová sada"@cs .
+
+v-sgov-pojem:lokalizace-popisem
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                v-sgov-pojem:lokalizace-prostorového-objektu , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                v-sgov:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Lokalizace popisem"@cs .
 
 v-sgov-pojem:časový-interval
         a       <http://www.w3.org/2004/02/skos/core#Concept> ;
@@ -735,7 +853,7 @@ v-sgov-pojem:protiprávní-jednání
 
 v-sgov:glosář  a        owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/glosář> , <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
         <http://purl.org/dc/terms/created>
-                "2020-05-21" ;
+                "2020-06-15" ;
         <http://purl.org/dc/terms/rights>
                 <https://creativecommons.org/licenses/by-sa/4.0> ;
         <http://purl.org/dc/terms/title>
