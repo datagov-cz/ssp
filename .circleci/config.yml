@@ -42,11 +42,7 @@ jobs:
           command: |
             mkdir -p ~/test-results/junit/
             find . -type f -regex ".*/build/test-results/.*" -exec cp {} ~/test-results/junit/ \;
-            find . -type f -regex "validation/sgov.trig" -exec cp {} ~/ \;
-            ls -la .
-            ls -la ./validation
-            ls -la ~
-            ls -la ~/validation
+            find . -type f -regex "validation/sgov.trig" -exec cp {} ~/sgov.trig \;
           when: always
       - store_test_results:
           path: ~/test-results
@@ -54,6 +50,8 @@ jobs:
           path: ~/test-results/junit
       - store_artifacts:
           path: ~/sgov.trig
+          command: |
+            ls -la ~
 
 workflows:
   version: 2
