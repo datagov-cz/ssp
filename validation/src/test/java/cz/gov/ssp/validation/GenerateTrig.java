@@ -16,7 +16,6 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.vocabulary.RDF;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,6 +65,6 @@ public class GenerateTrig {
                 fail();
             }
         });
-        RDFDataMgr.write(new FileOutputStream("sgov.trig"), dataset, RDFFormat.TRIG) ;
+        RDFDataMgr.write(new FileOutputStream("../sgov.trig"), dataset, RDFFormat.TRIG) ;
     }
 }
