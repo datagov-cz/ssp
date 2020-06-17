@@ -14,10 +14,13 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFList;
 import org.apache.jena.rdf.model.ResIterator;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.vocabulary.OWL2;
 import org.apache.jena.vocabulary.RDF;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -74,7 +77,10 @@ public class GenerateTrig {
             }
         });
         RDFDataMgr.write(new FileOutputStream("../sgov.trig"), dataset, RDFFormat.TRIG) ;
-        PrintWriter out = new PrintWriter("../sgov-named-graphs.txt");
-        out.println(namedGraphs.stream().collect(Collectors.joining(",")));
+
+        Model model = ModelFactory.createDefaultModel();
+        RDFList list = model.createList(namedGraphs.stream().map( g -> ResourceFactory.createResource(g)).iterator());
+        model.add(ResourceFactory.createResource(),ResourceFactory.createProperty(OWL2.topObjectProperty.getURI()),list);
+        RDFDataMgr.write(new FileOutputStream("../sgov-named-graphs.ttl"), model, RDFFormat.TURTLE) ;
     }
 }
