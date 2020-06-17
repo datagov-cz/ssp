@@ -67,14 +67,10 @@ jobs:
           command: |
             gradle test
       - run:
-          name: Debug
-          command: |
-            echo $USERNAME
-      - run:
           name: Trigger ETL
           command: |
-            curl --location --request POST 'https://slovník.gov.cz/etl/resources/executions?pipeline=https://slovník.gov.cz/etl/resources/pipelines/1592398255883' \
-            -u $USERNAME:$PASSWORD \
+            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592398255883' \
+            -u ${USERNAME}:${PASSWORD} \
             --form 'input=@./sgov.trig'
 
 workflows:
