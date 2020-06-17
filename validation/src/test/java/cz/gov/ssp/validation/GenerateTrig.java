@@ -2,11 +2,14 @@ package cz.gov.ssp.validation;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
@@ -33,7 +36,10 @@ public class GenerateTrig {
         return model;
     }
 
-    private void addTypeToModel(final Dataset dataset, final String vocabularyFolder, final VocabularyArtifact type) throws IOException{
+    private void addTypeToModel(final Dataset dataset,
+                                final String vocabularyFolder,
+                                final VocabularyArtifact type,
+                                final Set<String> namedGraphs) throws IOException{
         Model model = createModel(vocabularyFolder, type);
         ResIterator st = model.listSubjectsWithProperty(RDF.type, type.getResource());
         if (!st.hasNext()) {
@@ -44,6 +50,7 @@ public class GenerateTrig {
                 log.error("Multiple resources of type {} found in {}", type,vocabularyFolder);
             } else {
                 if (r != null) {
+                    namedGraphs.add(r.getURI());
                     dataset.addNamedModel(r.getURI(), model);
                 }
             }
@@ -53,18 +60,21 @@ public class GenerateTrig {
     @Test
     public void generateTrig() throws IOException {
         final Dataset dataset = DatasetFactory.create();
+        final Set<String> namedGraphs = new HashSet<>();
         Layout.getVocabularyFolders().forEach(vocabularyFolder -> {
             try {
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.glossary);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.model);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.vocabulary);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.diagram);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.mapping);
+                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.glossary, namedGraphs);
+                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.model, namedGraphs);
+                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.vocabulary, namedGraphs);
+                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.diagram, namedGraphs);
+                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.mapping, namedGraphs);
             } catch(Exception e) {
                 log.error("Error during processing of " + vocabularyFolder,e);
                 fail();
             }
         });
         RDFDataMgr.write(new FileOutputStream("../sgov.trig"), dataset, RDFFormat.TRIG) ;
+        PrintWriter out = new PrintWriter("../sgov-named-graphs.txt");
+        out.println(namedGraphs.stream().collect(Collectors.joining(",")));
     }
 }

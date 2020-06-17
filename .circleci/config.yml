@@ -43,6 +43,7 @@ jobs:
             mkdir -p ~/test-results/junit/
             find . -type f -regex ".*/build/test-results/.*" -exec cp {} ~/test-results/junit/ \;
             find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
+            find . -type f -regex ".*/sgov-named-graphs.txt" -exec cp {} ~/sgov-named-graphs.txt \;
           when: always
       - store_test_results:
           path: ~/test-results
@@ -50,6 +51,8 @@ jobs:
           path: ~/test-results/junit
       - store_artifacts:
           path: ~/sgov.trig
+      - store_artifacts:
+          path: ~/sgov-named-graphs.txt
   deploy-to-etl:
     docker:
       # specify the version you desire here
@@ -66,6 +69,12 @@ jobs:
           name: Generate TRIG
           command: |
             gradle test
+      - run:
+          name: Clear named graphs
+          command: |
+            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592398255883' \
+            -u ${USERNAME}:${PASSWORD} \
+            --form 'input=@./sgov-named-graphs.txt'
       - run:
           name: Trigger ETL
           command: |
