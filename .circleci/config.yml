@@ -88,13 +88,7 @@ workflows:
       - sgov-validate
   build-and-deploy:
     jobs:
-      - create-release:
-          filters:
-            branches:
-              only: master
       - deploy-to-etl:
-          requires:
-              - create-release
           filters:
             branches:
               only: master
