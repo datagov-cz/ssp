@@ -74,11 +74,16 @@ jobs:
       - store_artifacts:
           path: ~/sgov.trig
       - run:
+          name: Debug
+          command: |
+            ls ~
+            ls .
+      - run:
           name: Trigger ETL
           command: |
             curl --location --request POST 'https://slovník.gov.cz/etl/resources/executions?pipeline=https://slovník.gov.cz/etl/resources/pipelines/1592398255883' \
             -u $USERNAME:$PASSWORD \
-            --form 'input=@~/sgov.trig'
+            --form 'input=@/home/circleci/sgov.trig'
 
 workflows:
   version: 2
