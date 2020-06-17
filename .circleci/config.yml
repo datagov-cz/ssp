@@ -67,23 +67,15 @@ jobs:
           command: |
             gradle test
       - run:
-          name: Save results
-          command: |
-            find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
-          when: always
-      - store_artifacts:
-          path: ~/sgov.trig
-      - run:
           name: Debug
           command: |
-            ls ~
-            ls .
+            echo $USERNAME
       - run:
           name: Trigger ETL
           command: |
             curl --location --request POST 'https://slovník.gov.cz/etl/resources/executions?pipeline=https://slovník.gov.cz/etl/resources/pipelines/1592398255883' \
             -u $USERNAME:$PASSWORD \
-            --form 'input=@/home/circleci/sgov.trig'
+            --form 'input=@./sgov.trig'
 
 workflows:
   version: 2
