@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
@@ -84,7 +85,7 @@ public class GenerateTrig {
         Resource task = ResourceFactory.createResource(gsp + "Task");
         Property graph = ResourceFactory.createProperty(gsp + "graph");
         namedGraphs.stream().forEach(g -> {
-            final Resource r = ResourceFactory.createResource();
+            final Resource r = ResourceFactory.createResource("http://localhost/"+UUID.randomUUID());
             model.add(r, RDF.type, task);
             model.add(r, graph, ResourceFactory.createResource(g));
         });
