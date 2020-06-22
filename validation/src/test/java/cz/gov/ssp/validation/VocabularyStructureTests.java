@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -19,40 +17,6 @@ import org.slf4j.LoggerFactory;
 public class VocabularyStructureTests {
 
     private static final Logger log = LoggerFactory.getLogger(VocabularyStructureTests.class);
-
-    private static Set<String> getSubdirectories(String directory) throws IOException {
-        final Path path = Paths.get(directory);
-        Set<String> files = Files
-            .list(path)
-            .filter(Files::isDirectory)
-            .map(f -> f.toString())
-            .collect(Collectors.toSet());
-        return files;
-    }
-
-    private static String getRelativeDir(final String sspRootDir) {
-        return "../" + sspRootDir;
-    }
-
-    private static Set<String> getVocabularyFolders() throws IOException {
-        final Set<String> vocabularyFolders = new HashSet<>();
-        vocabularyFolders.add(getRelativeDir(Layout.ZSGOV));
-        vocabularyFolders.add(getRelativeDir(Layout.VSGOV));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.GSGOV)));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.LSGOV)));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.ASGOV)));
-        vocabularyFolders.addAll(getSubdirectories(getRelativeDir(Layout.DSGOV)));
-        return vocabularyFolders;
-    }
-
-    private static Set<String> getGenericSGoVFolders() {
-        final Set<String> set = new HashSet<>();
-        set.add(getRelativeDir(Layout.GSGOV));
-        set.add(getRelativeDir(Layout.LSGOV));
-        set.add(getRelativeDir(Layout.ASGOV));
-        set.add(getRelativeDir(Layout.DSGOV));
-        return set;
-    }
 
     private String getVocabularyName(final String vocabularyFolder) {
         String vocabularyPrefix;
@@ -65,7 +29,12 @@ public class VocabularyStructureTests {
         return vocabularyPrefix;
     }
 
-    @ParameterizedTest(name = "Vocabulary folder {0}") @MethodSource("getVocabularyFolders")
+    private static Set<String> getVocabularyFolders() throws IOException {
+        return Layout.getVocabularyFolders();
+    }
+
+    @ParameterizedTest(name = "Vocabulary folder {0}")
+    @MethodSource("getVocabularyFolders")
     public void testVocabulary(String vocabularyFolder) throws IOException {
         String vocabularyPrefix = getVocabularyName(vocabularyFolder);
 
@@ -100,6 +69,10 @@ public class VocabularyStructureTests {
         );
 
         Assertions.assertTrue(slovnik.get() && glosar.get() && model.get());
+    }
+
+    private static Set<String> getGenericSGoVFolders() {
+        return Layout.getGenericSGoVFolders();
     }
 
     @ParameterizedTest(name = "Vocabulary root directory {0}")
