@@ -4,8 +4,6 @@
 @prefix v-sgov: <https://slovník.gov.cz/veřejný-sektor/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix v-sgov-pojem: <https://slovník.gov.cz/veřejný-sektor/pojem/> .
-@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
-
 
 v-sgov-pojem:má-lokalizaci-popisem
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -186,6 +184,9 @@ v-sgov-pojem:má-definiční-lokalizaci
         a                   <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:subPropertyOf  v-sgov-pojem:má-lokalizaci .
 
+<http://www.opengis.net/ont/geosparql#pojem/geometry>
+        a       owl:Class .
+
 v-sgov-pojem:způsobilost-k-právnímu-jednání
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         v-sgov-pojem:subjekt-práva ;
@@ -277,16 +278,15 @@ v-sgov-pojem:znalostní-struktura
 
 v-sgov-pojem:má-geometrii
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subPropertyOf  geosparql:hasGeometry ;
         rdfs:range          v-sgov-pojem:geometrie ;
-        rdfs:subPropertyOf  v-sgov-pojem:má-lokalizaci .
+        rdfs:subPropertyOf  <http://www.opengis.net/ont/geosparql#pojem/hasgeometry> , v-sgov-pojem:má-lokalizaci .
 
 v-sgov-pojem:člověk  a   <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/agent> .
 
 v-sgov-pojem:prostorový-objekt
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> , geosparql:Feature .
+        rdfs:subClassOf  <http://www.opengis.net/ont/geosparql#pojem/feature> .
 
 v-sgov-pojem:paragraf
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
@@ -346,13 +346,16 @@ v-sgov-pojem:povinnost
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
+<http://www.opengis.net/ont/geosparql#pojem/feature>
+        a       owl:Class .
+
 v-sgov-pojem:sekundární-objekt-práva
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
         rdfs:subClassOf  v-sgov-pojem:objekt-práva .
 
 v-sgov:model  a         owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
         <http://purl.org/dc/terms/created>
-                "2020-06-15" ;
+                "2020-06-24" ;
         <http://purl.org/dc/terms/rights>
                 <https://creativecommons.org/licenses/by-sa/4.0> ;
         <http://purl.org/dc/terms/title>
@@ -368,7 +371,7 @@ v-sgov:model  a         owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovn
 
 v-sgov-pojem:geometrie
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:lokalizace-prostorového-objektu , geosparql:Geometry .
+        rdfs:subClassOf  <http://www.opengis.net/ont/geosparql#pojem/geometry> , v-sgov-pojem:lokalizace-prostorového-objektu .
 
 v-sgov-pojem:časový-okamžik
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
