@@ -5,19 +5,23 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix g-sgov-umístění: <https://slovník.gov.cz/generický/umístění/> .
 
-g-sgov-umístění-pojem:umístění
-        a                <http://www.w3.org/2004/02/skos/core#Concept> ;
-        rdfs:subClassOf  <http://purl.org/dc/terms/Location> ;
+g-sgov-umístění-pojem:budova
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
         <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek> , <https://slovník.gov.cz/generický/věci/pojem/věc> ;
-        <http://www.w3.org/2004/02/skos/core#hiddenLabel>
-                "Place"@en , "Místo"@cs ;
+                <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         <http://www.w3.org/2004/02/skos/core#inScheme>
                 g-sgov-umístění:glosář ;
         <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Location"@en , "Umístění"@cs ;
-        <http://www.w3.org/2004/02/skos/core#scopeNote>
-                "Umístění může být specifikováno jako adresa, globálně identifikovaný objekt a nebo jako geometrický útvar. Příkladem umístění může být louka, na které se koná festival, adresa sídla společnosti, či prodaná parcela na Měsíci."@cs .
+                "Budova"@cs .
+
+g-sgov-umístění-pojem:adresa
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                g-sgov-umístění-pojem:geografický-identifikátor , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                g-sgov-umístění:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Adresa"@cs .
 
 <http://www.w3.org/2004/02/skos/core#prefLabel>
         rdfs:subPropertyOf  rdfs:label .
@@ -34,4 +38,40 @@ g-sgov-umístění:glosář
                 "g-sgov-umístění-pojem" ;
         <http://purl.org/vocab/vann/preferredNamespaceUri>
                 "https://slovník.gov.cz/generický/umístění/pojem/" ;
-        owl:versionIRI  <https://slovník.gov.cz/generický/umístění/glosář/verze/0.0.1> .
+        owl:versionIRI  <https://slovník.gov.cz/generický/umístění/glosář/verze/0.0.1> ;
+        <http://www.w3.org/2004/02/skos/core#hasTopConcept>
+                g-sgov-umístění-pojem:budova , g-sgov-umístění-pojem:geografický-identifikátor , g-sgov-umístění-pojem:patro , g-sgov-umístění-pojem:místnost , g-sgov-umístění-pojem:zahraniční-adresa .
+
+g-sgov-umístění-pojem:patro
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                g-sgov-umístění:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Patro"@cs .
+
+g-sgov-umístění-pojem:místnost
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                g-sgov-umístění:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Místnost"@cs .
+
+g-sgov-umístění-pojem:zahraniční-adresa
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                g-sgov-umístění:glosář ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+                "Zahraniční adresa"@cs .
+
+g-sgov-umístění-pojem:geografický-identifikátor
+        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>
+                g-sgov-umístění:glosář .
