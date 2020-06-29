@@ -5,21 +5,18 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix g-sgov-vstupné-pojem: <https://slovník.gov.cz/generický/vstupné/pojem/> .
 
-g-sgov-vstupné-pojem:název
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         g-sgov-vstupné-pojem:vstupné ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+<https://slovník.gov.cz/základní/pojem/časová-specifikace>
+        a       owl:Class .
 
 g-sgov-vstupné-pojem:má-cenu
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         g-sgov-vstupné-pojem:vstupné ;
-        rdfs:range          <https://slovník.gov.cz/generický/cena/pojem/cena> ;
+        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-vstupné:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-06-04" ;
+                "2020-06-29" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník pro vstupné - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -31,12 +28,18 @@ g-sgov-vstupné:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový
         owl:imports     g-sgov-vstupné:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/generický/vstupné/model/verze/0.0.1> .
 
-<https://slovník.gov.cz/generický/cena/pojem/cena>
-        a       owl:Class .
-
 g-sgov-vstupné-pojem:vstupné
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+g-sgov-vstupné-pojem:platnost
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-vstupné-pojem:vstupné ;
+        rdfs:range          <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+<https://slovník.gov.cz/generický/částky/pojem/částka>
+        a       owl:Class .
 
 <https://slovník.gov.cz/generický/věci/pojem/věc>
         a       owl:Class .

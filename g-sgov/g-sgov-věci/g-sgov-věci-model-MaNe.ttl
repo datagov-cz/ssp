@@ -11,6 +11,27 @@ g-sgov-věci-pojem:název
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
+g-sgov-věci-pojem:má-přílohu
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-věci-pojem:věc ;
+        rdfs:range          <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+g-sgov-věci-pojem:vytvořeno
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-věci-pojem:věc ;
+        rdfs:range          <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+<https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
+        a       owl:Class .
+
+g-sgov-věci-pojem:relevantní-do
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-věci-pojem:věc ;
+        rdfs:range          <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
 <https://slovník.gov.cz/základní/pojem/prvek>
         a       owl:Class .
 
@@ -20,9 +41,12 @@ g-sgov-věci-pojem:popis
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
+<https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>
+        a       owl:Class .
+
 g-sgov-věci:model  a    owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
         <http://purl.org/dc/terms/created>
-                "2020-06-04" ;
+                "2020-06-29" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník věcí - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -33,6 +57,18 @@ g-sgov-věci:model  a    owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slov
                 "https://slovník.gov.cz/generický/věci/pojem/" ;
         owl:imports     g-sgov-věci:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/generický/věci/model/verze/0.0.1> .
+
+g-sgov-věci-pojem:aktualizováno
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-věci-pojem:věc ;
+        rdfs:range          <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+g-sgov-věci-pojem:zneplatněno
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-věci-pojem:věc ;
+        rdfs:range          <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-věci-pojem:věc
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
