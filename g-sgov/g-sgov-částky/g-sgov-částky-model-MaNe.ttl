@@ -5,9 +5,15 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix g-sgov-částky-pojem: <https://slovník.gov.cz/generický/částky/pojem/> .
 
+g-sgov-částky-pojem:jednotková-částka
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
 g-sgov-částky-pojem:výše
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         g-sgov-částky-pojem:částka ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( g-sgov-částky-pojem:jednotková-částka g-sgov-částky-pojem:částka )
+                            ] ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
@@ -30,7 +36,7 @@ g-sgov-částky:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový
 
 g-sgov-částky-pojem:má-jednotku
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-částky-pojem:částka ;
+        rdfs:domain         g-sgov-částky-pojem:jednotková-částka ;
         rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/jednotka> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
