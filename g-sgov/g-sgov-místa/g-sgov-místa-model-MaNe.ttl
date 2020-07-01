@@ -5,12 +5,17 @@
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>
-        a       owl:Class .
+g-sgov-místa-pojem:má-patro
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
+
+g-sgov-místa-pojem:má-budovu
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
 
 g-sgov-místa:model  a   owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
         <http://purl.org/dc/terms/created>
-                "2020-06-30" ;
+                "2020-07-01" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník míst - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -24,13 +29,26 @@ g-sgov-místa:model  a   owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slov
 
 g-sgov-místa-pojem:místo
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> , <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> .
 
-g-sgov-místa-pojem:má-umístění
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-místa-pojem:místo ;
-        rdfs:range          <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+g-sgov-místa-pojem:má-geografický-identifikátor
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt>
+        a       owl:Class .
+
+g-sgov-místa-pojem:má-adresu
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subPropertyOf  g-sgov-místa-pojem:má-geografický-identifikátor .
+
+g-sgov-místa-pojem:má-zahraniční-adresu
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
+
+g-sgov-místa-pojem:má-místnost
+        a                   <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
 
 <https://slovník.gov.cz/generický/věci/pojem/věc>
         a       owl:Class .
