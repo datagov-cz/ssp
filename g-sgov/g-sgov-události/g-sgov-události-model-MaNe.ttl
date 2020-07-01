@@ -28,7 +28,7 @@ g-sgov-události-pojem:má-kontakt
 
 g-sgov-události-pojem:partner-jako-fyzická-osoba
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> , g-sgov-události-pojem:partner .
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-události-pojem:partner .
 
 g-sgov-události-pojem:má-hlavního-sponzora
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -36,12 +36,14 @@ g-sgov-události-pojem:má-hlavního-sponzora
         rdfs:range          g-sgov-události-pojem:partner ;
         rdfs:subPropertyOf  g-sgov-události-pojem:má-sponzora .
 
+g-sgov-události-pojem:dlouhý-popis
+        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:domain         g-sgov-události-pojem:událost ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
 <https://slovník.gov.cz/generický/vstupné/pojem/vstupné>
         a       owl:Class .
-
-g-sgov-události-pojem:provozovatel-jako-fyzická-osoba
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> , g-sgov-události-pojem:pořadatel .
 
 g-sgov-události-pojem:registrace
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
@@ -68,16 +70,14 @@ g-sgov-události-pojem:má-zaštiťující-událost
 <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>
         a       owl:Class .
 
+g-sgov-události-pojem:pořadatel-jako-právnická-osoba
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-události-pojem:pořadatel .
+
 g-sgov-události-pojem:má-vstupné
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         g-sgov-události-pojem:událost ;
         rdfs:range          <https://slovník.gov.cz/generický/vstupné/pojem/vstupné> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
-g-sgov-události-pojem:má-téma
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-události-pojem:událost ;
-        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/téma-události> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-události-pojem:má-pořadatele
@@ -86,20 +86,19 @@ g-sgov-události-pojem:má-pořadatele
         rdfs:range          g-sgov-události-pojem:pořadatel ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
-<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba>
-        a       owl:Class .
+g-sgov-události-pojem:má-téma
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-události-pojem:událost ;
+        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/téma-události> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>
         a       owl:Class .
 
-g-sgov-události-pojem:provozovatel-jako-právnická-osoba
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba> , g-sgov-události-pojem:pořadatel .
-
 g-sgov-události:model
         a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
         <http://purl.org/dc/terms/created>
-                "2020-06-04" ;
+                "2020-06-30" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník událostí - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -115,24 +114,22 @@ g-sgov-události-pojem:událost
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
 
+<https://slovník.gov.cz/generický/lidé/pojem/člověk>
+        a       owl:Class .
+
 g-sgov-události-pojem:má-bezbariérový-přístup
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         g-sgov-události-pojem:událost ;
         rdfs:range          <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
-g-sgov-události-pojem:má-typ
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-události-pojem:událost ;
-        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/typ-události> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
-<https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba>
-        a       owl:Class .
+g-sgov-události-pojem:pořadatel-jako-fyzická-osoba
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-události-pojem:pořadatel .
 
 g-sgov-události-pojem:partner-jako-právnická-osoba
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba> , g-sgov-události-pojem:partner .
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-události-pojem:partner .
 
 g-sgov-události-pojem:pořadatel
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
@@ -144,7 +141,7 @@ g-sgov-události-pojem:pořadatel
 g-sgov-události-pojem:má-umístění
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         g-sgov-události-pojem:událost ;
-        rdfs:range          <https://slovník.gov.cz/generický/umístění/pojem/umístění> ;
+        rdfs:range          <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-události-pojem:vhodné-pro-děti
@@ -159,8 +156,14 @@ g-sgov-události-pojem:vhodné-pro-zvířata
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
-<https://slovník.gov.cz/generický/umístění/pojem/umístění>
+<https://slovník.gov.cz/generický/osoby/pojem/osoba>
         a       owl:Class .
+
+g-sgov-události-pojem:má-typ-události
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-události-pojem:událost ;
+        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/typ-události> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 <https://slovník.gov.cz/generický/číselníky/pojem/typ-události>
         a       owl:Class .
@@ -172,6 +175,9 @@ g-sgov-události-pojem:má-záštitu
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 <https://slovník.gov.cz/generický/čas/pojem/časový-interval>
+        a       owl:Class .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>
         a       owl:Class .
 
 g-sgov-události-pojem:má-dílčí-událost
