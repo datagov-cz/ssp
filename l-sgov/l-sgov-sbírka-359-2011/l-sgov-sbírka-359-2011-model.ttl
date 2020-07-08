@@ -1,115 +1,243 @@
+@prefix l-sgov-sbírka-359-2011-pojem: <https://slovník.gov.cz/legislativní/sbírka/359/2011/pojem/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix l-sgov-359-2011-pojem: <https://slovník.gov.cz/legislativní/sbírka/359/2011/pojem/> .
+@prefix l-sgov-sbírka-359-2011: <https://slovník.gov.cz/legislativní/sbírka/359/2011/> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix l-sgov-359-2011: <https://slovník.gov.cz/legislativní/sbírka/359/2011/> .
 
-l-sgov-359-2011-pojem:uvádí-název-části-obce
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:druhý-řádek-zápisu-adresy ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/část-obce> ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
 
-l-sgov-359-2011-pojem:mluvnický-tvar-názvu-ve-čtvrtém-pádu
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:uvádí-název-části-obce
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/část-obce>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/část-obce> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:druhý-řádek-zápisu-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:druhý-řádek-zápisu-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:hranice-polygonu-vojenského-újezdu
+l-sgov-sbírka-359-2011-pojem:mluvnický-tvar-názvu-ve-čtvrtém-pádu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
+l-sgov-sbírka-359-2011-pojem:hranice-polygonu-vojenského-újezdu
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/definiční-bod-územního-prvku>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:mluvnický-tvar-názvu-ve-třetím-pádu
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:mluvnický-tvar-názvu-ve-třetím-pádu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa>
         a       owl:Class .
 
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-obce>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:uvádí-poštovní-směrovací-číslo
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:třetí-řádek-zápisu-adresy ;
-        rdfs:range          l-sgov-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+l-sgov-sbírka-359-2011-pojem:uvádí-poštovní-směrovací-číslo
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:třetí-řádek-zápisu-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:třetí-řádek-zápisu-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/identifikační-údaje-stavebního-objektu>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
-        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
+        a                <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
-l-sgov-359-2011-pojem:část-stavebního-objektu
+l-sgov-sbírka-359-2011-pojem:část-stavebního-objektu
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-l-sgov-359-2011-pojem:má-hranici-polygonu-územního-prvku
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:polygon-územního-prvku ;
-        rdfs:range          l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:má-hranici-polygonu-územního-prvku
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:polygon-územního-prvku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:polygon-územního-prvku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:je-zjednodušeným-zobrazením-hranice-územního-prvku
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:generalizovaná-hranice-územního-prvku ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/hranice-územního-prvku> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:je-zjednodušeným-zobrazením-hranice-územního-prvku
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/hranice-územního-prvku>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/hranice-územního-prvku> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:generalizovaná-hranice-územního-prvku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:generalizovaná-hranice-územního-prvku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:uvádí-název-ulice
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:první-řádek-zápisu-adresy ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ulice-nebo-jiné-veřejné-prostranství> ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
 
-l-sgov-359-2011-pojem:druhý-řádek-zápisu-adresy
+l-sgov-sbírka-359-2011-pojem:uvádí-název-ulice
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ulice-nebo-jiné-veřejné-prostranství>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ulice-nebo-jiné-veřejné-prostranství> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:první-řádek-zápisu-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:první-řádek-zápisu-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+l-sgov-sbírka-359-2011-pojem:druhý-řádek-zápisu-adresy
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-vojenského-újezdu>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle
+l-sgov-sbírka-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zvláštní-údaje-pro-doručování-prostřednictvím-poštovních-služeb> .
 
-l-sgov-359-2011-pojem:zápis-adresy
+l-sgov-sbírka-359-2011-pojem:zápis-adresy
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-l-sgov-359-2011-pojem:uvádí-číslo-popisné-nebo-evidenční
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         [ a            owl:Class ;
-                              owl:unionOf  ( l-sgov-359-2011-pojem:třetí-řádek-adresy-v-nepojmenované-ulici l-sgov-359-2011-pojem:první-řádek-zápisu-adresy )
-                            ] ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/identifikační-údaje-stavebního-objektu> ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+l-sgov-sbírka-359-2011-pojem:uvádí-číslo-popisné-nebo-evidenční
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/identifikační-údaje-stavebního-objektu>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/identifikační-údaje-stavebního-objektu> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  [ a            owl:Class ;
+                                                 owl:unionOf  ( l-sgov-sbírka-359-2011-pojem:třetí-řádek-adresy-v-nepojmenované-ulici l-sgov-sbírka-359-2011-pojem:první-řádek-zápisu-adresy )
+                                               ]
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( l-sgov-sbírka-359-2011-pojem:třetí-řádek-adresy-v-nepojmenované-ulici l-sgov-sbírka-359-2011-pojem:první-řádek-zápisu-adresy )
+                                              ] ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:samostatný-vchod
+l-sgov-sbírka-359-2011-pojem:samostatný-vchod
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:část-stavebního-objektu .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:část-stavebního-objektu .
 
-l-sgov-359-2011-pojem:uvádí-název-obce
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:třetí-řádek-zápisu-adresy ;
-        rdfs:range          [ a            owl:Class ;
-                              owl:unionOf  ( <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-vojenského-újezdu> <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-obce> )
-                            ] ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+l-sgov-sbírka-359-2011-pojem:uvádí-název-obce
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  [ a            owl:Class ;
+                                                 owl:unionOf  ( <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-vojenského-újezdu> <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-obce> )
+                                               ]
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-vojenského-újezdu> <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/území-obce> )
+                                              ] ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:třetí-řádek-zápisu-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:třetí-řádek-zápisu-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011:model
+l-sgov-sbírka-359-2011:model
         a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
         <http://purl.org/dc/terms/created>
-                "2020-05-20" ;
+                "2020-06-29" ;
         <http://purl.org/dc/terms/creator>
                 "Michal Med" ;
         <http://purl.org/dc/terms/rights>
@@ -119,169 +247,325 @@ l-sgov-359-2011:model
         <http://purl.org/ontology/bibo/status>
                 "Specification"@en , "Specifikace"@cs ;
         <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "l-sgov-359-2011-pojem" ;
+                "l-sgov-sbírka-359-2011-pojem" ;
         <http://purl.org/vocab/vann/preferredNamespaceUri>
                 "https://slovník.gov.cz/legislativní/sbírka/359/2011/pojem/" ;
-        owl:imports     l-sgov-359-2011:glosář , <https://slovník.gov.cz/legislativní/sbírka/111/2009/model> , <https://slovník.gov.cz/legislativní/sbírka/326/2000/model> ;
+        owl:imports     l-sgov-sbírka-359-2011:glosář , <https://slovník.gov.cz/legislativní/sbírka/111/2009/model> , <https://slovník.gov.cz/legislativní/sbírka/326/2000/model> ;
         owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/359/2011/model/verze/1.0.0> .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/část-obce>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:uvádí-adresní-komponent
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:zápis-adresy ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-komponent> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-komponent>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-komponent> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:zápis-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:zápis-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:údaje-o-psč-náleží-územnímu-prvku
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:údaje-o-psč-náleží-územnímu-prvku
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:údaje-o-poštovním-směrovacím-čísle ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ulice-nebo-jiné-veřejné-prostranství>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:uvádí-název-katastrálního-území
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:druhý-řádek-zápisu-adresy ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/katastrální-území> ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+l-sgov-sbírka-359-2011-pojem:uvádí-název-katastrálního-území
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/katastrální-území>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/katastrální-území> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:druhý-řádek-zápisu-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:druhý-řádek-zápisu-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:generalizovaná-hranice-územního-prvku
+l-sgov-sbírka-359-2011-pojem:generalizovaná-hranice-územního-prvku
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-l-sgov-359-2011-pojem:leží-uvnitř-polygonu-územního-prvku
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/definiční-bod-územního-prvku> ;
-        rdfs:range          l-sgov-359-2011-pojem:polygon-územního-prvku ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:leží-uvnitř-polygonu-územního-prvku
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:polygon-územního-prvku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:polygon-územního-prvku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/definiční-bod-územního-prvku>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/definiční-bod-územního-prvku> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:poštovní-směrovací-číslo
-        a                   <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:poštovní-směrovací-číslo
+        a                <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zvláštní-údaje-pro-doručování-prostřednictvím-poštovních-služeb>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:třetí-řádek-zápisu-adresy
+l-sgov-sbírka-359-2011-pojem:třetí-řádek-zápisu-adresy
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-l-sgov-359-2011-pojem:mluvnický-tvar-názvu-ve-druhém-pádu
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:mluvnický-tvar-názvu-ve-druhém-pádu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
 
-l-sgov-359-2011-pojem:mluvnický-tvar-názvu-v-sedmém-pádu
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:mluvnický-tvar-názvu-v-sedmém-pádu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
 
-l-sgov-359-2011-pojem:hranice-polygonu-území-městské-části-hlavního-města-prahy
+l-sgov-sbírka-359-2011-pojem:hranice-polygonu-území-městské-části-hlavního-města-prahy
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku .
 
-l-sgov-359-2011-pojem:je-sestavena-jako
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa> ;
-        rdfs:range          l-sgov-359-2011-pojem:zápis-adresy ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:je-sestavena-jako
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:zápis-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:zápis-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:hranice-polygonu-katastrálních-území
+l-sgov-sbírka-359-2011-pojem:hranice-polygonu-katastrálních-území
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku .
 
-l-sgov-359-2011-pojem:územní-prvek-nebo-územně-evidenční-jednotka
+l-sgov-sbírka-359-2011-pojem:územní-prvek-nebo-územně-evidenční-jednotka
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-l-sgov-359-2011-pojem:uvádí-číslo-orientační-adresy
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:první-řádek-zápisu-adresy ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa> ;
-        rdfs:subPropertyOf  l-sgov-359-2011-pojem:uvádí-adresní-komponent .
+l-sgov-sbírka-359-2011-pojem:uvádí-číslo-orientační-adresy
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:uvádí-adresní-komponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:první-řádek-zápisu-adresy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:první-řádek-zápisu-adresy ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/katastrální-území>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:mluvnický-tvar-názvu-v-pátém-pádu
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:mluvnický-tvar-názvu-v-pátém-pádu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
 
-l-sgov-359-2011-pojem:hranice-polygonu-území-městského-obvodu-nebo-městské-části
+l-sgov-sbírka-359-2011-pojem:hranice-polygonu-území-městského-obvodu-nebo-městské-části
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku .
 
-l-sgov-359-2011-pojem:hranice-polygonu-území-základní-územní-jednotky
+l-sgov-sbírka-359-2011-pojem:hranice-polygonu-území-základní-územní-jednotky
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku .
 
-l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku
+l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-l-sgov-359-2011-pojem:zápis-adresy-adresního-místa-v-nepojmenované-ulici
+l-sgov-sbírka-359-2011-pojem:zápis-adresy-adresního-místa-v-nepojmenované-ulici
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:zápis-adresy .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:zápis-adresy .
 
-l-sgov-359-2011-pojem:hranice-polygonu-území-obce
+l-sgov-sbírka-359-2011-pojem:hranice-polygonu-území-obce
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku .
 
-l-sgov-359-2011-pojem:polohová-přesnost-lokalizačních-údajů
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/lokalizační-údaje> ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+l-sgov-sbírka-359-2011-pojem:polohová-přesnost-lokalizačních-údajů
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/lokalizační-údaje>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/lokalizační-údaje> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-komponent>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:určuje-tvar-a-polohu-územního-prvku
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-359-2011-pojem:polygon-územního-prvku ;
-        rdfs:range          <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:určuje-tvar-a-polohu-územního-prvku
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/územní-prvek> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:polygon-územního-prvku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:polygon-územního-prvku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:mluvnický-tvar-názvu-v-šestém-pádu
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:mluvnický-tvar-názvu-v-šestém-pádu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:mluvnické-charakteristiky-názvu--územního-prvku-nebo-územně-evidenční-jednotky ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/hranice-územního-prvku>
         a       owl:Class .
 
-l-sgov-359-2011-pojem:stupeň-generalizace
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         l-sgov-359-2011-pojem:generalizovaná-hranice-územního-prvku ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+l-sgov-sbírka-359-2011-pojem:stupeň-generalizace
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:generalizovaná-hranice-územního-prvku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:generalizovaná-hranice-územního-prvku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
 
-l-sgov-359-2011-pojem:polygon-územního-prvku
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+l-sgov-sbírka-359-2011-pojem:polygon-územního-prvku
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-l-sgov-359-2011-pojem:je-vyjádřena-hranicí-polygonu-územního-prvku
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/hranice-územního-prvku> ;
-        rdfs:range          l-sgov-359-2011-pojem:hranice-polygonu-územního-prvku ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+l-sgov-sbírka-359-2011-pojem:je-vyjádřena-hranicí-polygonu-územního-prvku
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-359-2011-pojem:hranice-polygonu-územního-prvku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/hranice-územního-prvku>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/hranice-územního-prvku> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-l-sgov-359-2011-pojem:třetí-řádek-adresy-v-nepojmenované-ulici
+l-sgov-sbírka-359-2011-pojem:třetí-řádek-adresy-v-nepojmenované-ulici
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-359-2011-pojem:třetí-řádek-zápisu-adresy .
+        rdfs:subClassOf  l-sgov-sbírka-359-2011-pojem:třetí-řádek-zápisu-adresy .
 
-l-sgov-359-2011-pojem:první-řádek-zápisu-adresy
+l-sgov-sbírka-359-2011-pojem:první-řádek-zápisu-adresy
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .

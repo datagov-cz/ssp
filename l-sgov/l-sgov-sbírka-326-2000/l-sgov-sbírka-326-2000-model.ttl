@@ -1,14 +1,21 @@
+@prefix l-sgov-sbírka-326-2000-pojem: <https://slovník.gov.cz/legislativní/sbírka/326/2000/pojem/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix l-sgov-326-2000-pojem: <https://slovník.gov.cz/legislativní/sbírka/326/2000/pojem/> .
-@prefix l-sgov-326-2000: <https://slovník.gov.cz/legislativní/sbírka/326/2000/> .
+@prefix l-sgov-sbírka-326-2000: <https://slovník.gov.cz/legislativní/sbírka/326/2000/> .
 
-l-sgov-326-2000:model
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+l-sgov-sbírka-326-2000:model
         a               <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-05-20" ;
+                "2020-06-29" ;
         <http://purl.org/dc/terms/creator>
                 "Michal Med" ;
         <http://purl.org/dc/terms/rights>
@@ -18,14 +25,27 @@ l-sgov-326-2000:model
         <http://purl.org/ontology/bibo/status>
                 "Specifikace"@cs , "Specification"@en ;
         <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "l-sgov-326-2000-pojem" ;
+                "l-sgov-sbírka-326-2000-pojem" ;
         <http://purl.org/vocab/vann/preferredNamespaceUri>
                 "https://slovník.gov.cz/legislativní/sbírka/326/2000/pojem/" ;
-        owl:imports     l-sgov-326-2000:glosář ;
+        owl:imports     l-sgov-sbírka-326-2000:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/326/2000/model/verze/1.0.0> .
 
-l-sgov-326-2000-pojem:dodatek-čísla-orientačního
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/číslo-orientační> ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+l-sgov-sbírka-326-2000-pojem:dodatek-čísla-orientačního
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/číslo-orientační>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/číslo-orientační> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
