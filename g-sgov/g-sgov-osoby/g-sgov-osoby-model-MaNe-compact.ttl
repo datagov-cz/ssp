@@ -1,0 +1,36 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix g-sgov-osoby: <https://slovník.gov.cz/generický/osoby/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix g-sgov-osoby-pojem: <https://slovník.gov.cz/generický/osoby/pojem/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+g-sgov-osoby:model  a   <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
+        <http://purl.org/dc/terms/created>
+                "2020-07-28" ;
+        <http://purl.org/dc/terms/title>
+                "Generický slovník osob - model"@cs ;
+        <http://purl.org/ontology/bibo/status>
+                "Specifikace"@cs , "Specification"@en ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "g-sgov-osoby-pojem" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "https://slovník.gov.cz/generický/osoby/pojem/" ;
+        owl:imports     g-sgov-osoby:glosář ;
+        owl:versionIRI  <https://slovník.gov.cz/generický/osoby/model/verze/0.0.1> .
+
+g-sgov-osoby-pojem:stát-registrace
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-osoby-pojem:osoba ;
+        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/stát> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba>
+        a       owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/stát>
+        a       owl:Class .
+
+g-sgov-osoby-pojem:osoba
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba> .
