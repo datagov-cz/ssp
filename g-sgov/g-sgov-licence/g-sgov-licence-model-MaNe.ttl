@@ -5,13 +5,16 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix g-sgov-licence: <https://slovník.gov.cz/generický/licence/> .
 
-g-sgov-licence-pojem:licence
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
 
 g-sgov-licence:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-06-30" ;
+                "2020-07-28" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník licencí - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -22,6 +25,17 @@ g-sgov-licence:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový/
                 "https://slovník.gov.cz/generický/licence/pojem/" ;
         owl:imports     g-sgov-licence:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/generický/licence/model/verze/0.0.1> .
+
+g-sgov-licence-pojem:licence
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
 <https://slovník.gov.cz/generický/věci/pojem/věc>
         a       owl:Class .

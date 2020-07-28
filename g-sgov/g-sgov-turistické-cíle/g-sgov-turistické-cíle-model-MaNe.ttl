@@ -5,47 +5,62 @@
 @prefix g-sgov-turistické-cíle: <https://slovník.gov.cz/generický/turistické-cíle/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-g-sgov-turistické-cíle-pojem:má-dostupný-jazyk
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-turistické-cíle-pojem:turistický-cíl ;
-        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/jazyk> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
-g-sgov-turistické-cíle-pojem:veřejná-přístupnost
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         g-sgov-turistické-cíle-pojem:turistický-cíl ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
-
-g-sgov-turistické-cíle-pojem:kouření-povoleno
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         g-sgov-turistické-cíle-pojem:turistický-cíl ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
-
-<https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo>
-        a       owl:Class .
-
-<https://slovník.gov.cz/generický/číselníky/pojem/typ-turistického-cíle>
-        a       owl:Class .
-
 <https://slovník.gov.cz/generický/číselníky/pojem/jazyk>
         a       owl:Class .
 
-g-sgov-turistické-cíle-pojem:kapacita
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         g-sgov-turistické-cíle-pojem:turistický-cíl ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
 
 g-sgov-turistické-cíle-pojem:turistický-cíl
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo> .
 
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/typ-turistického-cíle>
+        a       owl:Class .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+g-sgov-turistické-cíle-pojem:kapacita
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
+g-sgov-turistické-cíle-pojem:kouření-povoleno
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
+
 g-sgov-turistické-cíle:model
         a               <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-06-30" ;
+                "2020-07-28" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník turistických cílů - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -58,7 +73,60 @@ g-sgov-turistické-cíle:model
         owl:versionIRI  <https://slovník.gov.cz/generický/turistické-cíle/model/verze/0.0.1> .
 
 g-sgov-turistické-cíle-pojem:má-typ-turistického-cíle
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-turistické-cíle-pojem:turistický-cíl ;
-        rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/typ-turistického-cíle> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/generický/číselníky/pojem/typ-turistického-cíle>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/generický/číselníky/pojem/typ-turistického-cíle> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+g-sgov-turistické-cíle-pojem:veřejná-přístupnost
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
+g-sgov-turistické-cíle-pojem:má-dostupný-jazyk
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/generický/číselníky/pojem/jazyk>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/generický/číselníky/pojem/jazyk> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-turistické-cíle-pojem:turistický-cíl ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo>
+        a       owl:Class .

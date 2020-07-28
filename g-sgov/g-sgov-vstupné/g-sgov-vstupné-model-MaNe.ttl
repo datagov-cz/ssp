@@ -5,18 +5,66 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix g-sgov-vstupné-pojem: <https://slovník.gov.cz/generický/vstupné/pojem/> .
 
-<https://slovník.gov.cz/základní/pojem/časová-specifikace>
+<https://slovník.gov.cz/generický/věci/pojem/věc>
         a       owl:Class .
 
-g-sgov-vstupné-pojem:má-cenu
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-vstupné-pojem:vstupné ;
-        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+g-sgov-vstupné-pojem:vstupné
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
+
+g-sgov-vstupné-pojem:podmínka
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-vstupné-pojem:vstupné
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-vstupné-pojem:vstupné ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+g-sgov-vstupné-pojem:platnost
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  g-sgov-vstupné-pojem:vstupné
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-vstupné-pojem:vstupné ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
 
 g-sgov-vstupné:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-06-30" ;
+                "2020-07-28" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník pro vstupné - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -28,24 +76,32 @@ g-sgov-vstupné:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový
         owl:imports     g-sgov-vstupné:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/generický/vstupné/model/verze/0.0.1> .
 
-g-sgov-vstupné-pojem:vstupné
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
-
-g-sgov-vstupné-pojem:platnost
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-vstupné-pojem:vstupné ;
-        rdfs:range          <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
 
 <https://slovník.gov.cz/generický/částky/pojem/částka>
         a       owl:Class .
 
-<https://slovník.gov.cz/generický/věci/pojem/věc>
-        a       owl:Class .
+g-sgov-vstupné-pojem:má-cenu
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/generický/částky/pojem/částka>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/generický/částky/pojem/částka> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  g-sgov-vstupné-pojem:vstupné
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-vstupné-pojem:vstupné ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
-g-sgov-vstupné-pojem:podmínka
-        a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:domain         g-sgov-vstupné-pojem:vstupné ;
-        rdfs:range          rdfs:Literal ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
+<https://slovník.gov.cz/základní/pojem/časová-specifikace>
+        a       owl:Class .
