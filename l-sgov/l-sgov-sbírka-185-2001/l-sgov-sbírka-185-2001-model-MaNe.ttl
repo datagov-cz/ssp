@@ -17,24 +17,67 @@ l-sgov-sbírka-185-2001-pojem:právnická-osoba-jako-oprávněná-osoba
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba> , l-sgov-sbírka-185-2001-pojem:oprávněná-osoba .
 
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
 l-sgov-sbírka-185-2001-pojem:zpracoval-autovrak
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-sbírka-185-2001-pojem:zpracovatel-autovraku ;
-        rdfs:range          l-sgov-sbírka-185-2001-pojem:autovrak ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-185-2001-pojem:autovrak
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-185-2001-pojem:autovrak ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-185-2001-pojem:zpracovatel-autovraku
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-185-2001-pojem:zpracovatel-autovraku ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
 
 l-sgov-sbírka-185-2001-pojem:autovrak
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/fáze> , owl:Class ;
         rdfs:subClassOf  l-sgov-sbírka-185-2001-pojem:odpad , <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/motorové-vozidlo> .
 
 l-sgov-sbírka-185-2001-pojem:nákladá-s-odpadem
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-sbírka-185-2001-pojem:oprávněná-osoba ;
-        rdfs:range          l-sgov-sbírka-185-2001-pojem:odpad ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-185-2001-pojem:odpad
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-185-2001-pojem:odpad ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-185-2001-pojem:oprávněná-osoba
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-185-2001-pojem:oprávněná-osoba ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba>
         a       owl:Class .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba>
         a       owl:Class .
@@ -43,10 +86,13 @@ l-sgov-sbírka-185-2001-pojem:provozovatel-zařízení
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
         rdfs:subClassOf  l-sgov-sbírka-185-2001-pojem:oprávněná-osoba .
 
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
+
 l-sgov-sbírka-185-2001:model
         a               <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-07-24" ;
+                "2020-07-28" ;
         <http://purl.org/dc/terms/title>
                 "Slovník zákona č. 185/2001 Sb. o odpadech a o změně některých dalších zákonů - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -58,15 +104,33 @@ l-sgov-sbírka-185-2001:model
         owl:imports     l-sgov-sbírka-185-2001:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/185/2001/model/verze/0.0.1> .
 
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
 l-sgov-sbírka-185-2001-pojem:zařízení-ke-sběru-autovraků
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  l-sgov-sbírka-185-2001-pojem:zařízení .
 
 l-sgov-sbírka-185-2001-pojem:provozuje
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         l-sgov-sbírka-185-2001-pojem:provozovatel-zařízení ;
-        rdfs:range          l-sgov-sbírka-185-2001-pojem:zařízení ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  l-sgov-sbírka-185-2001-pojem:zařízení
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-185-2001-pojem:zařízení ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  l-sgov-sbírka-185-2001-pojem:provozovatel-zařízení
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  l-sgov-sbírka-185-2001-pojem:provozovatel-zařízení ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
 
 <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>
         a       owl:Class .
