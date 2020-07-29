@@ -1,815 +1,1605 @@
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix v-sgov: <https://slovník.gov.cz/veřejný-sektor/> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix v-sgov-pojem: <https://slovník.gov.cz/veřejný-sektor/pojem/> .
-
-v-sgov-pojem:informační-systém
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
-
-v-sgov-pojem:geografický-název
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:lokalizace-popisem .
-
-v-sgov-pojem:má-definiční-lokalizaci
-        a                <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  v-sgov-pojem:má-lokalizaci .
-
-v-sgov-pojem:veřejnoprávní-korporace
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:organizace .
-
-v-sgov-pojem:má-platnost
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:datová-sada
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:datová-sada ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:název-datové-sady
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:datová-sada
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:datová-sada ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:právo  a    owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:subjekt-práva
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:subjekt-práva ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:způsobilost-k-právnímu-jednání
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:subjekt-práva
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:subjekt-práva ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:znalostní-struktura
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:datová-sada .
-
-v-sgov-pojem:právní-událost
-        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:právní-skutečnost .
-
-v-sgov-pojem:má-lokalizaci-názvem
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  v-sgov-pojem:má-lokalizaci-popisem ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:geografický-název
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:geografický-název ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] .
-
-v-sgov-pojem:den-v-týdnu
-        a                <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
-
-v-sgov-pojem:typ-znalostní-struktury-dle-úrovně
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/typ> .
-
-<https://slovník.gov.cz/základní/pojem/pasivní-objekt>
-        a       owl:Class .
-
-v-sgov-pojem:zahrnuje
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:protiprávní-jednání
-        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/akce> , v-sgov-pojem:právní-skutečnost .
-
-<https://slovník.gov.cz/základní/pojem/akce>
-        a       owl:Class .
-
-v-sgov-pojem:měsíc-v-roce
-        a                <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
-
-v-sgov-pojem:člověk  a   <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/agent> .
-
-v-sgov-pojem:má-lokalizaci
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:lokalizace-prostorového-objektu
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:lokalizace-prostorového-objektu ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:prostorový-objekt
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:prostorový-objekt ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:odstavec
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        a                   owl:ObjectProperty ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
-
-v-sgov-pojem:orgán-veřejné-moci
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:organizace .
-
-v-sgov-pojem:primární-objekt-práva
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:objekt-práva .
-
-v-sgov-pojem:protiprávní-stav
-        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:právní-skutečnost .
-
-v-sgov-pojem:číselník
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:evidenční-systém .
-
-v-sgov-pojem:popis-datové-sady
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:datová-sada
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:datová-sada ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:způsobilost-k-protiprávnímu-jednání
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:subjekt-práva
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:subjekt-práva ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:kontextový-dokument
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:dokument .
-
-v-sgov-pojem:eviduje  a  owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/proměnný-prvek>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/proměnný-prvek> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:evidenční-systém
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:evidenční-systém ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:má-začátek
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-okamžik
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-okamžik ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:časová-entita
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časová-entita ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:křestní-jméno
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:fyzická-osoba
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:fyzická-osoba ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:lokalizace-popisem
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:lokalizace-prostorového-objektu .
-
-v-sgov-pojem:způsobilost-k-právům-a-povinnostem
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:subjekt-práva
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:subjekt-práva ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:opakuje  a  owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:opakovaná-časová-specifikace
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:opakovaná-časová-specifikace ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:vyjímá  a   owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/časová-specifikace> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:má-zdrojový-předpis
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:právní-předpis
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:právní-předpis ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:legislativní-znalostní-struktura
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:legislativní-znalostní-struktura ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:objekt-práva
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
-
-v-sgov:model  a         owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
-        <http://purl.org/dc/terms/created>
-                "2020-06-29" ;
-        <http://purl.org/dc/terms/rights>
-                <https://creativecommons.org/licenses/by-sa/4.0> ;
-        <http://purl.org/dc/terms/title>
-                "Slovník veřejného sektoru (V-SGoV) - model"@cs , "Public Sector vocabulary (V-SGoV) - model"@en ;
-        <http://purl.org/ontology/bibo/status>
-                "Specifikace"@cs , "Specification"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "v-sgov-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/veřejný-sektor/pojem/" ;
-        owl:imports     v-sgov:glosář , <https://slovník.gov.cz/základní/verze/1.0.0/model> ;
-        owl:versionIRI  <https://slovník.gov.cz/veřejný-sektor/model/verze/1.0.0> .
-
-v-sgov-pojem:má-geometrii
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  v-sgov-pojem:má-lokalizaci ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:geometrie
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:geometrie ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] .
-
-v-sgov-pojem:opakovaná-časová-specifikace
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
-
-v-sgov-pojem:rok  a      owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:paragraf
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-
-v-sgov-pojem:časová-entita
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
-
-<https://slovník.gov.cz/základní/pojem/je-vlastností>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-v-sgov-pojem:lokalizace-prostorového-objektu
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:prostorový-objekt .
-
-v-sgov-pojem:písmeno  a  <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-
-v-sgov-pojem:má-konec
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-okamžik
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-okamžik ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:časová-entita
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časová-entita ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:datová-sada
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
-
-v-sgov-pojem:výkon-svrchované-moci
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  [ a            owl:Class ;
-                                                 owl:unionOf  ( v-sgov-pojem:stát v-sgov-pojem:subjekt-práva )
-                                               ]
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  [ a            owl:Class ;
-                                                owl:unionOf  ( v-sgov-pojem:stát v-sgov-pojem:subjekt-práva )
-                                              ] ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-<https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        a       owl:ObjectProperty .
-
-v-sgov-pojem:geometrie
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:lokalizace-prostorového-objektu .
-
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
-
-v-sgov-pojem:jméno  a    owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:právnická-osoba
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:právnická-osoba ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:povinnost
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:subjekt-práva
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:subjekt-práva ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:hodina  a   owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:týden-v-roce
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
-        a       owl:ObjectProperty .
-
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        a                   owl:ObjectProperty ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
-
-v-sgov-pojem:má-vztah-k-prostorovému-objektu
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  v-sgov-pojem:má-lokalizaci ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] .
-
-v-sgov-pojem:právní-jednání
-        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/akce> , v-sgov-pojem:právní-skutečnost .
-
-<https://slovník.gov.cz/základní/pojem/objekt>
-        a       owl:Class .
-
-<https://slovník.gov.cz/základní/pojem/proměnný-prvek>
-        a       owl:Class .
-
-v-sgov-pojem:je-evidencí-pro
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku>
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:typ-evidenčního-systému
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:typ-evidenčního-systému ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:právní-vztah
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:objekt-práva
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:objekt-práva ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] .
-
-v-sgov-pojem:právní-předpis
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:bezkontextový-dokument .
-
-v-sgov-pojem:týden-v-měsíci
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-<https://slovník.gov.cz/základní/pojem/časová-specifikace>
-        a       owl:Class .
-
-v-sgov-pojem:právní-předpis-ze-sbírky-zákonů
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:právní-předpis .
-
-<https://slovník.gov.cz/základní/pojem/událost>
-        a       owl:Class .
-
-v-sgov-pojem:má-lokalizaci-popisem
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  v-sgov-pojem:má-lokalizaci ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:lokalizace-popisem
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:lokalizace-popisem ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] .
-
-v-sgov-pojem:rok-v-desetiletí
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:právnická-osoba
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:organizace , v-sgov-pojem:subjekt-práva .
-
-v-sgov-pojem:právní-skutečnost
-        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/událost> .
-
-v-sgov-pojem:minuta  a   owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:fyzická-osoba
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:člověk , v-sgov-pojem:subjekt-práva .
-
-v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:prostorový-objekt , v-sgov-pojem:lokalizace-prostorového-objektu .
-
-v-sgov-pojem:legislativní-znalostní-struktura
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:znalostní-struktura .
-
-v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:kontextový-dokument .
-
-v-sgov-pojem:dokument
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
-
-v-sgov-pojem:má-kontext
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:kontextový-dokument
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:kontextový-dokument ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:dokument
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:dokument ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:má-část-právního-předpisu
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:právní-předpis-ze-sbírky-zákonů
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:právní-předpis-ze-sbírky-zákonů ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:stát  a     <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:organizace .
-
-<https://slovník.gov.cz/základní/pojem/typ>
-        a       owl:Class .
-
-<https://slovník.gov.cz/základní/pojem/agent>
-        a       owl:Class .
-
-<https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku>
-        a       owl:Class .
-
-v-sgov-pojem:má-časový-úsek
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  v-sgov-pojem:časová-entita
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časová-entita ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-v-sgov-pojem:příjmení
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:fyzická-osoba
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:fyzická-osoba ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:den-v-měsíci
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:organizace
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/agent> .
-
-v-sgov-pojem:bezkontextový-dokument
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:dokument .
-
-v-sgov-pojem:typ-evidenčního-systému
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/kategorie> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> .
-
-v-sgov-pojem:časový-úsek
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
-
-v-sgov-pojem:časový-interval
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:časová-entita .
-
-v-sgov-pojem:subjekt-práva
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/agent> .
-
-v-sgov-pojem:prostorový-objekt
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
-
-v-sgov-pojem:hlava  a    <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů .
-
-v-sgov-pojem:má-počet-opakování
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:opakovaná-časová-specifikace
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:opakovaná-časová-specifikace ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:časový-okamžik
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:časová-entita .
-
-v-sgov-pojem:rok-ve-století
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  v-sgov-pojem:časový-úsek
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  v-sgov-pojem:časový-úsek ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-v-sgov-pojem:evidenční-systém
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:datová-sada .
-
-v-sgov-pojem:sekundární-objekt-práva
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
-        rdfs:subClassOf  v-sgov-pojem:objekt-práva .
+
+<https://slovník.gov.cz/základní/pojem/objekt> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/základní/pojem/typ> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/veřejný-sektor/model> a <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model>,
+    <http://www.w3.org/2002/07/owl#Ontology> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/den-v-měsíci> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/den-v-týdnu> a <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/hodina> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/minuta> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-konec> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-počet-opakování> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-začátek> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-časový-úsek> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/měsíc-v-roce> a <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/název-datové-sady> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/opakovaná-časová-specifikace> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/základní/pojem/časová-specifikace> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/opakuje> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/popis-datové-sady> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok-v-desetiletí> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok-ve-století> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-měsíci> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-roce> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/vyjímá> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/základní/pojem/pasivní-objekt> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/zahrnuje> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časový-interval> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časový-okamžik> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/číselník> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/hlava> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů>
+  a <http://www.w3.org/2002/07/owl#Class>, <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/kategorie>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/organizace> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/základní/pojem/agent> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právo> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/veřejnoprávní-korporace> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/příjmení> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/dokument> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/eviduje> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/odstavec> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/paragraf> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/povinnost> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/primární-objekt-práva> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-jednání> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-události> .
+
+<https://slovník.gov.cz/základní/pojem/akce> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-události> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-stav> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-události> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-události> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/základní/pojem/událost> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-událost> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-události> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/písmeno> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/sekundární-objekt-práva> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/stát> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/kategorie>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/typ-znalostní-struktury-dle-úrovně> a
+    <http://www.w3.org/2002/07/owl#Class>, <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/kategorie>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/výkon-svrchované-moci> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-protiprávnímu-jednání>
+  a <http://www.w3.org/2002/07/owl#Class>, <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem> a
+    <http://www.w3.org/2002/07/owl#Class>, <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> a <http://www.w3.org/2002/07/owl#ObjectProperty>;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> a <http://www.w3.org/2002/07/owl#ObjectProperty>;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/základní/pojem/proměnný-prvek> a <http://www.w3.org/2002/07/owl#Class> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/jméno> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti>,
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+<https://slovník.gov.cz/veřejný-sektor/glosář> a <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/glosář>,
+    <http://www.w3.org/2002/07/owl#Ontology>, <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/geometrie> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-vyjádřená-prostorovým-objektem>
+  a <http://www.w3.org/2002/07/owl#Class>, <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-definiční-lokalizaci> a <http://www.w3.org/2004/02/skos/core#Concept>,
+    <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-geometrii> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-názvem> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu> a <http://www.w3.org/2002/07/owl#Class>,
+    <http://www.w3.org/2004/02/skos/core#Concept>, <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram> a <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/element> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram-1> a <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/elementDiagram> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram> a <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/element> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram-1> a <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/elementDiagram> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram> a <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/element> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram-1> a <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/elementDiagram> .
+
+<http://www.w3.org/2004/02/skos/core#prefLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+    <http://www.w3.org/2000/01/rdf-schema#label> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/den-v-měsíci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0B96A193EC9FACC13C68251499D61C0C .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0B96A193EC9FACC13C68251499D61C0C a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/den-v-měsíci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C67D453E3FCF43A37B9C4DB34BA17374 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C67D453E3FCF43A37B9C4DB34BA17374 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/den-v-týdnu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/hodina> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B60377B16BD03790567FF1F5AA9393C8 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B60377B16BD03790567FF1F5AA9393C8 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/hodina> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E5BBD3E491818F38DE5081F802AF4674 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E5BBD3E491818F38DE5081F802AF4674 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/minuta> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-45589EAE7DDE87B53DBF94CAE1B177C9 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-45589EAE7DDE87B53DBF94CAE1B177C9 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/minuta> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D1EB8C9F3380AB9961DF650E292A3DEA .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D1EB8C9F3380AB9961DF650E292A3DEA a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-konec> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-12F51AB2AC0BEF1D037EC4DBB5D0CD48 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-12F51AB2AC0BEF1D037EC4DBB5D0CD48 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-konec> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-53D860A66FA7933D549D13B8B2A433B3 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-53D860A66FA7933D549D13B8B2A433B3 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-konec> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-94B521A36CADE54B7AF727D444399CFF .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-94B521A36CADE54B7AF727D444399CFF a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-konec> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-FC0C725ECDA70CC80E7691D5D91A669B .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-FC0C725ECDA70CC80E7691D5D91A669B a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-počet-opakování> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1D4F6352EB98A32A341FD346D132BEF9 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1D4F6352EB98A32A341FD346D132BEF9 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-počet-opakování> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5E43CECDFEF616ED9AADE30F2CC44B17 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5E43CECDFEF616ED9AADE30F2CC44B17 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-začátek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-030B4A92FD2D610DEF7831835A1C69B8 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-030B4A92FD2D610DEF7831835A1C69B8 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-začátek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-370002DE462C22F33B6F17EA7FC115D5 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-370002DE462C22F33B6F17EA7FC115D5 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-začátek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-3E296B9CC7C35AED26C0B0E873184E78 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-3E296B9CC7C35AED26C0B0E873184E78 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-začátek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-9A745F6B59842C69BC71CC6BED0E344A .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-9A745F6B59842C69BC71CC6BED0E344A a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-časový-úsek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4B929AD1240387DBB7C734572DE4E408 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4B929AD1240387DBB7C734572DE4E408 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-časový-úsek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B4C91886812F77725A2B0AE6AE9A6373 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B4C91886812F77725A2B0AE6AE9A6373 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-časový-úsek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B7A9AD0A4CF25A519FA2E98943811339 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B7A9AD0A4CF25A519FA2E98943811339 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-časový-úsek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C1BCD1238EACBDA1E6E8D2C3FDFFE043 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C1BCD1238EACBDA1E6E8D2C3FDFFE043 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/měsíc-v-roce> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/název-datové-sady> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4EE9899C8249D2EECFB7FFBB1CE40788 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4EE9899C8249D2EECFB7FFBB1CE40788 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/název-datové-sady> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8A383A589E8C73EFAE99D126EDE5A0D5 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8A383A589E8C73EFAE99D126EDE5A0D5 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/opakovaná-časová-specifikace> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/opakuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-216BACDF6BA40C62301EC73515B208FF .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-216BACDF6BA40C62301EC73515B208FF a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/opakuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D280071BEF665F8F0A242FAB48972E9E .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D280071BEF665F8F0A242FAB48972E9E a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/opakuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D7438C6E58428C1DBFE0E02CC28F8887 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D7438C6E58428C1DBFE0E02CC28F8887 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/opakuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-EB9219892D03F91A71087883E809C882 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-EB9219892D03F91A71087883E809C882 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/popis-datové-sady> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0356267DE9D663D5A2EEA6634B901D0C .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0356267DE9D663D5A2EEA6634B901D0C a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/popis-datové-sady> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5568F195ACC4E4B30C2508845B013744 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5568F195ACC4E4B30C2508845B013744 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-56DDAED48A17F35F1B66A76A46B5EC70 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-56DDAED48A17F35F1B66A76A46B5EC70 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-AAB046743511CFCEB358408D1128AAAB .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-AAB046743511CFCEB358408D1128AAAB a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok-v-desetiletí> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5DF940EC495B473FF5D67E15382998B1 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5DF940EC495B473FF5D67E15382998B1 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok-v-desetiletí> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-85D8FF90E0CDBBB7AD3A06A7D92B3498 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-85D8FF90E0CDBBB7AD3A06A7D92B3498 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok-ve-století> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6941D740AF10EFDBEFCA0B1E347A9928 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6941D740AF10EFDBEFCA0B1E347A9928 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/rok-ve-století> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-698A2198156BE89867EA2683BD6E32DC .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-698A2198156BE89867EA2683BD6E32DC a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-měsíci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-829CF9C65D89DC4933B1FAF4AD80AA18 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-829CF9C65D89DC4933B1FAF4AD80AA18 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-měsíci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E59D16625D17CB1F0D603BAA675D54A0 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E59D16625D17CB1F0D603BAA675D54A0 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-roce> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0312B6965F53D2AE3187A1FC58A3C45A .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0312B6965F53D2AE3187A1FC58A3C45A a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-roce> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C78023D469DCCB52DB9163E35B10403C .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C78023D469DCCB52DB9163E35B10403C a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/vyjímá> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-990313C6EECF53AAD40C4A0CC0BDE431 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-990313C6EECF53AAD40C4A0CC0BDE431 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/vyjímá> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ACBFF83B45B1271D4A68A213924E3C57 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ACBFF83B45B1271D4A68A213924E3C57 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/vyjímá> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D2E65FA17C725AB412037E8EB5CEDF6F .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D2E65FA17C725AB412037E8EB5CEDF6F a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/vyjímá> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F70AD8DFE1F879F5FE4886A7606844CA .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F70AD8DFE1F879F5FE4886A7606844CA a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/zahrnuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4C2A8AB4312240A029AE31871FA4260C .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4C2A8AB4312240A029AE31871FA4260C a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/zahrnuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-76D24044A76A90D2B164034806E7E89A .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-76D24044A76A90D2B164034806E7E89A a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/zahrnuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-81F957BABC3CB1F13019D66A4E88F6F4 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-81F957BABC3CB1F13019D66A4E88F6F4 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/zahrnuje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F77001AE4B7535BAD0EB587017F1D9CD .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F77001AE4B7535BAD0EB587017F1D9CD a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časový-interval> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časový-okamžik> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/číselník> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/hlava> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů>
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-45AC423E50105A7431568D9028B7D539 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-45AC423E50105A7431568D9028B7D539 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5C04B7E59628C6610C38A260ED218830 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5C04B7E59628C6610C38A260ED218830 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7AE3CCD7B568D41F2A936DA9491783BA .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7AE3CCD7B568D41F2A936DA9491783BA a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E23221B2F351300BD0BD5BD9BEB9D2AE .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E23221B2F351300BD0BD5BD9BEB9D2AE a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-02E841E7C39D1482E2E5E1D92D7F0343 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-02E841E7C39D1482E2E5E1D92D7F0343 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-9468EF85E6290A8D1DE1CBC15EED13D5 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-9468EF85E6290A8D1DE1CBC15EED13D5 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ADC32110602BE8EA487945119EEEA398 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ADC32110602BE8EA487945119EEEA398 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CDDF9583CEC71BCB89E3F9128B0D18F0 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CDDF9583CEC71BCB89E3F9128B0D18F0 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/organizace> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/agent> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>, <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právo> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0327C174EC7313C2E5AE17D29FB34989 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0327C174EC7313C2E5AE17D29FB34989 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právo> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A434BBF20440A3A76E45D70620AB893F .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A434BBF20440A3A76E45D70620AB893F a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/veřejnoprávní-korporace> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/organizace> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7E2FD9EA2DB9FD694165FC9193336614 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7E2FD9EA2DB9FD694165FC9193336614 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F45A116C3577004EF628A3BF816F7E34 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F45A116C3577004EF628A3BF816F7E34 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4BDB16F915DFFB63B61B1FDDD9DB2711 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4BDB16F915DFFB63B61B1FDDD9DB2711 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D613C15B621C33002756F89538C3BF5C .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D613C15B621C33002756F89538C3BF5C a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/příjmení> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5C9215112B5C61BBD0005C4A6939A86F .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5C9215112B5C61BBD0005C4A6939A86F a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/příjmení> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B57793957E8D39729A8EA07963FE4422 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B57793957E8D39729A8EA07963FE4422 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/organizace> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/dokument> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/dokument> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/eviduje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5DE744526725F33824FC506CCE04E584 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5DE744526725F33824FC506CCE04E584 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/eviduje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8DC6B42AEE1B07F166558E4C48103D64 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8DC6B42AEE1B07F166558E4C48103D64 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/eviduje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A46D24864E85669E907924C4F0E07892 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A46D24864E85669E907924C4F0E07892 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/eviduje> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E5B4FE87C9FF0BC77D131294ED20393B .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E5B4FE87C9FF0BC77D131294ED20393B a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/dokument> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-087BA47F3960241D085C6942D0BCF838 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-087BA47F3960241D085C6942D0BCF838 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-2D95EE627733BA1768C1D02CF55DD5DC .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-2D95EE627733BA1768C1D02CF55DD5DC a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4CB21B192FB0E76045BDD69A682CEAF0 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4CB21B192FB0E76045BDD69A682CEAF0 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A82C3510C98A8DB8B3D4DC82A787858D .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A82C3510C98A8DB8B3D4DC82A787858D a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5F73BA6002C9153B9F117E45869BFFAA .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5F73BA6002C9153B9F117E45869BFFAA a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A20626EAD57282E0182FEC3FEF6EB072 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A20626EAD57282E0182FEC3FEF6EB072 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C302078AF38BC0838F14B41C345C3353 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C302078AF38BC0838F14B41C345C3353 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C533C30DF1E7C9C5452331A20E5C9A11 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C533C30DF1E7C9C5452331A20E5C9A11 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/odstavec> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/paragraf> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/povinnost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1F1504DC798844461DE88CF216E95E53 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1F1504DC798844461DE88CF216E95E53 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/povinnost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A7F2839474301F57DB8A3ACFD1F4EC6E .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A7F2839474301F57DB8A3ACFD1F4EC6E a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/primární-objekt-práva> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-jednání> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost>, <https://slovník.gov.cz/základní/pojem/akce> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/událost> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-stav> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost>, <https://slovník.gov.cz/základní/pojem/akce> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-událost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/písmeno> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/sekundární-objekt-práva> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/stát> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/organizace> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/typ-znalostní-struktury-dle-úrovně> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/typ> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/výkon-svrchované-moci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0D010FCA81C6B04D8B7CDEF7EBE80EC8 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0D010FCA81C6B04D8B7CDEF7EBE80EC8 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/výkon-svrchované-moci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8F821A05124906805ABBC7BB30A65BC2 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8F821A05124906805ABBC7BB30A65BC2 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-protiprávnímu-jednání>
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://slovník.gov.cz/základní/pojem/vlastnost>,
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-399F6F806908886063D19443FF431947 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-399F6F806908886063D19443FF431947 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-protiprávnímu-jednání>
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4312D4F5444DA41D7B55D8196D5CECBB .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4312D4F5444DA41D7B55D8196D5CECBB a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-659FA9C2E2100B3A16EB1C9F063F5574 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-659FA9C2E2100B3A16EB1C9F063F5574 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D00743F9004B93FAACAD381E21F95B77 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D00743F9004B93FAACAD381E21F95B77 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7B21C198E5013C7F01519989A48709EC .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7B21C198E5013C7F01519989A48709EC a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-95040531811B0BA8C6C829E779C7038F .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-95040531811B0BA8C6C829E779C7038F a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/jméno> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vlastnost>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A6E5E44968CEBFAAF91EA40382D70C11 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A6E5E44968CEBFAAF91EA40382D70C11 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/jméno> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D6D81BED7E095FAA5CAB88D8B279BA31 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D6D81BED7E095FAA5CAB88D8B279BA31 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/geometrie> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-vyjádřená-prostorovým-objektem>
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>,
+    <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/objekt> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-definiční-lokalizaci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-16305C7B1E5B9197B6DA12D10EB59041 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-16305C7B1E5B9197B6DA12D10EB59041 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-2762E53D31A5D0AD4351FA2053B225D5 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-2762E53D31A5D0AD4351FA2053B225D5 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6114AAE2C6AAB07533F4C994EEC9066E .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6114AAE2C6AAB07533F4C994EEC9066E a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6B7EB7C65C18FABD96E5ABAC0DFCCCE5 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6B7EB7C65C18FABD96E5ABAC0DFCCCE5 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-geometrii> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-50AF17A57E0E21B73DE400E14F50BEA2 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-50AF17A57E0E21B73DE400E14F50BEA2 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-geometrii> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-519C1EA2E8016EBEE20D5EC5FCBDAD0E .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-519C1EA2E8016EBEE20D5EC5FCBDAD0E a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-názvem> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-46092B195B85634303D78129F542CA48 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-46092B195B85634303D78129F542CA48 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-názvem> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F5ABDC374AD56126BA3E0AB6263F78A2 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F5ABDC374AD56126BA3E0AB6263F78A2 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6DFEFA7026EA821560217949292B763F .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6DFEFA7026EA821560217949292B763F a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C06A6628E3A0BFA3D8BAF887FBD28329 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C06A6628E3A0BFA3D8BAF887FBD28329 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/základní/pojem/vztah>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-244AB89F7DCC9BB73DE37DBDBA544D40 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-244AB89F7DCC9BB73DE37DBDBA544D40 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-96A767004F50A3AEFD45D4155E6390C3 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-96A767004F50A3AEFD45D4155E6390C3 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-EFD9653B62FA653ADBA189893309F61F .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-EFD9653B62FA653ADBA189893309F61F a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F7BF024D27394469978BA4F9614D78FC .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F7BF024D27394469978BA4F9614D78FC a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci>, _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-969D6CCDB50F6F9D4D2A9615C7649A9E .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-969D6CCDB50F6F9D4D2A9615C7649A9E a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CB55FEBBEC07F8B88F3F8BC9450DC8D1 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CB55FEBBEC07F8B88F3F8BC9450DC8D1 a <http://www.w3.org/2002/07/owl#Restriction> .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností> <http://www.w3.org/2002/07/owl#inverseOf>
+    <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> <http://www.w3.org/2002/07/owl#inverseOf>
+    <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+<https://slovník.gov.cz/veřejný-sektor/model> <http://purl.org/dc/terms/created> "2020-06-29";
+  <http://purl.org/dc/terms/rights> <https://creativecommons.org/licenses/by-sa/4.0>;
+  <http://purl.org/dc/terms/title> "Public Sector vocabulary (V-SGoV) - model"@en, "Slovník veřejného sektoru (V-SGoV) - model"@cs;
+  <http://purl.org/ontology/bibo/status> "Specification"@en, "Specifikace"@cs;
+  <http://purl.org/vocab/vann/preferredNamespacePrefix> "v-sgov-pojem";
+  <http://purl.org/vocab/vann/preferredNamespaceUri> "https://slovník.gov.cz/veřejný-sektor/pojem/";
+  <http://www.w3.org/2002/07/owl#imports> <https://slovník.gov.cz/veřejný-sektor/glosář>,
+    <https://slovník.gov.cz/základní/verze/1.0.0/model>;
+  <http://www.w3.org/2002/07/owl#versionIRI> <https://slovník.gov.cz/veřejný-sektor/model/verze/1.0.0> .
+
+<https://slovník.gov.cz/veřejný-sektor/glosář> <http://purl.org/dc/terms/created>
+    "2020-06-29";
+  <http://purl.org/dc/terms/rights> <https://creativecommons.org/licenses/by-sa/4.0>;
+  <http://purl.org/dc/terms/title> "Public Sector vocabulary (V-SGoV) - glossary"@en,
+    "Slovník veřejného sektoru (V-SGoV) - glosář"@cs;
+  <http://purl.org/ontology/bibo/status> "Specification"@en, "Specifikace"@cs;
+  <http://purl.org/vocab/vann/preferredNamespacePrefix> "v-sgov-pojem";
+  <http://purl.org/vocab/vann/preferredNamespaceUri> "https://slovník.gov.cz/veřejný-sektor/pojem/";
+  <http://www.w3.org/2002/07/owl#imports> <https://slovník.gov.cz/základní/verze/1.0.0/glosář>;
+  <http://www.w3.org/2002/07/owl#versionIRI> <https://slovník.gov.cz/veřejný-sektor/glosář/verze/1.0.0> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-482CC906C9A380878602DBA6AEF7E70B a <http://www.w3.org/2002/07/owl#Class> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CCF69B458C03A94C19BA66FF2E250541 a <http://www.w3.org/2002/07/owl#Class> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0B96A193EC9FACC13C68251499D61C0C <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C67D453E3FCF43A37B9C4DB34BA17374 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B60377B16BD03790567FF1F5AA9393C8 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E5BBD3E491818F38DE5081F802AF4674 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D1EB8C9F3380AB9961DF650E292A3DEA <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-45589EAE7DDE87B53DBF94CAE1B177C9 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-FC0C725ECDA70CC80E7691D5D91A669B <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-okamžik> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-53D860A66FA7933D549D13B8B2A433B3 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-12F51AB2AC0BEF1D037EC4DBB5D0CD48 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-94B521A36CADE54B7AF727D444399CFF <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1D4F6352EB98A32A341FD346D132BEF9 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/opakovaná-časová-specifikace> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram-1> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram-1> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram-1> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/index>
+    0 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/index>
+    0 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/index>
+    0 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/context>
+    <https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext/instance-1699187004> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/context>
+    <https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext/instance-1699187004> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/context>
+    <https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext/instance-1699187004> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/id>
+    "f00aa879-4392-47e7-baf4-973915450677" .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/id>
+    "5607dfd9-e022-463f-b7cd-44d2badbf7f0" .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/id>
+    "e6758728-798d-4b14-a7f8-78c241d590f7" .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/iri>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/člověk> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/iri>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/iri>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/active>
+    true .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/active>
+    true .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/active>
+    true .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/untitled>
+    false .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/untitled>
+    false .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/untitled>
+    false .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/hidden>
+    false .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/hidden>
+    false .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/hidden>
+    false .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/position-x>
+    386 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/position-x>
+    482 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/position-x>
+    423 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/člověk/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/position-y>
+    175 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/position-y>
+    55 .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba/diagram-1> <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/position-y>
+    376 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5E43CECDFEF616ED9AADE30F2CC44B17 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-370002DE462C22F33B6F17EA7FC115D5 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-okamžik> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-030B4A92FD2D610DEF7831835A1C69B8 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-9A745F6B59842C69BC71CC6BED0E344A <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-3E296B9CC7C35AED26C0B0E873184E78 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C1BCD1238EACBDA1E6E8D2C3FDFFE043 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B4C91886812F77725A2B0AE6AE9A6373 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B7A9AD0A4CF25A519FA2E98943811339 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4B929AD1240387DBB7C734572DE4E408 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4EE9899C8249D2EECFB7FFBB1CE40788 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8A383A589E8C73EFAE99D126EDE5A0D5 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-216BACDF6BA40C62301EC73515B208FF <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-EB9219892D03F91A71087883E809C882 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/opakovaná-časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D7438C6E58428C1DBFE0E02CC28F8887 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D280071BEF665F8F0A242FAB48972E9E <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0356267DE9D663D5A2EEA6634B901D0C <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5568F195ACC4E4B30C2508845B013744 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-AAB046743511CFCEB358408D1128AAAB <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-56DDAED48A17F35F1B66A76A46B5EC70 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5DF940EC495B473FF5D67E15382998B1 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-85D8FF90E0CDBBB7AD3A06A7D92B3498 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6941D740AF10EFDBEFCA0B1E347A9928 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-698A2198156BE89867EA2683BD6E32DC <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E59D16625D17CB1F0D603BAA675D54A0 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-829CF9C65D89DC4933B1FAF4AD80AA18 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0312B6965F53D2AE3187A1FC58A3C45A <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C78023D469DCCB52DB9163E35B10403C <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F70AD8DFE1F879F5FE4886A7606844CA <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D2E65FA17C725AB412037E8EB5CEDF6F <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ACBFF83B45B1271D4A68A213924E3C57 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-990313C6EECF53AAD40C4A0CC0BDE431 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F77001AE4B7535BAD0EB587017F1D9CD <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-76D24044A76A90D2B164034806E7E89A <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4C2A8AB4312240A029AE31871FA4260C <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-81F957BABC3CB1F13019D66A4E88F6F4 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E23221B2F351300BD0BD5BD9BEB9D2AE <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-45AC423E50105A7431568D9028B7D539 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5C04B7E59628C6610C38A260ED218830 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7AE3CCD7B568D41F2A936DA9491783BA <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-9468EF85E6290A8D1DE1CBC15EED13D5 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ADC32110602BE8EA487945119EEEA398 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CDDF9583CEC71BCB89E3F9128B0D18F0 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-02E841E7C39D1482E2E5E1D92D7F0343 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A434BBF20440A3A76E45D70620AB893F <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0327C174EC7313C2E5AE17D29FB34989 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7E2FD9EA2DB9FD694165FC9193336614 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F45A116C3577004EF628A3BF816F7E34 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4BDB16F915DFFB63B61B1FDDD9DB2711 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D613C15B621C33002756F89538C3BF5C <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5C9215112B5C61BBD0005C4A6939A86F <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B57793957E8D39729A8EA07963FE4422 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-519C1EA2E8016EBEE20D5EC5FCBDAD0E <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/geometrie>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-50AF17A57E0E21B73DE400E14F50BEA2 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/geometrie> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-16305C7B1E5B9197B6DA12D10EB59041 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6B7EB7C65C18FABD96E5ABAC0DFCCCE5 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-2762E53D31A5D0AD4351FA2053B225D5 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6114AAE2C6AAB07533F4C994EEC9066E <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-46092B195B85634303D78129F542CA48 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F5ABDC374AD56126BA3E0AB6263F78A2 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-6DFEFA7026EA821560217949292B763F <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C06A6628E3A0BFA3D8BAF887FBD28329 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-244AB89F7DCC9BB73DE37DBDBA544D40 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F7BF024D27394469978BA4F9614D78FC <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-EFD9653B62FA653ADBA189893309F61F <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-96A767004F50A3AEFD45D4155E6390C3 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CB55FEBBEC07F8B88F3F8BC9450DC8D1 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-vyjádřená-prostorovým-objektem> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-969D6CCDB50F6F9D4D2A9615C7649A9E <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-vyjádřená-prostorovým-objektem>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8DC6B42AEE1B07F166558E4C48103D64 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/proměnný-prvek>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A46D24864E85669E907924C4F0E07892 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E5B4FE87C9FF0BC77D131294ED20393B <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5DE744526725F33824FC506CCE04E584 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/základní/pojem/proměnný-prvek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4CB21B192FB0E76045BDD69A682CEAF0 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-2D95EE627733BA1768C1D02CF55DD5DC <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/dokument> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-087BA47F3960241D085C6942D0BCF838 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A82C3510C98A8DB8B3D4DC82A787858D <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C302078AF38BC0838F14B41C345C3353 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C533C30DF1E7C9C5452331A20E5C9A11 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A20626EAD57282E0182FEC3FEF6EB072 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5F73BA6002C9153B9F117E45869BFFAA <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1F1504DC798844461DE88CF216E95E53 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A7F2839474301F57DB8A3ACFD1F4EC6E <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0D010FCA81C6B04D8B7CDEF7EBE80EC8 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-482CC906C9A380878602DBA6AEF7E70B .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-482CC906C9A380878602DBA6AEF7E70B <http://www.w3.org/2002/07/owl#unionOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-BF8E082DBE4BF6A5316BD7BE9E06A6B2 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-BF8E082DBE4BF6A5316BD7BE9E06A6B2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/stát>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-14AE8D8259C8361058519A4531FA3EA8 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-14AE8D8259C8361058519A4531FA3EA8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8F821A05124906805ABBC7BB30A65BC2 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CCF69B458C03A94C19BA66FF2E250541 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-CCF69B458C03A94C19BA66FF2E250541 <http://www.w3.org/2002/07/owl#unionOf>
+    _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C830AB4574C109DECBC093EA1756B09A .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C830AB4574C109DECBC093EA1756B09A <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/stát>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1F17D7E82977AD0E2C8875163AA2EAB7 .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-1F17D7E82977AD0E2C8875163AA2EAB7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-8F821A05124906805ABBC7BB30A65BC2 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-399F6F806908886063D19443FF431947 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4312D4F5444DA41D7B55D8196D5CECBB <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-659FA9C2E2100B3A16EB1C9F063F5574 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D00743F9004B93FAACAD381E21F95B77 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-95040531811B0BA8C6C829E779C7038F <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-7B21C198E5013C7F01519989A48709EC <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D6D81BED7E095FAA5CAB88D8B279BA31 <http://www.w3.org/2002/07/owl#onProperty>
+    <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-A6E5E44968CEBFAAF91EA40382D70C11 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba>;
+  <http://www.w3.org/2002/07/owl#onProperty> <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-0B96A193EC9FACC13C68251499D61C0C <http://www.w3.org/2002/07/owl#someValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C67D453E3FCF43A37B9C4DB34BA17374 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E5BBD3E491818F38DE5081F802AF4674 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-45589EAE7DDE87B53DBF94CAE1B177C9 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-53D860A66FA7933D549D13B8B2A433B3 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-okamžik> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-94B521A36CADE54B7AF727D444399CFF <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5E43CECDFEF616ED9AADE30F2CC44B17 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/opakovaná-časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-030B4A92FD2D610DEF7831835A1C69B8 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-okamžik> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-3E296B9CC7C35AED26C0B0E873184E78 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-B4C91886812F77725A2B0AE6AE9A6373 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4B929AD1240387DBB7C734572DE4E408 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4EE9899C8249D2EECFB7FFBB1CE40788 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-216BACDF6BA40C62301EC73515B208FF <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-D7438C6E58428C1DBFE0E02CC28F8887 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/opakovaná-časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5568F195ACC4E4B30C2508845B013744 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-56DDAED48A17F35F1B66A76A46B5EC70 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-85D8FF90E0CDBBB7AD3A06A7D92B3498 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-698A2198156BE89867EA2683BD6E32DC <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-829CF9C65D89DC4933B1FAF4AD80AA18 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-C78023D469DCCB52DB9163E35B10403C <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F70AD8DFE1F879F5FE4886A7606844CA <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ACBFF83B45B1271D4A68A213924E3C57 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-F77001AE4B7535BAD0EB587017F1D9CD <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-4C2A8AB4312240A029AE31871FA4260C <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/časová-specifikace> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-E23221B2F351300BD0BD5BD9BEB9D2AE <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-5C04B7E59628C6610C38A260ED218830 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku> .
+
+_:genid-94b2f41c18cf4a73a56ca5dc4baf6a89-ADC32110602BE8EA487945119EEEA398 <http://www.w3.org/2002/07/owl#allValuesFrom>
+    <https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis> .
