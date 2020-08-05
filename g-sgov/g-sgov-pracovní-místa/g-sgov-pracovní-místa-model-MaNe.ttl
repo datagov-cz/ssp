@@ -13,7 +13,7 @@
 
 g-sgov-pracovní-místa-pojem:platové-podmínky
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 g-sgov-pracovní-místa-pojem:mzda
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -67,6 +67,18 @@ g-sgov-pracovní-místa-pojem:je-součástí
                            owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
                          ] .
 
+g-sgov-pracovní-místa-pojem:popis
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
 <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         a                   owl:ObjectProperty ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
@@ -79,11 +91,15 @@ g-sgov-pracovní-místa-pojem:je-součástí
 
 g-sgov-pracovní-místa-pojem:pracoviště
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
+g-sgov-pracovní-místa-pojem:ukončení-podávání-přihlášek
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/událost> .
 
 g-sgov-pracovní-místa-pojem:pracovní-místo
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 g-sgov-pracovní-místa-pojem:má-akademický-obor
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -192,6 +208,18 @@ g-sgov-pracovní-místa-pojem:provozovatel
                            owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
                          ] .
 
+g-sgov-pracovní-místa-pojem:název-pracoviště
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:pracoviště
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:pracoviště ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
 <https://slovník.gov.cz/generický/částky/pojem/částka>
         a       owl:Class .
 
@@ -216,9 +244,10 @@ g-sgov-pracovní-místa-pojem:požadovaná-kvalifikace
                          ] .
 
 g-sgov-pracovní-místa:model
-        a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
+        a               <https://slovník.gov.cz/veřejný-sektor/pojem/model> , owl:Ontology ;
+        rdfs:label      "Generický slovník pracovních míst - model"@cs ;
         <http://purl.org/dc/terms/created>
-                "2020-07-28" ;
+                "22.07.2020" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník pracovních míst - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -241,21 +270,6 @@ g-sgov-pracovní-místa-pojem:počet-hodin-týdně
                            owl:allValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo ;
                            owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
                          ] .
-
-g-sgov-pracovní-místa-pojem:datum-ukončení-podávání-přihlášek
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-<https://slovník.gov.cz/generický/věci/pojem/věc>
-        a       owl:Class .
 
 g-sgov-pracovní-místa-pojem:má-typ-pracoviště
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -372,6 +386,22 @@ g-sgov-pracovní-místa-pojem:nástup-dle-dohody
         a              owl:ObjectProperty ;
         owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
+g-sgov-pracovní-místa-pojem:popis-kvalifikace
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:kvalifikace
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:kvalifikace ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
+g-sgov-pracovní-místa-pojem:vypsáno
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vznik-proměnného-prvku> .
+
 g-sgov-pracovní-místa-pojem:má-platové-podmínky
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
@@ -413,31 +443,11 @@ g-sgov-pracovní-místa-pojem:má-typ-pracovního-vztahu
                          ] .
 
 <https://slovník.gov.cz/základní/pojem/vznik-proměnného-prvku>
-        a       owl:DatatypeProperty .
+        a       owl:Class .
 
-g-sgov-pracovní-místa-pojem:datum-nástupu
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
-
-g-sgov-pracovní-místa-pojem:datum-vypsání
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vznik-proměnného-prvku> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
+g-sgov-pracovní-místa-pojem:nástup
+        a                <https://slovník.gov.cz/základní/pojem/typ-události> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/událost> .
 
 <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>
         a       owl:Class .
@@ -456,7 +466,7 @@ g-sgov-pracovní-místa-pojem:nástup-ihned
 
 g-sgov-pracovní-místa-pojem:kvalifikace
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
 <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
         a              owl:ObjectProperty ;
@@ -464,3 +474,27 @@ g-sgov-pracovní-místa-pojem:kvalifikace
 
 <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>
         a       owl:Class .
+
+g-sgov-pracovní-místa-pojem:název-platových-podmínek
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:platové-podmínky
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:platové-podmínky ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
+
+g-sgov-pracovní-místa-pojem:název-pracovního-místa
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
+                           owl:someValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  g-sgov-pracovní-místa-pojem:pracovní-místo ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
+                         ] .
