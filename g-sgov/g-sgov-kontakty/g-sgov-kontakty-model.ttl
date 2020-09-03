@@ -1,0 +1,179 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-kontakty: <https://slovník.gov.cz/generický/kontakty/> .
+@prefix g-sgov-kontakty-pojem: <https://slovník.gov.cz/generický/kontakty/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-kontakty:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník kontaktů - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-kontakty-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/kontakty/pojem/";
+  owl:imports g-sgov-kontakty:glosář;
+  owl:versionIRI <https://slovník.gov.cz/generický/kontakty/model/verze/0.0.1> .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+<https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/datová-schránka> a owl:Class .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+g-sgov-kontakty-pojem:kontakt a owl:Class, z-sgov-pojem:typ-objektu .
+
+g-sgov-kontakty-pojem:mobil a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-kontakty-pojem:má-datovou-schránku a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range <https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/datová-schránka>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/datová-schránka>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/datová-schránka>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-kontakty-pojem:má-kontaktní-místo a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-kontakty-pojem:telefon a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-kontakty-pojem:twitter a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-kontakty-pojem:url a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-kontakty-pojem:druh a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-kontakty-pojem:e-mail a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-kontakty-pojem:facebook a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-kontakty-pojem:instagram a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-kontakty-pojem:kontakt;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> a owl:Class .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
