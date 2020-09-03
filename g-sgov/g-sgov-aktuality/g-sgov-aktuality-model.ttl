@@ -1,0 +1,117 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-aktuality: <https://slovník.gov.cz/generický/aktuality/> .
+@prefix g-sgov-aktuality-pojem: <https://slovník.gov.cz/generický/aktuality/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-aktuality:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník aktualit - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-aktuality-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/aktuality/pojem/";
+  owl:imports g-sgov-aktuality:glosář;
+  owl:versionIRI <https://slovník.gov.cz/generický/aktuality/model/verze/0.0.1> .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:prvek a owl:Class .
+
+g-sgov-aktuality-pojem:oznamovatel-jako-fyzická-osoba a owl:Class, z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-aktuality-pojem:oznamovatel, <https://slovník.gov.cz/generický/lidé/pojem/člověk> .
+
+g-sgov-aktuality-pojem:oznamovatel-jako-právnická-osoba a owl:Class, z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-aktuality-pojem:oznamovatel, <https://slovník.gov.cz/generický/osoby/pojem/osoba> .
+
+g-sgov-aktuality-pojem:má-téma a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-aktuality-pojem:aktualita;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/téma-události>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-aktuality-pojem:aktualita;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-aktuality-pojem:aktualita
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/téma-události>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/téma-události>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-aktuality-pojem:oznamovatel a owl:Class, z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+g-sgov-aktuality-pojem:aktualita a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+g-sgov-aktuality-pojem:informuje-o a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-aktuality-pojem:aktualita;
+  rdfs:range z-sgov-pojem:prvek;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom z-sgov-pojem:prvek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-aktuality-pojem:aktualita
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-aktuality-pojem:aktualita;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/téma-události> a owl:Class .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+<https://slovník.gov.cz/generický/osoby/pojem/osoba> a owl:Class .
+
+g-sgov-aktuality-pojem:má-oznamovatele a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-aktuality-pojem:aktualita;
+  rdfs:range g-sgov-aktuality-pojem:oznamovatel;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-aktuality-pojem:oznamovatel
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-aktuality-pojem:oznamovatel;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-aktuality-pojem:aktualita;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-aktuality-pojem:aktualita
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+<https://slovník.gov.cz/generický/lidé/pojem/člověk> a owl:Class .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .

@@ -1,0 +1,63 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-aktuality: <https://slovník.gov.cz/generický/aktuality/> .
+@prefix g-sgov-aktuality-pojem: <https://slovník.gov.cz/generický/aktuality/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-aktuality:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník aktualit - glosář"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-aktuality-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/aktuality/pojem/";
+  owl:versionIRI <https://slovník.gov.cz/generický/aktuality/glosář/verze/0.0.1>;
+  skos:hasTopConcept g-sgov-aktuality-pojem:aktualita, g-sgov-aktuality-pojem:informuje-o,
+    g-sgov-aktuality-pojem:má-oznamovatele, g-sgov-aktuality-pojem:má-téma, g-sgov-aktuality-pojem:oznamovatel,
+    g-sgov-aktuality-pojem:oznamovatel-jako-fyzická-osoba, g-sgov-aktuality-pojem:oznamovatel-jako-právnická-osoba .
+
+g-sgov-aktuality-pojem:oznamovatel-jako-fyzická-osoba a skos:Concept;
+  skos:broader g-sgov-aktuality-pojem:oznamovatel, <https://slovník.gov.cz/generický/lidé/pojem/člověk>,
+    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:inScheme g-sgov-aktuality:glosář;
+  skos:prefLabel "Oznamovatel jako fyzická osoba"@cs .
+
+g-sgov-aktuality-pojem:oznamovatel-jako-právnická-osoba a skos:Concept;
+  skos:broader g-sgov-aktuality-pojem:oznamovatel, <https://slovník.gov.cz/generický/osoby/pojem/osoba>,
+    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:inScheme g-sgov-aktuality:glosář;
+  skos:prefLabel "Oznamovatel jako právnická osoba"@cs .
+
+g-sgov-aktuality-pojem:má-téma a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme g-sgov-aktuality:glosář;
+  skos:prefLabel "má téma"@cs;
+  skos:scopeNote "Hodnota této vlastnosti je z Číselníku pro témata událostí publikovaného jako číselník v Národním katalogu otevřených dat."@cs .
+
+g-sgov-aktuality-pojem:oznamovatel a skos:Concept;
+  skos:broader z-sgov-pojem:mixin-rolí, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:inScheme g-sgov-aktuality:glosář;
+  skos:prefLabel "Oznamovatel"@cs .
+
+g-sgov-aktuality-pojem:aktualita a skos:Concept;
+  skos:broader <https://slovník.gov.cz/generický/věci/pojem/věc>, z-sgov-pojem:typ-objektu;
+  skos:inScheme g-sgov-aktuality:glosář;
+  skos:prefLabel "Aktualita"@cs;
+  skos:scopeNote "Společenská událost, kterou pořadatel pořádá pro skupinu účastníků"@cs .
+
+g-sgov-aktuality-pojem:informuje-o a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme g-sgov-aktuality:glosář;
+  skos:prefLabel "informuje o"@cs;
+  skos:scopeNote "IRI datové entity, vytvořené dle jiné Otevřené formální normy(OFN), na kterou se aktualita váže. Typicky se jedná například o akci o které aktualita informuje, která byla ale zároveň vytvořená dle OFN Události."@cs .
+
+g-sgov-aktuality-pojem:má-oznamovatele a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme g-sgov-aktuality:glosář;
+  skos:prefLabel "má oznamovatele"@cs;
+  skos:scopeNote "Osoba, která aktualitu publikuje."@cs .
