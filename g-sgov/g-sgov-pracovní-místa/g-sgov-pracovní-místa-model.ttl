@@ -1,0 +1,811 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-pracovní-místa: <https://slovník.gov.cz/generický/pracovní-místa/> .
+@prefix g-sgov-pracovní-místa-pojem: <https://slovník.gov.cz/generický/pracovní-místa/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-pracovní-místa:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-09-07";
+  dcterms:title "Generický slovník pracovních míst - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-pracovní-místa-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/pracovní-místa/pojem/";
+  owl:imports g-sgov-pracovní-místa:glosář;
+  owl:versionIRI <https://slovník.gov.cz/generický/pracovní-místa/model/verze/0.0.1> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/organizace> a owl:Class .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/dokument> a owl:Class .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:vznik-proměnného-prvku a owl:DatatypeProperty .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+<https://slovník.gov.cz/generický/částky/pojem/částka> a owl:Class .
+
+<https://slovník.gov.cz/generický/kontakty/pojem/kontakt> a owl:Class .
+
+g-sgov-pracovní-místa-pojem:má-akademický-obor a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-pracovní-místa-pojem:má-kontakt a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/kontakty/pojem/kontakt> .
+
+g-sgov-pracovní-místa-pojem:má-platové-podmínky a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range g-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-pracovní-místa-pojem:má-pracoviště a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range g-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-pracovní-místa-pojem:má-typ-pracoviště a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-pracovní-místa-pojem:doklad a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:kvalifikace;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/doklad/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/doklad/restriction-2>, z-sgov-pojem:vlastnost,
+    [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:je-vlastností g-sgov-pracovní-místa-pojem:kvalifikace .
+
+g-sgov-pracovní-místa-pojem:délka a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:kvalifikace;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/délka/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/délka/restriction-2>, z-sgov-pojem:vlastnost,
+    [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:je-vlastností g-sgov-pracovní-místa-pojem:kvalifikace .
+
+g-sgov-pracovní-místa-pojem:je-součástí a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range g-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:pracoviště;
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-pracovní-místa-pojem:pracoviště .
+
+g-sgov-pracovní-místa-pojem:kvalifikace a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu> a owl:Class .
+
+g-sgov-pracovní-místa-pojem:platové-podmínky a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+g-sgov-pracovní-místa-pojem:počet-hodin-týdně a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/počet-hodin-týdně/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/počet-hodin-týdně/restriction-2>,
+    z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:je-vlastností g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+g-sgov-pracovní-místa-pojem:pracoviště a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+g-sgov-pracovní-místa-pojem:pracovní-místo a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+g-sgov-pracovní-místa-pojem:má-typ-pracovního-vztahu a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu> .
+
+g-sgov-pracovní-místa-pojem:nástup-dle-dohody a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-dle-dohody/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-dle-dohody/restriction-2>,
+    z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:je-vlastností g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+g-sgov-pracovní-místa-pojem:nástup-ihned a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-ihned/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-ihned/restriction-2>,
+    z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:je-vlastností g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+g-sgov-pracovní-místa-pojem:orjk a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-pracovní-místa-pojem:stránka a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/stránka/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/stránka/restriction-2>, z-sgov-pojem:vlastnost,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:je-vlastností g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+g-sgov-pracovní-místa-pojem:datum-nástupu a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-nástupu/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-nástupu/restriction-2>,
+    z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> .
+
+g-sgov-pracovní-místa-pojem:datum-ukončení-podávání-přihlášek a owl:Class, owl:DatatypeProperty,
+    z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-ukončení-podávání-přihlášek/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-ukončení-podávání-přihlášek/restriction-2>,
+    z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> .
+
+g-sgov-pracovní-místa-pojem:datum-vypsání a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vznik-proměnného-prvku, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vznik-proměnného-prvku .
+
+g-sgov-pracovní-místa-pojem:má-maximální-mzdu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:range <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:platové-podmínky;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/částky/pojem/částka> .
+
+g-sgov-pracovní-místa-pojem:má-minimální-mzdu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:range <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:platové-podmínky;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/částky/pojem/částka> .
+
+g-sgov-pracovní-místa-pojem:má-mzdu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:range <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-2>, <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-4>, z-sgov-pojem:vztah,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:platové-podmínky;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/částky/pojem/částka> .
+
+g-sgov-pracovní-místa-pojem:má-požadovanou-kvalifikaci a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range g-sgov-pracovní-místa-pojem:kvalifikace;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-4>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-5>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-6>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-pracovní-místa-pojem:má-provozovatele a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-1>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-2>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-3>,
+    <https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-4>,
+    z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/stránka/restriction-1> a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/stránka/restriction-2> a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-dle-dohody/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-dle-dohody/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-ihned/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/nástup-ihned/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/počet-hodin-týdně/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/počet-hodin-týdně/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+g-sgov-pracovní-místa-pojem:doba-trvání a z-sgov-pojem:typ-vlastnosti;
+  z-sgov-pojem:je-vlastností g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-3>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-4>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/délka/restriction-1> a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/délka/restriction-2> a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/doklad/restriction-1> a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/doklad/restriction-2> a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:kvalifikace;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-nástupu/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-nástupu/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-přílohu/restriction-1> a
+    owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-přílohu/restriction-2> a
+    owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-přílohu/restriction-3> a
+    owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/dokument> .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-přílohu/restriction-4> a
+    owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+g-sgov-pracovní-místa-pojem:Dokument a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, <https://slovník.gov.cz/veřejný-sektor/pojem/dokument> .
+
+g-sgov-pracovní-místa-pojem:požadovaný-dokument a z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-pracovní-místa-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-pracovní-místa-pojem:Dokument .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-ukončení-podávání-přihlášek/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:je-vlastností;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/datum-ukončení-podávání-přihlášek/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:je-vlastností .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-3>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-pracoviště/restriction-4>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-1>
+  a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-2>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu> .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-3>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-typ-pracovního-vztahu/restriction-4>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-3>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-platové-podmínky/restriction-4>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-1> a
+    owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-2> a
+    owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-3> a
+    owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt> .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-kontakt/restriction-4> a
+    owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-5>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-požadovanou-kvalifikaci/restriction-6>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-2>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka> .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-3>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-minimální-mzdu/restriction-4>
+  a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-1>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-3>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka> .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-maximální-mzdu/restriction-4>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-1> a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka> .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-2> a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-3> a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:platové-podmínky;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-mzdu/restriction-4> a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-1>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-3>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/organizace> .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/má-provozovatele/restriction-4>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-1>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-2>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-3>
+  a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracoviště .
+
+<https://slovník.gov.cz/generický/pracovní-místa/pojem/je-součástí/restriction-4>
+  a owl:Restriction;
+  owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracoviště;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
+
+g-sgov-pracovní-místa-pojem:má-přílohu rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
