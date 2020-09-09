@@ -1,0 +1,126 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-věda-a-výzkum: <https://slovník.gov.cz/generický/věda-a-výzkum/> .
+@prefix g-sgov-věda-a-výzkum-pojem: <https://slovník.gov.cz/generický/věda-a-výzkum/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-věda-a-výzkum:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-08-13";
+  dcterms:title "Generický slovník pro vědu a výzkum - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-veda-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/věda-a-výzkum/pojem/";
+  owl:imports g-sgov-věda-a-výzkum:glosář;
+  owl:versionIRI <https://slovník.gov.cz/generický/věda-a-výzkum/model/verze/0.0.1> .
+
+g-sgov-věda-a-výzkum-pojem:vyzkumnik a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
+    z-sgov-pojem:typ-objektu;
+  z-sgov-pojem:má-vlastnost g-sgov-věda-a-výzkum-pojem:orcid, g-sgov-věda-a-výzkum-pojem:researcherid,
+    g-sgov-věda-a-výzkum-pojem:scopus-author-id .
+
+g-sgov-věda-a-výzkum-pojem:orcid a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
+    z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-věda-a-výzkum-pojem:researcherid a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
+    z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-věda-a-výzkum-pojem:scopus-author-id a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
+    z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-věda-a-výzkum-pojem:způsob-přihlášení a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>;
+  z-sgov-pojem:má-vlastnost g-sgov-věda-a-výzkum-pojem:aktuálně-nabízeno, g-sgov-věda-a-výzkum-pojem:doporučovaná-pracoviště-obecně,
+    g-sgov-věda-a-výzkum-pojem:klíčové-slovo, g-sgov-věda-a-výzkum-pojem:kontext-tématu-dizertační-práce .
+
+g-sgov-věda-a-výzkum-pojem:aktuálně-nabízeno a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
+    z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-věda-a-výzkum-pojem:klíčové-slovo a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
+    z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-věda-a-výzkum-pojem:kontext-tématu-dizertační-práce a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
+    z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-věda-a-výzkum-pojem:doporučovaná-pracoviště-obecně a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
+    z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-věda-a-výzkum-pojem:má-obor-isvav a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/obor-isvav> .
+
+g-sgov-věda-a-výzkum-pojem:má-obor-frascati a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/obor-frascati> .
+
+g-sgov-věda-a-výzkum-pojem:má-míru-specifikace a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/míra-specifikace> .
+
+g-sgov-věda-a-výzkum-pojem:má-studijní-program a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/školství/pojem/studijní-program> .
+
+g-sgov-věda-a-výzkum-pojem:vyžaduje-kvalifikaci a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/kvalifikace> .
+
+g-sgov-věda-a-výzkum-pojem:má-kontakt a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/kontakty/pojem/kontakt> .
+
+g-sgov-věda-a-výzkum-pojem:má-školící-pracoviště a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
+
+g-sgov-věda-a-výzkum-pojem:má-zadávací-pracoviště a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
+
+g-sgov-věda-a-výzkum-pojem:má-konkrétní-doporučované-pracoviště a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
+
+g-sgov-věda-a-výzkum-pojem:ma-způsob-přihlášení a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:způsob-přihlášení .
+
+g-sgov-věda-a-výzkum-pojem:má-školitele a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:vyzkumnik .
+
+g-sgov-věda-a-výzkum-pojem:má-konzultanta a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:vyzkumnik .
+
+g-sgov-věda-a-výzkum-pojem:má-školitele-specialistu a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:vyzkumnik .
+
+g-sgov-věda-a-výzkum-pojem:má-kontakt-pro-přihlášení a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>,
+    g-sgov-věda-a-výzkum-pojem:způsob-přihlášení .
