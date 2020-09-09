@@ -40,17 +40,18 @@ z-sgov-pojem:prvek a owl:Class .
 
 <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> a owl:Class .
 
-g-sgov-věci-pojem:věc a owl:Class, z-sgov-pojem:typ-objektu .
+g-sgov-věci-pojem:věc a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:prvek .
 
 g-sgov-věci-pojem:název a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-věci-pojem:věc;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom g-sgov-věci-pojem:věc
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věci-pojem:věc;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -58,11 +59,11 @@ g-sgov-věci-pojem:popis a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vla
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-věci-pojem:věc
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-věci-pojem:věc
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -72,17 +73,17 @@ g-sgov-věci-pojem:aktualizováno a owl:Class, owl:ObjectProperty, z-sgov-pojem:
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věci-pojem:věc
+    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-věci-pojem:věc
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -90,14 +91,14 @@ g-sgov-věci-pojem:má-přílohu a owl:Class, owl:ObjectProperty, z-sgov-pojem:t
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>
+      owl:allValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-věci-pojem:věc
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -108,17 +109,17 @@ g-sgov-věci-pojem:relevantní-do a owl:Class, owl:ObjectProperty, z-sgov-pojem:
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
+    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-věci-pojem:věc
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
+      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -126,14 +127,14 @@ g-sgov-věci-pojem:vytvořeno a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-věci-pojem:věc
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
