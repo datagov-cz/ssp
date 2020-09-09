@@ -20,12 +20,6 @@ g-sgov-pracovní-místa-pojem:má-akademický-obor
         rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
-g-sgov-pracovní-místa-pojem:maximální-mzda
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-pracovní-místa-pojem:platové-podmínky ;
-        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
 g-sgov-pracovní-místa-pojem:orjk
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         g-sgov-pracovní-místa-pojem:pracoviště ;
@@ -38,10 +32,10 @@ g-sgov-pracovní-místa-pojem:má-typ-pracoviště
         rdfs:range          <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
-g-sgov-pracovní-místa-pojem:provozovatel
+g-sgov-pracovní-místa-pojem:má-minimální-mzdu
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-pracovní-místa-pojem:pracoviště ;
-        rdfs:range          <https://slovník.gov.cz/veřejný-sektor/pojem/organizace> ;
+        rdfs:domain         g-sgov-pracovní-místa-pojem:platové-podmínky ;
+        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-pracovní-místa-pojem:datum-ukončení-podávání-přihlášek
@@ -96,12 +90,6 @@ g-sgov-pracovní-místa-pojem:stránka
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
-g-sgov-pracovní-místa-pojem:minimální-mzda
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-pracovní-místa-pojem:platové-podmínky ;
-        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
 <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>
         a       owl:Class .
 
@@ -111,16 +99,22 @@ g-sgov-pracovní-místa-pojem:minimální-mzda
 <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>
         a       owl:Class .
 
+g-sgov-pracovní-místa-pojem:má-platové-podmínky
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-pracovní-místa-pojem:pracovní-místo ;
+        rdfs:range          g-sgov-pracovní-místa-pojem:platové-podmínky ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
 g-sgov-pracovní-místa-pojem:doklad
         a                   owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:domain         g-sgov-pracovní-místa-pojem:kvalifikace ;
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
-g-sgov-pracovní-místa-pojem:má-platové-podmínky
+g-sgov-pracovní-místa-pojem:má-maximální-mzdu
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-pracovní-místa-pojem:pracovní-místo ;
-        rdfs:range          g-sgov-pracovní-místa-pojem:platové-podmínky ;
+        rdfs:domain         g-sgov-pracovní-místa-pojem:platové-podmínky ;
+        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-pracovní-místa-pojem:pracoviště
@@ -137,6 +131,12 @@ g-sgov-pracovní-místa-pojem:má-pracoviště
         a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:domain         g-sgov-pracovní-místa-pojem:pracovní-místo ;
         rdfs:range          g-sgov-pracovní-místa-pojem:pracoviště ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
+g-sgov-pracovní-místa-pojem:má-mzdu
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-pracovní-místa-pojem:platové-podmínky ;
+        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-pracovní-místa-pojem:má-kontakt
@@ -160,10 +160,16 @@ g-sgov-pracovní-místa-pojem:datum-vypsání
         rdfs:range          rdfs:Literal ;
         rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vznik-proměnného-prvku> .
 
+g-sgov-pracovní-místa-pojem:má-provozovatele
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-pracovní-místa-pojem:pracoviště ;
+        rdfs:range          <https://slovník.gov.cz/veřejný-sektor/pojem/organizace> ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
+
 g-sgov-pracovní-místa:model
         a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
         <http://purl.org/dc/terms/created>
-                "2020-07-28" ;
+                "2020-09-07" ;
         <http://purl.org/dc/terms/title>
                 "Generický slovník pracovních míst - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -174,18 +180,6 @@ g-sgov-pracovní-místa:model
                 "https://slovník.gov.cz/generický/pracovní-místa/pojem/" ;
         owl:imports     g-sgov-pracovní-místa:glosář ;
         owl:versionIRI  <https://slovník.gov.cz/generický/pracovní-místa/model/verze/0.0.1> .
-
-g-sgov-pracovní-místa-pojem:mzda
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-pracovní-místa-pojem:platové-podmínky ;
-        rdfs:range          <https://slovník.gov.cz/generický/částky/pojem/částka> ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
-
-g-sgov-pracovní-místa-pojem:požadovaná-kvalifikace
-        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:domain         g-sgov-pracovní-místa-pojem:pracovní-místo ;
-        rdfs:range          g-sgov-pracovní-místa-pojem:kvalifikace ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-pracovní-místa-pojem:pracovní-místo
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
@@ -200,3 +194,9 @@ g-sgov-pracovní-místa-pojem:nástup-ihned
 g-sgov-pracovní-místa-pojem:kvalifikace
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+g-sgov-pracovní-místa-pojem:má-požadovanou-kvalifikaci
+        a                   owl:ObjectProperty , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:domain         g-sgov-pracovní-místa-pojem:pracovní-místo ;
+        rdfs:range          g-sgov-pracovní-místa-pojem:kvalifikace ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/vztah> .
