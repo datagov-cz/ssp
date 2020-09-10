@@ -54,11 +54,11 @@ g-sgov-čas-pojem:čas a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlast
   rdfs:domain g-sgov-čas-pojem:časová-doba;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -90,11 +90,11 @@ g-sgov-čas-pojem:datum a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlas
   rdfs:domain g-sgov-čas-pojem:časový-okamžik;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -152,11 +152,11 @@ g-sgov-čas-pojem:minuta a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vla
   rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -164,17 +164,17 @@ g-sgov-čas-pojem:má-den-v-týdnu a owl:Class, owl:ObjectProperty, z-sgov-pojem
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/den-v-týdnu>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/den-v-týdnu>
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/den-v-týdnu>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -185,17 +185,17 @@ g-sgov-čas-pojem:má-frekvenci a owl:Class, owl:ObjectProperty, z-sgov-pojem:ty
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -203,17 +203,17 @@ g-sgov-čas-pojem:má-jinou-časovou-specifikaci a owl:Class, owl:ObjectProperty
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -221,17 +221,17 @@ g-sgov-čas-pojem:má-specifickou-frekvenci a owl:Class, owl:ObjectProperty, z-s
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range g-sgov-čas-pojem:specifická-frekvence;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -239,17 +239,17 @@ g-sgov-čas-pojem:má-časovou-dobu a owl:Class, owl:ObjectProperty, z-sgov-poje
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range g-sgov-čas-pojem:časová-doba;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -257,14 +257,14 @@ g-sgov-čas-pojem:má-časové-období a owl:Class, owl:ObjectProperty, z-sgov-p
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -275,17 +275,17 @@ g-sgov-čas-pojem:má-časový-interval a owl:Class, owl:ObjectProperty, z-sgov-
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range g-sgov-čas-pojem:časový-interval;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -296,14 +296,14 @@ g-sgov-čas-pojem:má-časový-okamžik a owl:Class, owl:ObjectProperty, z-sgov-
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -311,11 +311,11 @@ g-sgov-čas-pojem:od a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastno
   rdfs:domain g-sgov-čas-pojem:časová-doba;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -323,11 +323,11 @@ g-sgov-čas-pojem:počet-opakování a owl:Class, owl:DatatypeProperty, z-sgov-p
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -359,11 +359,11 @@ g-sgov-čas-pojem:týden-v-měsíci a owl:Class, owl:DatatypeProperty, z-sgov-po
   rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -371,11 +371,11 @@ g-sgov-čas-pojem:týden-v-roce a owl:Class, owl:DatatypeProperty, z-sgov-pojem:
   rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -384,15 +384,15 @@ g-sgov-čas-pojem:výjimka a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vzt
   rdfs:range g-sgov-čas-pojem:časová-specifikace;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
@@ -401,17 +401,17 @@ g-sgov-čas-pojem:časová-platnost a owl:Class, owl:ObjectProperty, z-sgov-poje
   rdfs:domain g-sgov-čas-pojem:časová-specifikace;
   rdfs:range g-sgov-čas-pojem:časová-specifikace;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
