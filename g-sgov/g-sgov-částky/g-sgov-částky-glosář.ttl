@@ -1,0 +1,50 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-částky: <https://slovník.gov.cz/generický/částky/> .
+@prefix g-sgov-částky-pojem: <https://slovník.gov.cz/generický/částky/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-částky:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník peněžních částek - glosář"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-částky-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/částky/pojem/";
+  owl:versionIRI <https://slovník.gov.cz/generický/částky/glosář/verze/0.0.1>;
+  skos:hasTopConcept g-sgov-částky-pojem:má-jednotku, g-sgov-částky-pojem:má-měnu, g-sgov-částky-pojem:výše,
+    g-sgov-částky-pojem:částka .
+
+g-sgov-částky-pojem:částka a skos:Concept;
+  skos:broader <https://slovník.gov.cz/generický/věci/pojem/věc>, z-sgov-pojem:typ-objektu;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Částka"@cs;
+  skos:scopeNote "Pro reprezentaci peněžních částek je třeba vždy uvést výši částky a měnu částky. Pokud se jedná o částku za jednotku, pak se také uvede jednotka."@cs .
+
+g-sgov-částky-pojem:má-jednotku a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "má jednotku"@cs;
+  skos:scopeNote "Jednotka, pro kterou je částka vyjádřena, pokud není částka vyjádřena pro celek."@cs .
+
+g-sgov-částky-pojem:má-měnu a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "má měnu"@cs;
+  skos:scopeNote "Měna, ve které je částka vyjádřena."@cs .
+
+g-sgov-částky-pojem:výše a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Výše částky"@cs;
+  skos:scopeNote "Peněžní hodnota částky"@cs .
+
+g-sgov-částky-pojem:jednotková-částka a skos:Concept;
+  skos:broader g-sgov-částky-pojem:částka, z-sgov-pojem:typ-objektu;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Jednotková částka"@cs .
