@@ -20,10 +20,13 @@ g-sgov-zaměstnání:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:versionIRI <https://slovník.gov.cz/generický/zaměstnání/model/verze/0.0.1> .
 
 g-sgov-zaměstnání-pojem:plat a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu .
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:platové-podmínky;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/částky/pojem/částka> .
 
 g-sgov-zaměstnání-pojem:kvalifikace a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
-    z-sgov-pojem:typ-objektu .
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
 
 g-sgov-zaměstnání-pojem:délka a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
     z-sgov-pojem:typ-vlastnosti;
@@ -45,7 +48,8 @@ g-sgov-zaměstnání-pojem:maximální-plat a <http://onto.fel.cvut.cz/ontologie
   rdfs:subClassOf g-sgov-zaměstnání-pojem:plat .
 
 g-sgov-zaměstnání-pojem:pracoviště a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
-    z-sgov-pojem:typ-objektu .
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
 
 g-sgov-zaměstnání-pojem:orjk a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
     z-sgov-pojem:typ-vlastnosti;
@@ -80,25 +84,33 @@ g-sgov-zaměstnání-pojem:pracovní-místo a <http://onto.fel.cvut.cz/ontologie
     g-sgov-zaměstnání-pojem:webová-stránka .
 
 g-sgov-zaměstnání-pojem:interní-id a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
-    z-sgov-pojem:typ-vlastnosti .
+    z-sgov-pojem:typ-vlastnosti;
+  z-sgov-pojem:je-vlastností g-sgov-zaměstnání-pojem:pracovní-místo .
 
 g-sgov-zaměstnání-pojem:webová-stránka a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
-    z-sgov-pojem:typ-vlastnosti .
+    z-sgov-pojem:typ-vlastnosti;
+  z-sgov-pojem:je-vlastností g-sgov-zaměstnání-pojem:pracovní-místo .
 
 g-sgov-zaměstnání-pojem:nástup-dle-dohody a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
-    z-sgov-pojem:typ-vlastnosti .
+    z-sgov-pojem:typ-vlastnosti;
+  z-sgov-pojem:je-vlastností g-sgov-zaměstnání-pojem:pracovní-místo .
 
 g-sgov-zaměstnání-pojem:nástup-ihned a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vlastnosti .
+    z-sgov-pojem:typ-vlastnosti;
+  z-sgov-pojem:je-vlastností g-sgov-zaměstnání-pojem:pracovní-místo .
 
 g-sgov-zaměstnání-pojem:počet-hodin-týdně a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
-    z-sgov-pojem:typ-vlastnosti .
+    z-sgov-pojem:typ-vlastnosti;
+  z-sgov-pojem:je-vlastností g-sgov-zaměstnání-pojem:pracovní-místo .
 
 g-sgov-zaměstnání-pojem:doba-trvání a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vlastnosti .
+    z-sgov-pojem:typ-vlastnosti;
+  z-sgov-pojem:je-vlastností g-sgov-zaměstnání-pojem:pracovní-místo .
 
 g-sgov-zaměstnání-pojem:má-kontakt a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu .
+    z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:je-vlastností g-sgov-zaměstnání-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/kontakty/pojem/kontakt> .
 
 g-sgov-zaměstnání-pojem:požaduje-dokument a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
     z-sgov-pojem:typ-vztahu;
@@ -115,27 +127,40 @@ g-sgov-zaměstnání-pojem:má-pracoviště a <http://onto.fel.cvut.cz/ontologie
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo;
   z-sgov-pojem:má-vztažený-prvek-2 g-sgov-zaměstnání-pojem:pracoviště .
 
-g-sgov-zaměstnání-pojem:má-nástup a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type> .
+g-sgov-zaměstnání-pojem:má-nástup a z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> .
 
-g-sgov-zaměstnání-pojem:má-termín-podání-přihlášek a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type> .
+g-sgov-zaměstnání-pojem:má-termín-podání-přihlášek a z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik> .
 
 g-sgov-zaměstnání-pojem:má-typ-pracovního-vztahu a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
     z-sgov-pojem:typ-vztahu;
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo;
-  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu> .
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-zaměstnání-pojem:pracovní-místo, <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu> .
 
 g-sgov-zaměstnání-pojem:dokument a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
-    z-sgov-pojem:typ-objektu, z-sgov-pojem:typ-vztahu .
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, <https://slovník.gov.cz/veřejný-sektor/pojem/dokument> .
 
-g-sgov-zaměstnání-pojem:pracovní-místo-ve-vědě-a-výzkumu a <http://onto.fel.cvut.cz/ontologies/ufo/object-type> .
+g-sgov-zaměstnání-pojem:pracovní-místo-ve-vědě-a-výzkumu a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-zaměstnání-pojem:pracovní-místo .
 
-g-sgov-zaměstnání-pojem:má-obor-isvav a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type> .
+g-sgov-zaměstnání-pojem:má-obor-isvav a z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo-ve-vědě-a-výzkumu;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/obor-isvav> .
 
-g-sgov-zaměstnání-pojem:má-obor-frascati a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type> .
+g-sgov-zaměstnání-pojem:má-obor-frascati a z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo-ve-vědě-a-výzkumu;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/obor-frascati> .
 
 g-sgov-zaměstnání-pojem:vyžaduje-kvalifikaci a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
     z-sgov-pojem:typ-vztahu;
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo;
   z-sgov-pojem:má-vztažený-prvek-2 g-sgov-zaměstnání-pojem:kvalifikace .
 
-g-sgov-zaměstnání-pojem:má-typ-pracovního-místa-ve-vědě-a-výzkumu a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type> .
+g-sgov-zaměstnání-pojem:má-typ-pracovního-místa-ve-vědě-a-výzkumu a z-sgov-pojem:typ-vztahu;
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-zaměstnání-pojem:pracovní-místo-ve-vědě-a-výzkumu;
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-místa-ve-vědě-a-výzkumu>,
+    <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu> .
