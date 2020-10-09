@@ -1,0 +1,40 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-právní-akty: <https://slovník.gov.cz/datový/právní-akty/> .
+@prefix d-sgov-právní-akty-pojem: <https://slovník.gov.cz/datový/právní-akty/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-právní-akty:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-10-09T13:05:45.053+02:00"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Právní akty - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-právní-akty-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/právní-akty/pojem/";
+  owl:imports d-sgov-právní-akty:glosář;
+  owl:versionIRI "https://slovník.gov.cz/datový/právní-akty/model/verze/1.0.0" .
+
+d-sgov-právní-akty-pojem:Právní-akt a z-sgov-pojem:druh .
+
+d-sgov-právní-akty-pojem:Znění-právního-aktu a z-sgov-pojem:druh .
+
+d-sgov-právní-akty-pojem:má-znění a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Právní-akt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Právní-akt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
