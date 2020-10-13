@@ -20,9 +20,41 @@ d-sgov-právní-akty:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports d-sgov-právní-akty:glosář;
   owl:versionIRI "https://slovník.gov.cz/datový/právní-akty/model/verze/1.0.0" .
 
-d-sgov-právní-akty-pojem:Právní-akt a z-sgov-pojem:druh .
+d-sgov-právní-akty-pojem:Právní-akt a z-sgov-pojem:druh;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:označení-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:označení-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:název-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:název-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
 
-d-sgov-právní-akty-pojem:Znění-právního-aktu a z-sgov-pojem:druh .
+d-sgov-právní-akty-pojem:Znění-právního-aktu a z-sgov-pojem:druh;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:metadata-znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:metadata-znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:účinnost-od
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:účinnost-od;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:účinnost-do
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:účinnost-do;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
 
 d-sgov-právní-akty-pojem:má-znění a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
@@ -38,3 +70,136 @@ d-sgov-právní-akty-pojem:má-znění a z-sgov-pojem:typ-vztahu;
       owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
+
+d-sgov-právní-akty-pojem:název-právního-aktu a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:označení-právního-aktu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:číslo-předpisu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:číslo-předpisu;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:rok-předpisu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:rok-předpisu;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+d-sgov-právní-akty-pojem:číslo-předpisu a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:rok-předpisu a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:patří-do-sbírky a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Právní-akt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Právní-akt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Sbírka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Sbírka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-právní-akty-pojem:Sbírka a z-sgov-pojem:druh .
+
+d-sgov-právní-akty-pojem:účinnost-od a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:účinnost-do a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:má-typ-znění a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Typ-znění
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Typ-znění;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-právní-akty-pojem:Typ-znění a z-sgov-pojem:druh .
+
+d-sgov-právní-akty-pojem:metadata-znění-právního-aktu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf d-sgov-právní-akty-pojem:metadata .
+
+d-sgov-právní-akty-pojem:metadata-právního-aktu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf d-sgov-právní-akty-pojem:metadata .
+
+d-sgov-právní-akty-pojem:metadata a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:je-novelizován-zněním-právního-aktu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-právní-akty-pojem:má-související-dokument a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Dokument
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Dokument;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-právní-akty-pojem:má-fragment-znění a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Fragment-znění
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Fragment-znění;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-právní-akty-pojem:Fragment-znění a z-sgov-pojem:druh .
+
+d-sgov-právní-akty-pojem:Dokument a z-sgov-pojem:druh .
+
+d-sgov-právní-akty-pojem:je-v-částce a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:Částka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:Částka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-právní-akty-pojem:Částka a z-sgov-pojem:druh .
