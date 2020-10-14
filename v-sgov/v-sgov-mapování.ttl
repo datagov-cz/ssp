@@ -36,6 +36,7 @@
                                                               m8g:cpsvap ,
                                                               <http://www.w3.org/ns/adms> ,
                                                               <http://www.w3.org/ns/person> ,
+                                                              <http://www.w3.org/ns/regorg> ,
                                                               legal: ,
                                                               locn: ,
                                                               <https://slovník.gov.cz/veřejný-sektor/verze/1.0.0> ,
@@ -50,8 +51,21 @@ z-sgov-pojem:je-vlastností rdf:type owl:ObjectProperty .
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+###  https://slovník.gov.cz/veřejný-sektor/pojem/jméno
+<https://slovník.gov.cz/veřejný-sektor/pojem/jméno> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:subPropertyOf <http://www.w3.org/ns/regorg#legalName> .
+
+
+#################################################################
 #    Classes
 #################################################################
+
+###  http://data.europa.eu/m8g/PublicOrganisation
+m8g:PublicOrganisation rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/organizace> .
+
 
 ###  http://labs.mondeca.com/vocab/voaf#Vocabulary
 voaf1:Vocabulary rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura> .
@@ -71,8 +85,7 @@ dcat:Catalog rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/dat
 
 
 ###  http://www.w3.org/ns/dcat#Dataset
-dcat:Dataset owl:equivalentClass <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> ;
-             rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
+dcat:Dataset owl:equivalentClass <https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada> .
 
 
 ###  http://www.w3.org/ns/legal#LegalEntity
@@ -92,16 +105,22 @@ locn:geographicName rdf:type owl:Class .
                                                         ] .
 
 
-###  https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada
-
 ###  https://slovník.gov.cz/veřejný-sektor/pojem/organizace
-<https://slovník.gov.cz/veřejný-sektor/pojem/organizace> rdf:type owl:Class ;
-                                                         rdfs:subClassOf m8g:PublicOrganisation .
+<https://slovník.gov.cz/veřejný-sektor/pojem/organizace> rdf:type owl:Class .
+
+
+###  https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci
+<https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci> rdfs:subClassOf m8g:PublicOrganisation .
 
 
 ###  https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba
 <https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba> rdf:type owl:Class ;
-                                                              rdfs:subClassOf legal:LegalEntity .
+                                                              rdfs:subClassOf legal:LegalEntity ,
+                                                                              <http://www.w3.org/ns/regorg#RegisteredOrganization> .
+
+
+###  https://slovník.gov.cz/veřejný-sektor/pojem/stát
+<https://slovník.gov.cz/veřejný-sektor/pojem/stát> rdfs:subClassOf m8g:PublicOrganisation .
 
 
 ###  https://slovník.gov.cz/veřejný-sektor/pojem/člověk
