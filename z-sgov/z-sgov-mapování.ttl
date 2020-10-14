@@ -108,6 +108,14 @@
 
 terms:hasVersion a owl:AnnotationProperty .
 # 
+# http://purl.org/dc/terms/issued
+
+terms:issued a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/modified
+
+terms:modified a owl:AnnotationProperty .
+# 
 # http://purl.org/dc/terms/publisher
 
 terms:publisher a owl:AnnotationProperty .
@@ -143,14 +151,11 @@ foaf:Image a owl:AnnotationProperty .
 # 
 # http://onto.fel.cvut.cz/ontologies/ufo/mediates
 
-ufo:mediates a owl:ObjectProperty ;
-	owl:equivalentProperty z-sgov-pojem:má-vztažený-prvek .
+ufo:mediates a owl:ObjectProperty .
 # 
 # http://www.w3.org/1999/xhtml/vocab#next
 
 vocab:next a owl:ObjectProperty .
-# 
-# https://slovník.gov.cz/základní/pojem/má-vztažený-prvek
 # 
 # 
 # 
@@ -173,8 +178,7 @@ m8g:Channel a owl:Class ;
 # 
 # http://data.europa.eu/m8g/Cost
 
-m8g:Cost a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:prvek .
+m8g:Cost a owl:Class .
 # 
 # http://data.europa.eu/m8g/Criterion
 
@@ -223,8 +227,7 @@ m8g:Output a owl:Class ;
 # 
 # http://data.europa.eu/m8g/Participation
 
-m8g:Participation a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:prvek .
+m8g:Participation a owl:Class .
 # 
 # http://data.europa.eu/m8g/PeriodOfTime
 
@@ -243,8 +246,7 @@ m8g:RequirementGroup a owl:Class ;
 # 
 # http://data.europa.eu/m8g/RequirementResponse
 
-m8g:RequirementResponse a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:prvek .
+m8g:RequirementResponse a owl:Class .
 # 
 # http://labs.mondeca.com/vocab/voaf#Vocabulary
 
@@ -345,6 +347,10 @@ ufo:phase a owl:Class ;
 ufo:quality-type a owl:Class ;
 	owl:equivalentClass z-sgov-pojem:typ-kvalitativní-vlastnosti .
 # 
+# http://onto.fel.cvut.cz/ontologies/ufo/quality-universal
+
+ufo:quality-universal a owl:Class .
+# 
 # http://onto.fel.cvut.cz/ontologies/ufo/relator
 
 ufo:relator a owl:Class ;
@@ -373,14 +379,6 @@ ufo:situation a owl:Class .
 ufo:sub-kind a owl:Class ;
 	owl:equivalentClass z-sgov-pojem:poddruh .
 # 
-# http://onto.fel.cvut.cz/ontologies/ufo/substantial-type
-
-ufo:substantial-type a owl:Class .
-# 
-# http://onto.fel.cvut.cz/ontologies/ufo/trope
-
-ufo:trope a owl:Class .
-# 
 # http://onto.fel.cvut.cz/ontologies/ufo/type
 
 ufo:type a owl:Class ;
@@ -393,11 +391,13 @@ terms:Agent a owl:Class ;
 # 
 # http://purl.org/dc/terms/Jurisdiction
 
-terms:Jurisdiction rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
+terms:Jurisdiction a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
 # 
 # http://purl.org/dc/terms/Location
 
-terms:Location owl:equivalentClass z-sgov-pojem:prostorový-objekt .
+terms:Location a owl:Class ;
+	owl:equivalentClass z-sgov-pojem:prostorový-objekt .
 # 
 # http://purl.org/vocab/cpsv#Input
 
@@ -411,8 +411,7 @@ terms:Location owl:equivalentClass z-sgov-pojem:prostorový-objekt .
 # 
 # http://purl.org/vocab/cpsv#PublicService
 
-<http://purl.org/vocab/cpsv#PublicService> a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:typ-objektu .
+<http://purl.org/vocab/cpsv#PublicService> a owl:Class .
 # 
 # http://purl.org/vocab/frbr/core#Expression
 
@@ -421,8 +420,7 @@ terms:Location owl:equivalentClass z-sgov-pojem:prostorový-objekt .
 # 
 # http://rdfs.org/sioc/ns#Forum
 
-<http://rdfs.org/sioc/ns#Forum> a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:prvek .
+<http://rdfs.org/sioc/ns#Forum> a owl:Class .
 # 
 # http://schema.org/ContactPoint
 
@@ -431,16 +429,17 @@ schema:ContactPoint a owl:Class ;
 # 
 # http://schema.org/OpeningHoursSpecification
 
-schema:OpeningHoursSpecification a owl:Class ;
-	rdfs:subClassOf z-sgov-pojem:prvek .
+schema:OpeningHoursSpecification a owl:Class .
 # 
 # http://schema.org/Person
 
-schema:Person rdfs:subClassOf z-sgov-pojem:agent .
+schema:Person a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:agent .
 # 
 # http://schema.org/Place
 
-schema:Place rdfs:subClassOf z-sgov-pojem:prostorový-objekt .
+schema:Place a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:prostorový-objekt .
 # 
 # http://www.w3.org/2004/02/skos/core#Concept
 
@@ -472,6 +471,15 @@ locn:Address rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
 # http://www.w3.org/ns/locn#Geometry
 
 locn:Geometry rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
+# 
+# http://www.w3.org/ns/locn#geographicName
+
+locn:geographicName a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:vlastnost , _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:je-vlastností ;
+	owl:someValuesFrom z-sgov-pojem:prostorový-objekt .
 # 
 # http://www.w3.org/ns/org#ChangeEvent
 
