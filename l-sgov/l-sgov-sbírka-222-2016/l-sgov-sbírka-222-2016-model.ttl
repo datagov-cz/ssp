@@ -20,14 +20,15 @@ l-sgov-sbírka-222-2016:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports l-sgov-sbírka-222-2016:glosář;
   owl:versionIRI "https://slovník.gov.cz/legislativní/sbírka/222/2016/model/verze/1.0.0" .
 
-l-sgov-sbírka-222-2016-pojem:Částka a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu .
+l-sgov-sbírka-222-2016-pojem:částka a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu ;
+  rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
 
 l-sgov-sbírka-222-2016-pojem:obsahuje a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:Částka
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:částka
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:Částka;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:částka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
@@ -38,36 +39,36 @@ l-sgov-sbírka-222-2016-pojem:obsahuje a z-sgov-pojem:typ-vztahu;
     ] .
 
 l-sgov-sbírka-222-2016-pojem:má-přílohu a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:Částka-s-novelou-právního-předpisu
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:Částka-s-novelou-právního-předpisu;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:Právní-předpis-ve-znění-novely
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:právní-předpis-ve-znění-novely
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:Právní-předpis-ve-znění-novely;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:právní-předpis-ve-znění-novely;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
-l-sgov-sbírka-222-2016-pojem:Právní-předpis-ve-znění-novely a z-sgov-pojem:poddruh,
+l-sgov-sbírka-222-2016-pojem:právní-předpis-ve-znění-novely a z-sgov-pojem:poddruh,
     z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/Konsolidované-znění-právního-předpisu> .
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/konsolidované-znění-právního-předpisu> .
 
 l-sgov-sbírka-222-2016-pojem:obsahuje-novelu a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:obsahuje, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:Částka-s-novelou-právního-předpisu
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:Částka-s-novelou-právního-předpisu;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/Novela-právního-předpisu>
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/novela-právního-předpisu>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/Novela-právního-předpisu>;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/novela-právního-předpisu>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
@@ -95,5 +96,5 @@ l-sgov-sbírka-222-2016-pojem:prováděcí-právní-předpis a z-sgov-pojem:podd
   dcterms:source <https://www.zakonyprolidi.cz/cs/2016-222#p2-1-e>;
   rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:právní-předpis .
 
-l-sgov-sbírka-222-2016-pojem:Částka-s-novelou-právního-předpisu a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:Částka .
+l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:částka .
