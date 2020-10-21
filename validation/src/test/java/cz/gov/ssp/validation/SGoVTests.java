@@ -30,7 +30,7 @@ public class SGoVTests {
     private static final Logger log = LoggerFactory.getLogger(SGoVTests.class);
 
     private static Stream<String> getGlossaries() throws IOException {
-        return Files.walk(Paths.get("../")).filter(Files::isRegularFile).map(Path::toFile)
+        return Files.walk(Paths.get(Layout.SSP_CONTENT_ROOT)).filter(Files::isRegularFile).map(Path::toFile)
             .filter(f -> f.getName().endsWith("-glosář.ttl")).map(File::getAbsolutePath);
     }
 
@@ -61,7 +61,7 @@ public class SGoVTests {
     }
 
     private void testFolder(String folder, Set<String> rules) throws IOException {
-        String root = "../";
+        String root = Layout.SSP_CONTENT_ROOT;
         Stream<String> files =
             Files.walk(Paths.get(root)).filter(Files::isRegularFile).map(Path::toFile)
                  .filter(f -> f.getPath().startsWith(root + folder))
