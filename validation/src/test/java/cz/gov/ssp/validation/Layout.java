@@ -18,6 +18,8 @@ public class Layout {
     public static final String ASGOV = "a-sgov";
     public static final String DSGOV = "d-sgov";
 
+    public static final String SSP_CONTENT_ROOT = "../slovník/";
+
     private static final Pattern getGlossaryRegex(final String vocabularyPrefix) {
         return Pattern.compile("^" + vocabularyPrefix + "-glosář(-[a-zA-Z0-9]+)?[.]ttl$");
     }
@@ -33,7 +35,7 @@ public class Layout {
     }
 
     private static String getRelativeDir(final String sspDir) {
-        return "../" + sspDir;
+        return SSP_CONTENT_ROOT + sspDir;
     }
 
     public static Set<String> getVocabularyFolders() throws IOException {
@@ -54,13 +56,5 @@ public class Layout {
         set.add(getRelativeDir(Layout.ASGOV));
         set.add(getRelativeDir(Layout.DSGOV));
         return set;
-    }
-
-    public static Set<File> getGlossaryFiles(final File vocabularyFolder) throws IOException {
-        final Pattern pattern = getGlossaryRegex(vocabularyFolder.getName());
-        return Files.list(vocabularyFolder.toPath())
-            .filter(fileName -> pattern.matcher(fileName.getFileName().toString()).matches())
-            .map(file -> file.toFile())
-            .collect(Collectors.toSet());
     }
 }
