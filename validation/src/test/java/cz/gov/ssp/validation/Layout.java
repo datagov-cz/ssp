@@ -18,7 +18,7 @@ public class Layout {
     public static final String ASGOV = "a-sgov";
     public static final String DSGOV = "d-sgov";
 
-    public static final String SSP_CONTENT_ROOT = "../slovník/";
+    public static final String SSP_CONTENT_ROOT = "../content/";
 
     private static final Pattern getGlossaryRegex(final String vocabularyPrefix) {
         return Pattern.compile("^" + vocabularyPrefix + "-glosář(-[a-zA-Z0-9]+)?[.]ttl$");
