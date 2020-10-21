@@ -4,7 +4,7 @@ Sémantický slovník pojmů je nástrojem určeným pro popis otevřených dato
 
 ## Struktura
 Hlavní části projektu jsou složky:
-* `slovník` - samotný obsah slovníku
+* `content` - samotný obsah slovníku
 * `docs` - dokumentace
 * `validation` - SHACL validátor korektnosti slovníku, podpůrné skripty
 
