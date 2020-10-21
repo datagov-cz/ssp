@@ -14,7 +14,7 @@ SSP je zveřejněn jako propojená data a je založen na standardech sémantick�
 
 Metodicky SSP vychází ze základní ontologie [Unified Foundational Ontology](https://research.utwente.nl/files/6042428/thesis_Guizzardi.pdf) (UFO), kterou dále rozšiřuje, specializuje a interpretuje v kontextu veřejné správy ČR.
 
-## A co tedy mám dělat, pokud mě to zaujalo
+## Zaujalo mě to, jak mám dál postupovat?
 
 Můžete si prostudovat [Koncepci sémantického slovníku pojmů](https://opendata.gov.cz/_media/dokumenty:s%C3%A9mantick%C3%BD-slovn%C3%ADk-pojm%C5%AF:c1v2d1_n%C3%A1vrh_koncepce_s%C3%A9mantick%C3%A9ho_slovn%C3%ADku_pojm%C5%AF.pdf). Jedná se sice o starší dokument, ale popisuje hlavní principy a architektonická rozhodnutí, které jsou stále platné.
 
