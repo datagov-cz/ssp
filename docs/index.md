@@ -16,8 +16,7 @@ Metodicky SSP vychází ze základní ontologie [Unified Foundational Ontology](
 
 ## A co tedy mám dělat, pokud mě to zaujalo
 
-Můžete si prostudovat:
-- [Koncepci sémantického slovníku pojmů](https://opendata.gov.cz/_media/dokumenty:s%C3%A9mantick%C3%BD-slovn%C3%ADk-pojm%C5%AF:c1v2d1_n%C3%A1vrh_koncepce_s%C3%A9mantick%C3%A9ho_slovn%C3%ADku_pojm%C5%AF.pdf) - jedná se o starší dokument, který však popisuje hlavní principy a architektonická rozhodnutí, které jsou stále platné.
+Můžete si prostudovat [Koncepci sémantického slovníku pojmů](https://opendata.gov.cz/_media/dokumenty:s%C3%A9mantick%C3%BD-slovn%C3%ADk-pojm%C5%AF:c1v2d1_n%C3%A1vrh_koncepce_s%C3%A9mantick%C3%A9ho_slovn%C3%ADku_pojm%C5%AF.pdf). Jedná se o starší dokument, který však popisuje hlavní principy a architektonická rozhodnutí, které jsou stále platné.
 
 Můžete si pohrát s:
 * [SPARQL endpointem](https://slovník.gov.cz/sparql), ve kterém je vždy aktuální verze slovníku dostupná
