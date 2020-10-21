@@ -18,13 +18,13 @@ Metodicky SSP vychází ze základní ontologie [Unified Foundational Ontology](
 
 ## A co tedy mám dělat, pokud mě to zaujalo
 
-Můžete si prostudovat [Koncepci sémantického slovníku pojmů](https://opendata.gov.cz/_media/dokumenty:s%C3%A9mantick%C3%BD-slovn%C3%ADk-pojm%C5%AF:c1v2d1_n%C3%A1vrh_koncepce_s%C3%A9mantick%C3%A9ho_slovn%C3%ADku_pojm%C5%AF.pdf). Jedná se o starší dokument, který však popisuje hlavní principy a architektonická rozhodnutí, které jsou stále platné.
+Můžete si prostudovat [Koncepci sémantického slovníku pojmů](https://opendata.gov.cz/_media/dokumenty:s%C3%A9mantick%C3%BD-slovn%C3%ADk-pojm%C5%AF:c1v2d1_n%C3%A1vrh_koncepce_s%C3%A9mantick%C3%A9ho_slovn%C3%ADku_pojm%C5%AF.pdf). Jedná se sice o starší dokument, ale popisuje hlavní principy a architektonická rozhodnutí, které jsou stále platné.
 
-Můžete :
-* se podívat třeba na pojem [Osoba (Zákon o základních registrech)](https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba) a od něj začít prozkoumávat další pojmy sémantického slovníku, které s ním jsou propojeny vztahy.
-* si pohrát s [SPARQL endpointem](https://slovník.gov.cz/sparql), ve kterém je vždy aktuální verze slovníku dostupná
-* podívat se na vrchní vrstvy slovníku pomocí [této vizualizace](https://xn--slovnk-7va.gov.cz/webvowl/).
-* prohlédnout slovník pomocí [staršího facetového prohlížeče](https://slovník.gov.cz/prohlížeč) - na jehož nové verzi pracujeme
+Můžete:
+* se podívat třeba na pojem [Osoba (Zákon o základních registrech)](https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba) a od něj začít prozkoumávat další pojmy sémantického slovníku, které s ním jsou propojeny vztahy,
+* si pohrát s [SPARQL endpointem](https://slovník.gov.cz/sparql), ve kterém je vždy aktuální verze slovníku dostupná,
+* podívat se na vrchní vrstvy slovníku pomocí [této vizualizace](https://xn--slovnk-7va.gov.cz/webvowl/),
+* prohlédnout slovník pomocí [staršího facetového prohlížeče](https://slovník.gov.cz/prohlížeč) - na jehož nové verzi pracujeme.
 
 Kontaktujte nás:
 * [zeptejte se/vytvořte bug report](https://github.com/opendata-mvcr/ssp/issues)
@@ -32,6 +32,3 @@ Kontaktujte nás:
 ----
 Tato stránka je udržována v rámci projektu OPZ č. CZ.03.4.74/0.0/0.0/15_025/0004172.
 ![image]({{ site.baseurl }}/opz_logo.a20771c7.svg){: .galleryThumb}
-
-
-
