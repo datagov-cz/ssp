@@ -1,4 +1,6 @@
-## Co je sémantický slovník pojmů (SSP)?
+# Sémantický slovník pojmů (SSP)
+
+## Co je sémantický slovník pojmů?
 
 Věděli jste, např. že slovo "Budova" se vyskytuje v zákonech v různých významech - např. v [Katastrálním zákoně](https://www.zakonyprolidi.cz/cs/2013-256#p2-1-l) zahrnuje i nevyhřívané objekty, zatímco v [Zákoně o hospodaření energií](https://www.zakonyprolidi.cz/cs/2000-406#p2-1-p) nikoliv? A když se poté dostanete k datové sadě o budovách, viz např. [stávající otevřené datové sady o budovách v NKOD](https://data.gov.cz/datov%C3%A9-sady?dotaz=budovy), nevíte která budova je myšlena. A nejen vy - neví to ani vyhledávač datových sad, takže Vám nemůže vybrat datovou sadu přesně dle vaší potřeby.
 
