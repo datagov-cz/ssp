@@ -27,4 +27,11 @@ Můžete si pohrát s:
 - Pro úplnost uvádíme i [starší facetový prohledávač](https://slovník.gov.cz/prohlížeč), na jehož nové verzi pracujeme
 
 Kontaktujte nás:
-- [zeptejte se/vytvořte bug report](https://github.com/opendata-mvcr/ssp/issues),
+- [zeptejte se/vytvořte bug report](https://github.com/opendata-mvcr/ssp/issues)
+
+----
+Tato stránka je udržována v rámci projektu OPZ č. CZ.03.4.74/0.0/0.0/15_025/0004172.
+![image]({{ site.baseurl }}/opz_logo.a20771c7.svg){: .galleryThumb}
+
+
+
