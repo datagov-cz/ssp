@@ -8,11 +8,9 @@ Když vytváříte data pomocí [otevřených formálních norem](https://openda
 
 Využití je ovšem mnohem širší - formální vazby v SSP umožňují třeba kontrolovat, jak jsou pojmy napříč legislativou používány konzistentně. A dokonce - formální jazyky, ve kterých je sémantický slovník pojmů vyjádřen umožňují využít stejný aparát na tvorbu konceptuálních datových modelů (např. pro popis [datové architektury veřejné správy](https://archi.gov.cz/nar-dokument:architektonicke_uloziste_a_nastroj)), a to ve strojově čitelné podobě a s vazbou na legislativu. 
 
-DA	Datová architektura	Součást vrstvy architektury informačních systémů, popisující zejména konceptuální, logické a fyzické modely údajů o objektech, které jsou předmětem evidence v informačních systémech úřadu.	Datová architektura popisuje strukturu datové základny organizace, jednotlivé datové sady, datové zdroje (databázové systémy, datové soubory), vazby mezi nimi a vazby na další relevantní prvky podnikové architektury (Enterprise Architecture).	Národní architektonický rámec
-
 ## Na jakých technologiích je SSP postaven?
 
-SSP je zveřejněn jako propojená data. Vše je založeno na standardech sémantického webu [RDF](https://www.w3.org/TR/rdf11-primer/), [RDFS](https://www.w3.org/TR/rdf-schema/), [OWL](https://www.w3.org/TR/owl2-overview/). Validaci slovníku provádíme pomocí [SHACL](https://www.w3.org/TR/shacl/), dotazujeme se do něj pomocí [SPARQL](https://www.w3.org/TR/sparql11-query/).
+SSP je zveřejněn jako propojená data a je založen na standardech sémantického webu [RDF](https://www.w3.org/TR/rdf11-primer/), [RDFS](https://www.w3.org/TR/rdf-schema/), [OWL](https://www.w3.org/TR/owl2-overview/). Validaci slovníku provádíme pomocí [SHACL](https://www.w3.org/TR/shacl/), dotazujeme se do něj pomocí [SPARQL](https://www.w3.org/TR/sparql11-query/).
 
 Metodicky SSP vychází ze základní ontologie [Unified Foundational Ontology](https://research.utwente.nl/files/6042428/thesis_Guizzardi.pdf) (UFO), kterou dále rozšiřuje, specializuje a interpretuje v kontextu veřejné správy ČR.
 
