@@ -40,17 +40,18 @@ z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
 
 <https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
 
-g-sgov-kontakty-pojem:kontakt a owl:Class, z-sgov-pojem:typ-objektu .
+g-sgov-kontakty-pojem:kontakt a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
 
 g-sgov-kontakty-pojem:mobil a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
   rdfs:domain g-sgov-kontakty-pojem:kontakt;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -61,11 +62,11 @@ g-sgov-kontakty-pojem:má-datovou-schránku a owl:Class, owl:ObjectProperty, z-s
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/datová-schránka>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/datová-schránka>
@@ -79,14 +80,14 @@ g-sgov-kontakty-pojem:má-kontaktní-místo a owl:Class, owl:ObjectProperty, z-s
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -130,11 +131,11 @@ g-sgov-kontakty-pojem:druh a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-v
   rdfs:domain g-sgov-kontakty-pojem:kontakt;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -142,11 +143,11 @@ g-sgov-kontakty-pojem:e-mail a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ
   rdfs:domain g-sgov-kontakty-pojem:kontakt;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -166,11 +167,11 @@ g-sgov-kontakty-pojem:instagram a owl:Class, owl:DatatypeProperty, z-sgov-pojem:
   rdfs:domain g-sgov-kontakty-pojem:kontakt;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-kontakty-pojem:kontakt;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-kontakty-pojem:kontakt
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
