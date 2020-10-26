@@ -21,6 +21,7 @@ Můžete si prostudovat [Koncepci sémantického slovníku pojmů](https://opend
 Můžete:
 * se podívat třeba na pojem [Osoba (Zákon o základních registrech)](https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba) a od něj začít prozkoumávat další pojmy sémantického slovníku, které s ním jsou propojeny vztahy,
 * si pohrát s [SPARQL endpointem](https://slovník.gov.cz/sparql), ve kterém je vždy aktuální verze slovníku dostupná,
+* prohlédnout si pojmy v slovnících pomocí systému [TermIt](https://kbss.felk.cvut.cz/termit-kodi-public/#/public/vocabularies)
 * prohlédnout slovník pomocí [staršího facetového prohlížeče](https://slovník.gov.cz/prohlížeč) - na jehož nové verzi pracujeme.
 
 Kontaktujte nás:
