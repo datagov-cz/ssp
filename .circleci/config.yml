@@ -82,14 +82,26 @@ jobs:
             -u ${USERNAME}:${PASSWORD} \
             --form 'input=@./sgov.trig'
       - run:
-          name: GraphDB - Publish new version
+          name: GraphDB - Download default graph
           command: |
-            curl --location --request DELETE 'https://onto.fel.cvut.cz:7200/repositories/kodi-slovnik-gov-cz/statements' \
+            curl --location --request GET 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/rdf-graphs/service?default' -o default.ttl \
+                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+      - run:
+          name: GraphDB - Clear repository
+          command: |
+            curl --location --request DELETE 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/statements' \
+                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+      - run:
+          name: GraphDB - Upload default graph
+          command: |
+            curl --location --request PUT 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/statements' \
+                 --header 'Content-Type: text/turtle' \
+                 --data-binary '@./default.ttl' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
           name: GraphDB - Publish new version
           command: |
-            curl --location --request PUT 'https://onto.fel.cvut.cz:7200/repositories/kodi-slovnik-gov-cz/statements' \
+            curl --location --request PUT 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/statements' \
                  --header 'Content-Type: application/trig' \
                  --data-binary '@./sgov.trig' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
