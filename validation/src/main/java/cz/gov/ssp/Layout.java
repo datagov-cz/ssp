@@ -1,6 +1,5 @@
-package cz.gov.ssp.validation;
+package cz.gov.ssp;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

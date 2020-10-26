@@ -1,6 +1,7 @@
 package cz.gov.ssp.validation;
 
 import cz.github.sgov.server.Validator;
+import cz.gov.ssp.Layout;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package cz.gov.ssp.validation;
+package cz.gov.ssp;
 
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.ResourceFactory;
