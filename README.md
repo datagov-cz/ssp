@@ -23,5 +23,5 @@ Tento GIT repozitář je zdrojem pro následující aplikace nad slovníkem:
 * [Explorátor propojených dat](https://slovník.gov.cz/veřejný-sektor/pojem/člověk)
 * [Prohlížeč](https://slovník.gov.cz/prohlížeč) - fasetový vyhledávač pojmů napříč slovníky
 
-Tento repozitář je udržován v rámci projektu OPZ č. CZ.03.4.74/0.0/0.0/15_025/0004172.
+Tento repozitář vznikl v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0004172](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=7CCECB36-FB27-4B75-9F6B-6892D2107FD8) je udržován v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0013983](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=F5E162B2-15EC-4BBE-9ABD-066388F3D412).
 ![Evropská unie - Evropský sociální fond - Operační program Zaměstnanost](https://data.gov.cz/images/ozp_logo_cz.jpg)
