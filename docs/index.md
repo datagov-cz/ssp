@@ -28,5 +28,5 @@ Kontaktujte nás:
 * [zeptejte se/vytvořte bug report](https://github.com/opendata-mvcr/ssp/issues)
 
 ----
-Tato stránka je udržována v rámci projektu OPZ č. CZ.03.4.74/0.0/0.0/15_025/0004172.
+Tato stránka je udržována v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0013983](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=F5E162B2-15EC-4BBE-9ABD-066388F3D412).
 ![image]({{ site.baseurl }}/opz_logo.a20771c7.svg){: .galleryThumb}
