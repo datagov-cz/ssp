@@ -516,7 +516,32 @@ d-sgov-právní-akty-pojem:územní-platnost a z-sgov-pojem:druh;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt>, z-sgov-pojem:pasivní-objekt .
 
 d-sgov-právní-akty-pojem:částka a z-sgov-pojem:druh;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/222/2016/pojem/částka> .
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/222/2016/pojem/částka>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:číslo-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:číslo-částky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:rok-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:rok-částky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:citace-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:citace-částky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:název-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:název-částky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
 
 d-sgov-právní-akty-pojem:má-citaci a z-sgov-pojem:typ-vlastnosti .
 
@@ -689,6 +714,14 @@ d-sgov-právní-akty-pojem:obsahuje-fragmenty-znění-právního-aktu a z-sgov-p
       owl:allValuesFrom d-sgov-právní-akty-pojem:fragment-znění;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
+
+d-sgov-právní-akty-pojem:číslo-částky a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:rok-částky a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:citace-částky a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:název-částky a z-sgov-pojem:typ-vlastnosti .
 
 [] a owl:Restriction;
   owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
