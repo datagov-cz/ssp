@@ -19,9 +19,9 @@ Metodicky SSP vychází ze základní ontologie [Unified Foundational Ontology](
 Můžete si prostudovat [Koncepci sémantického slovníku pojmů](https://opendata.gov.cz/_media/dokumenty:s%C3%A9mantick%C3%BD-slovn%C3%ADk-pojm%C5%AF:c1v2d1_n%C3%A1vrh_koncepce_s%C3%A9mantick%C3%A9ho_slovn%C3%ADku_pojm%C5%AF.pdf). Jedná se sice o starší dokument, ale popisuje hlavní principy a architektonická rozhodnutí, které jsou stále platné.
 
 Můžete:
+* si prohlédnout pojmy v jednotlivých slovnících pomocí systému [TermIt](https://kbss.felk.cvut.cz/termit-kodi-public/#/public/vocabularies)
 * se podívat třeba na pojem [Osoba (Zákon o základních registrech)](https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba) a od něj začít prozkoumávat další pojmy sémantického slovníku, které s ním jsou propojeny vztahy,
 * si pohrát s [SPARQL endpointem](https://slovník.gov.cz/sparql), ve kterém je vždy aktuální verze slovníku dostupná,
-* prohlédnout si pojmy v slovnících pomocí systému [TermIt](https://kbss.felk.cvut.cz/termit-kodi-public/#/public/vocabularies)
 * prohlédnout slovník pomocí [staršího facetového prohlížeče](https://slovník.gov.cz/prohlížeč) - na jehož nové verzi pracujeme.
 
 Kontaktujte nás:
