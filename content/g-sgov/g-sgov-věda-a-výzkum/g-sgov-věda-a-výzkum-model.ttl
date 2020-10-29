@@ -21,6 +21,25 @@ g-sgov-věda-a-výzkum:model a a-popis-dat-pojem:model, owl:Ontology;
 
 g-sgov-věda-a-výzkum-pojem:vyzkumnik a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
     z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/lidé/pojem/člověk>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:orcid
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:orcid;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:researcherid
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:researcherid;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:scopus-author-id
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:scopus-author-id;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ];
   z-sgov-pojem:má-vlastnost g-sgov-věda-a-výzkum-pojem:orcid, g-sgov-věda-a-výzkum-pojem:researcherid,
     g-sgov-věda-a-výzkum-pojem:scopus-author-id .
 
@@ -39,7 +58,31 @@ g-sgov-věda-a-výzkum-pojem:způsob-přihlášení a <http://onto.fel.cvut.cz/o
 
 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
     z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:aktuálně-nabízeno
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:aktuálně-nabízeno;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:klíčové-slovo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:klíčové-slovo;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:kontext-tématu-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:kontext-tématu-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:doporučovaná-pracoviště-obecně
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:doporučovaná-pracoviště-obecně;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ];
   z-sgov-pojem:má-vlastnost g-sgov-věda-a-výzkum-pojem:aktuálně-nabízeno, g-sgov-věda-a-výzkum-pojem:doporučovaná-pracoviště-obecně,
     g-sgov-věda-a-výzkum-pojem:klíčové-slovo, g-sgov-věda-a-výzkum-pojem:kontext-tématu-dizertační-práce .
 
@@ -56,71 +99,364 @@ g-sgov-věda-a-výzkum-pojem:doporučovaná-pracoviště-obecně a <http://onto.
     z-sgov-pojem:typ-vlastnosti .
 
 g-sgov-věda-a-výzkum-pojem:má-obor-isvav a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce, <https://slovník.gov.cz/generický/číselníky/pojem/obor-isvav>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/obor-isvav>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/obor-isvav>
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
-  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/obor-isvav> .
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce,
+    <https://slovník.gov.cz/generický/číselníky/pojem/obor-isvav> .
 
 g-sgov-věda-a-výzkum-pojem:má-obor-frascati a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/obor-frascati>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/obor-frascati>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/obor-frascati>
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
   z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/obor-frascati> .
 
 g-sgov-věda-a-výzkum-pojem:má-míru-specifikace a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/míra-specifikace>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/míra-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/míra-specifikace>
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
   z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/číselníky/pojem/míra-specifikace> .
 
 g-sgov-věda-a-výzkum-pojem:má-studijní-program a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range <https://slovník.gov.cz/generický/školství/pojem/studijní-program>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/školství/pojem/studijní-program>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/školství/pojem/studijní-program>
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
   z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/školství/pojem/studijní-program> .
 
 g-sgov-věda-a-výzkum-pojem:vyžaduje-kvalifikaci a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce, <https://slovník.gov.cz/generický/zaměstnání/pojem/kvalifikace>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/kvalifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/kvalifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
-  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/kvalifikace> .
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce,
+    <https://slovník.gov.cz/generický/zaměstnání/pojem/kvalifikace> .
 
 g-sgov-věda-a-výzkum-pojem:má-kontakt a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>
+    ];
+  z-sgov-pojem:má-vlastnost g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
   z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/kontakty/pojem/kontakt> .
 
 g-sgov-věda-a-výzkum-pojem:má-školící-pracoviště a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště, <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
-  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště, <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
 
 g-sgov-věda-a-výzkum-pojem:má-zadávací-pracoviště a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště, <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
-  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště, <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
 
 g-sgov-věda-a-výzkum-pojem:má-konkrétní-doporučované-pracoviště a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště, <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
-  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště, <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště> .
 
 g-sgov-věda-a-výzkum-pojem:ma-způsob-přihlášení a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce, g-sgov-věda-a-výzkum-pojem:způsob-přihlášení;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:způsob-přihlášení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:způsob-přihlášení;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
-  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:způsob-přihlášení .
+  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce,
+    g-sgov-věda-a-výzkum-pojem:způsob-přihlášení .
 
 g-sgov-věda-a-výzkum-pojem:má-školitele a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:vyzkumnik;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:vyzkumnik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:vyzkumnik
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
   z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:vyzkumnik .
 
 g-sgov-věda-a-výzkum-pojem:má-konzultanta a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range <https://slovník.gov.cz/generický/lidé/pojem/člověk>, g-sgov-věda-a-výzkum-pojem:vyzkumnik;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/lidé/pojem/člověk>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/lidé/pojem/člověk>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
-  z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:vyzkumnik .
+  z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/lidé/pojem/člověk>,
+    g-sgov-věda-a-výzkum-pojem:vyzkumnik .
 
 g-sgov-věda-a-výzkum-pojem:má-školitele-specialistu a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+  rdfs:range g-sgov-věda-a-výzkum-pojem:vyzkumnik;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:vyzkumnik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:vyzkumnik
+    ];
   z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:téma-dizertační-práce;
   z-sgov-pojem:má-vztažený-prvek-2 g-sgov-věda-a-výzkum-pojem:vyzkumnik .
 
 g-sgov-věda-a-výzkum-pojem:má-kontakt-pro-přihlášení a <http://onto.fel.cvut.cz/ontologies/ufo/relator-type>,
-    z-sgov-pojem:typ-vztahu;
+    owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-věda-a-výzkum-pojem:způsob-přihlášení;
+  rdfs:range <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>, g-sgov-věda-a-výzkum-pojem:způsob-přihlášení;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:způsob-přihlášení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:způsob-přihlášení;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  z-sgov-pojem:má-vztažený-prvek-1 g-sgov-věda-a-výzkum-pojem:způsob-přihlášení;
   z-sgov-pojem:má-vztažený-prvek-2 <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>,
     g-sgov-věda-a-výzkum-pojem:způsob-přihlášení .
+
+g-sgov-věda-a-výzkum-pojem:Výzkumné-pracoviště a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/zaměstnání/pojem/pracoviště>, [
+      a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:orjk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:orjk;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ];
+  z-sgov-pojem:má-vlastnost g-sgov-věda-a-výzkum-pojem:orjk .
+
+g-sgov-věda-a-výzkum-pojem:orjk a z-sgov-pojem:typ-vlastnosti .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom g-sgov-věda-a-výzkum-pojem:způsob-přihlášení .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-věda-a-výzkum-pojem:způsob-přihlášení;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
