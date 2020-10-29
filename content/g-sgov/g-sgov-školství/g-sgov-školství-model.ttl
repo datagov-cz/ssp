@@ -5,6 +5,7 @@
 @prefix g-sgov-školství-pojem: <https://slovník.gov.cz/generický/školství/pojem/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
@@ -20,6 +21,13 @@ g-sgov-školství:model a a-popis-dat-pojem:model, owl:Ontology;
 
 g-sgov-školství-pojem:studijní-program a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
     z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-školství-pojem:kód
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-školství-pojem:kód;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ];
   z-sgov-pojem:má-vlastnost g-sgov-školství-pojem:kód .
 
 g-sgov-školství-pojem:kód a <http://onto.fel.cvut.cz/ontologies/ufo/intrinsic-trope-type>,
