@@ -430,6 +430,12 @@ d-sgov-právní-akty-pojem:fragment-znění a z-sgov-pojem:druh;
     ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-právní-akty-pojem:má-citaci-označení-fragmentu;
       owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:url-fragmentu-znění
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:url-fragmentu-znění;
+      owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
 d-sgov-právní-akty-pojem:gestor a z-sgov-pojem:druh .
@@ -462,6 +468,18 @@ d-sgov-právní-akty-pojem:právní-akt a z-sgov-pojem:druh, z-sgov-pojem:typ-ob
       owl:someValuesFrom d-sgov-právní-akty-pojem:datum-zrušení
     ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-právní-akty-pojem:datum-zrušení;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:datum-platnosti-od
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:datum-platnosti-od;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:platnost-do
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:platnost-do;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
@@ -741,7 +759,19 @@ d-sgov-právní-akty-pojem:má-podtyp-právního-aktu-1 a z-sgov-pojem:typ-vztah
     ] .
 
 d-sgov-právní-akty-pojem:konsolidační-vazba a z-sgov-pojem:druh;
-  rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
+  rdfs:subClassOf z-sgov-pojem:pasivní-objekt, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:má-účinnost-konsolidační-vazby-od
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:má-účinnost-konsolidační-vazby-od;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:má-účinnost-konsolidační-vazby-textem
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:má-účinnost-konsolidační-vazby-textem;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
 
 d-sgov-právní-akty-pojem:má-novelizační-instrukci a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
@@ -879,3 +909,52 @@ d-sgov-právní-akty-pojem:má-první-verzi-odkazu a z-sgov-pojem:typ-vztahu;
     ] .
 
 d-sgov-právní-akty-pojem:citace-cíle-odkazy a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:má-vyhlášené-znění a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf d-sgov-právní-akty-pojem:má-znění, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:právní-akt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:právní-akt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-právní-akty-pojem:vyhlášené-znění-právního-aktu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-právní-akty-pojem:vyhlášené-znění-právního-aktu
+    ] .
+
+d-sgov-právní-akty-pojem:url-fragmentu-znění a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:má-účinnost-konsolidační-vazby-od a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:má-účinnost-konsolidační-vazby-textem a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:datum-platnosti-od a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-právní-akty-pojem:platnost-do a z-sgov-pojem:typ-vlastnosti .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+  owl:someValuesFrom d-sgov-právní-akty-pojem:znění-právního-aktu .
+
+[] a owl:Restriction;
+  owl:allValuesFrom d-sgov-právní-akty-pojem:znění-právního-aktu;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vlastnost .
+
+[] a owl:Restriction;
+  owl:onProperty z-sgov-pojem:má-vlastnost .
