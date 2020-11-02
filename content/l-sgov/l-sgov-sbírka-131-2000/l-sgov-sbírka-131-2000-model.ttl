@@ -1,47 +1,64 @@
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix l-sgov-sbírka-131-2000: <https://slovník.gov.cz/legislativní/sbírka/131/2000/> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix l-sgov-sbírka-131-2000-pojem: <https://slovník.gov.cz/legislativní/sbírka/131/2000/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
-<https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        a       owl:ObjectProperty .
+l-sgov-sbírka-131-2000:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-06-29";
+  dcterms:creator "Michal Med";
+  dcterms:rights <https://creativecommons.org/licenses/by/4.0>;
+  dcterms:title "Slovník zákona č. 131/2000 Sb., o hlavním městě Praze. - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-131-2000-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/131/2000/pojem/";
+  owl:imports l-sgov-sbírka-131-2000:glosář;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/131/2000/model/verze/1.0.0> .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
 
-l-sgov-sbírka-131-2000-pojem:městská-část-v-hlavním-městě-praze
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
 
-l-sgov-sbírka-131-2000:model
-        a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
-        <http://purl.org/dc/terms/created>
-                "2020-06-29" ;
-        <http://purl.org/dc/terms/creator>
-                "Michal Med" ;
-        <http://purl.org/dc/terms/rights>
-                <https://creativecommons.org/licenses/by/4.0> ;
-        <http://purl.org/dc/terms/title>
-                "Slovník zákona č. 131/2000 Sb., o hlavním městě Praze. - model"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specification"@en , "Specifikace"@cs ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "l-sgov-sbírka-131-2000-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/legislativní/sbírka/131/2000/pojem/" ;
-        owl:imports     l-sgov-sbírka-131-2000:glosář ;
-        owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/131/2000/model/verze/1.0.0> .
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
 
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
-        a       owl:ObjectProperty .
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
 
-l-sgov-sbírka-131-2000-pojem:správní-obvod-v-hlavním-městě-praze-
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+l-sgov-sbírka-131-2000-pojem:městská-část-v-hlavním-městě-praze a owl:Class, z-sgov-pojem:druh,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/131/2000/sekce/3>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
 
-<https://slovník.gov.cz/základní/pojem/je-vlastností>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+l-sgov-sbírka-131-2000-pojem:správní-obvod-v-hlavním-městě-praze- a owl:Class, z-sgov-pojem:druh,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/131/2000/sekce/4/2>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+l-sgov-sbírka-131-2000-pojem:b a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-131-2000-pojem:a-1 a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-131-2000-pojem:r-1 a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-131-2000-pojem:a-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-131-2000-pojem:a-1;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-131-2000-pojem:b
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-131-2000-pojem:b;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
