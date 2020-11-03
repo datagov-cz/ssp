@@ -1,0 +1,161 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix l-sgov-sbírka-365-2000: <https://slovník.gov.cz/legislativní/sbírka/365/2000/> .
+@prefix l-sgov-sbírka-365-2000-pojem: <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+l-sgov-sbírka-365-2000:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-07-28";
+  dcterms:title "Slovník zákona č. 265/2000 Sb. o informačních systémech veřejné správy - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-365-2000-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/";
+  owl:imports l-sgov-sbírka-365-2000:glosář;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/365/2000/model/verze/0.0.1> .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém> a owl:Class .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání> a owl:Class .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci> a owl:Class .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba> a owl:Class .
+
+l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/2/b>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém> .
+
+l-sgov-sbírka-365-2000-pojem:provoz a owl:Class, z-sgov-pojem:typ-události;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/1>, <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/2/1/d>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání> .
+
+l-sgov-sbírka-365-2000-pojem:správa a owl:Class, z-sgov-pojem:typ-události;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/1>, <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/2/1/c>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání> .
+
+l-sgov-sbírka-365-2000-pojem:správce-informačního-systému-veřejné-správy a owl:Class,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/2/1/c>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci> .
+
+l-sgov-sbírka-365-2000-pojem:provozovatel-informačního-systému-veřejné-správy a owl:Class,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/2/1/d>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba> .
+
+l-sgov-sbírka-365-2000-pojem:má-správce a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/2/1/c>;
+  rdfs:domain l-sgov-sbírka-365-2000-pojem:správa;
+  rdfs:range l-sgov-sbírka-365-2000-pojem:správce-informačního-systému-veřejné-správy;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:správce-informačního-systému-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:správce-informačního-systému-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
+
+l-sgov-sbírka-365-2000-pojem:je-spravován a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/1>;
+  rdfs:domain l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy;
+  rdfs:range l-sgov-sbírka-365-2000-pojem:správa;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:správa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:správa
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
+
+l-sgov-sbírka-365-2000-pojem:má-provozovatele a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/2/1/d>;
+  rdfs:domain l-sgov-sbírka-365-2000-pojem:provoz;
+  rdfs:range l-sgov-sbírka-365-2000-pojem:provozovatel-informačního-systému-veřejné-správy;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:provozovatel-informačního-systému-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:provozovatel-informačního-systému-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
+
+l-sgov-sbírka-365-2000-pojem:je-provozován a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/365/2000/sekce/1>;
+  rdfs:domain l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy;
+  rdfs:range l-sgov-sbírka-365-2000-pojem:provoz;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:provoz
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:provoz;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:informační-systém-veřejné-správy
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
+
+l-sgov-sbírka-365-2000-pojem:uživatel-informačního-systému-veřejné-správy a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2000-365#p2-1-e> .
+
+l-sgov-sbírka-365-2000-pojem:atest a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2000-365#p2-1-k>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-365-2000-pojem:atestace a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-365-2000-pojem:atest
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-365-2000-pojem:atest;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
