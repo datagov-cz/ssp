@@ -84,8 +84,10 @@ jobs:
       - run:
           name: GraphDB - Download default graph
           command: |
-            curl --location --request GET 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/rdf-graphs/service?default' -o default.ttl \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz?infer=false' -o default.ttl \
+            --header 'Content-Type: application/sparql-query' \
+            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
+            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
           name: GraphDB - Clear repository
           command: |
