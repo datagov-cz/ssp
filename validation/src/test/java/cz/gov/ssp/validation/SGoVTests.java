@@ -1,9 +1,10 @@
 package cz.gov.ssp.validation;
 
-import cz.github.sgov.server.Validator;
+import com.github.sgov.server.Validator;
 import cz.gov.ssp.Layout;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,22 +36,22 @@ public class SGoVTests {
             .filter(f -> f.getName().endsWith("-glosář.ttl")).map(File::getAbsolutePath);
     }
 
+    final Validator validator = new Validator();
+
     @BeforeEach
     public void init() {
         SHACLPreferences.setProduceFailuresMode(true);
     }
 
     @ParameterizedTest(name = "Testing glossary {0}") @MethodSource("getGlossaries")
-    public void testGlossary(String glossaryFile) {
-        final Validator validator = new Validator();
-
+    public void testGlossary(String glossaryFile) throws IOException {
         final Model dataModel =
             JenaUtil.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, null);
 
         OntDocumentManager.getInstance().setProcessImports(false);
         dataModel.read(glossaryFile, null, FileUtils.langTurtle);
 
-        final ValidationReport r = validator.validate(dataModel, Validator.getGlossaryRules());
+        final ValidationReport r = validator.validate(dataModel, validator.getGlossaryRules());
 
         r.results().forEach(result -> log.info(MessageFormat
             .format("[{0}] Node {1} failing for value {2} with message: {3} ",
@@ -61,7 +62,7 @@ public class SGoVTests {
             res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
     }
 
-    private void testFolder(String folder, Set<String> rules) throws IOException {
+    private void testFolder(String folder, Set<URL> rules) throws IOException {
         String root = Layout.SSP_CONTENT_ROOT;
         Stream<String> files =
             Files.walk(Paths.get(root)).filter(Files::isRegularFile).map(Path::toFile)
@@ -91,10 +92,10 @@ public class SGoVTests {
     }
 
     @Test public void testZSGoV() throws IOException {
-        testFolder("z-sgov", Validator.getVocabularyRules());
+        testFolder("z-sgov", validator.getVocabularyRules());
     }
 
     @Test public void testVSGoV() throws IOException {
-        testFolder("v-sgov", Validator.getVocabularyRules());
+        testFolder("v-sgov", validator.getVocabularyRules());
     }
 }
