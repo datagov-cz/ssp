@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Stream;
 import org.apache.jena.ontology.OntDocumentManager;
@@ -19,6 +20,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,8 +34,20 @@ public class SGoVTests {
     private static final Logger log = LoggerFactory.getLogger(SGoVTests.class);
 
     private static Stream<String> getGlossaries() throws IOException {
-        return Files.walk(Paths.get(Layout.SSP_CONTENT_ROOT)).filter(Files::isRegularFile).map(Path::toFile)
+        return Files.walk(Paths.get(Layout.SSP_CONTENT_ROOT)).filter(Files::isRegularFile)
+            .map(Path::toFile)
             .filter(f -> f.getName().endsWith("-glosář.ttl")).map(File::getAbsolutePath);
+    }
+
+    private static Stream<Arguments> getVocabularies() throws IOException {
+        return Files.walk(Paths.get(Layout.SSP_CONTENT_ROOT))
+            .filter(Files::isRegularFile)
+            .map(Path::toFile)
+            .filter(f -> f.getName().endsWith("-slovník.ttl"))
+            .map(f ->
+                Arguments.of(f.getAbsolutePath(),
+                    f.getAbsolutePath().replace("-slovník", "-glosář")
+                ));
     }
 
     final Validator validator = new Validator();
@@ -62,12 +76,32 @@ public class SGoVTests {
             res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
     }
 
+    @ParameterizedTest(name = "Testing vocabulary {0}") @MethodSource("getVocabularies")
+    public void testVocabulary(String vocabulary, String glossary) throws IOException {
+        final Model dataModel =
+            JenaUtil.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, null);
+
+        OntDocumentManager.getInstance().setProcessImports(false);
+        dataModel.read(vocabulary, null, FileUtils.langTurtle);
+        dataModel.read(glossary, null, FileUtils.langTurtle);
+
+        final ValidationReport r = validator.validate(dataModel, validator.getVocabularyRules());
+
+        r.results().forEach(result -> log.info(MessageFormat
+            .format("[{0}] Node {1} failing for value {2} with message: {3} ",
+                result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
+                result.getMessage())));
+
+        Assertions.assertTrue(r.results().stream().allMatch(
+            res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
+    }
+
     private void testFolder(String folder, Set<URL> rules) throws IOException {
         String root = Layout.SSP_CONTENT_ROOT;
         Stream<String> files =
             Files.walk(Paths.get(root)).filter(Files::isRegularFile).map(Path::toFile)
-                 .filter(f -> f.getPath().startsWith(root + folder))
-                 .filter(f -> f.getName().endsWith(".ttl")).map(File::getAbsolutePath);
+                .filter(f -> f.getPath().startsWith(root + folder))
+                .filter(f -> f.getName().endsWith(".ttl")).map(File::getAbsolutePath);
 
         final Validator validator = new Validator();
 
