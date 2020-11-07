@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Stream;
 import org.apache.jena.ontology.OntDocumentManager;
