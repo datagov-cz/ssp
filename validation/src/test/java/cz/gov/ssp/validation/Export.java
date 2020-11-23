@@ -3,7 +3,6 @@ package cz.gov.ssp.validation;
 import static cz.gov.ssp.OntologyUtils.addTypeToModel;
 import static org.junit.jupiter.api.Assertions.fail;
 
-
 import cz.gov.ssp.Layout;
 import cz.gov.ssp.TestUtils;
 import cz.gov.ssp.VocabularyArtifact;
@@ -11,13 +10,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -59,7 +55,7 @@ public class Export {
     }
 
     private void exportGraphPerVocabulary(final Dataset fullDataset) throws FileNotFoundException {
-        final Map<String,Model> map = new HashMap<>();
+        final Map<String, Model> map = new HashMap<>();
         fullDataset.listNames().forEachRemaining(g -> {
             String base = TestUtils.getVocabularyBase(g);
             Model m;

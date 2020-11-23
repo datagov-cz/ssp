@@ -40,19 +40,19 @@ jobs:
       - run:
           name: Save validation results
           command: |
-            mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/build/test-results/.*" -exec cp {} ~/test-results/junit/ \;
+            mkdir -p test-results/junit/
+            find . -type f -regex ".*/build/test-results/.*" -exec cp {} test-results/junit/ \;
             find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
-            find . -type f -regex ".*/sgov-named-graphs.txt" -exec cp {} ~/sgov-named-graphs.txt \;
+            find . -type f -regex ".*/sgov-named-graphs.txt" -exec cp {} sgov-named-graphs.txt \;
           when: always
       - store_test_results:
-          path: ~/test-results
+          path: test-results
       - store_artifacts:
-          path: ~/test-results/junit
+          path: test-results/junit
       - store_artifacts:
-          path: ~/sgov.trig
+          path: sgov.trig
       - store_artifacts:
-          path: ~/sgov-named-graphs.txt
+          path: sgov-named-graphs.txt
   deploy-to-etl-and-graphdb:
     docker:
       # specify the version you desire here
