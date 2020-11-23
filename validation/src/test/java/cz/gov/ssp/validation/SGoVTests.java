@@ -10,10 +10,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
 import java.util.Set;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Stream;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,6 +29,7 @@ import org.slf4j.LoggerFactory;
 import org.topbraid.jenax.util.JenaUtil;
 import org.topbraid.shacl.util.SHACLPreferences;
 import org.topbraid.shacl.validation.ValidationReport;
+import org.topbraid.shacl.validation.ValidationResult;
 import org.topbraid.shacl.vocabulary.SH;
 
 public class SGoVTests {
@@ -66,13 +70,25 @@ public class SGoVTests {
 
         final ValidationReport r = validator.validate(dataModel, validator.getGlossaryRules());
 
-        r.results().forEach(result -> log.info(MessageFormat
+        r.results().forEach(result -> getLoggingMethod(result).accept(MessageFormat
             .format("[{0}] Node {1} failing for value {2} with message: {3} ",
                 result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
                 result.getMessage())));
 
         Assertions.assertTrue(r.results().stream().allMatch(
             res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
+    }
+
+    private Consumer<String> getLoggingMethod(final ValidationResult result) {
+        if (result.getSeverity().equals(SH.Violation)) {
+            return (s) -> log.error(s);
+        } else if (result.getSeverity().equals(SH.Warning)) {
+            return (s) -> log.warn(s);
+        } else if (result.getSeverity().equals(SH.Info)) {
+            return (s) -> log.info(s);
+        } else {
+            throw new IllegalArgumentException(result.getSeverity().getLocalName());
+        }
     }
 
     @ParameterizedTest(name = "Testing vocabulary {0}") @MethodSource("getVocabularies")
@@ -86,10 +102,12 @@ public class SGoVTests {
 
         final ValidationReport r = validator.validate(dataModel, validator.getVocabularyRules());
 
-        r.results().forEach(result -> log.info(MessageFormat
-            .format("[{0}] Node {1} failing for value {2} with message: {3} ",
-                result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
-                result.getMessage())));
+        r.results().forEach(result -> {
+            getLoggingMethod(result).accept(MessageFormat
+                .format("[{0}] Node {1} failing for value {2} with message: {3} ",
+                    result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
+                    result.getMessage()));
+        });
 
         Assertions.assertTrue(r.results().stream().allMatch(
             res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
@@ -115,7 +133,7 @@ public class SGoVTests {
 
         final ValidationReport r = validator.validate(dataModel, rules);
 
-        r.results().forEach(result -> log.info(MessageFormat
+        r.results().forEach(result -> getLoggingMethod(result).accept(MessageFormat
             .format("[{0}] Node {1} failing for value {2} with message: {3} ",
                 result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
                 result.getMessage())));
