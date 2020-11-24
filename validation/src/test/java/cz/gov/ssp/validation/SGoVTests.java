@@ -11,12 +11,10 @@ import java.nio.file.Paths;
 import java.text.MessageFormat;
 import java.util.Set;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.stream.Stream;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,14 +37,14 @@ public class SGoVTests {
     private static Stream<String> getGlossaries() throws IOException {
         return Files.walk(Paths.get(Layout.SSP_CONTENT_ROOT)).filter(Files::isRegularFile)
             .map(Path::toFile)
-            .filter(f -> f.getName().endsWith("-glosář.ttl")).map(File::getAbsolutePath);
+            .filter(f -> f.getName().contains("-glosář")).map(File::getAbsolutePath);
     }
 
     private static Stream<Arguments> getVocabularies() throws IOException {
         return Files.walk(Paths.get(Layout.SSP_CONTENT_ROOT))
             .filter(Files::isRegularFile)
             .map(Path::toFile)
-            .filter(f -> f.getName().endsWith("-slovník.ttl"))
+            .filter(f -> f.getName().contains("-slovník"))
             .map(f ->
                 Arguments.of(f.getAbsolutePath(),
                     f.getAbsolutePath().replace("-slovník", "-glosář")
