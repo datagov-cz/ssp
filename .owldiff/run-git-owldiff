@@ -1,5 +1,7 @@
 #!/bin/bash
+echo "branch : $CIRCLE_BRANCH"
 FILES=$(git diff --name-only master..${CIRCLE_BRANCH} -- '*.ttl')
+echo "changed files : $FILES"
 for f in $FILES
 do
   echo "***********"
