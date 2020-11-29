@@ -1,0 +1,25 @@
+# Retrieves dependencies between vocabularies, based on the actual links between concepts.
+# Should be aligned with a-popis-dat:importuje-slovník ?s2.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX slovník: <http://slovník.gov.cz/datový/sbírka/pojem/>
+PREFIX a-popis-dat: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/>
+PREFIX dc: <http://purl.org/dc/terms/>
+SELECT ?s1 ?s2  {
+  ?root dc:title ?root_name .
+  ?s1 a a-popis-dat:slovník ;
+      owl:imports ?g1  .
+  ?s2 a a-popis-dat:slovník ;
+      owl:imports ?g2 .
+
+  ?t1 a skos:Concept ;
+      skos:inScheme ?g1 .
+  ?t2 a skos:Concept ;
+      skos:inScheme ?g2 .
+  ?t1 skos:broader|rdfs:subClassOf|rdfs:subPropertyOf|rdf:type ?t2 .
+  FILTER(?s1 != ?s2)
+
+} GROUP BY ?s1 ?s2
