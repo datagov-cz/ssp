@@ -1,776 +1,629 @@
-@prefix : <https://slovník.gov.cz/veřejný-sektor/glosář#> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix v-sgov: <https://slovník.gov.cz/veřejný-sektor/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix v-sgov-pojem: <https://slovník.gov.cz/veřejný-sektor/pojem/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
-@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
-
-v-sgov:glosář a owl:Ontology ;
-	owl:versionIRI <https://slovník.gov.cz/veřejný-sektor/glosář/verze/1.0.0> ;
-	owl:imports <https://slovník.gov.cz/základní/glosář/verze/1.0.1> ;
-	dcterms:created "2020-06-29" ;
-	dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0> ;
-	dcterms:title "Public Sector vocabulary (V-SGoV) - glossary"@en , "Slovník veřejného sektoru (V-SGoV) - glosář"@cs ;
-	bibo:status "Specification"@en , "Specifikace"@cs ;
-	vann:preferredNamespacePrefix "v-sgov-pojem" ;
-	vann:preferredNamespaceUri "https://slovník.gov.cz/veřejný-sektor/pojem/" ;
-	skos:hasTopConcept v-sgov-pojem:datová-sada , v-sgov-pojem:den-v-měsíci , v-sgov-pojem:den-v-týdnu , v-sgov-pojem:dokument , v-sgov-pojem:eviduje , v-sgov-pojem:hodina , v-sgov-pojem:informační-systém , v-sgov-pojem:je-evidencí-pro , v-sgov-pojem:jméno-právnické-osoby , v-sgov-pojem:konsolidované-znění-právního-předpisu , v-sgov-pojem:křestní-jméno , v-sgov-pojem:minuta , v-sgov-pojem:má-konec , v-sgov-pojem:má-kontext , v-sgov-pojem:má-lokalizaci , v-sgov-pojem:má-platnost , v-sgov-pojem:má-počet-opakování , v-sgov-pojem:má-začátek , v-sgov-pojem:má-zdrojový-předpis , v-sgov-pojem:má-znění , v-sgov-pojem:má-časový-úsek , v-sgov-pojem:má-část-právního-předpisu , v-sgov-pojem:má-část-znění , v-sgov-pojem:měsíc-v-roce , v-sgov-pojem:novela-právního-předpisu , v-sgov-pojem:novelizuje , v-sgov-pojem:název-datové-sady , v-sgov-pojem:název-právního-předpisu , v-sgov-pojem:objekt-práva , v-sgov-pojem:opakovaná-časová-specifikace , v-sgov-pojem:opakuje , v-sgov-pojem:organizace , v-sgov-pojem:popis-datové-sady , v-sgov-pojem:povinnost , v-sgov-pojem:prostorový-objekt , v-sgov-pojem:právní-vztah , v-sgov-pojem:právo , v-sgov-pojem:příjmení , v-sgov-pojem:rok , v-sgov-pojem:rok-v-desetiletí , v-sgov-pojem:rok-ve-století , v-sgov-pojem:subjekt-práva , v-sgov-pojem:typ-evidenčního-systému , v-sgov-pojem:typ-znalostní-struktury-dle-úrovně , v-sgov-pojem:týden-v-měsíci , v-sgov-pojem:týden-v-roce , v-sgov-pojem:vyhlášené-znění-právního-předpisu , v-sgov-pojem:vyjímá , v-sgov-pojem:výkon-svrchované-moci , v-sgov-pojem:zahrnuje , v-sgov-pojem:znění-právního-předpisu , v-sgov-pojem:způsobilost-k-protiprávnímu-jednání , v-sgov-pojem:způsobilost-k-právnímu-jednání , v-sgov-pojem:způsobilost-k-právům-a-povinnostem , v-sgov-pojem:časová-entita , v-sgov-pojem:časový-úsek , v-sgov-pojem:člověk , v-sgov-pojem:část-znění-právního-předpisu .
-# 
-# 
-# #################################################################
-# #
-# #    Annotation properties
-# #
-# #################################################################
-# 
-# 
-# http://www.w3.org/2004/02/skos/core#altLabel
-
-skos:altLabel a owl:AnnotationProperty .
-# 
-# http://www.w3.org/2004/02/skos/core#hasTopConcept
-
-skos:hasTopConcept a owl:AnnotationProperty .
-# 
-# http://www.w3.org/2004/02/skos/core#scopeNote
-
-skos:scopeNote a owl:AnnotationProperty .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Individuals
-# #
-# #################################################################
-# 
-# 
-# https://slovník.gov.cz/veřejný-sektor/glosář
-
-v-sgov:glosář a owl:NamedIndividual , a-popis-dat-pojem:glosář , skos:ConceptScheme .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument
-
-v-sgov-pojem:bezkontextový-dokument a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:dokument , z-sgov-pojem:kategorie , z-sgov-pojem:typ-objektu ;
-	skos:definition "Bezkontextový dokument je dokument, který je samonosný a nevyžaduje ke své interpretaci kontext"@cs , "Context-free document is a document which is self-standing and does not require another document to interpret it."@en ;
-	skos:prefLabel "Bezkontextový dokument"@cs , "Context-free Document"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/datová-sada
-
-v-sgov-pojem:datová-sada a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:druh , z-sgov-pojem:pasivní-objekt , z-sgov-pojem:typ-objektu ;
-	skos:definition "Dataset is a set of related data."@en , "Datová sada označuje množinu souvisejících dat."@cs ;
-	skos:prefLabel "Dataset"@en , "Datová sada"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/den-v-měsíci
-
-v-sgov-pojem:den-v-měsíci a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Den v měsíci"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/den-v-týdnu
-
-v-sgov-pojem:den-v-týdnu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Den v týdnu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/dokument
-
-v-sgov-pojem:dokument a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:kategorie , z-sgov-pojem:pasivní-objekt , z-sgov-pojem:typ-objektu ;
-	skos:definition "Document is a piece of written, printed, or electronic matter that provides information."@en , "Dokument je psaný, tištěný nebo elektronický materiál poskytujícího informace."@cs ;
-	skos:prefLabel "Document"@en , "Dokument"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém
-
-v-sgov-pojem:evidenční-systém a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:datová-sada , z-sgov-pojem:poddruh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Evidence System is a data set which records endurants."@en , "Evidenční systém je datová sada, která eviduje proměnné prvky."@cs ;
-	skos:prefLabel "Evidence System"@en , "Evidenční systém"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/eviduje
-
-v-sgov-pojem:eviduje a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:definition "'eviduje' označuje relator spojující evidenční systém s evidovaným endurantem."@cs , "'records' denotes a relator connecting an evidence system with an endurant."@en ;
-	skos:prefLabel "Eviduje"@cs , "records"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba
-
-v-sgov-pojem:fyzická-osoba a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:subjekt-práva , v-sgov-pojem:člověk , z-sgov-pojem:role , z-sgov-pojem:typ-objektu ;
-	skos:definition "Fyzická osoba je člověkem, který je subjektem práva."@cs , "Natural Person is a human as a legal subject."@en ;
-	skos:prefLabel "Fyzická osoba"@cs , "Natural Person"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název
-
-v-sgov-pojem:geografický-název a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:lokalizace-popisem , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Geografický název"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/geometrie
-
-v-sgov-pojem:geometrie a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:lokalizace-prostorového-objektu , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Geometrie"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/hlava
-
-v-sgov-pojem:hlava a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Chapter as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en , "Hlava jako část právního předpisu ze sbírky zákonů"@cs ;
-	skos:prefLabel "Chapter"@en , "Hlava"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/hodina
-
-v-sgov-pojem:hodina a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Hodina"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/informační-systém
-
-v-sgov-pojem:informační-systém a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:kategorie , z-sgov-pojem:pasivní-objekt , z-sgov-pojem:typ-objektu ;
-	skos:definition "Information System is an organized system for the collection, organization, storage and communication of information."@en , "Informační systém je systém vzájemně propojených prostředků a procesů, které slouží k ukládání, zpracovávání a poskytování informací."@cs ;
-	skos:prefLabel "Information System"@en , "Informační systém"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/je-evidencí-pro
-
-v-sgov-pojem:je-evidencí-pro a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:definition "'is evidence for' denotes a relator connecting an evidence system type with endurant types, instances of which it records."@en , "'je evidencí pro'označuje relátor spojující typ evidenčního systému s typy proměnných prvků, které tento systém eviduje."@cs ;
-	skos:prefLabel "Je evidencí pro"@cs , "is evidence for"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/jméno-právnické-osoby
-
-v-sgov-pojem:jméno-právnické-osoby a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:altLabel "Jméno"@cs , "Název"@cs ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Jméno právnické osoby"@cs , "Legal entity name"@en ;
-	skos:prefLabel "Jméno právnické osoby"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/konsolidované-znění-právního-předpisu
-
-v-sgov-pojem:konsolidované-znění-právního-předpisu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "Konsolidované znění právního předpisu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/kontextový-dokument
-
-v-sgov-pojem:kontextový-dokument a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:dokument , z-sgov-pojem:kategorie , z-sgov-pojem:typ-objektu ;
-	skos:definition "Context document is a document which requires another document to interpret it."@en , "Kontextový dokument je dokument, který je vyžaduje ke své interpretaci kontext"@cs ;
-	skos:prefLabel "Context Document"@en , "Kontextový dokument"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno
-
-v-sgov-pojem:křestní-jméno a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Human First name"@en , "Křestní jméno člověka"@cs ;
-	skos:prefLabel "First name"@en , "Křestní jméno"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/legislativní-znalostní-struktura
-
-v-sgov-pojem:legislativní-znalostní-struktura a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:znalostní-struktura , z-sgov-pojem:mixin-rolí , z-sgov-pojem:typ-objektu ;
-	skos:definition "Legislative Knowledge Structure is a knowledge structure for legal norms."@en , "Legislativní znalostní struktura je znalostní struktura pro právní předpisy."@cs ;
-	skos:prefLabel "Legislative Knowledge Structure"@en , "Legislativní znalostní struktura"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem
-
-v-sgov-pojem:lokalizace-popisem a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:lokalizace-prostorového-objektu , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Lokalizace popisem"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu
-
-v-sgov-pojem:lokalizace-prostorového-objektu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:prostorový-objekt , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Lokalizace prostorového objektu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-vyjádřená-prostorovým-objektem
-
-v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:lokalizace-prostorového-objektu , v-sgov-pojem:prostorový-objekt , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Lokalizace vyjádřená prostorovým objektem"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/minuta
-
-v-sgov-pojem:minuta a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Minuta"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-definiční-lokalizaci
-
-v-sgov-pojem:má-definiční-lokalizaci a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:má-lokalizaci , z-sgov-pojem:typ-vztahu ;
-	skos:prefLabel "má definiční lokalizaci"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-geometrii
-
-v-sgov-pojem:má-geometrii a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:má-lokalizaci , z-sgov-pojem:typ-vztahu ;
-	skos:prefLabel "má geometrii"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-konec
-
-v-sgov-pojem:má-konec a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "má konec"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-kontext
-
-v-sgov-pojem:má-kontext a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:definition "has context is a relation connecting a context document and the document that is needed to interpret it."@en , "má kontext je vztah spojující kontextový dokument a dokument nutný k jeho interpretaci."@cs ;
-	skos:prefLabel "has context"@en , "má kontext"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci
-
-v-sgov-pojem:má-lokalizaci a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "má lokalizaci"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-názvem
-
-v-sgov-pojem:má-lokalizaci-názvem a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:má-lokalizaci-popisem , z-sgov-pojem:typ-vztahu ;
-	skos:prefLabel "má lokalizaci názvem"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem
-
-v-sgov-pojem:má-lokalizaci-popisem a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:má-lokalizaci , z-sgov-pojem:typ-vztahu ;
-	skos:prefLabel "má lokalizaci popisem"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost
-
-v-sgov-pojem:má-platnost a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "má platnost"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-počet-opakování
-
-v-sgov-pojem:má-počet-opakování a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "má počet opakování"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu
-
-v-sgov-pojem:má-vztah-k-prostorovému-objektu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:má-lokalizaci , z-sgov-pojem:typ-vztahu ;
-	skos:prefLabel "má vztah k prostorovému objektu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-začátek
-
-v-sgov-pojem:má-začátek a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "má začátek"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-zdrojový-předpis
-
-v-sgov-pojem:má-zdrojový-předpis a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:definition "'has source norm' denotes a relation between a legislative knowledge structure and the legal norm it describes."@en , "'má zdrojový předpis' označuje vztah mezi legislativní znalostní strukturou a právním předpisem."@cs ;
-	skos:prefLabel "has source norm"@en , "má zdrojový předpis"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-znění
-
-v-sgov-pojem:má-znění a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "má znění"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-časový-úsek
-
-v-sgov-pojem:má-časový-úsek a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "má časový úsek"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-část-právního-předpisu
-
-v-sgov-pojem:má-část-právního-předpisu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:definition "'has legal norm part 'denotes a relation between a legal norm from the Collection of laws of the Czech Republic and its part."@en , "'má část právního předpisu' označuje vztah mezi právním předpisem ze sbírky zákonů a částí tohoto právního přepisu."@cs ;
-	skos:prefLabel "has legal norm part"@en , "má část právního předpisu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/má-část-znění
-
-v-sgov-pojem:má-část-znění a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "má část znění"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/měsíc-v-roce
-
-v-sgov-pojem:měsíc-v-roce a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Měsíc v roce"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/novela-právního-předpisu
-
-v-sgov-pojem:novela-právního-předpisu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "Novela právního předpisu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/novelizuje
-
-v-sgov-pojem:novelizuje a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "novelizuje"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/název-datové-sady
-
-v-sgov-pojem:název-datové-sady a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Název datové sady"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/název-právního-předpisu
-
-v-sgov-pojem:název-právního-předpisu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "Název právního předpisu"@cs ;
-	skos:scopeNote ""@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva
-
-v-sgov-pojem:objekt-práva a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:mixin-rolí , z-sgov-pojem:objekt , z-sgov-pojem:typ-objektu ;
-	skos:definition "Legal object is the reason for establishing the Legal Relationship."@en , "Objekt práva je příčinou vstupu subjektu do právního vztahu."@cs ;
-	skos:prefLabel "Legal Object"@en , "Objekt práva"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/odstavec
-
-v-sgov-pojem:odstavec a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:část-znění-právního-předpisu , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Odstavec jako část právního předpisu ze sbírky zákonů"@cs , "Section as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en ;
-	skos:prefLabel "Odstavec"@cs , "Section"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/opakovaná-časová-specifikace
-
-v-sgov-pojem:opakovaná-časová-specifikace a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-objektu , z-sgov-pojem:časová-specifikace ;
-	skos:prefLabel "Opakovaná časová specifikace"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/opakuje
-
-v-sgov-pojem:opakuje a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "opakuje"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/organizace
-
-v-sgov-pojem:organizace a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:agent , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Organizace je uskupení lidí, které je agentem."@cs , "Organization is any group of people, which is also an agent."@en ;
-	skos:prefLabel "Organizace"@cs , "Organization"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci
-
-v-sgov-pojem:orgán-veřejné-moci a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:organizace , z-sgov-pojem:poddruh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Orgán veřejné moci  je organizace, která reprezentuje veřejnou moc a je ze zákona oprávněna autoritativně rozhodovat o právech a povinnostech osob."@cs , "Public Authority is an organization which has a legal mandate to govern, administrate some part of public life."@en ;
-	skos:prefLabel "Orgán veřejné moci"@cs , "Public Authority"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/paragraf
-
-v-sgov-pojem:paragraf a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:část-znění-právního-předpisu , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Paragraf jako část právního předpisu ze sbírky zákonů"@cs , "Paragraph as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en ;
-	skos:prefLabel "Paragraf"@cs , "Paragraph"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/popis-datové-sady
-
-v-sgov-pojem:popis-datové-sady a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:altLabel "description"@en , "popis"@cs ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Popis datové sady"@cs , "dataset description"@en ;
-	skos:scopeNote "Dataset description, providing details about its content or anticipated usage."@en , "Popis datové sady, který blíže vysvětluje obsah či způsob užití."@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/povinnost
-
-v-sgov-pojem:povinnost a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Duty is a commitment to do, give, omit to do, or tolerate."@en , "Povinnost je závazek něco udělat, dát, nedělat, nebo strpět."@cs ;
-	skos:prefLabel "Duty"@en , "Povinnost"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/primární-objekt-práva
-
-v-sgov-pojem:primární-objekt-práva a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:objekt-práva , z-sgov-pojem:mixin-rolí , z-sgov-pojem:typ-objektu ;
-	skos:definition "Legal subject is the type of behaviour that one of the legal subjects should perform."@en , "Primární objekt práva je druh chování, které má vykonat jeden ze subjektů práva."@cs ;
-	skos:prefLabel "Primary Legal Object"@en , "Primární objekt práva"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt
-
-v-sgov-pojem:prostorový-objekt a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:objekt , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Prostorový objekt"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-jednání
-
-v-sgov-pojem:protiprávní-jednání a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-události ;
-	skos:definition "Protiprávní jednání je právní skutečnost, která je v rozporu s právem."@cs , "Unlawful act is a legal fact that is contrary to or violates a law that exist."@en ;
-	skos:prefLabel "Protiprávní jednání"@cs , "Unlawful act"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/protiprávní-stav
-
-v-sgov-pojem:protiprávní-stav a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-události ;
-	skos:definition "Protiprávní stav je právní skutečnost, která je v rozporu s právem a není úmyslná. "@cs , "Unlawful state is a legal transaction which is contrary the law and which is independent on the legal subject will."@en ;
-	skos:prefLabel "Protiprávní stav"@cs , "Unlawful State"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba
-
-v-sgov-pojem:právnická-osoba a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:organizace , v-sgov-pojem:subjekt-práva , z-sgov-pojem:role , z-sgov-pojem:typ-objektu ;
-	skos:definition "Legal Person is an organization as a legal subject."@en , "Právnická osoba je organizací, která je subjektem práva."@cs ;
-	skos:prefLabel "Legal Entity"@en , "Právnická osoba"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání
-
-v-sgov-pojem:právní-jednání a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-události ;
-	skos:definition "Legal  transactions are the means by which legal subjects can change the legal positions of themselves or other persons intentionally."@en , "Právní jednání je vědomé jednání člověka s právními následky."@cs ;
-	skos:prefLabel "Legal transaction"@en , "Právní jednání"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis
-
-v-sgov-pojem:právní-předpis a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:bezkontextový-dokument , z-sgov-pojem:kategorie , z-sgov-pojem:typ-objektu ;
-	skos:definition "Legal Norm is a mandatory rule of social behavior established by the state"@en , "Právní předpis je mandatorním pravidlem nebo jejich souborem vytvořených státem a popisujících společenské chování."@cs ;
-	skos:prefLabel "Legal Norm"@en , "Právní předpis"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů
-
-v-sgov-pojem:právní-předpis-ze-sbírky-zákonů a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:právní-předpis , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Legal norm from the Collection of Laws of the Czech Republic is a legal norm which is issued as a part of the Collection of laws of the Czech Republic."@en , "Právní předpis ze sbírky zákonů označuje právní předpis vydaný ve Sbírce zákonů ČR."@cs ;
-	skos:prefLabel "Legal norm from the Collection of Laws of the Czech Republic"@en , "Právní předpis ze Sbírky zákonů"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-skutečnost
-
-v-sgov-pojem:právní-skutečnost a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-události ;
-	skos:definition "Legal fact is a circumstance with which a legal norm connects creation. change or destruction of a legal relationship."@en , "Právní skutečnost je okolnost, se kterou právní norma spojuje vznik, změnu nebo zánik právního vztahu, tj. subjektivních práv a povinností"@cs ;
-	skos:prefLabel "Legal Fact"@en , "Právní skutečnost"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-událost
-
-v-sgov-pojem:právní-událost a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-události ;
-	skos:definition "Legal event is a legal transaction, occurrence of which is independent on the legal subject will."@en , "Právní událost je je právní skutečnost, která vzniká nezávisle na vůli právních subjektů."@cs ;
-	skos:prefLabel "Legal Event"@en , "Právní událost"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah
-
-v-sgov-pojem:právní-vztah a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:definition "Legal Relationship is a social relation of two or more legal subjects that have mutual rights and obligations"@en , "Právní vztah je společenský vztah dvou nebo více subjektů práva, které mají vzájemná práva a povinnosti"@cs ;
-	skos:prefLabel "Legal Relationship"@en , "Právní vztah"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/právo
-
-v-sgov-pojem:právo a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Právo je právní možnost právního subjektu se nějak chovat."@cs , "RIght is a legal possibility of a legal subject to act in some way."@en ;
-	skos:prefLabel "Právo"@cs , "Right"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/písmeno
-
-v-sgov-pojem:písmeno a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Letter as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en , "Písmeno jako část právního předpisu ze sbírky zákonů"@cs ;
-	skos:prefLabel "Letter"@en , "Písmeno"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/příjmení
-
-v-sgov-pojem:příjmení a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Human Surname"@en , "Příjmení člověka"@cs ;
-	skos:prefLabel "Příjmení"@cs , "Surname"@en .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/rok
-
-v-sgov-pojem:rok a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Rok"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/rok-v-desetiletí
-
-v-sgov-pojem:rok-v-desetiletí a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Rok v desetiletí"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/rok-ve-století
-
-v-sgov-pojem:rok-ve-století a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Rok ve století"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/sekundární-objekt-práva
-
-v-sgov-pojem:sekundární-objekt-práva a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:objekt-práva , z-sgov-pojem:mixin-rolí , z-sgov-pojem:typ-objektu ;
-	skos:definition "Secondary Legal Object is an object which the primary legal object deals with."@en , "Sekundární objekt práva je objektem, jehož se týká primární objekt práva."@cs ;
-	skos:prefLabel "Secondary Legal Object"@en , "Sekundární objekt práva"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/stát
-
-v-sgov-pojem:stát a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:organizace , z-sgov-pojem:poddruh , z-sgov-pojem:typ-objektu ;
-	skos:definition "State is an organization which groups people according to the territory and sovereign power."@en , "Stát je organizace seskupující lidi podle území a státní moci ."@cs ;
-	skos:prefLabel "State"@en , "Stát"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva
-
-v-sgov-pojem:subjekt-práva a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:agent , z-sgov-pojem:mixin-rolí , z-sgov-pojem:typ-objektu ;
-	skos:definition "Legal Subject is a person participating in one or more legal relationships."@en , "Subjekt práva je osoba,  která se účastní právních vztahů."@cs ;
-	skos:prefLabel "Legal Subject"@en , "Subjekt práva"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/typ-evidenčního-systému
-
-v-sgov-pojem:typ-evidenčního-systému a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:kategorie , z-sgov-pojem:typ-objektu , z-sgov-pojem:typ-proměnného-prvku ;
-	skos:definition "Evidence System Type denotes a type instances of which categorize evidence systems."@en , "Typ evidenčního systému označuje typ jehož instance kategorizují evidenční systémy."@cs ;
-	skos:prefLabel "Evidence System Type"@en , "Typ evidenčního systému"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/typ-znalostní-struktury-dle-úrovně
-
-v-sgov-pojem:typ-znalostní-struktury-dle-úrovně a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:kategorie , z-sgov-pojem:typ , z-sgov-pojem:typ-objektu ;
-	skos:definition "Knowledge Structure Type According to the Level is a type instances of which are categories of knowledge structures."@en , "Typ znalostní struktury dle úrovně označuje typ, jehož instance jsou kategoriemi znalostních struktur."@cs ;
-	skos:prefLabel "Knowledge Structure Type According to the Level"@en , "Typ znalostní struktury dle úrovně"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-měsíci
-
-v-sgov-pojem:týden-v-měsíci a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Týden v měsíci"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/týden-v-roce
-
-v-sgov-pojem:týden-v-roce a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:prefLabel "Týden v roce"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/veřejnoprávní-korporace
-
-v-sgov-pojem:veřejnoprávní-korporace a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:organizace , z-sgov-pojem:kategorie , z-sgov-pojem:typ-objektu ;
-	skos:definition "A statutory corporation is a corporation created by the state."@en , "Veřejnoprávní korporace je organizace, která je založena na základě zákona a které byla svěřena pravomoc plnit vymezené úkoly ve veřejné správě."@cs ;
-	skos:prefLabel "Statutory corporation"@en , "Veřejnoprávní korporace"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/vyhlášené-znění-právního-předpisu
-
-v-sgov-pojem:vyhlášené-znění-právního-předpisu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "Vyhlášené znění právního předpisu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/vyjímá
-
-v-sgov-pojem:vyjímá a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "vyjímá"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/výkon-svrchované-moci
-
-v-sgov-pojem:výkon-svrchované-moci a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:definition "Exercise of sovereign power denotes acts over its land and people."@en , "Výkon svrchované moci označuje působení svrchované moci (státu) nad svým územím a obyvateli."@cs ;
-	skos:prefLabel "Exercise of sovereign power"@en , "Výkon svrchované moci"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/zahrnuje
-
-v-sgov-pojem:zahrnuje a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-vztahu , z-sgov-pojem:vztah ;
-	skos:prefLabel "zahrnuje"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/znalostní-struktura
-
-v-sgov-pojem:znalostní-struktura a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:datová-sada , z-sgov-pojem:kategorie , z-sgov-pojem:typ-objektu ;
-	skos:definition "Knowledge Structure is a data set serving for sharing meaning of terms."@en , "Znalostní struktura označuje datovou sadu, která je slouží ke sdílení významu odborných pojmů."@cs ;
-	skos:prefLabel "Knowledge Structure"@en , "Znalostní struktura"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/znění-právního-předpisu
-
-v-sgov-pojem:znění-právního-předpisu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "Znění právního předpisu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-protiprávnímu-jednání
-
-v-sgov-pojem:způsobilost-k-protiprávnímu-jednání a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Capacity to unlawful acts denotes a capability to have legal responsibility for legal facts contrary the law."@en , "Způsobilost k protiprávnímu jednání označuje schopnost nést právní odpovědnost za vlastní protiprávní jednání"@cs ;
-	skos:prefLabel "Capacity to unlawful acts"@en , "Způsobilost k protiprávnímu jednání"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání
-
-v-sgov-pojem:způsobilost-k-právnímu-jednání a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Legal Capacity is a capability to exercise rights and duties."@en , "Způsobilost k právnímu jednání označuje schopnost vlastním jednáním nabývat práv a plnit povinnosti."@cs ;
-	skos:prefLabel "Legal Capacity"@en , "Způsobilost k právnímu jednání"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem
-
-v-sgov-pojem:způsobilost-k-právům-a-povinnostem a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti , z-sgov-pojem:typ-vlastnosti , z-sgov-pojem:vlastnost ;
-	skos:definition "Capacity to Rights and Duties is a possibility of a legal subject to have rights and duties."@en , "Způsobilost k právům a povinnostem označuje vlastnost subjektu práva mít práva a povinnosti, pokud nastanou právem předvídané okolnosti. "@cs ;
-	skos:prefLabel "Capacity to Rights and Duties"@en , "Způsobilost k právům a povinnostem"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/časová-entita
-
-v-sgov-pojem:časová-entita a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:typ-objektu , z-sgov-pojem:časová-specifikace ;
-	skos:prefLabel "Časová entita"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/časový-interval
-
-v-sgov-pojem:časový-interval a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:časová-entita , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Časový interval"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/časový-okamžik
-
-v-sgov-pojem:časový-okamžik a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:časová-entita , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Časový okamžik"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/časový-úsek
-
-v-sgov-pojem:časový-úsek a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:objekt , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Časový úsek"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/člověk
-
-v-sgov-pojem:člověk a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader z-sgov-pojem:agent , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Human is the genus that encompasses the species Homo sapiens."@en , "Člověk je rod živočichů."@cs ;
-	skos:prefLabel "Human"@en , "Člověk"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/část
-
-v-sgov-pojem:část a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:část-znění-právního-předpisu , z-sgov-pojem:druh , z-sgov-pojem:typ-objektu ;
-	skos:definition "Part as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en , "Část jako část právního předpisu ze sbírky zákonů"@cs ;
-	skos:prefLabel "Part"@en , "Část"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů
-
-v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:kontextový-dokument , z-sgov-pojem:kategorie , z-sgov-pojem:typ-objektu ;
-	skos:definition "Part of Legal Norm from the Collection of Laws of the Czech Republic denotes an identifiable part of a Legal Norm from the Collection of Laws of the Czech Republic"@en , "Část právního předpisu ze sbírky zákonů označuje identifikovatelnou část právního předpisu ze Sbírku zákonů ČR."@cs ;
-	skos:prefLabel "Part of Legal Norm from the Collection of Laws of the Czech Republic"@en , "Část právního předpisu ze sbírky zákonů"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/část-znění-právního-předpisu
-
-v-sgov-pojem:část-znění-právního-předpisu a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:prefLabel "Část znění právního předpisu"@cs .
-# 
-# https://slovník.gov.cz/veřejný-sektor/pojem/číselník
-
-v-sgov-pojem:číselník a owl:NamedIndividual , skos:Concept ;
-	skos:inScheme v-sgov:glosář ;
-	skos:broader v-sgov-pojem:evidenční-systém , z-sgov-pojem:poddruh , z-sgov-pojem:typ-objektu ;
-	skos:prefLabel "Číselník"@cs .
-# 
-# Generated by the OWL API (version 4.5.12.2019-05-06T20:49:08Z) https://github.com/owlcs/owlapi
+
+v-sgov:glosář a a-popis-dat-pojem:glosář, owl:NamedIndividual, owl:Ontology, skos:ConceptScheme;
+  dcterms:created "2020-06-29";
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Public Sector vocabulary (V-SGoV) - glossary"@en, "Slovník veřejného sektoru (V-SGoV) - glosář"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "v-sgov-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/veřejný-sektor/pojem/";
+  owl:imports <https://slovník.gov.cz/základní/glosář/verze/1.0.1>;
+  owl:versionIRI <https://slovník.gov.cz/veřejný-sektor/glosář/verze/1.0.0>;
+  skos:hasTopConcept v-sgov-pojem:datová-sada, v-sgov-pojem:den-v-měsíci, v-sgov-pojem:den-v-týdnu,
+    v-sgov-pojem:dokument, v-sgov-pojem:eviduje, v-sgov-pojem:hodina, v-sgov-pojem:informační-systém,
+    v-sgov-pojem:je-evidencí-pro, v-sgov-pojem:jméno-právnické-osoby, v-sgov-pojem:klasifikace,
+    v-sgov-pojem:konsolidované-znění-právního-předpisu, v-sgov-pojem:křestní-jméno, v-sgov-pojem:minuta,
+    v-sgov-pojem:má-konec, v-sgov-pojem:má-kontext, v-sgov-pojem:má-lokalizaci, v-sgov-pojem:má-platnost,
+    v-sgov-pojem:má-počet-opakování, v-sgov-pojem:má-začátek, v-sgov-pojem:má-zdrojový-předpis,
+    v-sgov-pojem:má-znění, v-sgov-pojem:má-časový-úsek, v-sgov-pojem:má-část-právního-předpisu,
+    v-sgov-pojem:má-část-znění, v-sgov-pojem:měsíc-v-roce, v-sgov-pojem:novela-právního-předpisu,
+    v-sgov-pojem:novelizuje, v-sgov-pojem:název-datové-sady, v-sgov-pojem:název-právního-předpisu,
+    v-sgov-pojem:objekt-práva, v-sgov-pojem:opakovaná-časová-specifikace, v-sgov-pojem:opakuje,
+    v-sgov-pojem:organizace, v-sgov-pojem:položka, v-sgov-pojem:popis-datové-sady, v-sgov-pojem:povinnost,
+    v-sgov-pojem:prostorový-objekt, v-sgov-pojem:právní-vztah, v-sgov-pojem:právo, v-sgov-pojem:příjmení,
+    v-sgov-pojem:rok, v-sgov-pojem:rok-v-desetiletí, v-sgov-pojem:rok-ve-století, v-sgov-pojem:subjekt-práva,
+    v-sgov-pojem:typ-evidenčního-systému, v-sgov-pojem:typ-znalostní-struktury-dle-úrovně,
+    v-sgov-pojem:týden-v-měsíci, v-sgov-pojem:týden-v-roce, v-sgov-pojem:vyhlášené-znění-právního-předpisu,
+    v-sgov-pojem:vyjímá, v-sgov-pojem:výkon-svrchované-moci, v-sgov-pojem:zahrnuje, v-sgov-pojem:znění-právního-předpisu,
+    v-sgov-pojem:způsobilost-k-protiprávnímu-jednání, v-sgov-pojem:způsobilost-k-právnímu-jednání,
+    v-sgov-pojem:způsobilost-k-právům-a-povinnostem, v-sgov-pojem:časová-entita, v-sgov-pojem:časový-úsek,
+    v-sgov-pojem:člověk, v-sgov-pojem:část-znění-právního-předpisu .
+
+v-sgov-pojem:fyzická-osoba a skos:Concept;
+  skos:broader v-sgov-pojem:subjekt-práva, v-sgov-pojem:člověk, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:definition "Fyzická osoba je člověkem, který je subjektem práva."@cs, "Natural Person is a human as a legal subject."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Fyzická osoba"@cs, "Natural Person"@en .
+
+v-sgov-pojem:subjekt-práva a skos:Concept;
+  skos:broader z-sgov-pojem:agent, z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  skos:definition "Legal Subject is a person participating in one or more legal relationships."@en,
+    "Subjekt práva je osoba,  která se účastní právních vztahů."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Subject"@en, "Subjekt práva"@cs .
+
+v-sgov-pojem:člověk a skos:Concept;
+  skos:broader z-sgov-pojem:agent, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  skos:definition "Human is the genus that encompasses the species Homo sapiens."@en,
+    "Člověk je rod živočichů."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Human"@en, "Člověk"@cs .
+
+v-sgov-pojem:den-v-měsíci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Den v měsíci"@cs .
+
+v-sgov-pojem:den-v-týdnu a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Den v týdnu"@cs .
+
+v-sgov-pojem:hodina a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Hodina"@cs .
+
+v-sgov-pojem:minuta a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Minuta"@cs .
+
+v-sgov-pojem:má-konec a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má konec"@cs .
+
+v-sgov-pojem:má-počet-opakování a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má počet opakování"@cs .
+
+v-sgov-pojem:má-začátek a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má začátek"@cs .
+
+v-sgov-pojem:má-časový-úsek a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má časový úsek"@cs .
+
+v-sgov-pojem:měsíc-v-roce a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Měsíc v roce"@cs .
+
+v-sgov-pojem:název-datové-sady a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Název datové sady"@cs .
+
+v-sgov-pojem:opakovaná-časová-specifikace a skos:Concept;
+  skos:broader z-sgov-pojem:typ-objektu, z-sgov-pojem:časová-specifikace;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Opakovaná časová specifikace"@cs .
+
+v-sgov-pojem:opakuje a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "opakuje"@cs .
+
+v-sgov-pojem:popis-datové-sady a skos:Concept;
+  skos:altLabel "description"@en, "popis"@cs;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Popis datové sady"@cs, "dataset description"@en;
+  skos:scopeNote "Dataset description, providing details about its content or anticipated usage."@en,
+    "Popis datové sady, který blíže vysvětluje obsah či způsob užití."@cs .
+
+v-sgov-pojem:rok a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Rok"@cs .
+
+v-sgov-pojem:rok-v-desetiletí a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Rok v desetiletí"@cs .
+
+v-sgov-pojem:rok-ve-století a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Rok ve století"@cs .
+
+v-sgov-pojem:týden-v-měsíci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Týden v měsíci"@cs .
+
+v-sgov-pojem:týden-v-roce a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Týden v roce"@cs .
+
+v-sgov-pojem:vyjímá a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "vyjímá"@cs .
+
+v-sgov-pojem:zahrnuje a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "zahrnuje"@cs .
+
+v-sgov-pojem:časová-entita a skos:Concept;
+  skos:broader z-sgov-pojem:typ-objektu, z-sgov-pojem:časová-specifikace;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Časová entita"@cs .
+
+v-sgov-pojem:časový-interval a skos:Concept;
+  skos:broader v-sgov-pojem:časová-entita, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Časový interval"@cs .
+
+v-sgov-pojem:časový-okamžik a skos:Concept;
+  skos:broader v-sgov-pojem:časová-entita, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Časový okamžik"@cs .
+
+v-sgov-pojem:časový-úsek a skos:Concept;
+  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Časový úsek"@cs .
+
+v-sgov-pojem:číselník a skos:Concept;
+  skos:broader v-sgov-pojem:evidenční-systém, z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  skos:definition ""@cs, ""@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Codelist"@en, "Číselník"@cs .
+
+v-sgov-pojem:evidenční-systém a skos:Concept;
+  skos:broader v-sgov-pojem:datová-sada, z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  skos:definition "Evidence System is a data set which records endurants."@en, "Evidenční systém je datová sada, která eviduje proměnné prvky."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Evidence System"@en, "Evidenční systém"@cs .
+
+v-sgov-pojem:hlava a skos:Concept;
+  skos:broader v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů, z-sgov-pojem:druh,
+    z-sgov-pojem:typ-objektu;
+  skos:definition "Chapter as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en,
+    "Hlava jako část právního předpisu ze sbírky zákonů"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Chapter"@en, "Hlava"@cs .
+
+v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů a skos:Concept;
+  skos:broader v-sgov-pojem:kontextový-dokument, z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  skos:definition "Part of Legal Norm from the Collection of Laws of the Czech Republic denotes an identifiable part of a Legal Norm from the Collection of Laws of the Czech Republic"@en,
+    "Část právního předpisu ze sbírky zákonů označuje identifikovatelnou část právního předpisu ze Sbírku zákonů ČR."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Part of Legal Norm from the Collection of Laws of the Czech Republic"@en,
+    "Část právního předpisu ze sbírky zákonů"@cs .
+
+v-sgov-pojem:datová-sada a skos:Concept;
+  skos:broader z-sgov-pojem:druh, z-sgov-pojem:pasivní-objekt, z-sgov-pojem:typ-objektu;
+  skos:definition "Dataset is a set of related data."@en, "Datová sada označuje množinu souvisejících dat."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Dataset"@en, "Datová sada"@cs .
+
+v-sgov-pojem:je-evidencí-pro a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "'is evidence for' denotes a relator connecting an evidence system type with endurant types, instances of which it records."@en,
+    "'je evidencí pro'označuje relátor spojující typ evidenčního systému s typy proměnných prvků, které tento systém eviduje."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Je evidencí pro"@cs, "is evidence for"@en .
+
+v-sgov-pojem:má-zdrojový-předpis a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "'has source norm' denotes a relation between a legislative knowledge structure and the legal norm it describes."@en,
+    "'má zdrojový předpis' označuje vztah mezi legislativní znalostní strukturou a právním předpisem."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "has source norm"@en, "má zdrojový předpis"@cs .
+
+v-sgov-pojem:organizace a skos:Concept;
+  skos:broader z-sgov-pojem:agent, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  skos:definition "Organizace je uskupení lidí, které je agentem."@cs, "Organization is any group of people, which is also an agent."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Organizace"@cs, "Organization"@en .
+
+v-sgov-pojem:právnická-osoba a skos:Concept;
+  skos:broader v-sgov-pojem:organizace, v-sgov-pojem:subjekt-práva, z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  skos:definition "Legal Person is an organization as a legal subject."@en, "Právnická osoba je organizací, která je subjektem práva."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Entity"@en, "Právnická osoba"@cs .
+
+v-sgov-pojem:právo a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Právo je právní možnost právního subjektu se nějak chovat."@cs, "RIght is a legal possibility of a legal subject to act in some way."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Právo"@cs, "Right"@en .
+
+v-sgov-pojem:veřejnoprávní-korporace a skos:Concept;
+  skos:broader v-sgov-pojem:organizace, z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  skos:definition "A statutory corporation is a corporation created by the state."@en,
+    "Veřejnoprávní korporace je organizace, která je založena na základě zákona a které byla svěřena pravomoc plnit vymezené úkoly ve veřejné správě."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Statutory corporation"@en, "Veřejnoprávní korporace"@cs .
+
+v-sgov-pojem:objekt-práva a skos:Concept;
+  skos:broader z-sgov-pojem:mixin-rolí, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:definition "Legal object is the reason for establishing the Legal Relationship."@en,
+    "Objekt práva je příčinou vstupu subjektu do právního vztahu."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Object"@en, "Objekt práva"@cs .
+
+v-sgov-pojem:právní-vztah a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Legal Relationship is a social relation of two or more legal subjects that have mutual rights and obligations"@en,
+    "Právní vztah je společenský vztah dvou nebo více subjektů práva, které mají vzájemná práva a povinnosti"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Relationship"@en, "Právní vztah"@cs .
+
+v-sgov-pojem:křestní-jméno a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Human First name"@en, "Křestní jméno člověka"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "First name"@en, "Křestní jméno"@cs .
+
+v-sgov-pojem:příjmení a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Human Surname"@en, "Příjmení člověka"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Příjmení"@cs, "Surname"@en .
+
+v-sgov-pojem:orgán-veřejné-moci a skos:Concept;
+  skos:broader v-sgov-pojem:organizace, z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  skos:definition "Orgán veřejné moci  je organizace, která reprezentuje veřejnou moc a je ze zákona oprávněna autoritativně rozhodovat o právech a povinnostech osob."@cs,
+    "Public Authority is an organization which has a legal mandate to govern, administrate some part of public life."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Orgán veřejné moci"@cs, "Public Authority"@en .
+
+v-sgov-pojem:bezkontextový-dokument a skos:Concept;
+  skos:broader v-sgov-pojem:dokument, z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  skos:definition "Bezkontextový dokument je dokument, který je samonosný a nevyžaduje ke své interpretaci kontext"@cs,
+    "Context-free document is a document which is self-standing and does not require another document to interpret it."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Bezkontextový dokument"@cs, "Context-free Document"@en .
+
+v-sgov-pojem:dokument a skos:Concept;
+  skos:broader z-sgov-pojem:kategorie, z-sgov-pojem:pasivní-objekt, z-sgov-pojem:typ-objektu;
+  skos:definition "Document is a piece of written, printed, or electronic matter that provides information."@en,
+    "Dokument je psaný, tištěný nebo elektronický materiál poskytujícího informace."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Document"@en, "Dokument"@cs .
+
+v-sgov-pojem:eviduje a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "'eviduje' označuje relator spojující evidenční systém s evidovaným endurantem."@cs,
+    "'records' denotes a relator connecting an evidence system with an endurant."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Eviduje"@cs, "records"@en .
+
+v-sgov-pojem:informační-systém a skos:Concept;
+  skos:broader z-sgov-pojem:kategorie, z-sgov-pojem:pasivní-objekt, z-sgov-pojem:typ-objektu;
+  skos:definition "Information System is an organized system for the collection, organization, storage and communication of information."@en,
+    "Informační systém je systém vzájemně propojených prostředků a procesů, které slouží k ukládání, zpracovávání a poskytování informací."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Information System"@en, "Informační systém"@cs .
+
+v-sgov-pojem:kontextový-dokument a skos:Concept;
+  skos:broader v-sgov-pojem:dokument, z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  skos:definition "Context document is a document which requires another document to interpret it."@en,
+    "Kontextový dokument je dokument, který je vyžaduje ke své interpretaci kontext"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Context Document"@en, "Kontextový dokument"@cs .
+
+v-sgov-pojem:legislativní-znalostní-struktura a skos:Concept;
+  skos:broader v-sgov-pojem:znalostní-struktura, z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  skos:definition "Legislative Knowledge Structure is a knowledge structure for legal norms."@en,
+    "Legislativní znalostní struktura je znalostní struktura pro právní předpisy."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legislative Knowledge Structure"@en, "Legislativní znalostní struktura"@cs .
+
+v-sgov-pojem:znalostní-struktura a skos:Concept;
+  skos:broader v-sgov-pojem:datová-sada, z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  skos:definition "Knowledge Structure is a data set serving for sharing meaning of terms."@en,
+    "Znalostní struktura označuje datovou sadu, která je slouží ke sdílení významu odborných pojmů."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Knowledge Structure"@en, "Znalostní struktura"@cs .
+
+v-sgov-pojem:má-kontext a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "has context is a relation connecting a context document and the document that is needed to interpret it."@en,
+    "má kontext je vztah spojující kontextový dokument a dokument nutný k jeho interpretaci."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "has context"@en, "má kontext"@cs .
+
+v-sgov-pojem:má-část-právního-předpisu a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "'has legal norm part 'denotes a relation between a legal norm from the Collection of laws of the Czech Republic and its part."@en,
+    "'má část právního předpisu' označuje vztah mezi právním předpisem ze sbírky zákonů a částí tohoto právního přepisu."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "has legal norm part"@en, "má část právního předpisu"@cs .
+
+v-sgov-pojem:odstavec a skos:Concept;
+  skos:broader v-sgov-pojem:část-znění-právního-předpisu, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  skos:definition "Odstavec jako část právního předpisu ze sbírky zákonů"@cs, "Section as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Odstavec"@cs, "Section"@en .
+
+v-sgov-pojem:paragraf a skos:Concept;
+  skos:broader v-sgov-pojem:část-znění-právního-předpisu, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  skos:definition "Paragraf jako část právního předpisu ze sbírky zákonů"@cs, "Paragraph as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Paragraf"@cs, "Paragraph"@en .
+
+v-sgov-pojem:povinnost a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Duty is a commitment to do, give, omit to do, or tolerate."@en, "Povinnost je závazek něco udělat, dát, nedělat, nebo strpět."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Duty"@en, "Povinnost"@cs .
+
+v-sgov-pojem:primární-objekt-práva a skos:Concept;
+  skos:broader v-sgov-pojem:objekt-práva, z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  skos:definition "Legal subject is the type of behaviour that one of the legal subjects should perform."@en,
+    "Primární objekt práva je druh chování, které má vykonat jeden ze subjektů práva."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Primary Legal Object"@en, "Primární objekt práva"@cs .
+
+v-sgov-pojem:protiprávní-jednání a skos:Concept;
+  skos:broader z-sgov-pojem:typ-události;
+  skos:definition "Protiprávní jednání je právní skutečnost, která je v rozporu s právem."@cs,
+    "Unlawful act is a legal fact that is contrary to or violates a law that exist."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Protiprávní jednání"@cs, "Unlawful act"@en .
+
+v-sgov-pojem:právní-skutečnost a skos:Concept;
+  skos:broader z-sgov-pojem:typ-události;
+  skos:definition "Legal fact is a circumstance with which a legal norm connects creation. change or destruction of a legal relationship."@en,
+    "Právní skutečnost je okolnost, se kterou právní norma spojuje vznik, změnu nebo zánik právního vztahu, tj. subjektivních práv a povinností"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Fact"@en, "Právní skutečnost"@cs .
+
+v-sgov-pojem:protiprávní-stav a skos:Concept;
+  skos:broader z-sgov-pojem:typ-události;
+  skos:definition "Protiprávní stav je právní skutečnost, která je v rozporu s právem a není úmyslná. "@cs,
+    "Unlawful state is a legal transaction which is contrary the law and which is independent on the legal subject will."@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Protiprávní stav"@cs, "Unlawful State"@en .
+
+v-sgov-pojem:právní-jednání a skos:Concept;
+  skos:broader z-sgov-pojem:typ-události;
+  skos:definition "Legal  transactions are the means by which legal subjects can change the legal positions of themselves or other persons intentionally."@en,
+    "Právní jednání je vědomé jednání člověka s právními následky."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal transaction"@en, "Právní jednání"@cs .
+
+v-sgov-pojem:právní-předpis a skos:Concept;
+  skos:broader v-sgov-pojem:bezkontextový-dokument, z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  skos:definition "Legal Norm is a mandatory rule of social behavior established by the state"@en,
+    "Právní předpis je mandatorním pravidlem nebo jejich souborem vytvořených státem a popisujících společenské chování."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Norm"@en, "Právní předpis"@cs .
+
+v-sgov-pojem:právní-předpis-ze-sbírky-zákonů a skos:Concept;
+  skos:broader v-sgov-pojem:právní-předpis, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  skos:definition "Legal norm from the Collection of Laws of the Czech Republic is a legal norm which is issued as a part of the Collection of laws of the Czech Republic."@en,
+    "Právní předpis ze sbírky zákonů označuje právní předpis vydaný ve Sbírce zákonů ČR."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal norm from the Collection of Laws of the Czech Republic"@en,
+    "Právní předpis ze Sbírky zákonů"@cs .
+
+v-sgov-pojem:právní-událost a skos:Concept;
+  skos:broader z-sgov-pojem:typ-události;
+  skos:definition "Legal event is a legal transaction, occurrence of which is independent on the legal subject will."@en,
+    "Právní událost je je právní skutečnost, která vzniká nezávisle na vůli právních subjektů."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Event"@en, "Právní událost"@cs .
+
+v-sgov-pojem:písmeno a skos:Concept;
+  skos:broader v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů, z-sgov-pojem:druh,
+    z-sgov-pojem:typ-objektu;
+  skos:definition "Letter as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en,
+    "Písmeno jako část právního předpisu ze sbírky zákonů"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Letter"@en, "Písmeno"@cs .
+
+v-sgov-pojem:sekundární-objekt-práva a skos:Concept;
+  skos:broader v-sgov-pojem:objekt-práva, z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  skos:definition "Secondary Legal Object is an object which the primary legal object deals with."@en,
+    "Sekundární objekt práva je objektem, jehož se týká primární objekt práva."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Secondary Legal Object"@en, "Sekundární objekt práva"@cs .
+
+v-sgov-pojem:stát a skos:Concept;
+  skos:broader v-sgov-pojem:organizace, z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  skos:definition "State is an organization which groups people according to the territory and sovereign power."@en,
+    "Stát je organizace seskupující lidi podle území a státní moci ."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "State"@en, "Stát"@cs .
+
+v-sgov-pojem:typ-evidenčního-systému a skos:Concept;
+  skos:broader z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu, z-sgov-pojem:typ-proměnného-prvku;
+  skos:definition "Evidence System Type denotes a type instances of which categorize evidence systems."@en,
+    "Typ evidenčního systému označuje typ jehož instance kategorizují evidenční systémy."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Evidence System Type"@en, "Typ evidenčního systému"@cs .
+
+v-sgov-pojem:typ-znalostní-struktury-dle-úrovně a skos:Concept;
+  skos:broader z-sgov-pojem:kategorie, z-sgov-pojem:typ, z-sgov-pojem:typ-objektu;
+  skos:definition "Knowledge Structure Type According to the Level is a type instances of which are categories of knowledge structures."@en,
+    "Typ znalostní struktury dle úrovně označuje typ, jehož instance jsou kategoriemi znalostních struktur."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Knowledge Structure Type According to the Level"@en, "Typ znalostní struktury dle úrovně"@cs .
+
+v-sgov-pojem:výkon-svrchované-moci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Exercise of sovereign power denotes acts over its land and people."@en,
+    "Výkon svrchované moci označuje působení svrchované moci (státu) nad svým územím a obyvateli."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Exercise of sovereign power"@en, "Výkon svrchované moci"@cs .
+
+v-sgov-pojem:způsobilost-k-protiprávnímu-jednání a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Capacity to unlawful acts denotes a capability to have legal responsibility for legal facts contrary the law."@en,
+    "Způsobilost k protiprávnímu jednání označuje schopnost nést právní odpovědnost za vlastní protiprávní jednání"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Capacity to unlawful acts"@en, "Způsobilost k protiprávnímu jednání"@cs .
+
+v-sgov-pojem:způsobilost-k-právnímu-jednání a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Legal Capacity is a capability to exercise rights and duties."@en,
+    "Způsobilost k právnímu jednání označuje schopnost vlastním jednáním nabývat práv a plnit povinnosti."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Legal Capacity"@en, "Způsobilost k právnímu jednání"@cs .
+
+v-sgov-pojem:způsobilost-k-právům-a-povinnostem a skos:Concept;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Capacity to Rights and Duties is a possibility of a legal subject to have rights and duties."@en,
+    "Způsobilost k právům a povinnostem označuje vlastnost subjektu práva mít práva a povinnosti, pokud nastanou právem předvídané okolnosti. "@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Capacity to Rights and Duties"@en, "Způsobilost k právům a povinnostem"@cs .
+
+v-sgov-pojem:geografický-název a skos:Concept;
+  skos:broader v-sgov-pojem:lokalizace-popisem, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Geografický název"@cs .
+
+v-sgov-pojem:lokalizace-popisem a skos:Concept;
+  skos:broader v-sgov-pojem:lokalizace-prostorového-objektu, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Lokalizace popisem"@cs .
+
+v-sgov-pojem:geometrie a skos:Concept;
+  skos:broader v-sgov-pojem:lokalizace-prostorového-objektu, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Geometrie"@cs .
+
+v-sgov-pojem:lokalizace-prostorového-objektu a skos:Concept;
+  skos:broader v-sgov-pojem:prostorový-objekt, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Lokalizace prostorového objektu"@cs .
+
+v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem a skos:Concept;
+  skos:broader v-sgov-pojem:lokalizace-prostorového-objektu, v-sgov-pojem:prostorový-objekt,
+    z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Lokalizace vyjádřená prostorovým objektem"@cs .
+
+v-sgov-pojem:prostorový-objekt a skos:Concept;
+  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Prostorový objekt"@cs .
+
+v-sgov-pojem:má-definiční-lokalizaci a skos:Concept;
+  skos:broader v-sgov-pojem:má-lokalizaci, z-sgov-pojem:typ-vztahu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má definiční lokalizaci"@cs .
+
+v-sgov-pojem:má-lokalizaci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má lokalizaci"@cs .
+
+v-sgov-pojem:má-geometrii a skos:Concept;
+  skos:broader v-sgov-pojem:má-lokalizaci, z-sgov-pojem:typ-vztahu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má geometrii"@cs .
+
+v-sgov-pojem:má-lokalizaci-názvem a skos:Concept;
+  skos:broader v-sgov-pojem:má-lokalizaci-popisem, z-sgov-pojem:typ-vztahu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má lokalizaci názvem"@cs .
+
+v-sgov-pojem:má-lokalizaci-popisem a skos:Concept;
+  skos:broader v-sgov-pojem:má-lokalizaci, z-sgov-pojem:typ-vztahu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má lokalizaci popisem"@cs .
+
+v-sgov-pojem:má-platnost a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má platnost"@cs .
+
+v-sgov-pojem:má-vztah-k-prostorovému-objektu a skos:Concept;
+  skos:broader v-sgov-pojem:má-lokalizaci, z-sgov-pojem:typ-vztahu;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má vztah k prostorovému objektu"@cs .
+
+v-sgov-pojem:má-znění a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má znění"@cs .
+
+v-sgov-pojem:má-část-znění a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "má část znění"@cs .
+
+v-sgov-pojem:novelizuje a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "novelizuje"@cs .
+
+v-sgov-pojem:název-právního-předpisu a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Název právního předpisu"@cs;
+  skos:scopeNote ""@cs .
+
+v-sgov-pojem:novela-právního-předpisu a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Novela právního předpisu"@cs .
+
+v-sgov-pojem:konsolidované-znění-právního-předpisu a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Konsolidované znění právního předpisu"@cs .
+
+v-sgov-pojem:část-znění-právního-předpisu a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Část znění právního předpisu"@cs .
+
+v-sgov-pojem:vyhlášené-znění-právního-předpisu a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Vyhlášené znění právního předpisu"@cs .
+
+v-sgov-pojem:znění-právního-předpisu a skos:Concept;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Znění právního předpisu"@cs .
+
+v-sgov-pojem:část a skos:Concept;
+  skos:broader v-sgov-pojem:část-znění-právního-předpisu, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  skos:definition "Part as a Part of Legal Norm from the Collection of Laws of the Czech Republic"@en,
+    "Část jako část právního předpisu ze sbírky zákonů"@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Part"@en, "Část"@cs .
+
+v-sgov-pojem:jméno-právnické-osoby a skos:Concept;
+  skos:altLabel "Jméno"@cs, "Název"@cs;
+  skos:broader z-sgov-pojem:typ-kvalitativní-vlastnosti, z-sgov-pojem:typ-vlastnosti,
+    z-sgov-pojem:vlastnost;
+  skos:definition "Jméno právnické osoby"@cs, "Legal entity name"@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Jméno právnické osoby"@cs .
+
+v-sgov-pojem:klasifikace a skos:Concept;
+  skos:definition ""@cs, ""@en;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Classification"@en, "Klasifikace"@cs .
+
+v-sgov-pojem:položka a skos:Concept;
+  skos:definition "Položka je proměnný prvek evidovaný v evidenčním systému. Položka nemusí mít vlastní identitu, přejímá identitu druhu od kterého konkrétní proměnný prvek dědí."@cs;
+  skos:inScheme v-sgov:glosář;
+  skos:prefLabel "Položka"@cs .
