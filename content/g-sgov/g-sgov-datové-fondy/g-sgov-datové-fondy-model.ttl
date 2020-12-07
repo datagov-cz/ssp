@@ -5,6 +5,7 @@
 @prefix g-sgov-datové-fondy-pojem: <https://slovník.gov.cz/generický/datové-fondy/pojem/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
@@ -19,15 +20,27 @@ g-sgov-datové-fondy:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports g-sgov-datové-fondy:glosář;
   owl:versionIRI "https://slovník.gov.cz/generický/datové-fondy/model/verze/1.0.0" .
 
-g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr dcterms:source "IKČR" .
-
 <https://slovník.gov.cz/generický/datové-fondy/pojem/vládní-návrh-zákona,-kterým-se-mění-některé-zákony-v-souvislosti-s-další-elektronizací-postupů-orgánů-veřejné-moci>
   a z-sgov-pojem:objekt;
   dcterms:source <https://psp.cz/sqw/historie.sqw?o=8&t=756> .
 
 g-sgov-datové-fondy-pojem:informační-koncepce-čr dcterms:source "§ 5 a odst. 1 zákona 365/2000 Sb., o informačních systémech veřejné správy" .
 
-g-sgov-datové-fondy-pojem:údaj a z-sgov-pojem:typ-objektu .
+g-sgov-datové-fondy-pojem:údaj a z-sgov-pojem:typ-objektu;
+  dcterms:source "Globální architektura veřejného datového fondu";
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:vede-v-is, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
 
 g-sgov-datové-fondy-pojem:registrovaný a z-sgov-pojem:typ-vlastnosti;
   dcterms:source "Globální architektura veřejného datového fondu" .
@@ -35,7 +48,26 @@ g-sgov-datové-fondy-pojem:registrovaný a z-sgov-pojem:typ-vlastnosti;
 g-sgov-datové-fondy-pojem:neregistrovaný a z-sgov-pojem:typ-vlastnosti;
   dcterms:source "Globální architektura veřejného datového fondu" .
 
-g-sgov-datové-fondy-pojem:veřejný-údaj dcterms:source "Globální architektura veřejného datového fondu" .
+g-sgov-datové-fondy-pojem:veřejný-údaj a z-sgov-pojem:typ-objektu;
+  dcterms:source "Globální architektura veřejného datového fondu";
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:vede-v-is, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
 
 g-sgov-datové-fondy-pojem:otevřený-přístup a z-sgov-pojem:typ-události;
   dcterms:source "Globální architektura veřejného datového fondu" .
+
+g-sgov-datové-fondy-pojem:vede-v-is a z-sgov-pojem:typ-události;
+  rdfs:subClassOf <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie> .
+
+g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr dcterms:source "IKČR" .
