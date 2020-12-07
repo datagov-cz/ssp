@@ -43,7 +43,7 @@ z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda> a owl:Class .
 
 a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf z-sgov-pojem:objekt .
+  rdfs:subClassOf <https://slovník.gov.cz/generický/datové-fondy/pojem/vede-v-is>, z-sgov-pojem:objekt .
 
 <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/rozhodnutí> a owl:Class .
 
@@ -479,7 +479,8 @@ a-sgov-104-pojem:má-rozhodnutí-o-předání-působnosti a owl:Class, owl:Objec
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
 a-sgov-104-pojem:rozhodnutí-o-založení-veřejnoprávní-smlouvy a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/rozhodnutí> .
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/národní-katalog-otevřených-dat>,
+    <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/rozhodnutí> .
 
 a-sgov-104-pojem:má-rozhodnutí-o-převzetí-působnosti a owl:Class, owl:ObjectProperty,
     z-sgov-pojem:typ-vztahu;
@@ -1472,17 +1473,29 @@ a-sgov-104-pojem:čerpá-údaje-z-agendy a owl:Class, owl:ObjectProperty, z-sgov
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:rozhodnutí-o-založení-veřejnoprávní-smlouvy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:rozhodnutí-o-založení-veřejnoprávní-smlouvy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
