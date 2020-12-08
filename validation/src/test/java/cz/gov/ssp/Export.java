@@ -1,11 +1,8 @@
-package cz.gov.ssp.validation;
+package cz.gov.ssp;
 
 import static cz.gov.ssp.OntologyUtils.addTypeToModel;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import cz.gov.ssp.Layout;
-import cz.gov.ssp.TestUtils;
-import cz.gov.ssp.VocabularyArtifact;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;

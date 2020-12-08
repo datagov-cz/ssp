@@ -15,9 +15,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class VocabularyStructureTests {
+public class FolderLayoutTests {
 
-    private static final Logger log = LoggerFactory.getLogger(VocabularyStructureTests.class);
+    private static final Logger log = LoggerFactory.getLogger(FolderLayoutTests.class);
 
     private String getVocabularyName(final String vocabularyFolder) {
         String vocabularyPrefix;
@@ -36,7 +36,7 @@ public class VocabularyStructureTests {
 
     @ParameterizedTest(name = "Vocabulary folder {0}")
     @MethodSource("getVocabularyFolders")
-    public void testVocabulary(String vocabularyFolder) throws IOException {
+    public void checkSGoVFolderStructure(String vocabularyFolder) throws IOException {
         String vocabularyPrefix = getVocabularyName(vocabularyFolder);
 
         final Pattern regex = Pattern.compile("^" + vocabularyPrefix
@@ -78,7 +78,7 @@ public class VocabularyStructureTests {
 
     @ParameterizedTest(name = "Vocabulary root directory {0}")
     @MethodSource("getGenericSGoVFolders")
-    public void checkGenericSGoVDirectory(String vocabularyParent) throws IOException {
+    public void checkGenericSGoVFolderStructure(String vocabularyParent) throws IOException {
         final Path path = Paths.get(vocabularyParent);
         final String vocabularyType = getVocabularyName(vocabularyParent);
         Files
