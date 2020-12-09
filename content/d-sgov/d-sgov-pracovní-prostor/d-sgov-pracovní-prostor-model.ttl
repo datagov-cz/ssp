@@ -1,0 +1,94 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-pracovní-prostor: <https://slovník.gov.cz/datový/pracovní-prostor/> .
+@prefix d-sgov-pracovní-prostor-pojem: <https://slovník.gov.cz/datový/pracovní-prostor/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-pracovní-prostor:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-06-09";
+  dcterms:creator "Martin Ledvinka", "Miroslav Blaško";
+  dcterms:rights <https://creativecommons.org/licenses/by/4.0>;
+  dcterms:title "Datový slovník pro popis pracovních prostorů - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-pracovní-prostor-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/pracovní-prostor/pojem/";
+  owl:imports d-sgov-pracovní-prostor:glosář;
+  owl:versionIRI <https://slovník.gov.cz/datový/pracovní-prostor/model/verze/0.0.1> .
+
+d-sgov-pracovní-prostor-pojem:omezený-uživatel a owl:Class, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf a-popis-dat-pojem:uživatel, z-sgov-pojem:objekt .
+
+d-sgov-pracovní-prostor-pojem:administrátor a owl:Class, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf a-popis-dat-pojem:uživatel, z-sgov-pojem:objekt .
+
+d-sgov-pracovní-prostor-pojem:je-technickým-kontextem-slovníku a owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-prostor-pojem:kontext-sledování-změn;
+  rdfs:range <https://slovník.gov.cz/veřejný-sektor/pojem/slovník>;
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-prostor-pojem:kontext a owl:Class, z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+d-sgov-pracovní-prostor-pojem:má-kontext-sledování-změn a owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-prostor-pojem:slovníkový-kontext;
+  rdfs:range d-sgov-pracovní-prostor-pojem:kontext-sledování-změn;
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-prostor-pojem:kontext-sledování-změn a owl:Class, z-sgov-pojem:druh,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf d-sgov-pracovní-prostor-pojem:kontext .
+
+d-sgov-pracovní-prostor-pojem:vychází-z-verze a owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-prostor-pojem:slovníkový-kontext;
+  rdfs:range d-sgov-pracovní-prostor-pojem:verze-slovníku;
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-prostor-pojem:slovníkový-kontext-pouze-pro-čtení a owl:Class, z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf d-sgov-pracovní-prostor-pojem:slovníkový-kontext .
+
+d-sgov-pracovní-prostor-pojem:slovníkový-kontext a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf d-sgov-pracovní-prostor-pojem:kontext .
+
+d-sgov-pracovní-prostor-pojem:odkazuje-na-kontext a owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-prostor-pojem:metadatový-kontext;
+  rdfs:range d-sgov-pracovní-prostor-pojem:kontext;
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-prostor-pojem:verze-slovníku a owl:Class .
+
+d-sgov-pracovní-prostor-pojem:obsahuje-slovník a owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-prostor-pojem:slovníkový-kontext;
+  rdfs:range <https://slovník.gov.cz/veřejný-sektor/pojem/slovník>;
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-prostor-pojem:mění-verzi a owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-prostor-pojem:kontext-sledování-změn;
+  rdfs:range d-sgov-pracovní-prostor-pojem:verze-slovníku;
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-prostor-pojem:metadatový-kontext a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf d-sgov-pracovní-prostor-pojem:kontext .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/slovník> a owl:Class .
+
+d-sgov-pracovní-prostor-pojem:má-původní-heslo a z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain a-popis-dat-pojem:uživatel;
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-prostor-pojem:uzamčený-uživatel a owl:Class, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf a-popis-dat-pojem:uživatel, z-sgov-pojem:objekt .
+
+d-sgov-pracovní-prostor-pojem:zablokovaný-uživatel a owl:Class, z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf a-popis-dat-pojem:uživatel, z-sgov-pojem:objekt .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
