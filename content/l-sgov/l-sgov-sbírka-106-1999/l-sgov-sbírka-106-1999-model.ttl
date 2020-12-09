@@ -20,29 +20,85 @@ l-sgov-sbírka-106-1999:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports l-sgov-sbírka-106-1999:glosář;
   owl:versionIRI "https://slovník.gov.cz/legislativní/sbírka/106/1999/model/verze/1.0.0" .
 
-l-sgov-sbírka-106-1999-pojem:národní-katalog-otevřených-dat a z-sgov-pojem:objekt;
+l-sgov-sbírka-106-1999-pojem:národní-katalog-otevřených-dat a z-sgov-pojem:objekt,
+    z-sgov-pojem:typ-objektu;
   dcterms:source "§ 4c z. č. 106/1999 Sb.";
   rdfs:subClassOf "ISVS" .
 
+l-sgov-sbírka-106-1999-pojem:možnost-dálkového-přístupu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source "§ 3 odst. 2 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-106-1999-pojem:informace a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 3 odst. 3, 4 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:otevřená-data .
+
+l-sgov-sbírka-106-1999-pojem:zveřejněná-informace a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 3 odst. 5 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:informace .
+
+l-sgov-sbírka-106-1999-pojem:doprovodná-informace a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 3 odst. 6 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:informace .
+
+l-sgov-sbírka-106-1999-pojem:strojově-čitelný-formát a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source "§ 3 odst. 7 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-106-1999-pojem:otevřený-formát a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source "§ 3 odst. 8 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-106-1999-pojem:metadata a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 3 odst. 10 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:informace .
+
+l-sgov-sbírka-106-1999-pojem:otevřená-data a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 3 odst. 11 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:informace .
+
+l-sgov-sbírka-106-1999-pojem:správce-národního-katalogu-otevřených-dat a z-sgov-pojem:typ-objektu;
+  dcterms:source " § 4 c odst. 2 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-ve-vztahu;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/má-správce>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/má-správce>;
+      owl:onProperty z-sgov-pojem:je-ve-vztahu
+    ] .
+
+l-sgov-sbírka-106-1999-pojem:povinný-subjekt a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 2 odst. 1, 2 z. č. 106/1999 Sb." .
+
+l-sgov-sbírka-106-1999-pojem:poskytování-informací a z-sgov-pojem:typ-události;
+  dcterms:source "§ 4 odst. 1 z. č. 106/1999 Sb." .
+
+l-sgov-sbírka-106-1999-pojem:poskytování-informací-na-žádost a z-sgov-pojem:typ-události;
+  dcterms:source "§ 4a odst. 1 z. č. 106/1999 Sb.";
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:poskytování-informací .
+
+l-sgov-sbírka-106-1999-pojem:poskytování-informací-zveřejněním a z-sgov-pojem:typ-události;
+  dcterms:source "§ 4b odst. 1 z. č. 106/1999 Sb.";
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:poskytování-informací .
+
 l-sgov-sbírka-106-1999-pojem:žadatel dcterms:source "§ 3 odst. 1 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
 
-l-sgov-sbírka-106-1999-pojem:možnost-dálkového-přístupu dcterms:source "§ 3 odst. 2 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:informace dcterms:source "§ 3 odst. 3, 4 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:zveřejněná-informace dcterms:source "§ 3 odst. 5 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:doprovodná-informace dcterms:source "§ 3 odst. 6 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:strojově-čitelný-formát dcterms:source "§ 3 odst. 7 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:otevřený-formát dcterms:source "§ 3 odst. 8 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
 l-sgov-sbírka-106-1999-pojem:otevřená-formální-norma dcterms:source "§ 3 odst. 9 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:metadata dcterms:source "§ 3 odst. 10 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:otevřená-data dcterms:source "§ 3 odst. 11 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
-
-l-sgov-sbírka-106-1999-pojem:správce-národního-katalogu-otevřených-dat dcterms:source
-    " § 4 c odst. 2 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
