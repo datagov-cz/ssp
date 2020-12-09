@@ -20,14 +20,21 @@ g-sgov-datové-fondy:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports g-sgov-datové-fondy:glosář;
   owl:versionIRI "https://slovník.gov.cz/generický/datové-fondy/model/verze/1.0.0" .
 
+g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr a z-sgov-pojem:typ-vztahu;
+  dcterms:source "IKČR";
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
 <https://slovník.gov.cz/generický/datové-fondy/pojem/vládní-návrh-zákona,-kterým-se-mění-některé-zákony-v-souvislosti-s-další-elektronizací-postupů-orgánů-veřejné-moci>
   a z-sgov-pojem:objekt;
   dcterms:source <https://psp.cz/sqw/historie.sqw?o=8&t=756> .
 
-g-sgov-datové-fondy-pojem:informační-koncepce-čr dcterms:source "§ 5 a odst. 1 zákona 365/2000 Sb., o informačních systémech veřejné správy" .
-
 g-sgov-datové-fondy-pojem:údaj a z-sgov-pojem:typ-objektu;
-  dcterms:source "Globální architektura veřejného datového fondu";
   rdfs:subClassOf g-sgov-datové-fondy-pojem:vede-v-is, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný
@@ -42,15 +49,154 @@ g-sgov-datové-fondy-pojem:údaj a z-sgov-pojem:typ-objektu;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
-g-sgov-datové-fondy-pojem:registrovaný a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source "Globální architektura veřejného datového fondu" .
-
-g-sgov-datové-fondy-pojem:neregistrovaný a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source "Globální architektura veřejného datového fondu" .
-
-g-sgov-datové-fondy-pojem:veřejný-údaj a z-sgov-pojem:typ-objektu;
+g-sgov-datové-fondy-pojem:otevřený-přístup a z-sgov-pojem:typ-vztahu;
   dcterms:source "Globální architektura veřejného datového fondu";
-  rdfs:subClassOf g-sgov-datové-fondy-pojem:vede-v-is, [ a owl:Restriction;
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj, g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
+g-sgov-datové-fondy-pojem:vede-v-is a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>,
+    <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
+g-sgov-datové-fondy-pojem:registrovanost-údaje a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source "Globální architektura veřejného datového fondu";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:údaj;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+g-sgov-datové-fondy-pojem:veřejnost-údaje a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source "Globální architektura veřejného datového fondu";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:údaj;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj a z-sgov-pojem:typ-objektu;
+  dcterms:source "Globální architektura veřejného datového fondu";
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:údaj .
+
+g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj a z-sgov-pojem:typ-objektu;
+  dcterms:source "Globální architektura veřejného datového fondu";
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:údaj .
+
+g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj a z-sgov-pojem:typ-objektu;
+  dcterms:source "Globální architektura veřejného datového fondu";
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:údaj .
+
+g-sgov-datové-fondy-pojem:neregistrovaný-neveřejný-údaj a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:údaj .
+
+g-sgov-datové-fondy-pojem:propojený-datový-fond a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
+g-sgov-datové-fondy-pojem:řízený-přístup a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-neveřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-neveřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
+g-sgov-datové-fondy-pojem:veřejnost a z-sgov-pojem:typ-objektu .
+
+g-sgov-datové-fondy-pojem:distribuovanost a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+g-sgov-datové-fondy-pojem:garance a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+g-sgov-datové-fondy-pojem:interoperabilita a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+g-sgov-datové-fondy-pojem:veřejný-údaj rdfs:subClassOf g-sgov-datové-fondy-pojem:vede-v-is,
+    [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný
     ], [ a owl:Restriction;
@@ -64,10 +210,4 @@ g-sgov-datové-fondy-pojem:veřejný-údaj a z-sgov-pojem:typ-objektu;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
-g-sgov-datové-fondy-pojem:otevřený-přístup a z-sgov-pojem:typ-události;
-  dcterms:source "Globální architektura veřejného datového fondu" .
-
-g-sgov-datové-fondy-pojem:vede-v-is a z-sgov-pojem:typ-události;
-  rdfs:subClassOf <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie> .
-
-g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr dcterms:source "IKČR" .
+g-sgov-datové-fondy-pojem:informační-koncepce-čr dcterms:source "§ 5 a odst. 1 zákona 365/2000 Sb., o informačních systémech veřejné správy" .
