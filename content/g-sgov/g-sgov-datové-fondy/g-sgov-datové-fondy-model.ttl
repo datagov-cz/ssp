@@ -20,14 +20,20 @@ g-sgov-datové-fondy:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports g-sgov-datové-fondy:glosář;
   owl:versionIRI "https://slovník.gov.cz/generický/datové-fondy/model/verze/1.0.0" .
 
-g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr a z-sgov-pojem:typ-vztahu;
+g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr a z-sgov-pojem:typ-objektu;
   dcterms:source "IKČR";
-  rdfs:subClassOf g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj, [ a owl:Restriction;
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:datový-fond, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 <https://slovník.gov.cz/generický/datové-fondy/pojem/vládní-návrh-zákona,-kterým-se-mění-některé-zákony-v-souvislosti-s-další-elektronizací-postupů-orgánů-veřejné-moci>
@@ -49,10 +55,15 @@ g-sgov-datové-fondy-pojem:údaj a z-sgov-pojem:typ-objektu;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
-g-sgov-datové-fondy-pojem:otevřený-přístup a z-sgov-pojem:typ-vztahu;
+g-sgov-datové-fondy-pojem:otevřený-přístup a z-sgov-pojem:typ-objektu;
   dcterms:source "Globální architektura veřejného datového fondu";
-  rdfs:subClassOf g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj, g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj,
-    [ a owl:Restriction;
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:datový-fond, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj
     ], [ a owl:Restriction;
@@ -65,28 +76,28 @@ g-sgov-datové-fondy-pojem:otevřený-přístup a z-sgov-pojem:typ-vztahu;
       owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
-      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejnost
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejnost;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 g-sgov-datové-fondy-pojem:vede-v-is a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>,
     <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>,
     [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:údaj
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-datové-fondy-pojem:údaj;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:publikující-subjekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:publikující-subjekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 g-sgov-datové-fondy-pojem:registrovanost-údaje a z-sgov-pojem:typ-vlastnosti;
@@ -124,8 +135,8 @@ g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj a z-sgov-pojem:typ-ob
 g-sgov-datové-fondy-pojem:neregistrovaný-neveřejný-údaj a z-sgov-pojem:typ-objektu;
   rdfs:subClassOf g-sgov-datové-fondy-pojem:údaj .
 
-g-sgov-datové-fondy-pojem:propojený-datový-fond a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
+g-sgov-datové-fondy-pojem:propojený-datový-fond a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:datový-fond, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj
     ], [ a owl:Restriction;
@@ -138,15 +149,21 @@ g-sgov-datové-fondy-pojem:propojený-datový-fond a z-sgov-pojem:typ-vztahu;
       owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
-g-sgov-datové-fondy-pojem:řízený-přístup a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
+g-sgov-datové-fondy-pojem:řízený-přístup a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:datový-fond, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-neveřejný-údaj
     ], [ a owl:Restriction;
@@ -159,47 +176,284 @@ g-sgov-datové-fondy-pojem:řízený-přístup a z-sgov-pojem:typ-vztahu;
       owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
-      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejnost
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejnost;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
+
+g-sgov-datové-fondy-pojem:veřejnost a z-sgov-pojem:typ-objektu .
 
 g-sgov-datové-fondy-pojem:distribuovanost a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:datový-fond
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:datový-fond;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 g-sgov-datové-fondy-pojem:garance a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:datový-fond
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:datový-fond;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 g-sgov-datové-fondy-pojem:interoperabilita a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:datový-fond
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:datový-fond;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 g-sgov-datové-fondy-pojem:princip-otevřená-data a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:datový-fond
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:datový-fond;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+g-sgov-datové-fondy-pojem:otevřená-data-jsou-popsána-metadaty a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/jsou-popsány-metadaty>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/metadata>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/metadata>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
+g-sgov-datové-fondy-pojem:čerpající-subjekt a z-sgov-pojem:typ-objektu .
+
+g-sgov-datové-fondy-pojem:otevřená-data-jsou-poskytována-pomocí-dálkového-přístupu
+  a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/možnost-dálkového-přístupu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/možnost-dálkového-přístupu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-datové-fondy-pojem:otevřená-data-jsou-poskytována-v-otevřeném-formátu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřený-formát>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřený-formát>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-datové-fondy-pojem:otevřená-data-jsou-poskytována-ve-strojově-čitelném-formátu
+  a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/otevřená-data>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/strojově-čitelný-formát>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/106/1999/pojem/strojově-čitelný-formát>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-datové-fondy-pojem:datový-fond a z-sgov-pojem:typ-objektu .
+
+g-sgov-datové-fondy-pojem:eviduje a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:datový-fond
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:datový-fond;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-datové-fondy-pojem:eviduje-typ-údaje a z-sgov-pojem:typ-vztahu .
+
+g-sgov-datové-fondy-pojem:eviduje-v-řízeném-přístupu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-neveřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-neveřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:řízený-přístup
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:řízený-přístup;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+g-sgov-datové-fondy-pojem:eviduje-v-propojeném-datovém-fondu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-neveřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:propojený-datový-fond
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:propojený-datový-fond;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+g-sgov-datové-fondy-pojem:eviduje-ve-veřejném-datovém-fondu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
-      owl:onProperty z-sgov-pojem:je-vlastností
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-datové-fondy-pojem:eviduje-v-otevřeném-přístupu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:neregistrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:otevřený-přístup
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:otevřený-přístup;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:registrovaný-veřejný-údaj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+g-sgov-datové-fondy-pojem:publikující-subjekt a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů> .
+
+g-sgov-datové-fondy-pojem:čerpá-pro-výkon-agendy a z-sgov-pojem:typ-události;
+  rdfs:subClassOf g-sgov-datové-fondy-pojem:propojený-datový-fond, g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:propojený-datový-fond
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:propojený-datový-fond;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejný-datový-fond-dle-ikčr;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+g-sgov-datové-fondy-pojem:čerpá-mimo-výkon-agendy a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:čerpající-subjekt;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:řízený-přístup
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:řízený-přístup;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:otevřený-přístup
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:otevřený-přístup;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:propojený-datový-fond
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:propojený-datový-fond;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+g-sgov-datové-fondy-pojem:čerpá a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:veřejnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:veřejnost;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:řízený-přístup
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:řízený-přístup;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom g-sgov-datové-fondy-pojem:otevřený-přístup
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-datové-fondy-pojem:otevřený-přístup;
+      owl:onProperty z-sgov-pojem:má-účastníka
     ] .
 
 g-sgov-datové-fondy-pojem:veřejný-údaj rdfs:subClassOf g-sgov-datové-fondy-pojem:vede-v-is,
