@@ -25,7 +25,10 @@ l-sgov-sbírka-106-1999-pojem:národní-katalog-otevřených-dat a z-sgov-pojem:
   dcterms:source "§ 4c z. č. 106/1999 Sb.";
   rdfs:subClassOf "ISVS" .
 
-l-sgov-sbírka-106-1999-pojem:možnost-dálkového-přístupu a z-sgov-pojem:typ-vlastnosti;
+l-sgov-sbírka-106-1999-pojem:žadatel a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 3 odst. 1 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
+
+l-sgov-sbírka-106-1999-pojem:možnost-dálkového-přístupu a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 3 odst. 2 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
@@ -37,7 +40,13 @@ l-sgov-sbírka-106-1999-pojem:možnost-dálkového-přístupu a z-sgov-pojem:typ
 
 l-sgov-sbírka-106-1999-pojem:informace a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 3 odst. 3, 4 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
-  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:otevřená-data .
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:otevřená-data, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-ve-vztahu;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:poskytování-informací-na-žádost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:poskytování-informací-na-žádost;
+      owl:onProperty z-sgov-pojem:je-ve-vztahu
+    ] .
 
 l-sgov-sbírka-106-1999-pojem:zveřejněná-informace a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 3 odst. 5 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
@@ -47,7 +56,7 @@ l-sgov-sbírka-106-1999-pojem:doprovodná-informace a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 3 odst. 6 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
   rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:informace .
 
-l-sgov-sbírka-106-1999-pojem:strojově-čitelný-formát a z-sgov-pojem:typ-vlastnosti;
+l-sgov-sbírka-106-1999-pojem:strojově-čitelný-formát a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 3 odst. 7 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
@@ -57,7 +66,7 @@ l-sgov-sbírka-106-1999-pojem:strojově-čitelný-formát a z-sgov-pojem:typ-vla
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
-l-sgov-sbírka-106-1999-pojem:otevřený-formát a z-sgov-pojem:typ-vlastnosti;
+l-sgov-sbírka-106-1999-pojem:otevřený-formát a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 3 odst. 8 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
@@ -66,6 +75,9 @@ l-sgov-sbírka-106-1999-pojem:otevřený-formát a z-sgov-pojem:typ-vlastnosti;
       owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
+
+l-sgov-sbírka-106-1999-pojem:otevřená-formální-norma a z-sgov-pojem:typ-objektu;
+  dcterms:source "§ 3 odst. 9 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
 
 l-sgov-sbírka-106-1999-pojem:metadata a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 3 odst. 10 zákona č. 106/1999 Sb., o svobodném přístupu k informacím";
@@ -89,16 +101,128 @@ l-sgov-sbírka-106-1999-pojem:povinný-subjekt a z-sgov-pojem:typ-objektu;
   dcterms:source "§ 2 odst. 1, 2 z. č. 106/1999 Sb." .
 
 l-sgov-sbírka-106-1999-pojem:poskytování-informací a z-sgov-pojem:typ-události;
-  dcterms:source "§ 4 odst. 1 z. č. 106/1999 Sb." .
+  dcterms:source "§ 4 odst. 1 z. č. 106/1999 Sb.";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:povinný-subjekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:povinný-subjekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
 
 l-sgov-sbírka-106-1999-pojem:poskytování-informací-na-žádost a z-sgov-pojem:typ-události;
   dcterms:source "§ 4a odst. 1 z. č. 106/1999 Sb.";
-  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:poskytování-informací .
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:poskytování-informací, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:informace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:informace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-počáteční-stav;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:podání-žádosti-o-informace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:podání-žádosti-o-informace;
+      owl:onProperty z-sgov-pojem:má-počáteční-stav
+    ] .
 
 l-sgov-sbírka-106-1999-pojem:poskytování-informací-zveřejněním a z-sgov-pojem:typ-události;
   dcterms:source "§ 4b odst. 1 z. č. 106/1999 Sb.";
-  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:poskytování-informací .
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:poskytování-informací, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:informace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:informace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
 
-l-sgov-sbírka-106-1999-pojem:žadatel dcterms:source "§ 3 odst. 1 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
+l-sgov-sbírka-106-1999-pojem:formát-i-metadata-splňují-co-nejvíce-ofn a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-formální-norma
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-formální-norma;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
 
-l-sgov-sbírka-106-1999-pojem:otevřená-formální-norma dcterms:source "§ 3 odst. 9 zákona č. 106/1999 Sb., o svobodném přístupu k informacím" .
+l-sgov-sbírka-106-1999-pojem:je-poskytována-včetně-metadat a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:poskytování-informací-na-žádost, [ a
+        owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:metadata
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:metadata;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:poskytování-informací-na-žádost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:poskytování-informací-na-žádost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
+l-sgov-sbírka-106-1999-pojem:jsou-popsány-metadaty a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf l-sgov-sbírka-106-1999-pojem:otevřená-data, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:metadata
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:metadata;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:informace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:informace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ] .
+
+l-sgov-sbírka-106-1999-pojem:otevřená-data-jsou-evidována-v-nkod-pomocí-metadat a
+    z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:metadata
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:metadata;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:otevřená-data;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:národní-katalog-otevřených-dat
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:národní-katalog-otevřených-dat;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-106-1999-pojem:žádost-o-informace a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-106-1999-pojem:podání-žádosti-o-informace a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:žádost-o-informace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:žádost-o-informace;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-106-1999-pojem:žadatel
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-106-1999-pojem:žadatel;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
