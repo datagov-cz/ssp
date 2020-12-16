@@ -457,7 +457,7 @@ l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
         rdfs:subClassOf  l-sgov-sbírka-111-2009-pojem:osoba , l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů .
 
 l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
+        a                owl:Class , owl:DatatypeProperty , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
         rdfs:subClassOf  [ a                   owl:Restriction ;
                            owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
@@ -723,10 +723,6 @@ l-sgov-sbírka-111-2009-pojem:údaj
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        a                   owl:ObjectProperty ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
-
 l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-soukromoprávního-uživatele-údajů
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
         rdfs:subClassOf  l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby ;
@@ -746,6 +742,10 @@ l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-soukromoprávního-uživatel
                            owl:allValuesFrom  l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů ;
                            owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
                          ] .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
 
 l-sgov-sbírka-111-2009-pojem:má-datum-zahájení-výkonu-působnosti-orgánu-veřejné-moci
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
@@ -797,7 +797,7 @@ l-sgov-sbírka-111-2009-pojem:má-datum-vzniku-soukromoprávního-uživatele-úd
 
 l-sgov-sbírka-111-2009-pojem:úkon
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání> .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-místa-pobytu
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -808,26 +808,6 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-místa-pobytu
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  l-sgov-sbírka-111-2009-pojem:adresní-místo ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
-
-l-sgov-sbírka-111-2009-pojem:má-okres-narození
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  l-sgov-sbírka-111-2009-pojem:území-okresu
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  l-sgov-sbírka-111-2009-pojem:území-okresu ;
                            owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
                          ] ;
         rdfs:subClassOf  [ a                   owl:Restriction ;
@@ -933,7 +913,7 @@ l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel
 l-sgov-sbírka-111-2009:model
         a               <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
         <http://purl.org/dc/terms/created>
-                "2020-07-28" ;
+                "2020-12-16" ;
         <http://purl.org/dc/terms/title>
                 "Slovník zákona č. 111/2009 Sb., o základních registrech - model"@cs ;
         <http://purl.org/ontology/bibo/status>
@@ -947,7 +927,7 @@ l-sgov-sbírka-111-2009:model
 
 l-sgov-sbírka-111-2009-pojem:obchodní-firma
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> , owl:DatatypeProperty ;
-        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/jméno-právnické-osoby> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/veřejný-sektor/pojem/jméno> ;
         rdfs:subClassOf  [ a                   owl:Restriction ;
                            owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
                            owl:someValuesFrom  l-sgov-sbírka-111-2009-pojem:právnická-osoba
@@ -1059,7 +1039,7 @@ l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu
         a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
         rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
 
-<https://slovník.gov.cz/veřejný-sektor/pojem/jméno-právnické-osoby>
+<https://slovník.gov.cz/veřejný-sektor/pojem/jméno>
         a       owl:DatatypeProperty .
 
 l-sgov-sbírka-111-2009-pojem:cizinec-s-trvalým-pobytem
@@ -1145,6 +1125,9 @@ l-sgov-sbírka-111-2009-pojem:má-typ-datové-schránky
                            owl:allValuesFrom  l-sgov-sbírka-111-2009-pojem:datová-schránka ;
                            owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
                          ] .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání>
+        a       owl:Class .
 
 l-sgov-sbírka-111-2009-pojem:je-vykonávána-na-základě-ustanovení
         a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
@@ -1424,9 +1407,6 @@ l-sgov-sbírka-111-2009-pojem:má-název-kategorie
                          ] .
 
 <https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci>
-        a       owl:Class .
-
-l-sgov-sbírka-111-2009-pojem:území-okresu
         a       owl:Class .
 
 <https://slovník.gov.cz/základní/pojem/je-vlastností>
