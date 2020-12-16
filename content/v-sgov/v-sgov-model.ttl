@@ -55,44 +55,44 @@ v-sgov-pojem:den-v-týdnu a owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
 
 v-sgov-pojem:hodina a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom v-sgov-pojem:časový-úsek
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:časový-úsek;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom v-sgov-pojem:časový-úsek
     ] .
 
 v-sgov-pojem:minuta a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom v-sgov-pojem:časový-úsek
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:časový-úsek;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom v-sgov-pojem:časový-úsek
     ] .
 
 v-sgov-pojem:má-konec a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:časový-okamžik;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:časová-entita
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:časová-entita;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:časový-okamžik
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:časová-entita;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom v-sgov-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:má-počet-opakování a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:opakovaná-časová-specifikace;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom v-sgov-pojem:opakovaná-časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:opakovaná-časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 v-sgov-pojem:má-začátek a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
@@ -100,11 +100,11 @@ v-sgov-pojem:má-začátek a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vz
       owl:allValuesFrom v-sgov-pojem:časová-entita;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:časový-okamžik;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:časová-entita
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:časový-okamžik
@@ -112,6 +112,9 @@ v-sgov-pojem:má-začátek a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vz
 
 v-sgov-pojem:má-časový-úsek a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:časová-entita
+    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:časová-entita;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
@@ -120,9 +123,6 @@ v-sgov-pojem:má-časový-úsek a owl:Class, owl:NamedIndividual, z-sgov-pojem:t
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:časový-úsek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:časová-entita
     ] .
 
 v-sgov-pojem:měsíc-v-roce a owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
@@ -145,17 +145,17 @@ z-sgov-pojem:časová-specifikace a owl:Class .
 
 v-sgov-pojem:opakuje a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom z-sgov-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:opakovaná-časová-specifikace
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:opakovaná-časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom z-sgov-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom z-sgov-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:opakovaná-časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:popis-datové-sady a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-kvalitativní-vlastnosti,
@@ -188,11 +188,11 @@ v-sgov-pojem:rok-v-desetiletí a owl:Class, owl:NamedIndividual, z-sgov-pojem:ty
 
 v-sgov-pojem:rok-ve-století a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:časový-úsek;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom v-sgov-pojem:časový-úsek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:časový-úsek;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 v-sgov-pojem:týden-v-měsíci a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
@@ -206,11 +206,11 @@ v-sgov-pojem:týden-v-měsíci a owl:Class, owl:NamedIndividual, z-sgov-pojem:ty
 
 v-sgov-pojem:týden-v-roce a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom v-sgov-pojem:časový-úsek
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:časový-úsek;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom v-sgov-pojem:časový-úsek
     ] .
 
 v-sgov-pojem:vyjímá a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
@@ -218,13 +218,13 @@ v-sgov-pojem:vyjímá a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
       owl:allValuesFrom z-sgov-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom z-sgov-pojem:časová-specifikace
-    ], [ a owl:Restriction;
       owl:allValuesFrom z-sgov-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom z-sgov-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom z-sgov-pojem:časová-specifikace
     ] .
 
@@ -234,14 +234,14 @@ z-sgov-pojem:typ-proměnného-prvku a owl:Class .
 
 v-sgov-pojem:zahrnuje a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom z-sgov-pojem:časová-specifikace
-    ], [ a owl:Restriction;
       owl:allValuesFrom z-sgov-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom z-sgov-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom z-sgov-pojem:časová-specifikace
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom z-sgov-pojem:časová-specifikace
@@ -262,27 +262,27 @@ v-sgov-pojem:časový-úsek a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-o
 v-sgov-pojem:číselník a owl:Class, owl:NamedIndividual, z-sgov-pojem:mixin, z-sgov-pojem:typ-objektu;
   rdfs:subClassOf v-sgov-pojem:evidenční-systém, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom v-sgov-pojem:akronym-číselníku
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom v-sgov-pojem:definice-číselníku
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom v-sgov-pojem:název-číselníku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:akronym-číselníku;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom v-sgov-pojem:kód-číselníku
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:kód-číselníku;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom v-sgov-pojem:definice-číselníku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:definice-číselníku;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom v-sgov-pojem:název-číselníku
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:název-číselníku;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom v-sgov-pojem:akronym-číselníku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:akronym-číselníku;
+      owl:allValuesFrom v-sgov-pojem:definice-číselníku;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
@@ -314,37 +314,37 @@ v-sgov-pojem:je-evidencí-pro a owl:Class, owl:NamedIndividual, z-sgov-pojem:dru
       owl:onClass v-sgov-pojem:typ-evidenčního-systému;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass z-sgov-pojem:typ-proměnného-prvku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom v-sgov-pojem:typ-evidenčního-systému;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:typ-evidenčního-systému
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom z-sgov-pojem:typ-proměnného-prvku
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass v-sgov-pojem:typ-evidenčního-systému;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom z-sgov-pojem:typ-proměnného-prvku
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:typ-evidenčního-systému
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:typ-evidenčního-systému;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass z-sgov-pojem:typ-proměnného-prvku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:má-zdrojový-předpis a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:legislativní-znalostní-struktura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:legislativní-znalostní-struktura
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:právní-předpis;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:právní-předpis
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:legislativní-znalostní-struktura
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:legislativní-znalostní-struktura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:organizace a owl:Class, owl:NamedIndividual, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
@@ -381,21 +381,21 @@ v-sgov-pojem:objekt-práva a owl:Class, owl:NamedIndividual, z-sgov-pojem:mixin-
 
 v-sgov-pojem:právní-vztah a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:objekt-práva;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:objekt-práva
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:objekt-práva;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:křestní-jméno a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-kvalitativní-vlastnosti,
     z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom v-sgov-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 v-sgov-pojem:příjmení a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-kvalitativní-vlastnosti,
@@ -421,32 +421,32 @@ v-sgov-pojem:dokument a owl:Class, owl:NamedIndividual, z-sgov-pojem:kategorie, 
 
 v-sgov-pojem:eviduje a owl:Class, owl:NamedIndividual, z-sgov-pojem:druh, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:datová-sada;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:datová-sada;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:položka;
+      owl:allValuesFrom v-sgov-pojem:položka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:položka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:datová-sada
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:datová-sada;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:datová-sada
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:položka
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:položka;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:datová-sada;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:položka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:datová-sada;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:položka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
@@ -468,32 +468,32 @@ v-sgov-pojem:znalostní-struktura a owl:Class, owl:NamedIndividual, z-sgov-pojem
 
 v-sgov-pojem:má-kontext a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:dokument
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom v-sgov-pojem:kontextový-dokument
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:kontextový-dokument;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:dokument
+    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:dokument;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom v-sgov-pojem:kontextový-dokument
     ] .
 
 v-sgov-pojem:má-část-právního-předpisu a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:právní-předpis-ze-sbírky-zákonů;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:právní-předpis-ze-sbírky-zákonů
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:část-právního-předpisu-ze-sbírky-zákonů
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:právní-předpis-ze-sbírky-zákonů
+      owl:allValuesFrom v-sgov-pojem:právní-předpis-ze-sbírky-zákonů;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:odstavec a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-objektu;
@@ -563,15 +563,15 @@ v-sgov-pojem:typ-znalostní-struktury-dle-úrovně a owl:Class, owl:NamedIndivid
 
 v-sgov-pojem:výkon-svrchované-moci a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom [ a owl:Class;
-          owl:unionOf (v-sgov-pojem:stát v-sgov-pojem:subjekt-práva)
-        ];
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom [ a owl:Class;
           owl:unionOf (v-sgov-pojem:stát v-sgov-pojem:subjekt-práva)
         ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom [ a owl:Class;
+          owl:unionOf (v-sgov-pojem:stát v-sgov-pojem:subjekt-práva)
+        ];
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:způsobilost-k-protiprávnímu-jednání a owl:Class, owl:NamedIndividual,
@@ -641,108 +641,108 @@ v-sgov-pojem:má-definiční-lokalizaci a owl:NamedIndividual, z-sgov-pojem:typ-
 
 v-sgov-pojem:má-lokalizaci a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:lokalizace-prostorového-objektu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:prostorový-objekt;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:prostorový-objekt
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:lokalizace-prostorového-objektu
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:prostorový-objekt
+      owl:allValuesFrom v-sgov-pojem:lokalizace-prostorového-objektu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:má-geometrii a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:má-lokalizaci, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:geometrie;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:geometrie
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:geometrie;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:má-lokalizaci-názvem a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:má-lokalizaci-popisem, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom v-sgov-pojem:geografický-název
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:geografický-název;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom v-sgov-pojem:geografický-název
     ] .
 
 v-sgov-pojem:má-lokalizaci-popisem a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:má-lokalizaci, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom v-sgov-pojem:lokalizace-popisem
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:lokalizace-popisem;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom v-sgov-pojem:lokalizace-popisem
     ] .
 
 v-sgov-pojem:má-platnost a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:datová-sada
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:datová-sada;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom z-sgov-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom z-sgov-pojem:časová-specifikace
     ], [ a owl:Restriction;
-      owl:allValuesFrom z-sgov-pojem:časová-specifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom v-sgov-pojem:datová-sada;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:datová-sada
     ] .
 
 v-sgov-pojem:má-vztah-k-prostorovému-objektu a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:má-lokalizaci, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:lokalizace-vyjádřená-prostorovým-objektem;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:popisuje a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:položka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass v-sgov-pojem:položka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:popsaný-prvek;
+      owl:allValuesFrom v-sgov-pojem:popsaný-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:položka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:položka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass v-sgov-pojem:popsaný-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:položka
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:položka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:popsaný-prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:popsaný-prvek
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:popsaný-prvek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:má-znění a owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom v-sgov-pojem:znění-právního-předpisu
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:znění-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom v-sgov-pojem:znění-právního-předpisu
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:právní-předpis;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -753,41 +753,41 @@ v-sgov-pojem:má-znění a owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
 
 v-sgov-pojem:má-část-znění a owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:znění-právního-předpisu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:znění-právního-předpisu
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:část-znění-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:znění-právního-předpisu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:část-znění-právního-předpisu
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:znění-právního-předpisu
     ] .
 
 v-sgov-pojem:novelizuje a owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom v-sgov-pojem:znění-právního-předpisu
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:novela-právního-předpisu
+    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:novela-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:znění-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:novela-právního-předpisu
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom v-sgov-pojem:znění-právního-předpisu
     ] .
 
 v-sgov-pojem:název-právního-předpisu a owl:NamedIndividual, z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:právní-předpis;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom v-sgov-pojem:právní-předpis
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:právní-předpis;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 v-sgov-pojem:novela-právního-předpisu a owl:NamedIndividual, z-sgov-pojem:poddruh,
@@ -829,7 +829,11 @@ v-sgov-pojem:položka a z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
   rdfs:subClassOf z-sgov-pojem:pasivní-objekt, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:alternativní-název-položky;
       owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:má-čas-vytvoření;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
@@ -838,14 +842,10 @@ v-sgov-pojem:položka a z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
       owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom v-sgov-pojem:alternativní-název-položky
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:alternativní-název-položky;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:má-čas-vytvoření
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:má-čas-vytvoření;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
 v-sgov-pojem:položka-číselníku a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
@@ -854,33 +854,33 @@ v-sgov-pojem:položka-číselníku a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-
 v-sgov-pojem:eviduje-položku-číselníku a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:eviduje, v-sgov-pojem:eviduje-položku-evidenčního-systému,
     [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:číselník
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:položka-číselníku
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:položka-číselníku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:číselník
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:položka-klasifikace a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
@@ -891,17 +891,19 @@ v-sgov-pojem:klasifikační-schéma a z-sgov-pojem:mixin, z-sgov-pojem:typ-objek
 
 v-sgov-pojem:eviduje-položku-klasifikace a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:eviduje, v-sgov-pojem:položka-klasifikace, [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom v-sgov-pojem:položka-klasifikace
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass v-sgov-pojem:položka-klasifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:položka-klasifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:klasifikační-schéma;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass v-sgov-pojem:položka-klasifikace;
@@ -910,14 +912,12 @@ v-sgov-pojem:eviduje-položku-klasifikace a z-sgov-pojem:typ-vztahu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:klasifikační-schéma
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:klasifikační-schéma;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:klasifikační-schéma;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom v-sgov-pojem:položka-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:položka-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom v-sgov-pojem:klasifikační-schéma;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:kód-položky a z-sgov-pojem:typ-vlastnosti .
@@ -938,40 +938,40 @@ v-sgov-pojem:definice-číselníku a z-sgov-pojem:typ-vlastnosti .
 
 v-sgov-pojem:má-administrativní-platnost-číselníku a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:má-platnost, [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass v-sgov-pojem:číselník;
+      owl:allValuesFrom v-sgov-pojem:číselník;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:číselník
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:číselník;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass v-sgov-pojem:číselník;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:má-administrativní-platnost-položky a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:položka
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:položka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom z-sgov-pojem:časová-specifikace
     ], [ a owl:Restriction;
       owl:allValuesFrom z-sgov-pojem:časová-specifikace;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:časová-entita;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom z-sgov-pojem:časová-specifikace
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:časová-entita
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:časová-entita;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:položka
     ] .
 
 v-sgov-pojem:má-sémantický-vztah-k-položce a z-sgov-pojem:typ-vztahu;
@@ -986,20 +986,17 @@ v-sgov-pojem:specializuje-položku a z-sgov-pojem:typ-vztahu;
 v-sgov-pojem:je-součástí-položky a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:má-obecnější-položku .
 
-v-sgov-pojem:souvisí-s-položkou a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf v-sgov-pojem:má-sémantický-vztah-k-položce .
-
 v-sgov-pojem:následuje-po-položce a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf v-sgov-pojem:souvisí-s-položkou .
+  rdfs:subClassOf v-sgov-pojem:je-asociována-s-položkou .
 
 v-sgov-pojem:nachází-se-za-položkou a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf v-sgov-pojem:souvisí-s-položkou .
+  rdfs:subClassOf v-sgov-pojem:je-asociována-s-položkou .
 
 v-sgov-pojem:je-příčinou-pro-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf v-sgov-pojem:souvisí-s-položkou .
+  rdfs:subClassOf v-sgov-pojem:je-asociována-s-položkou .
 
 v-sgov-pojem:je-disjunktní-s-položkou a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf v-sgov-pojem:souvisí-s-položkou .
+  rdfs:subClassOf v-sgov-pojem:je-asociována-s-položkou .
 
 v-sgov-pojem:pokrývá-oblast a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
@@ -1007,12 +1004,8 @@ v-sgov-pojem:pokrývá-oblast a z-sgov-pojem:typ-vztahu;
       owl:onClass z-sgov-pojem:typ-objektu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom z-sgov-pojem:typ-objektu
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass z-sgov-pojem:typ-objektu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:datová-sada
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass v-sgov-pojem:datová-sada;
@@ -1021,6 +1014,9 @@ v-sgov-pojem:pokrývá-oblast a z-sgov-pojem:typ-vztahu;
       owl:allValuesFrom z-sgov-pojem:typ-objektu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom z-sgov-pojem:typ-objektu
+    ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass v-sgov-pojem:datová-sada;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -1028,15 +1024,13 @@ v-sgov-pojem:pokrývá-oblast a z-sgov-pojem:typ-vztahu;
       owl:allValuesFrom v-sgov-pojem:datová-sada;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:datová-sada
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass z-sgov-pojem:typ-objektu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:položka-evidenčního-systému a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
   rdfs:subClassOf v-sgov-pojem:položka, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom v-sgov-pojem:zkrácený-název-položky
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:zkrácený-název-položky;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
@@ -1047,20 +1041,23 @@ v-sgov-pojem:položka-evidenčního-systému a z-sgov-pojem:mixin-rolí, z-sgov-
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom v-sgov-pojem:zkrácený-název-položky
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom v-sgov-pojem:kód-položky
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:definice-položky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:kód-položky;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom v-sgov-pojem:definice-položky
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:definice-položky;
-      owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
 v-sgov-pojem:má-obecnější-položku a z-sgov-pojem:typ-vztahu;
@@ -1083,47 +1080,47 @@ v-sgov-pojem:digitální-objekt a z-sgov-pojem:kategorie, z-sgov-pojem:typ-objek
 
 v-sgov-pojem:má-čas-vytvoření a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom z-sgov-pojem:proměnný-prvek
+      owl:allValuesFrom v-sgov-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom z-sgov-pojem:proměnný-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom z-sgov-pojem:proměnný-prvek
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:časový-okamžik
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:časový-okamžik;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 v-sgov-pojem:má-čas-poslední-aktualizace a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom z-sgov-pojem:proměnný-prvek
-    ], [ a owl:Restriction;
-      owl:allValuesFrom z-sgov-pojem:proměnný-prvek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:časový-okamžik
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom z-sgov-pojem:proměnný-prvek
+    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:časový-okamžik;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:proměnný-prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 v-sgov-pojem:eviduje-položku-evidenčního-systému a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf v-sgov-pojem:eviduje, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom v-sgov-pojem:položka-evidenčního-systému
-    ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:položka-evidenčního-systému;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:evidenční-systém;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom v-sgov-pojem:evidenční-systém
     ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:evidenční-systém;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom v-sgov-pojem:položka-evidenčního-systému
     ] .
 
 v-sgov-pojem:název-prvku a z-sgov-pojem:typ-vlastnosti .
@@ -1132,18 +1129,21 @@ v-sgov-pojem:popis-prvku a z-sgov-pojem:typ-vlastnosti .
 
 v-sgov-pojem:má-přílohu a z-sgov-pojem:mixin, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom v-sgov-pojem:položka
-    ], [ a owl:Restriction;
-      owl:allValuesFrom v-sgov-pojem:položka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom v-sgov-pojem:digitální-objekt
     ], [ a owl:Restriction;
       owl:allValuesFrom v-sgov-pojem:digitální-objekt;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom v-sgov-pojem:položka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom v-sgov-pojem:položka
     ] .
+
+v-sgov-pojem:je-asociována-s-položkou a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf v-sgov-pojem:má-sémantický-vztah-k-položce .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
