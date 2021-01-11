@@ -1,0 +1,62 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-klasifikace: <https://slovník.gov.cz/datový/klasifikace/> .
+@prefix d-sgov-klasifikace-pojem: <https://slovník.gov.cz/datový/klasifikace/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-klasifikace:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-01-04T00:21:38.285+02:00"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Datový slovník OFN klasifikací - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-klasifikace-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/klasifikace/pojem/";
+  owl:imports d-sgov-klasifikace:glosář;
+  owl:versionIRI "https://slovník.gov.cz/datový/klasifikace/model/verze/1.0.0" .
+
+d-sgov-klasifikace-pojem:položka-klasifikace a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému> .
+
+d-sgov-klasifikace-pojem:eviduje-položku-klasifikace a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/eviduje-položku-evidenčního-systému>,
+    [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:položka-klasifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:položka-klasifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:položka-klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:položka-klasifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-klasifikace-pojem:klasifikační-schéma a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> .
+
+d-sgov-klasifikace-pojem:klasifikace a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> .
