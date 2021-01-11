@@ -102,11 +102,11 @@ a-sgov-104-pojem:je-místní-příslušností-pro-typ-subjektu a owl:Class, owl:
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-subjektu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -120,9 +120,6 @@ a-sgov-104-pojem:je-poskytován-v-rámci-činnosti a owl:Class, owl:ObjectProper
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/poskytování-úkonu>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/poskytování-úkonu>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
     ], [ a owl:Restriction;
@@ -131,6 +128,9 @@ a-sgov-104-pojem:je-poskytován-v-rámci-činnosti a owl:Class, owl:ObjectProper
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/poskytování-úkonu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/poskytování-úkonu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -141,17 +141,17 @@ a-sgov-104-pojem:je-využíván-subjektem a owl:Class, owl:ObjectProperty, z-sgo
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
   rdfs:range a-sgov-104-pojem:typ-subjektu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:typ-subjektu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
+      owl:allValuesFrom a-sgov-104-pojem:typ-subjektu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -160,6 +160,9 @@ a-sgov-104-pojem:je-založena-veřejnoprávní-smlouvou a owl:Class, owl:ObjectP
   rdfs:domain a-sgov-104-pojem:působnost-v-agendě;
   rdfs:range a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
+    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
@@ -168,9 +171,6 @@ a-sgov-104-pojem:je-založena-veřejnoprávní-smlouvou a owl:Class, owl:ObjectP
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -186,22 +186,34 @@ a-sgov-104-pojem:má-datum-převodu-úkonu-od a z-sgov-pojem:typ-vlastnosti;
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 a-sgov-104-pojem:má-datum-převodu-činnosti-do a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf z-sgov-pojem:vlastnost;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:převod-činnosti
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-činnosti;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 a-sgov-104-pojem:má-datum-převodu-činnosti-od a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf z-sgov-pojem:vlastnost;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:převod-činnosti
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-činnosti;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 a-sgov-104-pojem:má-datum-registrace a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -224,17 +236,17 @@ a-sgov-104-pojem:má-místní-příslušnost a owl:Class, owl:ObjectProperty, z-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
   rdfs:range a-sgov-104-pojem:místní-příslušnost;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -243,11 +255,11 @@ a-sgov-104-pojem:má-popis-typu-datové-schránky a owl:Class, owl:DatatypePrope
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/typ-datové-schránky>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/typ-datové-schránky>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/typ-datové-schránky>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/typ-datové-schránky>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -256,17 +268,17 @@ a-sgov-104-pojem:má-poskytovatele-v-místní-příslušnosti a owl:Class, owl:O
   rdfs:domain a-sgov-104-pojem:místní-příslušnost;
   rdfs:range a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -274,17 +286,17 @@ a-sgov-104-pojem:má-převedenou-činnost a owl:Class, owl:ObjectProperty, z-sgo
   rdfs:domain a-sgov-104-pojem:převod-činnosti;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:převod-činnosti
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:převod-činnosti;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:převod-činnosti
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -298,14 +310,14 @@ a-sgov-104-pojem:má-převedený-úkon a owl:Class, owl:ObjectProperty, z-sgov-p
       owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:převod-úkonu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -330,17 +342,17 @@ a-sgov-104-pojem:má-registrovaný-subjekt a owl:Class, owl:ObjectProperty, z-sg
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -352,14 +364,14 @@ a-sgov-104-pojem:má-rozhodnutí-o-předání-působnosti a owl:Class, owl:Objec
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:rozhodnutí-o-založení-dokumentu-převodu-agend
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:rozhodnutí-o-založení-dokumentu-převodu-agend;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -387,17 +399,17 @@ a-sgov-104-pojem:má-rozhodnutí-o-schválení-předání-působnosti a owl:Clas
   rdfs:domain a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:range a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -408,11 +420,11 @@ a-sgov-104-pojem:má-smlouvu-pro-převod-úkonu a owl:Class, owl:ObjectProperty,
   rdfs:domain a-sgov-104-pojem:převod-úkonu;
   rdfs:range a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:převod-úkonu
@@ -429,11 +441,11 @@ a-sgov-104-pojem:má-typ-místní-příslušnosti a owl:Class, owl:ObjectPropert
       owl:allValuesFrom a-sgov-104-pojem:typ-místní-příslušnosti-k-subjektu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-místní-příslušnosti-k-subjektu
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-místní-příslušnosti-k-subjektu
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost
@@ -448,14 +460,14 @@ a-sgov-104-pojem:má-typ-rozhodnutí-o-schválení-předání-působnosti a owl:
   rdfs:domain a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti;
   rdfs:range a-sgov-104-pojem:typ-rozhodnutí-o-schválení-předání-působnosti;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:typ-rozhodnutí-o-schválení-předání-působnosti
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:rozhodnutí-o-schválení-předání-působnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-rozhodnutí-o-schválení-předání-působnosti;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -469,17 +481,17 @@ a-sgov-104-pojem:má-vykonávaný-úkon a owl:Class, owl:ObjectProperty, z-sgov-
   rdfs:domain a-sgov-104-pojem:výkon-úkonu;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:výkon-úkonu
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:výkon-úkonu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -490,14 +502,14 @@ a-sgov-104-pojem:přebírá-působnost a owl:Class, owl:ObjectProperty, z-sgov-p
   rdfs:domain a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
@@ -508,9 +520,6 @@ a-sgov-104-pojem:převádí-působnost a owl:Class, owl:ObjectProperty, z-sgov-p
   rdfs:domain a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
@@ -519,6 +528,9 @@ a-sgov-104-pojem:převádí-působnost a owl:Class, owl:ObjectProperty, z-sgov-p
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -526,17 +538,17 @@ a-sgov-104-pojem:převádí-úkon a owl:Class, owl:ObjectProperty, z-sgov-pojem:
   rdfs:domain a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
+      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -544,17 +556,17 @@ a-sgov-104-pojem:registruje-působnost-v-agendě a owl:Class, owl:ObjectProperty
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -562,17 +574,17 @@ a-sgov-104-pojem:schvaluje-předání-působnosti a owl:Class, owl:ObjectPropert
   rdfs:domain a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -583,17 +595,17 @@ a-sgov-104-pojem:vykonává-úkon-na-pracovišti a owl:Class, owl:ObjectProperty
   rdfs:domain a-sgov-104-pojem:výkon-úkonu;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:výkon-úkonu
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:výkon-úkonu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -604,17 +616,17 @@ a-sgov-104-pojem:vykonává-úkon-v-rámci-působnosti a owl:Class, owl:ObjectPr
   rdfs:domain a-sgov-104-pojem:působnost-v-agendě;
   rdfs:range a-sgov-104-pojem:výkon-úkonu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:výkon-úkonu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:výkon-úkonu
     ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:výkon-úkonu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -623,17 +635,17 @@ a-sgov-104-pojem:vykonává-činnost-v-rámci-působnosti a owl:Class, owl:Objec
   rdfs:domain a-sgov-104-pojem:působnost-v-agendě;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -644,11 +656,11 @@ a-sgov-104-pojem:vznikla-v-rámci-registrace a owl:Class, owl:ObjectProperty, z-
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/registrace-pro-výkon-agendy>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -674,11 +686,11 @@ a-sgov-104-pojem:má-odstavec-ustanovení a owl:Class, owl:DatatypeProperty, z-s
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -723,17 +735,17 @@ a-sgov-104-pojem:převádí-činnost-do-působnosti a owl:Class, owl:ObjectPrope
   rdfs:domain a-sgov-104-pojem:převod-činnosti;
   rdfs:range a-sgov-104-pojem:působnost-v-agendě;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:převod-činnosti
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:převod-činnosti
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:převod-činnosti;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -744,11 +756,11 @@ a-sgov-104-pojem:má-smlouvu-pro-převod-činnosti a owl:Class, owl:ObjectProper
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:převod-činnosti
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-činnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-činnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
@@ -759,17 +771,17 @@ a-sgov-104-pojem:převádí-úkon-z-působnosti a owl:Class, owl:ObjectProperty,
   rdfs:domain a-sgov-104-pojem:převod-úkonu;
   rdfs:range a-sgov-104-pojem:působnost-v-agendě;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:převod-úkonu
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -777,17 +789,17 @@ a-sgov-104-pojem:převádí-úkon-do-působnosti a owl:Class, owl:ObjectProperty
   rdfs:domain a-sgov-104-pojem:převod-úkonu;
   rdfs:range a-sgov-104-pojem:působnost-v-agendě;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:převod-úkonu
+    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:převod-úkonu
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -795,9 +807,6 @@ a-sgov-104-pojem:převádí-úkon-na-pracoviště a owl:Class, owl:ObjectPropert
   rdfs:domain a-sgov-104-pojem:převod-úkonu;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
@@ -806,6 +815,9 @@ a-sgov-104-pojem:převádí-úkon-na-pracoviště a owl:Class, owl:ObjectPropert
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-úkonu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -814,17 +826,17 @@ a-sgov-104-pojem:je-vykonáván-na-základě-ustanovení a owl:Class, owl:Object
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/úkon>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -852,17 +864,17 @@ a-sgov-104-pojem:je-vymezen-ustanovením-vymezujícím-údaj a owl:Class, owl:Ob
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -872,11 +884,11 @@ a-sgov-104-pojem:má-adresu-pracoviště-neevidovanou-v-rúian a owl:Class, owl:
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -884,11 +896,11 @@ a-sgov-104-pojem:má-datum-otevření-pracoviště a owl:Class, owl:DatatypeProp
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -909,11 +921,11 @@ a-sgov-104-pojem:má-datum-uzavření-pracoviště a owl:Class, owl:DatatypeProp
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -922,11 +934,11 @@ a-sgov-104-pojem:má-datum-vyřazení-z-kategorie a owl:Class, owl:DatatypePrope
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -934,11 +946,11 @@ a-sgov-104-pojem:má-datum-vzniku-agendy a owl:Class, owl:DatatypeProperty, z-sg
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -972,11 +984,11 @@ a-sgov-104-pojem:má-kód-objektu-nebo-subjektu-údajů a owl:Class, owl:Datatyp
   rdfs:domain a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -985,11 +997,11 @@ a-sgov-104-pojem:má-kód-oprávnění-k-přístupu-k-údajům a owl:Class, owl:
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1058,11 +1070,11 @@ a-sgov-104-pojem:má-název-činnosti a owl:Class, owl:DatatypeProperty, z-sgov-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1094,11 +1106,11 @@ a-sgov-104-pojem:má-platnost-činnosti-do a owl:Class, owl:DatatypeProperty, z-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1106,11 +1118,11 @@ a-sgov-104-pojem:má-platnost-činnosti-od a owl:Class, owl:DatatypeProperty, z-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1155,11 +1167,11 @@ a-sgov-104-pojem:má-popis-činnosti a owl:Class, owl:DatatypeProperty, z-sgov-p
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1167,17 +1179,17 @@ a-sgov-104-pojem:má-stát-pracoviště a owl:Class, owl:ObjectProperty, z-sgov-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:range a-sgov-104-pojem:stát;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:stát;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:stát
     ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:stát;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1189,11 +1201,11 @@ a-sgov-104-pojem:má-typ-údaje a owl:Class, owl:DatatypeProperty, z-sgov-pojem:
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1201,17 +1213,17 @@ a-sgov-104-pojem:má-typ-činnosti a owl:Class, owl:ObjectProperty, z-sgov-pojem
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:range a-sgov-104-pojem:typ-činnosti;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:typ-činnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-činnosti
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-činnosti
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:typ-činnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1223,17 +1235,17 @@ a-sgov-104-pojem:má-veřejné-údaje-na-základě-ustanovení a owl:Class, owl:
   rdfs:domain a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1241,17 +1253,17 @@ a-sgov-104-pojem:má-údaj a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vzt
   rdfs:domain a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>
+    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/údaj>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1271,17 +1283,17 @@ a-sgov-104-pojem:poskytuje-údaje-agendě a owl:Class, owl:ObjectProperty, z-sgo
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>
     ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1290,17 +1302,17 @@ a-sgov-104-pojem:sdružuje-údaje-vedené-nebo-vytvářené-v-rámci-agendy a ow
   rdfs:domain a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:objekt-nebo-subjekt-údajů
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1314,11 +1326,11 @@ a-sgov-104-pojem:zahrnuje-oprávnění-k-přístupu-k-údaji a owl:Class, owl:Ob
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údaji>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údaji>
@@ -1329,14 +1341,14 @@ a-sgov-104-pojem:čerpá-údaje-z-agendy a owl:Class, owl:ObjectProperty, z-sgov
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/oprávnění-k-přístupu-k-údajům>
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -1350,11 +1362,11 @@ a-sgov-104-pojem:má-zařazený-subjekt a owl:Class, owl:ObjectProperty, z-sgov-
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů>
@@ -1365,17 +1377,17 @@ a-sgov-104-pojem:zařazuje-do-kategorie a owl:Class, owl:ObjectProperty, z-sgov-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/zařazení-do-kategorie>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1424,11 +1436,11 @@ a-sgov-104-pojem:má-kód-typu-subjektu a owl:Class, owl:DatatypeProperty, z-sgo
   rdfs:domain a-sgov-104-pojem:typ-subjektu;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-subjektu;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1533,17 +1545,17 @@ a-sgov-104-pojem:má-poskytovatele-obslužného-kanálu a owl:Class, owl:ObjectP
   rdfs:domain a-sgov-104-pojem:obslužný-kanál;
   rdfs:range a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:obslužný-kanál
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:obslužný-kanál;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:obslužný-kanál;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:obslužný-kanál
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1580,8 +1592,8 @@ a-sgov-104-pojem:vykonává-službu-veřejné-správy-na-pracovišti a owl:Class
   rdfs:domain a-sgov-104-pojem:výkon-služby-veřejné-správy;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy
+      owl:allValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -1589,8 +1601,8 @@ a-sgov-104-pojem:vykonává-službu-veřejné-správy-na-pracovišti a owl:Class
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1602,17 +1614,17 @@ a-sgov-104-pojem:je-poskytována-v-rámci-agendy a owl:Class, owl:ObjectProperty
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1627,11 +1639,11 @@ a-sgov-104-pojem:skládá-se-z-úkonu a owl:Class, owl:ObjectProperty, z-sgov-po
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
@@ -1643,11 +1655,11 @@ a-sgov-104-pojem:má-popis-služby a owl:Class, owl:DatatypeProperty, z-sgov-poj
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1660,11 +1672,11 @@ a-sgov-104-pojem:má-popis-úkonu-služby a owl:Class, owl:DatatypeProperty, z-s
   rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1676,19 +1688,21 @@ a-sgov-104-pojem:má-fázi a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vzt
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:fáze-úkonu-služby-veřejné-správy
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:fáze-úkonu-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
 a-sgov-104-pojem:je-realizován a z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://archi.gov.cz/znalostni-baze:metodika_sluzeb_vs#planovany_od>;
+  rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
+  rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
@@ -1716,14 +1730,14 @@ a-sgov-104-pojem:má-typ-obslužného-kanálu a owl:Class, owl:ObjectProperty, z
   rdfs:domain a-sgov-104-pojem:obslužný-kanál;
   rdfs:range a-sgov-104-pojem:typ-obslužného-kanálu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:obslužný-kanál
+      owl:allValuesFrom a-sgov-104-pojem:typ-obslužného-kanálu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:obslužný-kanál;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:typ-obslužného-kanálu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:obslužný-kanál
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:typ-obslužného-kanálu
@@ -1735,11 +1749,11 @@ a-sgov-104-pojem:je-vhodný-k-digitalizaci a owl:Class, owl:DatatypeProperty, z-
   rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1748,17 +1762,17 @@ a-sgov-104-pojem:je-vázána-na-činnost a owl:Class, owl:ObjectProperty, z-sgov
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/činnost>
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1791,17 +1805,17 @@ a-sgov-104-pojem:má-typ-působnosti a owl:Class, owl:ObjectProperty, z-sgov-poj
   rdfs:domain a-sgov-104-pojem:místní-příslušnost-služby;
   rdfs:range a-sgov-104-pojem:typ-působnosti;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-působnosti
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-působnosti;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost-služby
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-působnosti
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1819,11 +1833,11 @@ a-sgov-104-pojem:je-vykonávána-na-základě-hlavního-ustanovení a owl:Class,
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/je-vykonávána-na-základě-ustanovení>,
     [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/agenda>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
@@ -1838,14 +1852,14 @@ a-sgov-104-pojem:má-vykonávanou-službu-veřejné-správy a owl:Class, owl:Obj
   rdfs:domain a-sgov-104-pojem:výkon-služby-veřejné-správy;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
@@ -1857,17 +1871,17 @@ a-sgov-104-pojem:má-typ-služby a owl:Class, owl:ObjectProperty, z-sgov-pojem:t
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range a-sgov-104-pojem:typ-služby-veřejné-správy;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-služby-veřejné-správy
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-služby-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1876,17 +1890,17 @@ a-sgov-104-pojem:je-stanovena-ustanovením a owl:Class, owl:ObjectProperty, z-sg
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/ustanovení-právního-předpisu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1895,11 +1909,11 @@ a-sgov-104-pojem:má-název-služby a owl:Class, owl:DatatypeProperty, z-sgov-po
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1907,17 +1921,17 @@ a-sgov-104-pojem:má-povinnost-sběru-adresy a owl:Class, owl:ObjectProperty, z-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range a-sgov-104-pojem:povinnost-sběru-adresy;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:povinnost-sběru-adresy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:povinnost-sběru-adresy
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1934,12 +1948,14 @@ a-sgov-104-pojem:informační-povinnost a owl:Class, z-sgov-pojem:typ-objektu;
 
 a-sgov-104-pojem:je-plánován-do a z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://archi.gov.cz/znalostni-baze:metodika_sluzeb_vs#planovany_do>;
+  rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
+  rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1949,17 +1965,17 @@ a-sgov-104-pojem:je-relevantní-pro-plnění-informační-povinnosti a owl:Class
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range a-sgov-104-pojem:informační-povinnost;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:informační-povinnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:informační-povinnost
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:informační-povinnost;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1976,11 +1992,23 @@ a-sgov-104-pojem:je-uzavřen-na-dobu-neurčitou a owl:Class, owl:DatatypePropert
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 a-sgov-104-pojem:má-datum-převodu-služby-do a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf z-sgov-pojem:vlastnost;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 a-sgov-104-pojem:má-datum-převodu-služby-od a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf z-sgov-pojem:vlastnost;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 a-sgov-104-pojem:má-datum-ukončení-dokumentu-převodu-agend a owl:Class, owl:DatatypeProperty,
@@ -1988,11 +2016,11 @@ a-sgov-104-pojem:má-datum-ukončení-dokumentu-převodu-agend a owl:Class, owl:
   rdfs:domain a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2013,17 +2041,17 @@ a-sgov-104-pojem:má-dokument-pro-převod-služby a owl:Class, owl:ObjectPropert
   rdfs:domain a-sgov-104-pojem:převod-služby-veřejné-správy;
   rdfs:range a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
     ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2035,11 +2063,11 @@ a-sgov-104-pojem:má-důvod-neuvedení-pracovišť-pro-převod a owl:Class, owl:
   rdfs:domain a-sgov-104-pojem:převod-služby-veřejné-správy;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2061,11 +2089,11 @@ a-sgov-104-pojem:má-identifikátor-dokumentu-převodu-agend a owl:Class, owl:Da
   rdfs:domain a-sgov-104-pojem:dokument-převodu-agend;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom a-sgov-104-pojem:dokument-převodu-agend
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:dokument-převodu-agend;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2176,14 +2204,14 @@ a-sgov-104-pojem:má-převedenou-službu a owl:Class, owl:ObjectProperty, z-sgov
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
     ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2192,8 +2220,8 @@ a-sgov-104-pojem:má-typ-vykonavatele-úkonu a owl:Class, owl:ObjectProperty, z-
   rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
   rdfs:range a-sgov-104-pojem:typ-vykonavatele-úkonu-služby-veřejné-správy;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:typ-vykonavatele-úkonu-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -2201,8 +2229,8 @@ a-sgov-104-pojem:má-typ-vykonavatele-úkonu a owl:Class, owl:ObjectProperty, z-
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:typ-vykonavatele-úkonu-služby-veřejné-správy
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
+      owl:allValuesFrom a-sgov-104-pojem:typ-vykonavatele-úkonu-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2214,11 +2242,11 @@ a-sgov-104-pojem:převádí-službu-do-působnosti a owl:Class, owl:ObjectProper
   rdfs:domain a-sgov-104-pojem:převod-služby-veřejné-správy;
   rdfs:range a-sgov-104-pojem:působnost-v-agendě;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -2232,11 +2260,11 @@ a-sgov-104-pojem:převádí-službu-na-pracoviště a owl:Class, owl:ObjectPrope
   rdfs:domain a-sgov-104-pojem:převod-služby-veřejné-správy;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/pracoviště>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
@@ -2250,17 +2278,17 @@ a-sgov-104-pojem:převádí-službu-z-působnosti a owl:Class, owl:ObjectPropert
   rdfs:domain a-sgov-104-pojem:převod-služby-veřejné-správy;
   rdfs:range a-sgov-104-pojem:působnost-v-agendě;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:převod-služby-veřejné-správy
+      owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2269,8 +2297,8 @@ a-sgov-104-pojem:je-realizován-kanálem a owl:Class, owl:ObjectProperty, z-sgov
   rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
   rdfs:range a-sgov-104-pojem:obslužný-kanál;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:obslužný-kanál
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:obslužný-kanál;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -2278,8 +2306,8 @@ a-sgov-104-pojem:je-realizován-kanálem a owl:Class, owl:ObjectProperty, z-sgov
       owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:obslužný-kanál
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2287,11 +2315,11 @@ a-sgov-104-pojem:má-platnost-kategorie-do a owl:Class, owl:DatatypeProperty, z-
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/kategorie>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2304,11 +2332,11 @@ a-sgov-104-pojem:má-identifikátor-služby a owl:Class, owl:DatatypeProperty, z
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2330,17 +2358,17 @@ a-sgov-104-pojem:je-místní-příslušností-služby-pro-typ-subjektu a owl:Cla
   rdfs:domain a-sgov-104-pojem:místní-příslušnost-služby;
   rdfs:range a-sgov-104-pojem:typ-subjektu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-subjektu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost-služby
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2352,14 +2380,14 @@ a-sgov-104-pojem:vykonává-službu-veřejné-správy-v-rámci-působnosti a owl
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy
     ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:výkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:působnost-v-agendě
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:působnost-v-agendě;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2369,17 +2397,17 @@ a-sgov-104-pojem:má-typ-místní-příslušnosti-služby a owl:Class, owl:Objec
   rdfs:domain a-sgov-104-pojem:místní-příslušnost-služby;
   rdfs:range a-sgov-104-pojem:typ-místní-příslušnosti-k-subjektu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-místní-příslušnosti-k-subjektu
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost-služby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-místní-příslušnosti-k-subjektu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-místní-příslušnosti-k-subjektu
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2388,17 +2416,17 @@ a-sgov-104-pojem:má-místní-příslušnost-služby a owl:Class, owl:ObjectProp
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
   rdfs:range a-sgov-104-pojem:místní-příslušnost-služby;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost-služby
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost-služby
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2408,22 +2436,24 @@ a-sgov-104-pojem:má-poskytovatele-služby-v-místní-příslušnosti a owl:Clas
   rdfs:domain a-sgov-104-pojem:místní-příslušnost-služby;
   rdfs:range a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie
-    ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:místní-příslušnost-služby;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:místní-příslušnost-služby
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-104-pojem:orgán-veřejné-moci-nebo-kategorie;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
 a-sgov-104-pojem:je-plánován-od a z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://archi.gov.cz/znalostni-baze:metodika_sluzeb_vs#planovany_od>;
+  rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
+  rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
@@ -2441,40 +2471,44 @@ a-sgov-104-pojem:má-požadovanou-úroveň-důvěry a owl:Class, owl:ObjectPrope
       owl:allValuesFrom a-sgov-104-pojem:úroveň-důvěry;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom a-sgov-104-pojem:obslužný-kanál;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:úroveň-důvěry
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom a-sgov-104-pojem:obslužný-kanál
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:úroveň-důvěry
+      owl:allValuesFrom a-sgov-104-pojem:obslužný-kanál;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
 a-sgov-104-pojem:je-digitální a z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain a-sgov-104-pojem:úkon-služby-veřejné-správy;
+  rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
-    ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom a-sgov-104-pojem:úkon-služby-veřejné-správy
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 a-sgov-104-pojem:má-oprávněného-klienta a z-sgov-pojem:typ-vztahu;
+  rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
+  rdfs:range a-sgov-104-pojem:typ-subjektu;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/služba-veřejné-správy>
     ], [ a owl:Restriction;
       owl:allValuesFrom a-sgov-104-pojem:typ-subjektu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom a-sgov-104-pojem:typ-subjektu
     ] .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .

@@ -61,6 +61,16 @@ z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
 
 <https://slovník.gov.cz/veřejný-sektor/pojem/jméno> a owl:DatatypeProperty .
 
+l-sgov-sbírka-111-2009-pojem:má-kód-adresního-místa a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/adresy/pojem/má-kód-adresního-místa>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
 l-sgov-sbírka-111-2009-pojem:adresní-místo a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/a/2>,
     <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/31/1/q>;
@@ -90,17 +100,17 @@ l-sgov-sbírka-111-2009-pojem:je-poskytován a owl:Class, owl:ObjectProperty, z-
   rdfs:domain l-sgov-sbírka-111-2009-pojem:úkon;
   rdfs:range l-sgov-sbírka-111-2009-pojem:poskytování-úkonu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:úkon
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:poskytování-úkonu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:úkon;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:úkon
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:poskytování-úkonu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:poskytování-úkonu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -118,8 +128,8 @@ l-sgov-sbírka-111-2009-pojem:je-vykonáván-v-agendě a owl:Class, owl:ObjectPr
   rdfs:domain l-sgov-sbírka-111-2009-pojem:úkon;
   rdfs:range l-sgov-sbírka-111-2009-pojem:agenda;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:úkon;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -127,8 +137,8 @@ l-sgov-sbírka-111-2009-pojem:je-vykonáván-v-agendě a owl:Class, owl:ObjectPr
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:úkon
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -142,14 +152,14 @@ l-sgov-sbírka-111-2009-pojem:má-elektronickou-formu-úkonu a owl:Class, owl:Ob
   rdfs:domain l-sgov-sbírka-111-2009-pojem:úkon;
   rdfs:range l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:úkon;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:úkon
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:úkon;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu
@@ -175,17 +185,17 @@ l-sgov-sbírka-111-2009-pojem:má-poskytovatele a owl:Class, owl:ObjectProperty,
   rdfs:domain l-sgov-sbírka-111-2009-pojem:poskytování-úkonu;
   rdfs:range <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:poskytování-úkonu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:poskytování-úkonu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:poskytování-úkonu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -194,24 +204,24 @@ l-sgov-sbírka-111-2009-pojem:má-poskytovatele a owl:Class, owl:ObjectProperty,
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce-nebo-vojenského-újezdu,
     [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-obce
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-obce;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce-nebo-vojenského-újezdu a owl:Class,
     z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/dokumentový/ofn-adresy-1.0.1/pojem/území-obce-nebo-vojenského-újezdu>
+      owl:allValuesFrom <https://slovník.gov.cz/dokumentový/ofn-adresy-1.0.1/pojem/území-obce-nebo-vojenského-újezdu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
@@ -219,8 +229,8 @@ l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce-nebo-vojenského-új
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/dokumentový/ofn-adresy-1.0.1/pojem/území-obce-nebo-vojenského-újezdu>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/dokumentový/ofn-adresy-1.0.1/pojem/území-obce-nebo-vojenského-újezdu>
     ] .
 
 l-sgov-sbírka-111-2009-pojem:adresa a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
@@ -264,14 +274,14 @@ l-sgov-sbírka-111-2009-pojem:lokalizační-údaje a owl:Class, z-sgov-pojem:dru
 
 l-sgov-sbírka-111-2009-pojem:má-adresu a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
@@ -280,11 +290,11 @@ l-sgov-sbírka-111-2009-pojem:má-adresu a owl:Class, z-sgov-pojem:typ-vztahu;
 l-sgov-sbírka-111-2009-pojem:má-název-okresu a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/h>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-název-katastrálního-území a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -310,11 +320,11 @@ l-sgov-sbírka-111-2009-pojem:má-název-části-obce a owl:Class, z-sgov-pojem:
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-okresu a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/33/5>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu
     ] .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-regionu-soudržnosti a z-sgov-pojem:typ-vlastnosti;
@@ -358,11 +368,11 @@ l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky a z-sgov-p
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-katastrálního-území a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/33/5>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:adresní-komponent a owl:Class, z-sgov-pojem:mixin-rolí,
@@ -388,32 +398,32 @@ l-sgov-sbírka-111-2009-pojem:kód-územně-evidenční-jednotky a owl:Class, z-
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/4>;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/2>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územně-evidenční-jednotky;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územně-evidenční-jednotky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územně-evidenční-jednotky;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:kód-katastrálního-území a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/3/a>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:kód-územního-prvku a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/4>;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/1/a>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:je-vymezena-hranicí-územního-prvku a owl:Class, z-sgov-pojem:typ-vztahu;
@@ -422,14 +432,14 @@ l-sgov-sbírka-111-2009-pojem:je-vymezena-hranicí-územního-prvku a owl:Class,
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:hranice-územního-prvku
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:hranice-územního-prvku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:hranice-územního-prvku
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří
     ] .
 
 l-sgov-sbírka-111-2009-pojem:katastrální-území a owl:Class, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
@@ -494,11 +504,11 @@ l-sgov-sbírka-111-2009-pojem:datum-vzniku-územně-evidenční-jednotky a owl:C
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-vojenského-újezdu a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/33/5>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu
     ] .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-vyššího-územního-samosprávného-celku a z-sgov-pojem:typ-vlastnosti;
@@ -517,24 +527,24 @@ l-sgov-sbírka-111-2009-pojem:datum-vzniku-státu a z-sgov-pojem:typ-vlastnosti;
 l-sgov-sbírka-111-2009-pojem:má-území-městské-části-v-hlavním-městě-praze a owl:Class,
     z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městské-části-v-hlavním-městě-praze;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městské-části-v-hlavním-městě-praze
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/131/2000/pojem/městská-část-v-hlavním-městě-praze>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/131/2000/pojem/městská-část-v-hlavním-městě-praze>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městské-části-v-hlavním-městě-praze;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městské-části-v-hlavním-městě-praze
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-území-městského-obvodu-a-městské-části-územně-členěného-ststutárního-města
   a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/městský-obvod-a-městská-část-územně-členěného-statutárního-města>
@@ -542,32 +552,32 @@ l-sgov-sbírka-111-2009-pojem:má-území-městského-obvodu-a-městské-části
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/městský-obvod-a-městská-část-územně-členěného-statutárního-města>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-zvláštní-údaje-pro-doručování a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:zvláštní-údaje-pro-doručování-prostřednictvím-poštovních-služeb;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:zvláštní-údaje-pro-doručování-prostřednictvím-poštovních-služeb
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:zvláštní-údaje-pro-doručování-prostřednictvím-poštovních-služeb;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-území-kraje a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/kraj>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/kraj>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/kraj>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-kraje;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -578,31 +588,31 @@ l-sgov-sbírka-111-2009-pojem:má-území-kraje a owl:Class, z-sgov-pojem:typ-vz
 
 l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-komponent;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-komponent
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-komponent
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-komponent;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-technickoekonomické-atributy-pozemku a owl:Class,
     z-sgov-pojem:typ-vztahu;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/35/1>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-pozemku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-pozemku
@@ -612,14 +622,14 @@ l-sgov-sbírka-111-2009-pojem:má-technickoekonomické-atributy-stavebního-obje
     owl:Class, z-sgov-pojem:typ-vztahu;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/1>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt
@@ -644,17 +654,17 @@ l-sgov-sbírka-111-2009-pojem:má-správní-obvod-obce-s-pověřeným-obecním-�
 l-sgov-sbírka-111-2009-pojem:má-správní-obvod-obce-s-rozšířenou-působností a owl:Class,
     z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:správní-obvod-obce-s-rozšířenou-působností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/obec-s-rozšířenou-působností>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/obec-s-rozšířenou-působností>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:správní-obvod-obce-s-rozšířenou-působností;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:správní-obvod-obce-s-rozšířenou-působností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/obec-s-rozšířenou-působností>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-název-obce-nebo-vojenského-újezdu a owl:Class, owl:DatatypeProperty,
@@ -680,28 +690,28 @@ l-sgov-sbírka-111-2009-pojem:má-název-ulice a owl:Class, z-sgov-pojem:typ-vla
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-části-obce a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce
     ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-název-městského-obvodu-v-hlavním-městě-praze a owl:Class,
     z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/h>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-územního-prvku a owl:Class, z-sgov-pojem:typ-vztahu;
@@ -709,34 +719,37 @@ l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-územního-prvku a owl:Cl
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
     ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-územně-evidenční-jednotky a owl:Class,
     z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územně-evidenční-jednotky;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územně-evidenční-jednotky
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-kód-a-název-katastrálního-území a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
@@ -745,24 +758,21 @@ l-sgov-sbírka-111-2009-pojem:má-kód-a-název-katastrálního-území a owl:Cl
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-ulice a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ulice-nebo-jiné-veřejné-prostranství;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ulice-nebo-jiné-veřejné-prostranství
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-ulice;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-ulice
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-ulice;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ulice-nebo-jiné-veřejné-prostranství
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ulice-nebo-jiné-veřejné-prostranství;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-územního-prvku a owl:Class, z-sgov-pojem:typ-vztahu;
@@ -773,24 +783,24 @@ l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-územního-prvku a owl:
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-územně-evidenční-jednotky a owl:Class,
     z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územně-evidenční-jednotky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územně-evidenční-jednotky;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územně-evidenční-jednotky
@@ -799,6 +809,9 @@ l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-územně-evidenční-je
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-pozemku-příslušícímu-stavebnímu-objektu
   a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-stavebního-objektu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
@@ -807,9 +820,6 @@ l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-pozemku-příslušící
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-stavebního-objektu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-stavebního-objektu a owl:Class,
@@ -831,29 +841,29 @@ l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-stavebního-objektu a o
 l-sgov-sbírka-111-2009-pojem:má-hranici-územního-prvku a owl:Class, z-sgov-pojem:typ-vztahu;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/1/b>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:hranice-územního-prvku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:hranice-územního-prvku
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:hranice-územního-prvku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-pozemku a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku
@@ -862,17 +872,17 @@ l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-pozemku a owl:Class, z-
 l-sgov-sbírka-111-2009-pojem:má-definiční-čáru-ulice a owl:Class, z-sgov-pojem:typ-vztahu;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/2/b>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-čára-ulice;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-ulice
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-čára-ulice
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-ulice;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-čára-ulice;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-čára-ulice
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-doplňující-údaje-o-znaku-a-vlajce a owl:Class, z-sgov-pojem:typ-vztahu;
@@ -902,17 +912,17 @@ l-sgov-sbírka-111-2009-pojem:má-doplňující-údaje-o-znaku-a-vlajce a owl:Cl
 l-sgov-sbírka-111-2009-pojem:má-definiční-bod-územního-prvku a owl:Class, z-sgov-pojem:typ-vztahu;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/1/b>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-bod-územního-prvku
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-bod-územního-prvku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-bod-územního-prvku
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-definiční-bod-části-obce a owl:Class, z-sgov-pojem:typ-vztahu;
@@ -921,14 +931,14 @@ l-sgov-sbírka-111-2009-pojem:má-definiční-bod-části-obce a owl:Class, z-sg
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-bod-části-obce
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:definiční-bod-části-obce;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-části-obce a z-sgov-pojem:typ-vlastnosti;
@@ -938,17 +948,17 @@ l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-části-obce a z
 l-sgov-sbírka-111-2009-pojem:má-adresní-místo a owl:Class, z-sgov-pojem:typ-vztahu;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/3/>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-obce a z-sgov-pojem:typ-vlastnosti;
@@ -962,41 +972,41 @@ l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-vojenského-úje
 l-sgov-sbírka-111-2009-pojem:převažující-způsob-využití-území a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/4>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:počet-bytů a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/2/a>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
     ] .
 
 l-sgov-sbírka-111-2009-pojem:počet-nadzemních-a-podzemních-podlaží a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/2/e>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:popis-znaku a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/3>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely a owl:Class, z-sgov-pojem:poddruh,
@@ -1008,11 +1018,11 @@ l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely a owl:Class, z-sgov-poje
 l-sgov-sbírka-111-2009-pojem:popis-vlajky a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/3>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:parcelní-číslo a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1058,11 +1068,11 @@ l-sgov-sbírka-111-2009-pojem:obestavěný-prostor a owl:Class, z-sgov-pojem:typ
 l-sgov-sbírka-111-2009-pojem:název-územního-prvku a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/1/a>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:název-územně-evidenční-jednotky a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1099,32 +1109,32 @@ l-sgov-sbírka-111-2009-pojem:název-vojenského-újezdu a owl:Class, z-sgov-poj
 l-sgov-sbírka-111-2009-pojem:název-obce a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/h>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-obce;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-obce;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:název-okresu a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/h>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:název-městského-obvodu-nebo-městské-části a owl:Class,
     z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/h>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města
     ] .
 
 l-sgov-sbírka-111-2009-pojem:název-městského-obvodu-v-hlavním-městě-praze a owl:Class,
@@ -1165,14 +1175,14 @@ l-sgov-sbírka-111-2009-pojem:má-část-obce-ke-které-stavební-objekt-přísl
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-stavebního-objektu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-stavebního-objektu
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:identifikační-údaje-stavebního-objektu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-území-vyššího-územního-samosprávního-celku a owl:Class,
@@ -1181,21 +1191,18 @@ l-sgov-sbírka-111-2009-pojem:má-území-vyššího-územního-samosprávního-
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-vyššího-územního-samosprávního-celku;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/347/1997/pojem/vyšší-územní-samosprávní-prvek>
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-vyššího-územního-samosprávního-celku
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/347/1997/pojem/vyšší-územní-samosprávní-prvek>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/347/1997/pojem/vyšší-územní-samosprávní-prvek>
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-území-základní-sídelní-jednotky a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-základní-sídelní-jednotky
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-základní-sídelní-jednotky;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
@@ -1204,21 +1211,24 @@ l-sgov-sbírka-111-2009-pojem:má-území-základní-sídelní-jednotky a owl:Cl
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/89/1995/pojem/základní-sídelní-jednotka>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-základní-sídelní-jednotky
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-území-regionu-soudržnosti a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-regionu-soudržnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/248/2000/pojem/region-soudržnosti>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/248/2000/pojem/region-soudržnosti>
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-regionu-soudržnosti
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-regionu-soudržnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/248/2000/pojem/region-soudržnosti>
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-území-vojenského-újezdu a owl:Class, z-sgov-pojem:typ-vztahu;
@@ -1226,11 +1236,11 @@ l-sgov-sbírka-111-2009-pojem:má-území-vojenského-újezdu a owl:Class, z-sgo
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/222/1999/pojem/vojenský-újezd>
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/222/1999/pojem/vojenský-újezd>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -1242,29 +1252,29 @@ l-sgov-sbírka-111-2009-pojem:má-území-městského-obvodu-v-hlavním-městě-
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/městský-obvod-v-hlavním-městě-praze>
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-v-hlavním-městě-praze;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/městský-obvod-v-hlavním-městě-praze>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-v-hlavním-městě-praze
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/městský-obvod-v-hlavním-městě-praze>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-v-hlavním-městě-praze;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-území-okresu a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/okres>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/okres>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/36/1960/pojem/okres>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu
     ] .
 
 l-sgov-sbírka-111-2009-pojem:způsob-využití-stavebního-objektu a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1290,11 +1300,11 @@ l-sgov-sbírka-111-2009-pojem:způsob-vytápění a owl:Class, z-sgov-pojem:typ-
 l-sgov-sbírka-111-2009-pojem:způsob-využití-pozemku a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/35/1>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:způsob-ochrany-pozemku a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1310,21 +1320,21 @@ l-sgov-sbírka-111-2009-pojem:způsob-ochrany-pozemku a owl:Class, z-sgov-pojem:
 l-sgov-sbírka-111-2009-pojem:způsob-ochrany-stavebního-objektu a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/1>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:výměra-parcely a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/35/1/a>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-pozemku
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-pozemku;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-pozemku
     ] .
 
 l-sgov-sbírka-111-2009-pojem:zastavěná-plocha a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1340,11 +1350,11 @@ l-sgov-sbírka-111-2009-pojem:zastavěná-plocha a owl:Class, z-sgov-pojem:typ-v
 l-sgov-sbírka-111-2009-pojem:vyobrazení-vlajky a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/3>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:vyobrazení-znaku a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1363,27 +1373,27 @@ l-sgov-sbírka-111-2009-pojem:vazba-územně-evidenčních-jednotek-na-územní-
     <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/2/c>;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/g>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
     ] .
 
 l-sgov-sbírka-111-2009-pojem:vybavení-výtahem a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/2/k>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:ulice-nebo-jiné-veřejné-prostranství a owl:Class, z-sgov-pojem:role,
@@ -1396,14 +1406,14 @@ l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky a owl:Class, z-sgov-po
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/1/c>;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/f>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -1412,11 +1422,11 @@ l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky a owl:Class, z-sgov-po
 l-sgov-sbírka-111-2009-pojem:typ-ochrany-stavebního-objektu a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/1>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:typ-stavebního-objektu a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1443,11 +1453,11 @@ l-sgov-sbírka-111-2009-pojem:struktura-zástavby-základní-sídelní-jednotky 
     z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/32/4>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky
     ] .
 
 l-sgov-sbírka-111-2009-pojem:správní-obvod-v-hlavním-městě-praze a owl:Class, z-sgov-pojem:role,
@@ -1470,31 +1480,31 @@ l-sgov-sbírka-111-2009-pojem:status-obce a owl:Class, z-sgov-pojem:typ-vlastnos
 l-sgov-sbírka-111-2009-pojem:připojení-na-vodovod a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/2/g>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:rok-dokončení-stavebního-objektu a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/1>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-111-2009-pojem:připojení-na-kanalizační-síť a owl:Class, z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/2/h>;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
     ] .
 
 l-sgov-sbírka-111-2009-pojem:připojení-na-rozvod-plynu a owl:Class, z-sgov-pojem:typ-vlastnosti;
@@ -1575,11 +1585,11 @@ l-sgov-sbírka-111-2009-pojem:jméno-fyzické-osoby a owl:Class, owl:DatatypePro
   rdfs:domain l-sgov-sbírka-111-2009-pojem:fyzická-osoba;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno> .
 
@@ -1610,11 +1620,11 @@ l-sgov-sbírka-111-2009-pojem:má-identifikátor-datové-schránky a owl:Class, 
   rdfs:domain l-sgov-sbírka-111-2009-pojem:datová-schránka;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -1637,17 +1647,17 @@ l-sgov-sbírka-111-2009-pojem:má-typ-datové-schránky a owl:Class, owl:ObjectP
   rdfs:domain l-sgov-sbírka-111-2009-pojem:datová-schránka;
   rdfs:range l-sgov-sbírka-111-2009-pojem:typ-datové-schránky;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:typ-datové-schránky
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:typ-datové-schránky;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -1662,11 +1672,11 @@ l-sgov-sbírka-111-2009-pojem:příjmení-fyzické-osoby a owl:Class, owl:Dataty
   rdfs:domain l-sgov-sbírka-111-2009-pojem:fyzická-osoba;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení> .
 
@@ -1778,14 +1788,14 @@ l-sgov-sbírka-111-2009-pojem:má-přiřazenou-ulici a owl:Class, z-sgov-pojem:t
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazenou-část-obce a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:část-obce;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
@@ -1793,30 +1803,30 @@ l-sgov-sbírka-111-2009-pojem:má-přiřazenou-část-obce a owl:Class, z-sgov-p
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-katastrální-území a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:katastrální-území;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-městského-obvodu-v-hlavním-městě-praze
   a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-v-hlavním-městě-praze;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-v-hlavním-městě-praze;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-v-hlavním-městě-praze
@@ -1827,19 +1837,22 @@ l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-okresu a owl:Class, z-sgo
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresa
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-okresu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-vojenského-újezdu a owl:Class, z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce-nebo-vojenského-újezdu,
     [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
@@ -1848,9 +1861,6 @@ l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-vojenského-újezdu a owl
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresa;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu
     ] .
 
 l-sgov-sbírka-111-2009-pojem:zvláštní-údaje-pro-doručování-prostřednictvím-poštovních-služeb
@@ -1926,11 +1936,11 @@ l-sgov-sbírka-111-2009-pojem:je-součástí-územního-prvku a owl:Class, z-sgo
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/g>;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:vazba-územně-evidenčních-jednotek-na-územní-prvky,
     [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek
     ] .
 
 l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek a owl:Class, z-sgov-pojem:role,
@@ -1942,11 +1952,11 @@ l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek a owl:Class, z-sgov-poj
 l-sgov-sbírka-111-2009-pojem:náleží-do-jiného-územního-prvku a owl:Class, z-sgov-pojem:typ-vztahu;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/f>;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:podřazený-územní-prvek a owl:Class, z-sgov-pojem:role,
@@ -1992,11 +2002,11 @@ l-sgov-sbírka-111-2009-pojem:skládá-se-z-územního-prvku a owl:Class, z-sgov
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/29/1/g>;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:vazba-územně-evidenčních-jednotek-na-územní-prvky,
     [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:podřazený-územní-prvek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:podřazený-územní-prvek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:podřazený-územní-prvek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
 l-sgov-sbírka-111-2009-pojem:správní-obvod-obce-s-pověřeným-obecním-úřadem a owl:Class,
@@ -2014,17 +2024,17 @@ l-sgov-sbírka-111-2009-pojem:správní-obvod-obce-s-rozšířenou-působností 
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/34/2>;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-technickoekonomické-atributy-stavebního-objektu,
     [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt-s-číslem-popisným-nebo-evidenčním
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt-s-číslem-popisným-nebo-evidenčním;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:stavební-objekt-s-číslem-popisným-nebo-evidenčním
     ] .
 
 l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-pozemku a owl:Class, z-sgov-pojem:poddruh,
@@ -2063,17 +2073,17 @@ l-sgov-sbírka-111-2009-pojem:vede-údaje-o-objektu-nebo-subjektu-údajů a owl:
   rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>;
   rdfs:range <https://slovník.gov.cz/agendový/104/pojem/objekt-nebo-subjekt-údajů>;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/agendový/104/pojem/objekt-nebo-subjekt-údajů>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/agendový/104/pojem/objekt-nebo-subjekt-údajů>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/agendový/104/pojem/objekt-nebo-subjekt-údajů>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2085,9 +2095,6 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-osoby a owl:Class, owl:ObjectPro
   rdfs:domain l-sgov-sbírka-111-2009-pojem:osoba;
   rdfs:range l-sgov-sbírka-111-2009-pojem:adresní-místo;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
@@ -2096,6 +2103,9 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-osoby a owl:Class, owl:ObjectPro
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2105,11 +2115,11 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-osoby-neevidovanou-v-rúian a ow
   rdfs:domain l-sgov-sbírka-111-2009-pojem:osoba;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:osoba;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2122,14 +2132,14 @@ l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby a owl:Class, owl:Objec
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:osoba;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2142,17 +2152,17 @@ l-sgov-sbírka-111-2009-pojem:je-vykonávána-agendovým-informačním-systémem
   rdfs:domain l-sgov-sbírka-111-2009-pojem:agenda;
   rdfs:range <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/365/2000/pojem/informační-systém-veřejné-správy>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2199,14 +2209,14 @@ l-sgov-sbírka-111-2009-pojem:ohlašuje-agendu a owl:Class, owl:ObjectProperty, 
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range l-sgov-sbírka-111-2009-pojem:agenda;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -2219,17 +2229,17 @@ l-sgov-sbírka-111-2009-pojem:ohlašuje-kategorii a owl:Class, owl:ObjectPropert
   rdfs:domain l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad;
   rdfs:range l-sgov-sbírka-111-2009-pojem:kategorie;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:kategorie;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:kategorie
     ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:kategorie;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2246,11 +2256,11 @@ l-sgov-sbírka-111-2009-pojem:stojí-v-čele-orgánu-veřejné-moci a owl:Class,
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -2267,17 +2277,17 @@ l-sgov-sbírka-111-2009-pojem:vykonává-činnost a owl:Class, owl:ObjectPropert
   rdfs:domain l-sgov-sbírka-111-2009-pojem:role;
   rdfs:range l-sgov-sbírka-111-2009-pojem:činnost;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:role
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:činnost
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:role;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:činnost;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:role
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:činnost
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2287,17 +2297,17 @@ l-sgov-sbírka-111-2009-pojem:zpřístupňuje-údaj a owl:Class, owl:ObjectPrope
   rdfs:domain l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údaji;
   rdfs:range l-sgov-sbírka-111-2009-pojem:údaj;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údaji
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:údaj
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údaji;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:údaj;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údaji
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údaji;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2306,17 +2316,17 @@ l-sgov-sbírka-111-2009-pojem:zpřístupňuje-údaje-na-základě-ustanovení a 
   rdfs:domain l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům;
   rdfs:range l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2330,17 +2340,17 @@ l-sgov-sbírka-111-2009-pojem:vykonává-agendu a owl:Class, owl:ObjectProperty,
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie;
   rdfs:range l-sgov-sbírka-111-2009-pojem:agenda;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2350,8 +2360,8 @@ l-sgov-sbírka-111-2009-pojem:vykonává-působnost-na-základě-ustanovení a o
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
@@ -2359,8 +2369,8 @@ l-sgov-sbírka-111-2009-pojem:vykonává-působnost-na-základě-ustanovení a o
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2370,17 +2380,17 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-orgánu-veřejné-moci a owl:Cla
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range l-sgov-sbírka-111-2009-pojem:adresní-místo;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2390,17 +2400,17 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-soukromoprávního-uživatele-ú
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range l-sgov-sbírka-111-2009-pojem:adresní-místo;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2410,17 +2420,17 @@ l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-orgánu-veřejné-moci a owl
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range l-sgov-sbírka-111-2009-pojem:datová-schránka;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
     ];
   rdfs:subPropertyOf l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby .
 
@@ -2430,17 +2440,17 @@ l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-soukromoprávního-uživatel
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range l-sgov-sbírka-111-2009-pojem:datová-schránka;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:datová-schránka
     ];
   rdfs:subPropertyOf l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby .
 
@@ -2450,17 +2460,17 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-místa-pobytu-orgánu-veřejné-moci a 
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range l-sgov-sbírka-111-2009-pojem:adresní-místo;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2470,9 +2480,6 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-místa-podnikání-soukromoprávního-u
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range l-sgov-sbírka-111-2009-pojem:adresní-místo;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
     ], [ a owl:Restriction;
@@ -2481,6 +2488,9 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-místa-podnikání-soukromoprávního-u
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2493,14 +2503,14 @@ l-sgov-sbírka-111-2009-pojem:má-pracoviště-vykonávající-úkon a owl:Class
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pracoviště;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2513,14 +2523,14 @@ l-sgov-sbírka-111-2009-pojem:je-oprávněn-k-využívání-údajů-ná-základ�
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -2532,14 +2542,14 @@ l-sgov-sbírka-111-2009-pojem:je-součástí-právního-předpisu a owl:Class, o
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2557,14 +2567,14 @@ l-sgov-sbírka-111-2009-pojem:je-vykonávána-na-základě-ustanovení a owl:Cla
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu
     ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2595,11 +2605,11 @@ l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby a owl:Clas
   rdfs:domain l-sgov-sbírka-111-2009-pojem:fyzická-osoba;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2623,11 +2633,11 @@ l-sgov-sbírka-111-2009-pojem:jméno-subjektu-údajů-vedeného-v-registru-obyva
   rdfs:domain l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno>, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno> .
 
@@ -2653,11 +2663,11 @@ l-sgov-sbírka-111-2009-pojem:obchodní-firma a owl:Class, owl:DatatypeProperty,
   rdfs:domain l-sgov-sbírka-111-2009-pojem:právnická-osoba;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/jméno>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právnická-osoba
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právnická-osoba;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právnická-osoba
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/jméno> .
 
@@ -2704,11 +2714,11 @@ l-sgov-sbírka-111-2009-pojem:příjmení-subjektu-údajů-vedeného-v-registru-
   rdfs:domain l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení> .
 
@@ -2732,17 +2742,17 @@ l-sgov-sbírka-111-2009-pojem:je-oprávněním-pro-roli a owl:Class, owl:ObjectP
   rdfs:domain l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům;
   rdfs:range l-sgov-sbírka-111-2009-pojem:role;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:role;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:role
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2756,7 +2766,13 @@ l-sgov-sbírka-111-2009-pojem:je-veden-nebo-vytvářen-v-rámci-agendy a z-sgov-
 
 l-sgov-sbírka-111-2009-pojem:je-vnitřní-organizační-jednotkou a z-sgov-pojem:typ-vlastnosti;
   dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/51/1/c>;
-  rdfs:subClassOf z-sgov-pojem:vlastnost;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 l-sgov-sbírka-111-2009-pojem:je-vykonávána-v-agendě a owl:Class, owl:ObjectProperty,
@@ -2765,9 +2781,6 @@ l-sgov-sbírka-111-2009-pojem:je-vykonávána-v-agendě a owl:Class, owl:ObjectP
   rdfs:domain l-sgov-sbírka-111-2009-pojem:činnost;
   rdfs:range l-sgov-sbírka-111-2009-pojem:agenda;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
     ], [ a owl:Restriction;
@@ -2776,6 +2789,9 @@ l-sgov-sbírka-111-2009-pojem:je-vykonávána-v-agendě a owl:Class, owl:ObjectP
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:činnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2800,17 +2816,17 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-pracoviště a owl:Class, owl:ObjectPro
   rdfs:domain l-sgov-sbírka-111-2009-pojem:pracoviště;
   rdfs:range l-sgov-sbírka-111-2009-pojem:adresní-místo;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pracoviště;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:pracoviště
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:adresní-místo
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -2848,11 +2864,11 @@ l-sgov-sbírka-111-2009-pojem:má-datum-zániku-soukromoprávního-uživatele-ú
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2876,11 +2892,11 @@ l-sgov-sbírka-111-2009-pojem:má-identifikační-číslo-osoby-soukromoprávní
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
     ];
   rdfs:subPropertyOf l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby .
 
@@ -2905,11 +2921,11 @@ l-sgov-sbírka-111-2009-pojem:má-identifikátor-orgánu-veřejné-moci a owl:Cl
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2956,11 +2972,11 @@ l-sgov-sbírka-111-2009-pojem:má-název-agendy a owl:Class, owl:DatatypePropert
   rdfs:domain l-sgov-sbírka-111-2009-pojem:agenda;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:agenda;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:agenda
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -2985,11 +3001,11 @@ l-sgov-sbírka-111-2009-pojem:má-název-orgánu-veřejné-moci a owl:Class, owl
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:obchodní-firma, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
     ];
   rdfs:subPropertyOf l-sgov-sbírka-111-2009-pojem:obchodní-firma .
 
@@ -2998,11 +3014,11 @@ l-sgov-sbírka-111-2009-pojem:má-název-právního-předpisu a owl:Class, owl:D
   rdfs:domain l-sgov-sbírka-111-2009-pojem:právní-předpis;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3029,14 +3045,14 @@ l-sgov-sbírka-111-2009-pojem:má-právní-formu-osoby a owl:Class, owl:ObjectPr
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právní-forma
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-forma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:osoba
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-forma;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -3055,11 +3071,11 @@ l-sgov-sbírka-111-2009-pojem:má-rok-právního-předpisu a owl:Class, owl:Data
   rdfs:domain l-sgov-sbírka-111-2009-pojem:právní-předpis;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3068,11 +3084,11 @@ l-sgov-sbírka-111-2009-pojem:má-číslo-právního-předpisu a owl:Class, owl:
   rdfs:domain l-sgov-sbírka-111-2009-pojem:právní-předpis;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:právní-předpis;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3087,17 +3103,17 @@ l-sgov-sbírka-111-2009-pojem:má-souhrn-oprávnění-definovaných-rolí a owl:
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie;
   rdfs:range l-sgov-sbírka-111-2009-pojem:role;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:role
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:role;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:role
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:role;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
@@ -3107,11 +3123,11 @@ l-sgov-sbírka-111-2009-pojem:má-pozastavené-působení-soukromoprávního-už
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3121,11 +3137,11 @@ l-sgov-sbírka-111-2009-pojem:má-pozastavené-působení-soukromoprávního-už
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3149,11 +3165,11 @@ l-sgov-sbírka-111-2009-pojem:má-pozastavený-výkon-působnosti-orgánu-veřej
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3163,11 +3179,11 @@ l-sgov-sbírka-111-2009-pojem:má-přerušené-působení-soukromoprávního-už
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3177,11 +3193,11 @@ l-sgov-sbírka-111-2009-pojem:má-přerušené-působení-soukromoprávního-už
   rdfs:domain l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3191,11 +3207,11 @@ l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřej
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3205,11 +3221,11 @@ l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřej
   rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -3238,14 +3254,14 @@ l-sgov-sbírka-111-2009-pojem:má-místo-narození a owl:Class, owl:ObjectProper
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:územní-prvek
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah> .
 
@@ -3256,11 +3272,11 @@ l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby-v-registru
   rdfs:range rdfs:Literal;
   rdfs:subClassOf l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby,
     [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba-v-registru-osob;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba-v-registru-osob
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:fyzická-osoba-v-registru-osob;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby .
 
