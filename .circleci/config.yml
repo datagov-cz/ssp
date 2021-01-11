@@ -1,4 +1,6 @@
-version: 2
+orbs:
+  queue: eddiewebb/queue@1.5.0
+version: 2.1
 jobs:
   rdflint:
     docker:
@@ -69,7 +71,7 @@ jobs:
           name: Generate TRIG
           no_output_timeout: 20m
           command: |
-            gradle test --tests cz.gov.ssp.Export
+            gradle test --tests cz.gov.ssp.Export --tests cz.gov.ssp.validation.*
       - run:
           name: ETL - Clear named graphs
           command: |
