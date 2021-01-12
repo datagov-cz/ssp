@@ -2946,12 +2946,15 @@ l-sgov-sbírka-111-2009-pojem:má-identifikátor-soukromoprávního-uživatele-�
 l-sgov-sbírka-111-2009-pojem:má-jméno-a-příjmení-osoby-stojící-v-čele-orgánu-veřejné-moci
   a z-sgov-pojem:typ-vlastnosti;
   dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/51/1/i>;
-  rdfs:subClassOf z-sgov-pojem:vlastnost;
-  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
-
-l-sgov-sbírka-111-2009-pojem:má-jméno-osoby-stojící-v-čele-orgánu-veřejné-moci a z-sgov-pojem:typ-vlastnosti;
-  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/111/2009/sekce/51/1/i>;
-  rdfs:subClassOf z-sgov-pojem:vlastnost;
+  rdfs:domain l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 l-sgov-sbírka-111-2009-pojem:má-kód-agendy a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
