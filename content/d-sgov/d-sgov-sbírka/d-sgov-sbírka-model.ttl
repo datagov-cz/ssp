@@ -24,11 +24,17 @@ d-sgov-sbírka-pojem:anotace-komentáře-fragmentu a z-sgov-pojem:typ-vlastnosti
 
 d-sgov-sbírka-pojem:binární-soubor a z-sgov-pojem:druh;
   rdfs:subClassOf z-sgov-pojem:pasivní-objekt, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-sbírka-pojem:datum-vytvoření-binárního-souboru
+    ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-sbírka-pojem:datum-vytvoření-binárního-souboru;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom d-sgov-sbírka-pojem:název-binárního-souboru
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sbírka-pojem:název-binárního-souboru;
+      owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom d-sgov-sbírka-pojem:url-binárního-souboru
@@ -37,9 +43,9 @@ d-sgov-sbírka-pojem:binární-soubor a z-sgov-pojem:druh;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-sbírka-pojem:datum-vytvoření-binárního-souboru
+      owl:someValuesFrom d-sgov-sbírka-pojem:typ-binárního-souboru
     ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sbírka-pojem:název-binárního-souboru;
+      owl:allValuesFrom d-sgov-sbírka-pojem:typ-binárního-souboru;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
@@ -903,28 +909,34 @@ d-sgov-sbírka-pojem:částka a z-sgov-pojem:druh;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/222/2016/pojem/částka>,
     [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-sbírka-pojem:název-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sbírka-pojem:název-částky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-sbírka-pojem:rok-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sbírka-pojem:rok-částky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-sbírka-pojem:citace-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sbírka-pojem:citace-částky;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
       owl:someValuesFrom d-sgov-sbírka-pojem:číslo-částky
     ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-sbírka-pojem:číslo-částky;
       owl:onProperty z-sgov-pojem:má-vlastnost
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-sbírka-pojem:rok-částky
+      owl:someValuesFrom d-sgov-sbírka-pojem:typ-binárního-souboru
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-sbírka-pojem:název-částky
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sbírka-pojem:rok-částky;
+      owl:allValuesFrom d-sgov-sbírka-pojem:typ-binárního-souboru;
       owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sbírka-pojem:citace-částky;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sbírka-pojem:název-částky;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-sbírka-pojem:citace-částky
     ] .
 
 d-sgov-sbírka-pojem:číslo-předpisu a z-sgov-pojem:typ-vlastnosti;
@@ -1308,7 +1320,20 @@ d-sgov-sbírka-pojem:nařízení-vlády a z-sgov-pojem:poddruh;
   rdfs:subClassOf d-sgov-sbírka-pojem:podtyp-právního-aktu .
 
 d-sgov-sbírka-pojem:česká-republika a z-sgov-pojem:poddruh;
-  rdfs:subClassOf d-sgov-sbírka-pojem:územní-platnost .
+  rdfs:subClassOf d-sgov-sbírka-pojem:územní-platnost, d-sgov-sbírka-pojem:číselník-schvalovatelů,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-ve-vztahu;
+      owl:someValuesFrom d-sgov-sbírka-pojem:číselník-schvalovatelů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sbírka-pojem:číselník-schvalovatelů;
+      owl:onProperty z-sgov-pojem:je-ve-vztahu
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vykonána;
+      owl:someValuesFrom d-sgov-sbírka-pojem:číselník-schvalovatelů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sbírka-pojem:číselník-schvalovatelů;
+      owl:onProperty z-sgov-pojem:je-vykonána
+    ] .
 
 d-sgov-sbírka-pojem:slovenská-republika a z-sgov-pojem:poddruh;
   rdfs:subClassOf d-sgov-sbírka-pojem:územní-platnost .
