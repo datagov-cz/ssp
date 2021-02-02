@@ -69,6 +69,19 @@ jobs:
           command: |
             SGOV_SPARQL_SERVICE="https://xn--slovnk-7va.gov.cz/sparql" SGOV_SPARQL_SERVICE_NAMED_GRAPHS_FILE="../named-graphs-slovník-gov-cz.ttl" gradle test --tests cz.gov.ssp.ExportNamedGraphs
       - run:
+          name: Save exported files
+          command: |
+            find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
+            find . -type f -regex ".*/sgov-graph-per-vocabulary.trig" -exec cp {} ~/sgov-graph-per-vocabulary.trig \;
+            find . -type f -regex ".*/named-graphs-slovník-gov-cz.ttl" -exec cp {} named-graphs-slovník-gov-cz.ttl \;
+            when: always
+      - store_artifacts:
+          path: sgov.trig
+      - store_artifacts:
+          path: named-graphs-slovník-gov-cz.ttl
+      - store_artifacts:
+          path: sgov-graph-per-vocabulary.trig
+      - run:
           name: ETL - Clear named graphs
           command: |
             curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592406645132' \
@@ -133,18 +146,6 @@ jobs:
                  --data-binary '@./default.ttl' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
 
-      - run:
-          name: Save exported files
-          command: |
-             find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
-             find . -type f -regex ".*/sgov-named-graphs.txt" -exec cp {} sgov-named-graphs.txt \;
-             when: always
-      - store_artifacts:
-          path: sgov.trig
-      - store_artifacts:
-          path: named-graphs-slovník-gov-cz.ttl
-      - store_artifacts:
-          path: sgov-graph-per-vocabulary.trig
 
 workflows:
   version: 2
@@ -154,6 +155,7 @@ workflows:
       - sgov-validate
   build-and-deploy:
     jobs:
+      - sgov-validate
       - deploy-to-etl-and-graphdb:
           filters:
             branches:
