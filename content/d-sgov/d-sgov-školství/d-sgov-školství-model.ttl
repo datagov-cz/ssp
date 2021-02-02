@@ -1,0 +1,32 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix d-sgov-školství: <https://slovník.gov.cz/datový/školství/> .
+@prefix d-sgov-školství-pojem: <https://slovník.gov.cz/datový/školství/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-školství:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-08-13";
+  dcterms:title "Generický slovník pro školství - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-skolstvi-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/školství/pojem/";
+  owl:imports d-sgov-školství:glosář;
+  owl:versionIRI <https://slovník.gov.cz/datový/školství/model/verze/0.0.1> .
+
+d-sgov-školství-pojem:studijní-program a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-školství-pojem:kód
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-školství-pojem:kód;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ];
+  z-sgov-pojem:má-vlastnost d-sgov-školství-pojem:kód .
+
+d-sgov-školství-pojem:kód a z-sgov-pojem:typ-vlastnosti .
