@@ -1,0 +1,819 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix l-sgov-sbírka-89-2012: <https://slovník.gov.cz/legislativní/sbírka/89/2012/> .
+@prefix l-sgov-sbírka-89-2012-pojem: <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+l-sgov-sbírka-89-2012:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-01-26T19:09:06.168+02:00"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Slovník zákona č. 89/2012 Sb., občanský zákoník - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-89-2012-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/";
+  owl:imports l-sgov-sbírka-89-2012:glosář;
+  owl:versionIRI "https://slovník.gov.cz/legislativní/sbírka/89/2012/model/verze/1.0.0" .
+
+l-sgov-sbírka-89-2012-pojem:osoba a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+l-sgov-sbírka-89-2012-pojem:spolek a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:korporace .
+
+l-sgov-sbírka-89-2012-pojem:právní-osobnost a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právům-a-povinnostem>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:svéprávnost a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/způsobilost-k-právnímu-jednání>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:fyzická-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:osoba, <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> .
+
+l-sgov-sbírka-89-2012-pojem:právnická-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:osoba, <https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba> .
+
+l-sgov-sbírka-89-2012-pojem:název-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:statutární-orgán a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby .
+
+l-sgov-sbírka-89-2012-pojem:má-statutární-orgán a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:má-orgán, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:statutární-orgán
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:člen-statutárního-orgánu a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:osoba, l-sgov-sbírka-89-2012-pojem:člen-orgánu-právnické-osoby .
+
+l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:má-člena-orgánu-právnické-osoby, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:statutární-orgán
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:člen-statutárního-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:člen-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:člen-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:člen-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:den-vzniku-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:den-zrušení-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:právní-důvod-zrušení-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:den-zániku-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:sídlo a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-89-2012-pojem:má-sídlo-právnické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:sídlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:sídlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:sídlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:sídlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:má-adresu-sídla a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:sídlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:sídlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:sídlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:sídlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:adresa
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:adresa a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-89-2012-pojem:předmět-činnosti a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:způsob-zastupování-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:statutární-orgán
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:den-vzniku-funkce-člena-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:den-zániku-funkce-člena-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:sídlo-v-bytě a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:sídlo .
+
+l-sgov-sbírka-89-2012-pojem:sídlo-v-zahraničí a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:sídlo .
+
+l-sgov-sbírka-89-2012-pojem:sídlo-na-území-české-republiky a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:sídlo .
+
+l-sgov-sbírka-89-2012-pojem:právní-forma a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-89-2012-pojem:má-právní-formu-právnické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právní-forma
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právní-forma;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právní-forma;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právní-forma;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:člen-právnické-osoby a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:osoba .
+
+l-sgov-sbírka-89-2012-pojem:má-člena-právnické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:člen-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:člen-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:člen-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:člen-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-89-2012-pojem:má-orgán a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:člen-orgánu-právnické-osoby a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-89-2012-pojem:má-člena-orgánu-právnické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:orgán-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:člen-orgánu-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:člen-orgánu-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:člen-orgánu-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:člen-orgánu-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:zastupuje-právnickou-osobu-v-orgánu-právnické-osoby a
+    z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-orgánu-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-orgánu-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:má-člena-orgánu-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:má-člena-orgánu-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:korporace a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:právnická-osoba .
+
+l-sgov-sbírka-89-2012-pojem:pobočný-spolek a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:korporace .
+
+l-sgov-sbírka-89-2012-pojem:má-hlavní-spolek a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:pobočný-spolek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:spolek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:hlavní-předmět-činnosti a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:předmět-činnosti .
+
+l-sgov-sbírka-89-2012-pojem:vedlejší-předmět-činnosti a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:předmět-činnosti .
+
+l-sgov-sbírka-89-2012-pojem:druh-členství-v-právnické-osobě a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:má-člena-právnické-osoby;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:má-člena-právnické-osoby;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:zakladatel-právnické-osoby a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-89-2012-pojem:osoba .
+
+l-sgov-sbírka-89-2012-pojem:má-zakladatele-právnické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:zakladatel-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:zakladatel-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:zakladatel-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:zakladatel-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:podnikatel a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/zapsaná-osoba>,
+    l-sgov-sbírka-89-2012-pojem:osoba .
+
+l-sgov-sbírka-89-2012-pojem:obchodní-firma a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:podnikatel
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:podnikatel;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:podnikatel;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:jméno-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:osobní-jméno-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:příjmení-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:další-jméno-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:rodné-příjmení-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:pseudonym-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-89-2012-pojem:má-bydliště-fyzické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:místo a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-89-2012-pojem:je-v-místě a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-2012-pojem:bydliště-fyzické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:narození-fyzické-osoby a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+l-sgov-sbírka-89-2012-pojem:smrt-fyzické-osoby a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-2012-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
