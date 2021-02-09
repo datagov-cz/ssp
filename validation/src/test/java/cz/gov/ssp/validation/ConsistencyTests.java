@@ -56,7 +56,13 @@ public class ConsistencyTests {
         testFolder(folder,
             ".*-model(-[a-zA-Z0-9]+)?[.]ttl$",
             validator.getModelRules().stream()
-                .filter(r -> !r.getPath().contains("m4.ttl")).collect(
+                .filter(r -> !r.getPath().contains("m2.ttl"))
+                .filter(r -> !r.getPath().contains("m3.ttl"))
+                .filter(r -> !r.getPath().contains("m4.ttl"))
+                .filter(r -> !r.getPath().contains("m5.ttl"))
+                .filter(r -> !r.getPath().contains("m6.ttl"))
+                .filter(r -> !r.getPath().contains("m7.ttl"))
+                .collect(
                 Collectors.toSet())
         );
     }
