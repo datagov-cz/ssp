@@ -48,8 +48,7 @@ public class ExportNamedGraphs {
         String queryString = "SELECT DISTINCT ?graph\n"
             + "WHERE { \n"
             + "  GRAPH ?graph {\n"
-            + "    ?slovnik a <http://onto.fel.cvut"
-            + ".cz/ontologies/slovník/agendový/popis-dat/pojem/slovník> . \n"
+            + "    ?s ?p ?o . \n"
             + "  }\n"
             + "} \n"
             + "ORDER BY DESC(?graph)";
