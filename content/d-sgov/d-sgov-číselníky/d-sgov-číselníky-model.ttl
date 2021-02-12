@@ -23,6 +23,9 @@ d-sgov-číselníky:model a a-popis-dat-pojem:model, owl:Ontology;
 d-sgov-číselníky-pojem:položka-číselníku a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému> .
 
+d-sgov-číselníky-pojem:číselník a z-sgov-pojem:mixin, z-sgov-pojem:typ-objektu ;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> .
+
 d-sgov-číselníky-pojem:název-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
@@ -72,22 +75,6 @@ d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku a z-sgov-pojem
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
       owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-d-sgov-číselníky-pojem:číselník a z-sgov-pojem:mixin, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf d-sgov-číselníky-pojem:definice-číselníku, <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-číselníky-pojem:akronym-číselníku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:akronym-číselníku;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-číselníky-pojem:definice-číselníku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:definice-číselníku;
-      owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
 d-sgov-číselníky-pojem:eviduje-položku-číselníku a z-sgov-pojem:typ-vztahu;
@@ -148,9 +135,24 @@ d-sgov-číselníky-pojem:název-číselníku a z-sgov-pojem:typ-vlastnosti;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
-d-sgov-číselníky-pojem:akronym-číselníku a z-sgov-pojem:typ-vlastnosti .
+d-sgov-číselníky-pojem:akronym-číselníku a z-sgov-pojem:typ-vlastnosti ;
+  rdfs:subClassOf  [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
 
-d-sgov-číselníky-pojem:definice-číselníku a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-číselníky-pojem:definice-číselníku a z-sgov-pojem:typ-vlastnosti ;
+  rdfs:subClassOf  [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
 
 d-sgov-číselníky-pojem:má-administrativní-platnost-číselníku a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost>, [ a owl:Restriction;
