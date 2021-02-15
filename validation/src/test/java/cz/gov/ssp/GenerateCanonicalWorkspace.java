@@ -1,8 +1,5 @@
-package cz.gov.ssp.validation;
+package cz.gov.ssp;
 
-import cz.gov.ssp.Layout;
-import cz.gov.ssp.OntologyUtils;
-import cz.gov.ssp.VocabularyArtifact;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
