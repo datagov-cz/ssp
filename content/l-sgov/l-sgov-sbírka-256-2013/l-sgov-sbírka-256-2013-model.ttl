@@ -1,51 +1,51 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix l-sgov-sbírka-256-2013: <https://slovník.gov.cz/legislativní/sbírka/256/2013/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix l-sgov-sbírka-256-2013-pojem: <https://slovník.gov.cz/legislativní/sbírka/256/2013/pojem/> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
-<https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        a       owl:ObjectProperty .
+l-sgov-sbírka-256-2013:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-06-29";
+  dcterms:creator "Michal Med";
+  dcterms:rights <https://creativecommons.org/licenses/by/4.0>;
+  dcterms:title "Slovník zákona č. 256/2013 Sb., o katastru nemovitostí (katastrální zákon). - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-256-2013-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/256/2013/pojem/";
+  owl:imports l-sgov-sbírka-256-2013:glosář;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/256/2013/model/verze/1.0.0> .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
 
-l-sgov-sbírka-256-2013-pojem:parcela
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/poddruh> , owl:Class ;
-        rdfs:subClassOf  l-sgov-sbírka-256-2013-pojem:pozemek .
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
 
-l-sgov-sbírka-256-2013-pojem:pozemek
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
 
-l-sgov-sbírka-256-2013:model
-        a               <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
-        <http://purl.org/dc/terms/created>
-                "2020-06-29" ;
-        <http://purl.org/dc/terms/creator>
-                "Michal Med" ;
-        <http://purl.org/dc/terms/rights>
-                <https://creativecommons.org/licenses/by/4.0> ;
-        <http://purl.org/dc/terms/title>
-                "Slovník zákona č. 256/2013 Sb., o katastru nemovitostí (katastrální zákon). - model"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specification"@en , "Specifikace"@cs ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "l-sgov-sbírka-256-2013-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/legislativní/sbírka/256/2013/pojem/" ;
-        owl:imports     l-sgov-sbírka-256-2013:glosář ;
-        owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/256/2013/model/verze/1.0.0> .
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
 
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
-        a       owl:ObjectProperty .
+l-sgov-sbírka-256-2013-pojem:katastrální-území a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/sekce/2/h>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
 
-l-sgov-sbírka-256-2013-pojem:katastrální-území
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+l-sgov-sbírka-256-2013-pojem:parcela a owl:Class, z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/sekce/2/b>;
+  rdfs:subClassOf l-sgov-sbírka-256-2013-pojem:pozemek .
 
-<https://slovník.gov.cz/základní/pojem/je-vlastností>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+l-sgov-sbírka-256-2013-pojem:pozemek a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/sekce/2/a>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+l-sgov-sbírka-256-2013-pojem:budova a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/znění/předpis/256/2013/sekce/2/l>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
