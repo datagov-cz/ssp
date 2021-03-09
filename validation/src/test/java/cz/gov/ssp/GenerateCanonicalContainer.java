@@ -19,38 +19,40 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
- * Generates canonical workspace metadata referencing all available SSP vocabularies.
+ * Generates canonical container metadata referencing all available SSP vocabularies.
+ *
+ * The canonical container is used to represent the SSP cache in the assembly line.
  */
-public class GenerateCanonicalWorkspace {
+public class GenerateCanonicalContainer {
 
-    public static final String WORKSPACE_IRI = "https://slovník.gov.cz";
+    private static final String CONTAINER_TYPE = "https://slovník.gov.cz/datový/pracovní-prostor/pojem/kanonický-kontejner";
+    private static final String REFERENCES_CONTEXT_PROPERTY = "https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext";
+    public static final String CONTAINER_IRI = "https://slovník.gov.cz";
 
-    private static final Logger LOG = LoggerFactory.getLogger(GenerateCanonicalWorkspace.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GenerateCanonicalContainer.class);
 
     @Test
     public void generateCanonicalWorkspace() throws IOException {
-        LOG.info("Generating canonical workspace metadata with IRI {}.", WORKSPACE_IRI);
+        LOG.info("Generating canonical container metadata with IRI {}.", CONTAINER_IRI);
         final Dataset dataset = DatasetFactory.create();
         final Model wsModel = ModelFactory.createDefaultModel();
-        wsModel.add(wsModel.createResource(WORKSPACE_IRI), RDF.type,
-                wsModel.createResource("https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext"));
+        wsModel.add(wsModel.createResource(CONTAINER_IRI), RDF.type, wsModel.createResource(CONTAINER_TYPE));
         generateVocabularyReferences(wsModel);
-        dataset.addNamedModel(WORKSPACE_IRI, wsModel);
-        RDFDataMgr.write(new FileOutputStream("../sgov-workspace.trig"), dataset, RDFFormat.TRIG);
+        dataset.addNamedModel(CONTAINER_IRI, wsModel);
+        RDFDataMgr.write(new FileOutputStream("../sgov-canonical-container.trig"), dataset, RDFFormat.TRIG);
     }
 
     private void generateVocabularyReferences(Model wsModel) throws IOException {
         Layout.getVocabularyFolders().forEach(vocabularyFolder -> {
             try {
                 final Model vocModel = OntologyUtils.createModel(vocabularyFolder, VocabularyArtifact.vocabulary);
-                final StmtIterator it = vocModel.listStatements(null, RDF.type, vocModel.createResource(
-                        "http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/slovník"));
+                final StmtIterator it = vocModel
+                        .listStatements(null, RDF.type, VocabularyArtifact.vocabulary.getResource());
                 while (it.hasNext()) {
                     final Resource vocabularyIri = it.nextStatement().getSubject();
                     LOG.debug("Adding reference to vocabulary {}.", vocabularyIri);
-                    wsModel.add(wsModel.createResource(WORKSPACE_IRI), wsModel.createProperty(
-                            "https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext"),
-                            vocabularyIri);
+                    wsModel.add(wsModel.createResource(CONTAINER_IRI),
+                            wsModel.createProperty(REFERENCES_CONTEXT_PROPERTY), vocabularyIri);
                 }
             } catch (Exception e) {
                 LOG.error("Error during processing of " + vocabularyFolder, e);
