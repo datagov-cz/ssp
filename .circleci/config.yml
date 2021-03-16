@@ -143,17 +143,17 @@ jobs:
                   ${ASSEMBLY_LINE_REPOSITORY}/statements?context=<${CONTAINER}> \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
             rm vocabularyContexts.csv
-#      - run:
-#          name: Assembly Line - Uploading new canonical container metadata and vocabularies
-#          command: |
-#            curl  --location --request PUT "${ASSEMBLY_LINE_REPOSITORY}/statements" \
-#                  --header 'Content-Type: application/trig' \
-#                  --data-binary '@./sgov-canonical-container.trig' \
-#                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-#            curl  --location --request PUT "${ASSEMBLY_LINE_REPOSITORY}/statements" \
-#                  --header 'Content-Type: application/trig' \
-#                  --data-binary '@./sgov-graph-per-vocabulary.trig' \
-#                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+      - run:
+          name: Assembly Line - Uploading new canonical container metadata and vocabularies
+          command: |
+            curl  --location --request PUT "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                  --header 'Content-Type: application/trig' \
+                  --data-binary '@./sgov-canonical-container.trig' \
+                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            curl  --location --request PUT "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                  --header 'Content-Type: application/trig' \
+                  --data-binary '@./sgov-graph-per-vocabulary.trig' \
+                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
 workflows:
   version: 2
   validate:
