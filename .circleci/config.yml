@@ -58,6 +58,9 @@ jobs:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
+      PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY: https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz
+      ASSEMBLY_LINE_REPOSITORY: https://graphdb.onto.fel.cvut.cz/repositories/kodi-uloziste-dev
+      CONTAINER: https://slovník.gov.cz
     steps:
       - checkout
       - run:
@@ -96,56 +99,57 @@ jobs:
       - run:
           name: GraphDB - Download default graph
           command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz?infer=false' -o default.ttl \
+            curl --location --request POST '${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}?infer=false' -o default.ttl \
             --header 'Content-Type: application/sparql-query' \
             --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
             -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
           name: GraphDB - Clear repository
           command: |
-            curl --location --request DELETE 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/statements' \
+            curl --location --request DELETE ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}    
       - run:
           name: GraphDB - Publish new version
           command: |
-            curl --location --request PUT 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/statements' \
+            curl --location --request PUT ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements' \
                  --header 'Content-Type: application/trig' \
                  --data-binary '@./sgov-graph-per-vocabulary.trig' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}     
       - run:
           name: GraphDB - Upload default graph
           command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/rdf-graphs/service?default' \
+            curl --location --request POST '${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/rdf-graphs/service?default' \
                  --header 'Content-Type: text/turtle' \
                  --data-binary '@./default.ttl' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
-          name: GraphDB - Download default graph TEST
+          name: Assembly Line - Clear vocabulary contexts
           command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test?infer=false' -o default.ttl \
-            --header 'Content-Type: application/sparql-query' \
-            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
-            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            curl  --location --request POST "${ASSEMBLY_LINE_REPOSITORY}" -o vocabularyContexts.csv \
+                  --header "Content-Type: application/sparql-query" \
+                  --header "Accept: text/csv" \
+                  --data "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }" \
+                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            curl  --location --request DELETE \
+                  --data-urlencode "context=<${p}>" "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB} \
+            done < vocabularyContexts.csv
+            echo "Clearing canonical container metadata"
+            curl  --location --request DELETE \
+                  --data-urlencode "context=<${CONTAINER}>" "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            rm vocabularyContexts.csv
       - run:
-          name: GraphDB - Clear repository TEST
+          name: Assembly Line - Uploading new canonical container metadata and vocabularies
           command: |
-            curl --location --request DELETE 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test/statements' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-      - run:
-          name: GraphDB - Publish new version TEST
-          command: |
-            curl --location --request PUT 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test/statements' \
-                 --header 'Content-Type: application/trig' \
-                 --data-binary '@./sgov-graph-per-vocabulary.trig' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}                             
-      - run:
-          name: GraphDB - Upload default graph TEST
-          command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test/rdf-graphs/service?default' \
-                 --header 'Content-Type: text/turtle' \
-                 --data-binary '@./default.ttl' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-
+            curl  --location --request PUT "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                  --header 'Content-Type: application/trig' \
+                  --data-binary '@./sgov-canonical-container.trig' \
+                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            curl  --location --request PUT "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                  --header 'Content-Type: application/trig' \
+                  --data-binary '@./sgov-graph-per-vocabulary.trig' \
+                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
 
 workflows:
   version: 2
