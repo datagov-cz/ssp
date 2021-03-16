@@ -137,7 +137,7 @@ jobs:
                       -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
               done
             } < vocabularyContexts.csv
-            echo "Clearing canonical container metadata"
+            echo "Clearing canonical container metadata ${CONTAINER}"
             curl  --location --request DELETE \
                   --data-urlencode "context=<${CONTAINER}>" "${ASSEMBLY_LINE_REPOSITORY}/statements" \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
@@ -153,7 +153,6 @@ jobs:
                   --header 'Content-Type: application/trig' \
                   --data-binary '@./sgov-graph-per-vocabulary.trig' \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-
 workflows:
   version: 2
   validate:
