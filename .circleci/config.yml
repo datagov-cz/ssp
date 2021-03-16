@@ -134,13 +134,13 @@ jobs:
               while read p; do
                 echo "Clearing canonical container metadata ${p}"
                 curl  --location --request DELETE \
-                      --data-urlencode "context=<${p}>" "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                      ${ASSEMBLY_LINE_REPOSITORY}/statements?context=<${p}> \
                       -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
               done
             } < vocabularyContexts.csv
             echo "Clearing canonical container metadata ${CONTAINER}"
             curl  --location --request DELETE \
-                  --data-urlencode "context=<${CONTAINER}>" "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                  ${ASSEMBLY_LINE_REPOSITORY}/statements?context=<${CONTAINER}> \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
             rm vocabularyContexts.csv
 #      - run:
