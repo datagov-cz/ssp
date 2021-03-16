@@ -130,9 +130,10 @@ jobs:
                   --header "Accept: text/csv" \
                   --data "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }" \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            curl  --location --request DELETE \
-                  --data-urlencode "context=<${p}>" "${ASSEMBLY_LINE_REPOSITORY}/statements" \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            while read p; do
+                curl  --location --request DELETE \
+                      --data-urlencode "context=<${p}>" "${ASSEMBLY_LINE_REPOSITORY}/statements" \
+                      -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
             done < vocabularyContexts.csv
             echo "Clearing canonical container metadata"
             curl  --location --request DELETE \
