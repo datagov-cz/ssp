@@ -138,11 +138,11 @@ jobs:
                       -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
               done
             } < vocabularyContexts.csv
-            echo "Clearing canonical container metadata ${CONTAINER}"
+            rm vocabularyContexts.csv
+            echo "Clearing canonical container metadata"
             curl  --location --request DELETE \
                   ${ASSEMBLY_LINE_REPOSITORY}/statements?context=<${CONTAINER}> \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            rm vocabularyContexts.csv
       - run:
           name: Assembly Line - Uploading new canonical container metadata and vocabularies
           command: |
