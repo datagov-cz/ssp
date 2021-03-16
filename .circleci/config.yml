@@ -99,26 +99,26 @@ jobs:
       - run:
           name: GraphDB - Download default graph
           command: |
-            curl --location --request POST '${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}?infer=false' -o default.ttl \
+            curl --location --request POST "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}?infer=false" -o default.ttl \
             --header 'Content-Type: application/sparql-query' \
             --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
             -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
           name: GraphDB - Clear repository
           command: |
-            curl --location --request DELETE ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements' \
+            curl --location --request DELETE "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements" \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}    
       - run:
           name: GraphDB - Publish new version
           command: |
-            curl --location --request PUT ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements' \
+            curl --location --request PUT "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements" \
                  --header 'Content-Type: application/trig' \
                  --data-binary '@./sgov-graph-per-vocabulary.trig' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}     
       - run:
           name: GraphDB - Upload default graph
           command: |
-            curl --location --request POST '${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/rdf-graphs/service?default' \
+            curl --location --request POST "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/rdf-graphs/service?default" \
                  --header 'Content-Type: text/turtle' \
                  --data-binary '@./default.ttl' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
