@@ -1,0 +1,47 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-aaa: <https://slovník.gov.cz/generický/aaa/> .
+@prefix g-sgov-aaa-pojem: <https://slovník.gov.cz/generický/aaa/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-aaa:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-03-20T20:34:22.225Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "aaa - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-aaa-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/aaa/pojem/";
+  owl:imports g-sgov-aaa:glosář;
+  owl:versionIRI "https://slovník.gov.cz/generický/aaa/model/verze/1.0.0" .
+
+g-sgov-aaa-pojem:fere rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument>,
+    <https://slovník.gov.cz/veřejný-sektor/pojem/část-právního-předpisu-ze-sbírky-zákonů> .
+
+<http://onto.fel.cvut.cz/ontologies/zdroj/re> a a-popis-dat-pojem:dokument;
+  dcterms:description ""@cs;
+  dcterms:title "re"@cs .
+
+g-sgov-aaa-pojem:rtrtr a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/bezkontextový-dokument>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+g-sgov-aaa-pojem:fwefre rdfs:subClassOf g-sgov-aaa-pojem:rtrtr .
