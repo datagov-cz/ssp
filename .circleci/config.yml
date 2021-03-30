@@ -144,14 +144,17 @@ jobs:
       - run:
           name: Assembly Line - Uploading new canonical container metadata and vocabularies
           command: |
+            echo "Uploading canonical container."
             curl  --location --request POST "${ASSEMBLY_LINE_REPOSITORY}/statements" \
                   --header 'Content-Type: application/trig' \
                   --data-binary '@./sgov-canonical-container.trig' \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            echo "Uploading graphs."
             curl  --location --request POST "${ASSEMBLY_LINE_REPOSITORY}/statements" \
                   --header 'Content-Type: application/trig' \
                   --data-binary '@./sgov-graph-per-vocabulary.trig' \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            echo "Done."
       - run:
          name: Assembly Line DEV - Clear cache
          command: |
@@ -173,14 +176,17 @@ jobs:
       - run:
          name: Assembly Line DEV - Uploading new canonical container metadata and vocabularies
          command: |
+            echo "Uploading canonical container."
             curl  --location --request POST "${ASSEMBLY_LINE_DEV_REPOSITORY}/statements" \
                   --header 'Content-Type: application/trig' \
                   --data-binary '@./sgov-canonical-container.trig' \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            echo "Uploading graphs."
             curl  --location --request POST "${ASSEMBLY_LINE_DEV_REPOSITORY}/statements" \
                   --header 'Content-Type: application/trig' \
                   --data-binary '@./sgov-graph-per-vocabulary.trig' \
                   -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            echo "Done."
 workflows:
   version: 2
   validate:
