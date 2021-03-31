@@ -20,569 +20,9 @@ l-sgov-sbírka-304-2013:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports l-sgov-sbírka-304-2013:glosář;
   owl:versionIRI "https://slovník.gov.cz/legislativní/sbírka/304/2013/model/verze/1.0.0" .
 
-l-sgov-sbírka-304-2013-pojem:veřejný-rejstřík a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1> .
-
-l-sgov-sbírka-304-2013-pojem:obchodní-rejstřík a z-sgov-pojem:objekt;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#cast1-hlava3-dil6> .
-
-l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku a z-sgov-pojem:typ-objektu,
-    z-sgov-pojem:událost;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1-2>;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému> .
-
-l-sgov-sbírka-304-2013-pojem:zapsaná-osoba a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1-2>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba>,
-    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:identifikační-číslo-osoby
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:identifikační-číslo-osoby;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:jméno-zapsané-osoby a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-sídlo-zapsané-osoby a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-adresu-sídla-osoby>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:adresa-místa-pobytu-zapsané-osoby a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:bydliště-zapsané-osoby a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:předmět-činnosti a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:rejstříkový-soud a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1-4> .
-
-l-sgov-sbírka-304-2013-pojem:předmět-podnikání a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-c>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právní-forma> .
-
-l-sgov-sbírka-304-2013-pojem:den-vzniku-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-d>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/datum-vzniku-právnické-osoby>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:den-zániku-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-d>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/datum-zániku-právnické-osoby>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:bydliště-fyzické-osoby a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-e> .
-
-l-sgov-sbírka-304-2013-pojem:identifikační-číslo-osoby a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-f>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/identifikační-číslo-osoby>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:statutární-orgán a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/statutární-orgán> .
-
-l-sgov-sbírka-304-2013-pojem:název-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:počet-členů-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/člen-statutárního-orgánu> .
-
-l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-statutárního-orgánu>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:fyzická-osoba-jako-člen-statutárního-orgánu a z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu,
-    <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> .
-
-l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgánu a z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu .
-
-l-sgov-sbírka-304-2013-pojem:způsob-jednání-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-způsob-jednání-statutárního-orgánu a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce-ve-statutárním-orgánu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:den-zániku-funkce-ve-statutárním-orgánu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-zastupující-fyzickou-osobu-při-výkonu-funkce-ve-statutárním-orgánu
-  a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu,
-    [ a owl:Restriction;
-      owl:minQualifiedCardinality ""^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality ""^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:prokurista a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:prokura a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:pobočka a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:závod a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:identifikace-pobočky a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:identifikace-závodu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:oprávnění-zcizit-nebo-zatížit-nemovitou-věc a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:další-skutečnost a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:obchodní-korporace a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p42-1-a> .
-
 l-sgov-sbírka-304-2013-pojem:fyzická-osoba a z-sgov-pojem:typ-objektu;
   dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p42-1-b>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/fyzická-osoba> .
-
-l-sgov-sbírka-304-2013-pojem:zahraniční-fyzická-osoba a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p44>;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba .
-
-l-sgov-sbírka-304-2013-pojem:základní-kapitál a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace> .
-
-l-sgov-sbírka-304-2013-pojem:má-základní-kapitál a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost .
-
-l-sgov-sbírka-304-2013-pojem:rozsah-splnění-vkladové-povinnosti a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:část-závodu a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:má-část-závodu a z-sgov-pojem:typ-vztahu .
-
-l-sgov-sbírka-304-2013-pojem:údaj a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:převod-závodu a z-sgov-pojem:typ-události .
-
-l-sgov-sbírka-304-2013-pojem:převod-části-závodu a z-sgov-pojem:typ-události .
-
-l-sgov-sbírka-304-2013-pojem:zastavení-závodu a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:pronájem-závodu a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:propachtování-závodu a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/zánik-závazku-ze-smluv-o-převodu,-zástavě,-nájmu-či-pachtu>
-  a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:nabytí-závodu-nebo-jeho-části-děděním a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:usnesení-soudu-o-nabytí-závodu-nebo-jeho-části-děděním
-  a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/podřízení-se-obchodní-korporace-zákonu-jako-celku-postupem-podle-§-777-odst.-5-zákona-o-obchodních-společnostech-a-družstvech>
-  a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-d> .
-
-l-sgov-sbírka-304-2013-pojem:pozastavení-výkonu-funkce-člena-orgánu-nebo-prokuristy-podle-zákona-upravujícího-právní-poměry-obchodních-společností-a-družstev
-  a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-e> .
-
-l-sgov-sbírka-304-2013-pojem:zástavní-právo-k-podílu-v-korporaci a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-f> .
-
-l-sgov-sbírka-304-2013-pojem:zákaz-zatížení-nebo-zcizení-podílu-v-korporaci a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:veřejná-obchodní-společnost a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-h> .
-
-l-sgov-sbírka-304-2013-pojem:komanditní-společnost a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:komanditista a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:komplementář a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:komanditní-suma a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:akciová-společnost a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a>;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost .
-
-l-sgov-sbírka-304-2013-pojem:změna-komanditní-sumy a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:společník-veřejné-obchodní-společnosti a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-h> .
-
-l-sgov-sbírka-304-2013-pojem:společník-komanditní-společnosti a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
-
-l-sgov-sbírka-304-2013-pojem:společník-společnosti-s-ručením-omezeným a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:odkaz-na-společenskou-smlouvu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:podíl-společníka-společnosti-s-ručením-omezeným a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:výše-podílu-společníka-společnosti-s-ručením-omezeným
-  a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:druh-podílu-společníka-společnosti-s-ručením-omezeným
-  a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:vydání-kmenového-listu a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:popis-práv-a-povinností-spojených-s-podílem-společníka-ve-společnosti-s-ručením-omezeným
-  a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
-
-l-sgov-sbírka-304-2013-pojem:rozsah-splacení-základního-kapitálu-akciové-společnosti
-  a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:počet-akcií-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:forma-akcií-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:jmenovitá-hodnota-akcií-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:akcionář a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:kusová-akcie a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:budoucí-vydání-akcií-jako-zaknihovaného-cenného-papíru
-  a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:budoucí-vydání-kusových-akcií a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:budoucí-imobilizace-akcií a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:počet-kusových-akcií-budoucího-vydání a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:druh-akcií a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:má-druh-akcií a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:popis-práv-a-povinností-spojených-s-akciemi-akciové-společnosti
-  a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:omezení-převoditelnosti-akcií-na-jméno a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
-
-l-sgov-sbírka-304-2013-pojem:družstvo a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l>;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/družstvo> .
-
-l-sgov-sbírka-304-2013-pojem:bytové-družstvo a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
-
-l-sgov-sbírka-304-2013-pojem:sociální-družstvo a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
-
-l-sgov-sbírka-304-2013-pojem:výše-základního-členského-vkladu-družstva a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
-
-l-sgov-sbírka-304-2013-pojem:výše-vstupního-vkladu-družstva a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
-
-l-sgov-sbírka-304-2013-pojem:státní-podnik a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
-
-l-sgov-sbírka-304-2013-pojem:označení-vykonavatele-funkce-zakladatele-státního-podniku
-  a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
-
-l-sgov-sbírka-304-2013-pojem:výše-kmenového-jmění-státního-podniku a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
-
-l-sgov-sbírka-304-2013-pojem:minimální-výše-kmenového-jmění-státního-podniku a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
-
-l-sgov-sbírka-304-2013-pojem:určený-majetek-státního-podniku a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
-
-l-sgov-sbírka-304-2013-pojem:obchodní-firma a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-2> .
-
-l-sgov-sbírka-304-2013-pojem:má-obchodní-firmu a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-2> .
-
-l-sgov-sbírka-304-2013-pojem:zahraniční-osoba a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49> .
-
-l-sgov-sbírka-304-2013-pojem:závod-zahraniční-osoby a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1> .
-
-l-sgov-sbírka-304-2013-pojem:odštěpný-závod a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1> .
-
-l-sgov-sbírka-304-2013-pojem:označení-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:sídlo-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:má-sídlo-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:umístění-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:má-umístění-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:identifikační-číslo-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
-
-l-sgov-sbírka-304-2013-pojem:předmět-podnikání-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-b> .
-
-l-sgov-sbírka-304-2013-pojem:předmět-činnosti-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-b> .
-
-l-sgov-sbírka-304-2013-pojem:má-předmět-podnikání-závodu-nebo-odštěpného-závodu a
-    z-sgov-pojem:typ-vztahu;
-  dcterms:source "Předmět činnosti závodu nebo odštěpného závodu" .
-
-l-sgov-sbírka-304-2013-pojem:jméno-zahraniční-osoby a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:právní-forma-zahraniční-osoby a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:má-právní-formu-zahraniční-osoby a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:výše-upsaného-základního-kapitálu a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:vedoucí-odštěpného-závodu a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-f> .
-
-l-sgov-sbírka-304-2013-pojem:má-vedoucího-odštěpného-závodu a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-f> .
-
-l-sgov-sbírka-304-2013-pojem:likvidátor a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:identifikační-údaje-likvidátora a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:zrušení-zahraniční-osoby a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:jmenování-likvidátora a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:oprávnění-likvidátora a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:likvidace-zahraniční-osoby a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
-
-l-sgov-sbírka-304-2013-pojem:prohlášení-konkursu-zahraniční-osoby a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-h> .
-
-l-sgov-sbírka-304-2013-pojem:ukončení-provozu-závodu-nebo-odštěpného-závodu-v-české-republice
-  a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-i> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/závod-zahraniční-osoby,-která-má-sídlo-v-některém-z-členských-států-evropské-unie-nebo-v-jiném-státě-tvořícím-evropský-hospodářský-prostor>
-  a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/odštěpný-závod-zahraniční-osoby,-která-má-sídlo-v-některém-z-členských-států-evropské-unie-nebo-v-jiném-státě-tvořícím-evropský-hospodářský-prostor>
-  a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/evidence,-do-které-je-zahraniční-osoba-zapsána>
-  a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/má-evidenci,-do-které-je-zahraniční-osoba-zapsána>
-  a z-sgov-pojem:typ-vztahu;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/číslo-zápisu-do-evidence,-do-které-je-zahraniční-osoba-zapsána>
-  a z-sgov-pojem:typ-vlastnosti;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
-
-<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/zápis-do-evidence,-do-které-je-zahraniční-osoba-zapsána>
-  a z-sgov-pojem:typ-události;
-  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
-
-l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:zapsaná-osoba .
-
-l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, l-sgov-sbírka-304-2013-pojem:zapsaná-osoba,
-    <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/podnikatel> .
 
 l-sgov-sbírka-304-2013-pojem:má-adresu-místa-pobytu-zapsané-fyzické-osoby a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-adresu-místa-pobytu>,
@@ -600,551 +40,161 @@ l-sgov-sbírka-304-2013-pojem:má-adresu-místa-pobytu-zapsané-fyzické-osoby a
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
-l-sgov-sbírka-304-2013-pojem:má-adresu-bydliště-zapsané-fyzické-osoby a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>
+l-sgov-sbírka-304-2013-pojem:zapsaná-osoba a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1-2>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba>,
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:identifikační-číslo-osoby
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:účel-osoby a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:má-předmět-podnikání a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-podnikání
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-podnikání;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-předmět-činnosti a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:účel-osoby
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:účel-osoby;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:datum-narození-zapsané-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-datum-narození>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:rodné-číslo-zapsané-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-právní-formu-právnické-osoby a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-právní-formu-osoby>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-statutární-orgán a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-statutární-orgán>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu a
-    z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:kontrolní-orgán a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/kontrolní-orgán> .
-
-l-sgov-sbírka-304-2013-pojem:má-kontrolní-orgán a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-kontrolní-orgán>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:název-kontrolního-orgánu a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:počet-členů-kontrolního-orgánu a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty z-sgov-pojem:je-vlastností
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:identifikační-číslo-osoby;
+      owl:onProperty z-sgov-pojem:má-vlastnost
     ] .
 
 l-sgov-sbírka-304-2013-pojem:právnická-osoba a z-sgov-pojem:typ-objektu;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/právnická-osoba> .
 
-l-sgov-sbírka-304-2013-pojem:sídlo-osoby a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
+l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba-která-je-podnikatelem a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba>,
+    l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba, <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/podnikatel> .
 
-l-sgov-sbírka-304-2013-pojem:adresa-místa-pobytu a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:adresa-bydliště a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-kontrolního-orgánu>,
+l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-statutárního-orgánu>,
     [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
     ] .
 
-l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu .
+l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/člen-statutárního-orgánu> .
 
-l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu a z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu .
+l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/člen-kontrolního-orgánu> .
 
-l-sgov-sbírka-304-2013-pojem:fyzická-osoba-jako-člen-kontrolního-orgánu a z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu .
+l-sgov-sbírka-304-2013-pojem:obchodní-společnost a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/obchodní-společnost> .
 
-l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu, [ a owl:Restriction;
+l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:zapsaná-osoba .
+
+l-sgov-sbírka-304-2013-pojem:adresa-pro-doručování-podání-v-řízení-před-rozhodčí-komisí
+  a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise
+    ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
-l-sgov-sbírka-304-2013-pojem:má-zastupující-fyzickou-osobu-při-výkonu-funkce-v-kontrolním-orgánu
-  a z-sgov-pojem:typ-vztahu;
+l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
-l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce-v-kontrolním-orgánu a z-sgov-pojem:typ-vlastnosti;
+l-sgov-sbírka-304-2013-pojem:komanditní-suma a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:má-způsob-jednání-statutárního-orgánu a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g> .
+
+l-sgov-sbírka-304-2013-pojem:den-vzniku-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-d>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/datum-vzniku-právnické-osoby>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:účel-osoby a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:rozsah-splácení-základního-kapitálu-akciové-společnosti
+  a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:akciová-společnost;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
-l-sgov-sbírka-304-2013-pojem:den-zániku-funkce-v-kontrolním-orgánu a z-sgov-pojem:typ-vlastnosti;
+l-sgov-sbírka-304-2013-pojem:akciová-společnost a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost .
+
+l-sgov-sbírka-304-2013-pojem:zahraniční-fyzická-osoba a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p44>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba .
+
+l-sgov-sbírka-304-2013-pojem:likvidátor a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
+
+l-sgov-sbírka-304-2013-pojem:název-rozhodčí-komise a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:uděluje-prokuru a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:má-udělenu-prokuru a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočka
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:pobočka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:závod;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:závod
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:závod;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:je-zapsána-ve-veřejném-rejstříku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:spolek a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:odborová-organizace a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
-
-l-sgov-sbírka-304-2013-pojem:mezinárodní-odborová-organizace a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
-
-l-sgov-sbírka-304-2013-pojem:organizace-zaměstnavatelů a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
-
-l-sgov-sbírka-304-2013-pojem:mezinárodní-organizace-zaměstnavatelů a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
-
-l-sgov-sbírka-304-2013-pojem:pobočný-spolek a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:zahraniční-spolek a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:zahraniční-pobočný-spolek a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:má-předmět-vedlejší-hospodářské-činnosti a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:spolek
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:název-nejvyššího-orgánu a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:spolek
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 l-sgov-sbírka-304-2013-pojem:rozhodčí-komise a z-sgov-pojem:typ-objektu .
 
-l-sgov-sbírka-304-2013-pojem:má-rozhodčí-komisi a z-sgov-pojem:typ-vztahu;
+l-sgov-sbírka-304-2013-pojem:jméno-zapsané-osoby a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a>;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:spolek
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:název-rozhodčí-komise a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
@@ -1161,75 +211,662 @@ l-sgov-sbírka-304-2013-pojem:počet-členů-rozhodčí-komise a z-sgov-pojem:ty
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
-l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
+l-sgov-sbírka-304-2013-pojem:má-právní-formu-právnické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-právní-formu-osoby>,
+    [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-c>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právní-forma> .
+
+l-sgov-sbírka-304-2013-pojem:zástavní-právo-k-podílu-v-korporaci a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-f> .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/číslo-zápisu-do-evidence,-do-které-je-zahraniční-osoba-zapsána>
+  a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:zákaz-zatížení-nebo-zcizení-podílu-v-korporaci a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-g> .
+
+l-sgov-sbírka-304-2013-pojem:ukončení-provozu-závodu-nebo-odštěpného-závodu-v-české-republice
+  a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:pronájem-závodu a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:účel-osoby
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:účel-osoby;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
 
-l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise a z-sgov-pojem:role, z-sgov-pojem:typ-objektu .
+l-sgov-sbírka-304-2013-pojem:oprávnění-zcizit-nebo-zatížit-nemovitou-věc a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
 
-l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce-v-rozhodčí-komisi a z-sgov-pojem:typ-vlastnosti;
+l-sgov-sbírka-304-2013-pojem:zrušení-zahraniční-osoby a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
+
+l-sgov-sbírka-304-2013-pojem:adresa-místa-pobytu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:den-zániku-funkce-v-kontrolním-orgánu a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
-      owl:onProperty z-sgov-pojem:je-vlastností
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
+
+l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-kontrolního-orgánu>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:sídlo-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:budoucí-vydání-akcií-jako-zaknihovaného-cenného-papíru
+  a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/závod-zahraniční-osoby,-která-má-sídlo-v-některém-z-členských-států-evropské-unie-nebo-v-jiném-státě-tvořícím-evropský-hospodářský-prostor>
+  a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1> .
+
+l-sgov-sbírka-304-2013-pojem:závod-zahraniční-osoby a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1> .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/má-evidenci,-do-které-je-zahraniční-osoba-zapsána>
+  a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:zahraniční-osoba a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49> .
+
+l-sgov-sbírka-304-2013-pojem:den-zániku-právnické-osoby a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-d>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/datum-zániku-právnické-osoby>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:má-část-závodu a z-sgov-pojem:typ-vztahu .
+
+l-sgov-sbírka-304-2013-pojem:identifikace-pobočky a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/evidence,-do-které-je-zahraniční-osoba-zapsána>
+  a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:označení-vykonavatele-funkce-zakladatele-státního-podniku
+  a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
+
+l-sgov-sbírka-304-2013-pojem:má-obchodní-firmu a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-2> .
+
+l-sgov-sbírka-304-2013-pojem:má-předmět-podnikání a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-podnikání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-podnikání;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:předmět-podnikání a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:vydání-kmenového-listu a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:mezinárodní-organizace-zaměstnavatelů a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
+
+l-sgov-sbírka-304-2013-pojem:spolek a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:veřejná-obchodní-společnost a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-h> .
+
+l-sgov-sbírka-304-2013-pojem:má-kontrolní-orgán a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-kontrolní-orgán>,
+    [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:kontrolní-orgán a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/kontrolní-orgán> .
+
+l-sgov-sbírka-304-2013-pojem:organizace-zaměstnavatelů a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
+
+l-sgov-sbírka-304-2013-pojem:rejstříkový-soud a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1-4> .
+
+l-sgov-sbírka-304-2013-pojem:výše-vstupního-vkladu-družstva a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
+
+l-sgov-sbírka-304-2013-pojem:prokura a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:identifikační-údaje-likvidátora a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
+
+l-sgov-sbírka-304-2013-pojem:má-rozhodčí-komisi a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:spolek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:rozhodčí-komise
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:pobočný-spolek a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:způsob-jednání-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:statutární-orgán a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/statutární-orgán> .
+
+l-sgov-sbírka-304-2013-pojem:komanditní-společnost a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:uděluje-prokuru a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:fyzická-osoba-zapsaná-v-obchodním-rejstříku a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba .
+
+l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, l-sgov-sbírka-304-2013-pojem:zapsaná-osoba,
+    <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/podnikatel> .
+
+l-sgov-sbírka-304-2013-pojem:odkaz-na-společenskou-smlouvu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:komanditista a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:oprávnění-likvidátora a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
+
+l-sgov-sbírka-304-2013-pojem:má-druh-akcií a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:odborová-organizace a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
+
+l-sgov-sbírka-304-2013-pojem:rozsah-splacení-základního-kapitálu-akciové-společnosti
+  a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:prokurista a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:základní-kapitál a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace> .
+
+l-sgov-sbírka-304-2013-pojem:název-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:má-sídlo-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:předmět-činnosti a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:adresa-místa-pobytu-zapsané-osoby a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:změna-komanditní-sumy a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:akcionář a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:identifikační-číslo-osoby a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-f>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/identifikační-číslo-osoby>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:obchodní-rejstřík a z-sgov-pojem:objekt;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#cast1-hlava3-dil6> .
+
+l-sgov-sbírka-304-2013-pojem:budoucí-imobilizace-akcií a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
 
 l-sgov-sbírka-304-2013-pojem:den-zániku-funkce-v-rozhodčí-komisi a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
       owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce-v-rozhodčí-komisi a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise
     ] .
 
-l-sgov-sbírka-304-2013-pojem:adresa-pro-doručování-podání-v-řízení-před-rozhodčí-komisí
+l-sgov-sbírka-304-2013-pojem:vedoucí-odštěpného-závodu a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-f> .
+
+l-sgov-sbírka-304-2013-pojem:předmět-činnosti-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-b> .
+
+l-sgov-sbírka-304-2013-pojem:má-adresu-bydliště-zapsané-fyzické-osoby a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:obchodní-firma a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-2> .
+
+l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu a z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu .
+
+l-sgov-sbírka-304-2013-pojem:podíl-společníka-společnosti-s-ručením-omezeným a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:člen-rozhodčí-komise a z-sgov-pojem:role, z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:název-kontrolního-orgánu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:omezení-převoditelnosti-akcií-na-jméno a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:identifikační-číslo-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:adresa-bydliště a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:druh-akcií a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:má-předmět-vedlejší-hospodářské-činnosti a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:spolek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:zapsaný-spolek a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:obchodní-korporace a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p42-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:výše-základního-kapitálu-společnosti-s-ručením-omezeným
   a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
-      owl:onProperty z-sgov-pojem:je-vlastností
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
+l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/zánik-závazku-ze-smluv-o-převodu,-zástavě,-nájmu-či-pachtu>
+  a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:společník-komanditní-společnosti a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:výše-základního-kapitálu-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:akciová-společnost;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:nabytí-závodu-nebo-jeho-části-děděním a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:identifikace-závodu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:bytové-družstvo a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
+
+l-sgov-sbírka-304-2013-pojem:družstvo a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/družstvo> .
+
+l-sgov-sbírka-304-2013-pojem:popis-práv-a-povinností-spojených-s-akciemi-akciové-společnosti
+  a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:počet-kusových-akcií-budoucího-vydání a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:usnesení-soudu-o-nabytí-závodu-nebo-jeho-části-děděním
+  a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:minimální-výše-kmenového-jmění-státního-podniku a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
+
+l-sgov-sbírka-304-2013-pojem:má-základní-kapitál a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce-v-kontrolním-orgánu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:komplementář a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:má-umístění-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:sídlo-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:fyzická-osoba-jako-člen-statutárního-orgánu a z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu,
+    <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba> .
+
+l-sgov-sbírka-304-2013-pojem:má-předmět-činnosti a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:předmět-činnosti
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:předmět-podnikání-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-b> .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/podřízení-se-obchodní-korporace-zákonu-jako-celku-postupem-podle-§-777-odst.-5-zákona-o-obchodních-společnostech-a-družstvech>
+  a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-d> .
+
+l-sgov-sbírka-304-2013-pojem:fyzická-osoba-jako-člen-kontrolního-orgánu a z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu .
+
 l-sgov-sbírka-304-2013-pojem:má-hlavní-spolek a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:spolek
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:spolek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -1238,91 +875,455 @@ l-sgov-sbírka-304-2013-pojem:má-hlavní-spolek a z-sgov-pojem:typ-vztahu;
       owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:popis-práv-a-povinností-spojených-s-podílem-společníka-ve-společnosti-s-ručením-omezeným
+  a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:datum-narození-zapsané-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-datum-narození>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:bydliště-fyzické-osoby a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-e> .
+
+l-sgov-sbírka-304-2013-pojem:pobočka a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:společník-veřejné-obchodní-společnosti a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-h> .
+
+l-sgov-sbírka-304-2013-pojem:zahraniční-spolek a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:má-udělenu-prokuru a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
+
+l-sgov-sbírka-304-2013-pojem:zastavení-závodu a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce-ve-statutárním-orgánu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu
+    ] .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/zápis-do-evidence,-do-které-je-zahraniční-osoba-zapsána>
+  a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:výše-podílu-společníka-společnosti-s-ručením-omezeným
+  a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:pozastavení-výkonu-funkce-člena-orgánu-nebo-prokuristy-podle-zákona-upravujícího-právní-poměry-obchodních-společností-a-družstev
+  a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-e> .
+
+l-sgov-sbírka-304-2013-pojem:údaj a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:pobočka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočka
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:další-skutečnost a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:rodné-číslo-zapsané-fyzické-osoby a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:zahraniční-pobočný-spolek a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:je-zapsána-ve-veřejném-rejstříku a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:veřejný-rejstřík a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1> .
+
+l-sgov-sbírka-304-2013-pojem:rozsah-splnění-vkladové-povinnosti a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:společník-společnosti-s-ručením-omezeným a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:kusová-akcie a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:sociální-družstvo a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
+
+<https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/odštěpný-závod-zahraniční-osoby,-která-má-sídlo-v-některém-z-členských-států-evropské-unie-nebo-v-jiném-státě-tvořícím-evropský-hospodářský-prostor>
+  a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p50-1> .
+
+l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:závod;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:závod;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:závod
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:má-zastupující-fyzickou-osobu-při-výkonu-funkce-ve-statutárním-orgánu
+  a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu,
+    [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:mezinárodní-odborová-organizace a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
+
+l-sgov-sbírka-304-2013-pojem:počet-členů-kontrolního-orgánu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:forma-akcií-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:druh-podílu-společníka-společnosti-s-ručením-omezeným
+  a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-j> .
+
+l-sgov-sbírka-304-2013-pojem:propachtování-závodu a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-statutárního-orgánu a
+    z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgánu
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:zápis-do-veřejného-rejstříku a z-sgov-pojem:typ-objektu,
+    z-sgov-pojem:událost;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p1-2>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému> .
+
+l-sgov-sbírka-304-2013-pojem:převod-závodu a z-sgov-pojem:typ-události .
+
+l-sgov-sbírka-304-2013-pojem:odštěpný-závod a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1> .
+
+l-sgov-sbírka-304-2013-pojem:má-sídlo-zapsané-osoby a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-adresu-sídla-osoby>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresní-místo>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:den-zániku-funkce-ve-statutárním-orgánu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:označení-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:prohlášení-konkursu-zahraniční-osoby a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-h> .
+
+l-sgov-sbírka-304-2013-pojem:počet-členů-statutárního-orgánu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-g>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:bydliště-zapsané-osoby a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-a> .
+
+l-sgov-sbírka-304-2013-pojem:výše-základního-členského-vkladu-družstva a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-l> .
+
+l-sgov-sbírka-304-2013-pojem:má-vedoucího-odštěpného-závodu a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-f> .
+
+l-sgov-sbírka-304-2013-pojem:má-předmět-podnikání-závodu-nebo-odštěpného-závodu a
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source "Předmět činnosti závodu nebo odštěpného závodu" .
+
+l-sgov-sbírka-304-2013-pojem:jméno-zahraniční-osoby a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:má-zastupující-fyzickou-osobu-při-výkonu-funkce-v-kontrolním-orgánu
+  a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:jmenovitá-hodnota-akcií-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:část-závodu a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-304-2013-pojem:určený-majetek-státního-podniku a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
+
+l-sgov-sbírka-304-2013-pojem:závod a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p25-1-i> .
+
+l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgánu a z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu .
+
+l-sgov-sbírka-304-2013-pojem:převod-části-závodu a z-sgov-pojem:typ-události .
+
+l-sgov-sbírka-304-2013-pojem:výše-kmenového-jmění-státního-podniku a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
+
+l-sgov-sbírka-304-2013-pojem:jmenování-likvidátora a z-sgov-pojem:typ-události;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
+
+l-sgov-sbírka-304-2013-pojem:má-statutární-orgán a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-statutární-orgán>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:právní-forma-zahraniční-osoby a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:likvidace-zahraniční-osoby a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-g> .
 
 l-sgov-sbírka-304-2013-pojem:adresa-sídla-pobočného-spolku-v-zahraničí a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočný-spolek
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:výše-upsaného-základního-kapitálu a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
+
+l-sgov-sbírka-304-2013-pojem:státní-podnik a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-m> .
+
+l-sgov-sbírka-304-2013-pojem:budoucí-vydání-kusových-akcií a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
+
+l-sgov-sbírka-304-2013-pojem:název-nejvyššího-orgánu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:spolek
+    ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočný-spolek;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:spolek;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:spolek;
       owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
-l-sgov-sbírka-304-2013-pojem:obchodní-společnost a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/obchodní-společnost> .
+l-sgov-sbírka-304-2013-pojem:počet-akcií-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p48-1-k> .
 
-l-sgov-sbírka-304-2013-pojem:fyzická-osoba-zapsaná-v-obchodním-rejstříku a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba .
-
-l-sgov-sbírka-304-2013-pojem:zapsaný-spolek a z-sgov-pojem:typ-objektu .
-
-l-sgov-sbírka-304-2013-pojem:výše-základního-kapitálu-společnosti-s-ručením-omezeným
-  a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
+l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu, [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným;
-      owl:onProperty z-sgov-pojem:je-vlastností
+      owl:onClass l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-kontrolního-orgánu
     ] .
 
-l-sgov-sbírka-304-2013-pojem:výše-základního-kapitálu-akciové-společnosti a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
+l-sgov-sbírka-304-2013-pojem:umístění-závodu-nebo-odštěpného-závodu a z-sgov-pojem:typ-objektu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-a> .
 
-l-sgov-sbírka-304-2013-pojem:rozsah-splácení-základního-kapitálu-akciové-společnosti
-  a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba-která-je-podnikatelem a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba>,
-    l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba, <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/podnikatel> .
+l-sgov-sbírka-304-2013-pojem:má-právní-formu-zahraniční-osoby a z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2013-304#p49-1-c> .
