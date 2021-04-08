@@ -134,7 +134,7 @@ jobs:
             { read
               while read p; do
                 echo "Clearing canonical container metadata ${p}"
-                curl  --location --request DELETE ${ASSEMBLY_LINE_REPOSITORY}/statements?context=<${p}> \
+                curl  --location --request DELETE "${ASSEMBLY_LINE_REPOSITORY}/statements?context=<${p}>" \
                       -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
               done
             } < vocabularyContexts.csv
@@ -166,7 +166,7 @@ jobs:
             { read
               while read p; do
                 echo "Clearing canonical container metadata ${p}"
-                curl  --location --request DELETE ${ASSEMBLY_LINE_DEV_REPOSITORY}/statements?context=<${p}> \
+                curl  --location --request DELETE "${ASSEMBLY_LINE_DEV_REPOSITORY}/statements?context=<${p}>" \
                       -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
               done
             } < vocabularyContexts.csv
