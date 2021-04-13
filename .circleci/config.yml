@@ -127,14 +127,6 @@ jobs:
                  --data-binary '@./default.ttl' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
-          name: (PROD) AL - Clear cache
-          command: |
-            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-      - run:
-          name: (PROD) AL - Uploading cache
-          command: |
-            bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-      - run:
           name: (DEV) AL - Clear cache
           command: |
             bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
@@ -142,6 +134,14 @@ jobs:
           name: (DEV) AL - Uploading cache
           command: |
             bash bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - run:
+          name: (PROD) AL - Clear cache
+          command: |
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - run:
+          name: (PROD) AL - Uploading cache
+          command: |
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
 workflows:
   version: 2
   validate:
