@@ -77,12 +77,15 @@ jobs:
           command: |
             find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
             find . -type f -regex ".*/sgov-graph-per-vocabulary.trig" -exec cp {} ~/sgov-graph-per-vocabulary.trig \;
+            find . -type f -regex ".*/sgov-canonical-container.trig" -exec cp {} ~/sgov-canonical-container.trig \;
             find . -type f -regex ".*/named-graphs-slovník-gov-cz.ttl" -exec cp {} ~/named-graphs-slovník-gov-cz.ttl \;
           when: always
       - store_artifacts:
           path: sgov.trig
       - store_artifacts:
           path: named-graphs-slovník-gov-cz.ttl
+      - store_artifacts:
+          path: sgov-canonical-container.trig
       - store_artifacts:
           path: sgov-graph-per-vocabulary.trig
       - run:
@@ -124,69 +127,21 @@ jobs:
                  --data-binary '@./default.ttl' \
                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
-          name: Assembly Line - Clear cache
+          name: (DEV) AL - Clear cache
           command: |
-            curl  --location --request POST "${ASSEMBLY_LINE_REPOSITORY}" -o vocabularyContexts.csv \
-                  --header "Content-Type: application/sparql-query" \
-                  --header "Accept: text/csv" \
-                  --data "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }" \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            { read
-              while read p; do
-                echo "Clearing canonical container metadata ${p}"
-                curl  --location --request DELETE "${ASSEMBLY_LINE_REPOSITORY}/statements?context=<${p}>" \
-                      -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-              done
-            } < vocabularyContexts.csv
-            rm vocabularyContexts.csv
-            curl  --location --request DELETE "$ASSEMBLY_LINE_REPOSITORY/statements?context=<${CONTAINER}>" \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
-          name: Assembly Line - Uploading new canonical container metadata and vocabularies
+          name: (DEV) AL - Uploading cache
           command: |
-            echo "Uploading canonical container."
-            curl  --location --request POST "${ASSEMBLY_LINE_REPOSITORY}/statements" \
-                  --header 'Content-Type: application/trig' \
-                  --data-binary '@./sgov-canonical-container.trig' \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            echo "Uploading graphs."
-            curl  --location --request POST "${ASSEMBLY_LINE_REPOSITORY}/statements" \
-                  --header 'Content-Type: application/trig' \
-                  --data-binary '@./sgov-graph-per-vocabulary.trig' \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            echo "Done."
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
-         name: Assembly Line DEV - Clear cache
-         command: |
-            curl  --location --request POST "${ASSEMBLY_LINE_DEV_REPOSITORY}" -o vocabularyContexts.csv \
-                  --header "Content-Type: application/sparql-query" \
-                  --header "Accept: text/csv" \
-                  --data "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }" \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            { read
-              while read p; do
-                echo "Clearing canonical container metadata ${p}"
-                curl  --location --request DELETE "${ASSEMBLY_LINE_DEV_REPOSITORY}/statements?context=<${p}>" \
-                      -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-              done
-            } < vocabularyContexts.csv
-            rm vocabularyContexts.csv
-            curl  --location --request DELETE "$ASSEMBLY_LINE_DEV_REPOSITORY/statements?context=<${CONTAINER}>" \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+          name: (PROD) AL - Clear cache
+          command: |
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
-         name: Assembly Line DEV - Uploading new canonical container metadata and vocabularies
-         command: |
-            echo "Uploading canonical container."
-            curl  --location --request POST "${ASSEMBLY_LINE_DEV_REPOSITORY}/statements" \
-                  --header 'Content-Type: application/trig' \
-                  --data-binary '@./sgov-canonical-container.trig' \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            echo "Uploading graphs."
-            curl  --location --request POST "${ASSEMBLY_LINE_DEV_REPOSITORY}/statements" \
-                  --header 'Content-Type: application/trig' \
-                  --data-binary '@./sgov-graph-per-vocabulary.trig' \
-                  -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-            echo "Done."
+          name: (PROD) AL - Uploading cache
+          command: |
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
 workflows:
   version: 2
   validate:
