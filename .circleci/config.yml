@@ -77,12 +77,15 @@ jobs:
           command: |
             find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
             find . -type f -regex ".*/sgov-graph-per-vocabulary.trig" -exec cp {} ~/sgov-graph-per-vocabulary.trig \;
+            find . -type f -regex ".*/sgov-canonical-container.trig" -exec cp {} ~/sgov-canonical-container.trig \;
             find . -type f -regex ".*/named-graphs-slovník-gov-cz.ttl" -exec cp {} ~/named-graphs-slovník-gov-cz.ttl \;
           when: always
       - store_artifacts:
           path: sgov.trig
       - store_artifacts:
           path: named-graphs-slovník-gov-cz.ttl
+      - store_artifacts:
+          path: sgov-canonical-container.trig
       - store_artifacts:
           path: sgov-graph-per-vocabulary.trig
       - run:
@@ -126,27 +129,19 @@ jobs:
       - run:
           name: (PROD) AL - Clear cache
           command: |
-            cd bin
-            bash clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-            cd ..
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
           name: (PROD) AL - Uploading cache
           command: |
-            cd bin
-            bash upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-            cd ..
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
           name: (DEV) AL - Clear cache
           command: |
-            cd bin
-            bash clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-            cd ..
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
           name: (DEV) AL - Uploading cache
           command: |
-            cd bin
-            bash upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-            cd ..
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
 workflows:
   version: 2
   validate:
