@@ -1,0 +1,427 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-pracovní-místa: <https://slovník.gov.cz/datový/pracovní-místa/> .
+@prefix d-sgov-pracovní-místa-pojem: <https://slovník.gov.cz/datový/pracovní-místa/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-pracovní-místa:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-09-15";
+  dcterms:title "Datový slovník OFN pracovních míst - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-pracovní-místa-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/pracovní-místa/pojem/";
+  owl:imports d-sgov-pracovní-místa:glosář, <https://slovník.gov.cz/generický/částky/model>,
+    <https://slovník.gov.cz/generický/číselníky/model>, <https://slovník.gov.cz/veřejný-sektor/model>;
+  owl:versionIRI <https://slovník.gov.cz/datový/pracovní-místa/model/verze/0.0.1> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/organizace> a owl:Class .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/dokument> a owl:Class .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:vznik-proměnného-prvku a owl:DatatypeProperty .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+<https://slovník.gov.cz/generický/částky/pojem/částka> a owl:Class .
+
+<https://slovník.gov.cz/generický/kontakty/pojem/kontakt> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště> a owl:Class .
+
+d-sgov-pracovní-místa-pojem:datum-vypsání a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vznik-proměnného-prvku, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vznik-proměnného-prvku .
+
+d-sgov-pracovní-místa-pojem:pracovní-místo a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+d-sgov-pracovní-místa-pojem:má-minimální-mzdu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:range <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:platové-podmínky a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+d-sgov-pracovní-místa-pojem:má-přílohu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/dokument>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:orjk-pracoviště a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:pracoviště a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+d-sgov-pracovní-místa-pojem:má-akademický-obor a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/akademický-obor>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:kvalifikace a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+d-sgov-pracovní-místa-pojem:stránka a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:nástup-ihned a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:má-typ-pracovního-vztahu a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracovního-vztahu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:je-součástí a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range d-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:má-provozovatele a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/organizace>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:doklad a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:kvalifikace;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:kvalifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:kvalifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:má-pracoviště a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range d-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:má-požadovanou-kvalifikaci a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range d-sgov-pracovní-místa-pojem:kvalifikace;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:kvalifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:kvalifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:má-maximální-mzdu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:range <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:délka-kvalifikace a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:kvalifikace;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:kvalifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:kvalifikace
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:má-platové-podmínky a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range d-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:nástup-dle-dohody a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:má-mzdu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:platové-podmínky;
+  rdfs:range <https://slovník.gov.cz/generický/částky/pojem/částka>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:platové-podmínky
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:počet-hodin-týdně a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:datum-nástupu a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:má-kontakt a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-pracovní-místa-pojem:datum-ukončení-podávání-přihlášek a owl:Class, owl:DatatypeProperty,
+    z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracovní-místo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracovní-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-pracovní-místa-pojem:má-typ-pracoviště a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-pracovní-místa-pojem:pracoviště;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-pracovní-místa-pojem:pracoviště
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-pracoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-pracovní-místa-pojem:pracoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
