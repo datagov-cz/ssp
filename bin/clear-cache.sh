@@ -3,14 +3,13 @@ REPOSITORY=${1}
 CONTAINER=${2}
 USERNAME=${3}
 PASSWORD=${4}
-
-# echo "CLEARING CACHE in ${REPOSITORY}"
+VOCABULARIES_QUERY=${5}
 
 curl --location --request POST "${REPOSITORY}" \
   -o vocabularyContexts.csv \
   --header "Content-Type: application/sparql-query" \
   --header "Accept: text/csv" \
-  --data "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }" \
+  --data $VOCABULARIES_QUERY \
   -u ${USERNAME}:${PASSWORD}
 {
   export IFS=$' \t\r\n'
