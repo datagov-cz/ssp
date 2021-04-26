@@ -99,7 +99,7 @@ jobs:
       - run:
           name: GraphDB - Clear repository
           command: |
-            bash bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> a <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/slovník> . }"
+            bash bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
           name: GraphDB - Publish new version
           command: |
@@ -122,7 +122,7 @@ jobs:
       - run:
           name: (DEV) AL - Clear cache
           command: |
-            bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }"
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
           name: (DEV) AL - Uploading cache
           command: |
@@ -130,7 +130,7 @@ jobs:
       - run:
           name: (PROD) AL - Clear cache
           command: |
-            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }"
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} ${QUERY}
       - run:
           name: (PROD) AL - Uploading cache
           command: |

@@ -8,7 +8,7 @@ curl --location --request POST "${REPOSITORY}" \
   -o vocabularyContexts.csv \
   --header "Content-Type: application/sparql-query" \
   --header "Accept: text/csv" \
-  --data "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> <https://slovník.gov.cz/datový/pracovní-prostor/pojem/odkazuje-na-kontext> ?vocabularyCtx . }" \
+  --data "SELECT ?vocabularyCtx WHERE { <${CONTAINER}> a <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/slovník> . }" \
   -u ${USERNAME}:${PASSWORD}
 {
   export IFS=$' \t\r\n'
@@ -21,6 +21,3 @@ curl --location --request POST "${REPOSITORY}" \
   done
 } <vocabularyContexts.csv
 rm vocabularyContexts.csv
-curl --get -XDELETE "${REPOSITORY}/statements" \
-  --data-urlencode "context=<${CONTAINER}>" \
-  -u ${USERNAME}:${PASSWORD}
