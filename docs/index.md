@@ -2,6 +2,8 @@ Věděli jste, že se slovo "budova" vyskytuje v zákonech v různých významec
 
 A to je jeden z důvodů existence sémantického slovníku pojmů - jedná se o znalostní graf v jehož uzlech jsou _pojmy_. Takový _pojem_ si představme jako slovo nebo sousloví, ke kterému je připojeno množství synonym, nejvýše jedna definice a zdroj této definice. Takové uzly jsou mnohem jednoznačnější než slova samotná. A aby pojmům rozuměl i stroj, jsou uzly navzájem propojeny významovými vztahy (třeba "Budova" je speciální případ "Stavby" - ano i v tomto případě se jedná o pojmy, ne o slova, ale definici, synonyma a zdroje neuvádíme), které umožňují odvozovat vlastnosti těchto pojmů a kontrolovat, že pojmy nejsou ve vzájemném rozporu.
 
+file:///home/kremep1/ssp.png![image](https://user-images.githubusercontent.com/1140626/118179053-109e2c80-b435-11eb-9400-e960efecc284.png)
+
 ## Jak se dá SSP použít?
 
 Když vytváříte data pomocí [otevřených formálních norem](https://opendata.gov.cz/otev%C5%99en%C3%A9-form%C3%A1ln%C3%AD-normy:start) (OFN), jsou jednotlivé datové typy a atributy ve skutečnosti reprezentovány pojmy z SSP. Např. OFN [Lidé a osoby](https://ofn.gov.cz/lid%C3%A9-a-osoby/2020-07-01/) definuje datovou strukturu pro popis osob. Vytvoříte-li záznam o osobě, bude se tím rozumět osoba ve smyslu [Zákona o základních registrech](https://www.zakonyprolidi.cz/cs/2009-111#p25), která bude reprezentována jako pojem [Osoba (Zákon o základních registrech)](https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba). Ten má svojí lidsky čitelnou a strojově čitelnou reprezentaci a umožní tak uživatelům vašich dat tato data lépe nalézt, porozumět jim a integrovat do svých aplikací.
