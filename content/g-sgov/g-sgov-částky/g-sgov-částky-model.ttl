@@ -79,20 +79,14 @@ g-sgov-částky-pojem:má-měnu a owl:Class, owl:ObjectProperty, z-sgov-pojem:ty
   rdfs:subPropertyOf z-sgov-pojem:vztah .
 
 g-sgov-částky-pojem:výše-částky a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
-  rdfs:domain [ a owl:Class;
-      owl:unionOf (g-sgov-částky-pojem:jednotková-částka g-sgov-částky-pojem:částka)
-    ];
+  rdfs:domain g-sgov-částky-pojem:částka ;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom [ a owl:Class;
-          owl:unionOf (g-sgov-částky-pojem:jednotková-částka g-sgov-částky-pojem:částka)
-        ];
+      owl:allValuesFrom g-sgov-částky-pojem:částka ;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom [ a owl:Class;
-          owl:unionOf (g-sgov-částky-pojem:jednotková-částka g-sgov-částky-pojem:částka)
-        ]
+      owl:someValuesFrom  g-sgov-částky-pojem:částka ;
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 

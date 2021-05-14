@@ -1,0 +1,134 @@
+@prefix d-sgov-aktuality-pojem: <https://slovník.gov.cz/datový/aktuality/pojem/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix d-sgov-aktuality: <https://slovník.gov.cz/datový/aktuality/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc>
+        a       owl:Class .
+
+d-sgov-aktuality-pojem:aktualita
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        a       owl:ObjectProperty .
+
+d-sgov-aktuality-pojem:má-téma
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/generický/číselníky/pojem/téma-události>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/generický/číselníky/pojem/téma-události> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  d-sgov-aktuality-pojem:aktualita
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  d-sgov-aktuality-pojem:aktualita ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+d-sgov-aktuality-pojem:oznamovatel
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností>
+        a              owl:ObjectProperty ;
+        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/generický/lidé/pojem/člověk>
+        a       owl:Class .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
+        a       owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/téma-události>
+        a       owl:Class .
+
+d-sgov-aktuality:model
+        a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
+        <http://purl.org/dc/terms/created>
+                "2020-10-28" ;
+        <http://purl.org/dc/terms/title>
+                "Datový slovník OFN aktualit - model"@cs ;
+        <http://purl.org/ontology/bibo/status>
+                "Specification"@en , "Specifikace"@cs ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "d-sgov-aktuality-pojem" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "https://slovník.gov.cz/datový/aktuality/pojem/" ;
+        owl:imports     d-sgov-aktuality:glosář , <https://slovník.gov.cz/generický/lidé/model> , <https://slovník.gov.cz/generický/věci/model> ;
+        owl:versionIRI  <https://slovník.gov.cz/datový/aktuality/model/verze/0.0.1> .
+
+d-sgov-aktuality-pojem:má-oznamovatele
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  d-sgov-aktuality-pojem:oznamovatel
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  d-sgov-aktuality-pojem:oznamovatel ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  d-sgov-aktuality-pojem:aktualita
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  d-sgov-aktuality-pojem:aktualita ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+d-sgov-aktuality-pojem:informuje-o
+        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
+        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
+                           owl:someValuesFrom  <https://slovník.gov.cz/základní/pojem/prvek>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <https://slovník.gov.cz/základní/pojem/prvek> ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
+                           owl:someValuesFrom  d-sgov-aktuality-pojem:aktualita
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  d-sgov-aktuality-pojem:aktualita ;
+                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+                         ] .
+
+d-sgov-aktuality-pojem:oznamovatel-jako-fyzická-osoba
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/lidé/pojem/člověk> , d-sgov-aktuality-pojem:oznamovatel .
+
+<https://slovník.gov.cz/generický/osoby/pojem/osoba>
+        a       owl:Class .
+
+<https://slovník.gov.cz/základní/pojem/prvek>
+        a       owl:Class .
+
+d-sgov-aktuality-pojem:oznamovatel-jako-právnická-osoba
+        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> , owl:Class ;
+        rdfs:subClassOf  <https://slovník.gov.cz/generický/osoby/pojem/osoba> , d-sgov-aktuality-pojem:oznamovatel .

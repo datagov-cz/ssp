@@ -1,0 +1,530 @@
+@prefix : <https://slovník.gov.cz/základní/model#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix z-sgov: <https://slovník.gov.cz/základní/> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+z-sgov:model a owl:Ontology ;
+	owl:versionIRI <https://slovník.gov.cz/základní/model/verze/1.0.1> ;
+	<http://purl.org/dc/terms/created> "03.09.2018" ;
+	<http://purl.org/dc/terms/description> "Základní slovník popisuje základní vztahy."@cs ;
+	<http://purl.org/dc/terms/rights> <https://creativecommons.org/licenses/by-sa/4.0> ;
+	<http://purl.org/dc/terms/title> "Basic Vocabulary (Z-SGoV) - model"@en , "Základní slovník (Z-SGoV) - model"@cs ;
+	<http://purl.org/ontology/bibo/status> "Specification"@en , "Specifikace"@cs ;
+	<http://purl.org/vocab/vann/preferredNamespacePrefix> "z-sgov-pojem" ;
+	<http://purl.org/vocab/vann/preferredNamespaceUri> "https://slovník.gov.cz/základní/pojem/" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/description
+
+<http://purl.org/dc/elements/1.1/description> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/rights
+
+<http://purl.org/dc/elements/1.1/rights> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/title
+
+<http://purl.org/dc/elements/1.1/title> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/created
+
+<http://purl.org/dc/terms/created> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/description
+
+<http://purl.org/dc/terms/description> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/rights
+
+<http://purl.org/dc/terms/rights> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/title
+
+<http://purl.org/dc/terms/title> a owl:AnnotationProperty .
+# 
+# http://purl.org/ontology/bibo/status
+
+<http://purl.org/ontology/bibo/status> a owl:AnnotationProperty .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+
+<http://purl.org/vocab/vann/preferredNamespacePrefix> a owl:AnnotationProperty .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+
+<http://purl.org/vocab/vann/preferredNamespaceUri> a owl:AnnotationProperty .
+# 
+# http://www.w3.org/2002/07/owl#minQualifiedCardinality
+
+owl:minQualifiedCardinality a owl:AnnotationProperty .
+# 
+# https://slovník.gov.cz/základní/pojem/charakterizuje
+
+z-sgov-pojem:charakterizuje a owl:AnnotationProperty ;
+	rdfs:range z-sgov-pojem:prvek ;
+	rdfs:domain z-sgov-pojem:typ .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://slovník.gov.cz/základní/pojem/je-vykonána
+
+z-sgov-pojem:je-vykonána a owl:ObjectProperty ;
+	rdfs:domain z-sgov-pojem:akce ;
+	rdfs:range z-sgov-pojem:agent .
+# 
+# https://slovník.gov.cz/základní/pojem/má-prostorové-určení
+
+z-sgov-pojem:má-prostorové-určení a owl:ObjectProperty ;
+	rdfs:domain z-sgov-pojem:neměnný-prvek ;
+	rdfs:range z-sgov-pojem:prostorový-objekt .
+# 
+# https://slovník.gov.cz/základní/pojem/má-účastníka
+
+z-sgov-pojem:má-účastníka a owl:ObjectProperty ;
+	rdfs:domain z-sgov-pojem:událost ;
+	rdfs:range z-sgov-pojem:okamžitý-stav-proměnného-prvku , z-sgov-pojem:proměnný-prvek ;
+	rdfs:label "má účastníka"@cs .
+# 
+# https://slovník.gov.cz/základní/pojem/má-časové-určení
+
+z-sgov-pojem:má-časové-určení a owl:ObjectProperty ;
+	rdfs:domain z-sgov-pojem:neměnný-prvek ;
+	rdfs:range z-sgov-pojem:časový-prvek ;
+	rdfs:label "má časové určení"@cs .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model
+
+<http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> a owl:Class .
+# 
+# https://slovník.gov.cz/základní/pojem/agent
+
+z-sgov-pojem:agent a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:objekt ;
+	owl:disjointWith z-sgov-pojem:pasivní-objekt .
+# 
+# https://slovník.gov.cz/základní/pojem/akce
+
+z-sgov-pojem:akce a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:událost , _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:je-vykonána ;
+	owl:allValuesFrom z-sgov-pojem:agent .
+
+z-sgov-pojem:akce rdfs:subClassOf _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:je-vykonána ;
+	owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:agent .
+
+z-sgov-pojem:akce rdfs:subClassOf _:genid3 .
+
+_:genid3 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:je-vykonána ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:agent .
+# 
+# https://slovník.gov.cz/základní/pojem/druh
+
+z-sgov-pojem:druh a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:sortál .
+# 
+# https://slovník.gov.cz/základní/pojem/fáze
+
+z-sgov-pojem:fáze a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:sortál .
+# 
+# https://slovník.gov.cz/základní/pojem/kategorie
+
+z-sgov-pojem:kategorie a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:nesortál .
+# 
+# https://slovník.gov.cz/základní/pojem/mixin
+
+z-sgov-pojem:mixin a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:nesortál .
+# 
+# https://slovník.gov.cz/základní/pojem/mixin-fází
+
+z-sgov-pojem:mixin-fází a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:nesortál .
+# 
+# https://slovník.gov.cz/základní/pojem/mixin-rolí
+
+z-sgov-pojem:mixin-rolí a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:nesortál .
+# 
+# https://slovník.gov.cz/základní/pojem/množství
+
+z-sgov-pojem:množství a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
+# 
+# https://slovník.gov.cz/základní/pojem/neměnný-prvek
+
+z-sgov-pojem:neměnný-prvek a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:prvek , _:genid4 .
+
+_:genid4 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-prostorové-určení ;
+	owl:allValuesFrom z-sgov-pojem:prostorový-objekt .
+
+z-sgov-pojem:neměnný-prvek rdfs:subClassOf _:genid5 .
+
+_:genid5 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-časové-určení ;
+	owl:allValuesFrom z-sgov-pojem:časový-prvek .
+
+z-sgov-pojem:neměnný-prvek rdfs:subClassOf _:genid6 .
+
+_:genid6 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-prostorové-určení ;
+	owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:prostorový-objekt .
+
+z-sgov-pojem:neměnný-prvek rdfs:subClassOf _:genid7 .
+
+_:genid7 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-časové-určení ;
+	owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:časový-prvek .
+
+z-sgov-pojem:neměnný-prvek rdfs:subClassOf _:genid8 .
+
+_:genid8 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-prostorové-určení ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:prostorový-objekt .
+
+z-sgov-pojem:neměnný-prvek rdfs:subClassOf _:genid9 .
+
+_:genid9 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-časové-určení ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:časový-prvek .
+# 
+# https://slovník.gov.cz/základní/pojem/nesortál
+
+z-sgov-pojem:nesortál a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku .
+# 
+# https://slovník.gov.cz/základní/pojem/objekt
+
+z-sgov-pojem:objekt a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:proměnný-prvek .
+# 
+# https://slovník.gov.cz/základní/pojem/okamžitý-stav-proměnného-prvku
+
+z-sgov-pojem:okamžitý-stav-proměnného-prvku a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:proměnný-prvek .
+# 
+# https://slovník.gov.cz/základní/pojem/pasivní-objekt
+
+z-sgov-pojem:pasivní-objekt a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:objekt .
+# 
+# https://slovník.gov.cz/základní/pojem/poddruh
+
+z-sgov-pojem:poddruh a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:sortál .
+# 
+# https://slovník.gov.cz/základní/pojem/proměnný-prvek
+
+z-sgov-pojem:proměnný-prvek a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:prvek .
+# 
+# https://slovník.gov.cz/základní/pojem/prostorový-objekt
+
+z-sgov-pojem:prostorový-objekt a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
+# 
+# https://slovník.gov.cz/základní/pojem/prvek
+
+z-sgov-pojem:prvek a owl:Class .
+# 
+# https://slovník.gov.cz/základní/pojem/role
+
+z-sgov-pojem:role a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:sortál .
+# 
+# https://slovník.gov.cz/základní/pojem/sortál
+
+z-sgov-pojem:sortál a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku .
+# 
+# https://slovník.gov.cz/základní/pojem/typ
+
+z-sgov-pojem:typ a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:pasivní-objekt .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti
+
+z-sgov-pojem:typ-kvalitativní-vlastnosti a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-vlastnosti .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-množství
+
+z-sgov-pojem:typ-množství a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:sortál .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-modální-vlastnosti
+
+z-sgov-pojem:typ-modální-vlastnosti a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-vlastnosti .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-módu
+
+z-sgov-pojem:typ-módu a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-vlastnosti .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-objektu
+
+z-sgov-pojem:typ-objektu a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku ;
+	z-sgov-pojem:charakterizuje z-sgov-pojem:objekt .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku
+
+z-sgov-pojem:typ-proměnného-prvku a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-události
+
+z-sgov-pojem:typ-události a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ ;
+	z-sgov-pojem:charakterizuje z-sgov-pojem:událost .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-vlastnosti
+
+z-sgov-pojem:typ-vlastnosti a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-vztahu
+
+z-sgov-pojem:typ-vztahu a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:typ-proměnného-prvku ;
+	z-sgov-pojem:charakterizuje z-sgov-pojem:vztah .
+# 
+# https://slovník.gov.cz/základní/pojem/událost
+
+z-sgov-pojem:událost a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:neměnný-prvek , _:genid10 .
+
+_:genid10 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom z-sgov-pojem:okamžitý-stav-proměnného-prvku .
+
+z-sgov-pojem:událost rdfs:subClassOf _:genid11 .
+
+_:genid11 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:allValuesFrom z-sgov-pojem:proměnný-prvek .
+
+z-sgov-pojem:událost rdfs:subClassOf _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:okamžitý-stav-proměnného-prvku .
+
+z-sgov-pojem:událost rdfs:subClassOf _:genid13 .
+
+_:genid13 a owl:Restriction ;
+	owl:onProperty z-sgov-pojem:má-účastníka ;
+	owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass z-sgov-pojem:proměnný-prvek .
+# 
+# https://slovník.gov.cz/základní/pojem/vznik-proměnného-prvku
+
+z-sgov-pojem:vznik-proměnného-prvku a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:událost .
+# 
+# https://slovník.gov.cz/základní/pojem/změna-proměnného-prvku
+
+z-sgov-pojem:změna-proměnného-prvku a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:událost .
+# 
+# https://slovník.gov.cz/základní/pojem/zánik-proměnného-prvku
+
+z-sgov-pojem:zánik-proměnného-prvku a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:událost .
+# 
+# https://slovník.gov.cz/základní/pojem/časový-prvek
+
+z-sgov-pojem:časový-prvek a owl:Class ;
+	rdfs:subClassOf z-sgov-pojem:prvek .
+
+z-sgov-pojem:časový-okamžik a owl:Class ;
+    rdfs:subClassOf z-sgov-pojem:časový-prvek .
+
+z-sgov-pojem:časový-interval a owl:Class ;
+    rdfs:subClassOf z-sgov-pojem:časový-prvek .
+
+z-sgov-pojem:datum-a-čas a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom z-sgov-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+z-sgov-pojem:datum a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom z-sgov-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+z-sgov-pojem:má-začátek a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom z-sgov-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom z-sgov-pojem:časový-interval
+    ] .
+
+z-sgov-pojem:má-konec a owl:Class, owl:NamedIndividual, z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom z-sgov-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom z-sgov-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom z-sgov-pojem:časový-okamžik
+    ] .
+
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://slovník.gov.cz/základní/model
+
+z-sgov:model a owl:NamedIndividual , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> .
+# 
+# https://slovník.gov.cz/základní/pojem/neměnný-prvek
+
+z-sgov-pojem:neměnný-prvek a owl:NamedIndividual , z-sgov-pojem:typ .
+# 
+# https://slovník.gov.cz/základní/pojem/objekt
+
+z-sgov-pojem:objekt a owl:NamedIndividual , z-sgov-pojem:typ-objektu .
+# 
+# https://slovník.gov.cz/základní/pojem/proměnný-prvek
+
+z-sgov-pojem:proměnný-prvek a owl:NamedIndividual , z-sgov-pojem:typ-proměnného-prvku .
+# 
+# https://slovník.gov.cz/základní/pojem/prvek
+
+z-sgov-pojem:prvek a owl:NamedIndividual , z-sgov-pojem:typ .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-kvalitativní-vlastnosti
+
+z-sgov-pojem:typ-kvalitativní-vlastnosti a owl:NamedIndividual , z-sgov-pojem:typ .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-proměnného-prvku
+
+z-sgov-pojem:typ-proměnného-prvku a owl:NamedIndividual , z-sgov-pojem:typ .
+# 
+# https://slovník.gov.cz/základní/pojem/typ-vlastnosti
+
+z-sgov-pojem:typ-vlastnosti a owl:NamedIndividual , z-sgov-pojem:typ .
+# 
+# https://slovník.gov.cz/základní/pojem/vlastnost
+
+z-sgov-pojem:vlastnost a owl:NamedIndividual , z-sgov-pojem:typ-vlastnosti .
+# 
+# https://slovník.gov.cz/základní/pojem/vztah
+
+z-sgov-pojem:vztah a owl:NamedIndividual , z-sgov-pojem:typ-vztahu .
+# 
+# https://slovník.gov.cz/základní/pojem/časový-prvek
+
+z-sgov-pojem:časový-prvek a owl:NamedIndividual , z-sgov-pojem:typ .
+# 
+
+_:genid14 owl:minQualifiedCardinality "1"^^xsd:long .
+
+_:genid15 owl:minQualifiedCardinality "1"^^xsd:long .
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+
+z-sgov-pojem:typ-vlastnosti z-sgov-pojem:charakterizuje z-sgov-pojem:vlastnost .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+
+_:genid16 a owl:AllDisjointClasses ;
+	owl:members _:genid19 .
+
+_:genid19 a rdf:List ;
+	rdf:first z-sgov-pojem:neměnný-prvek ;
+	rdf:rest _:genid18 .
+
+_:genid18 a rdf:List ;
+	rdf:first z-sgov-pojem:proměnný-prvek ;
+	rdf:rest _:genid17 .
+
+_:genid17 a rdf:List ;
+	rdf:first z-sgov-pojem:časový-prvek ;
+	rdf:rest rdf:nil .
+# 
+# Generated by the OWL API (version 4.5.12.2019-05-06T20:49:08Z) https://github.com/owlcs/owlapi
