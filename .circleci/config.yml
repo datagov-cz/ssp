@@ -35,24 +35,19 @@ jobs:
       - checkout
       - run:
           name: SGoV Validation
+          no_output_timeout: 30m
           command: |
-            gradle test
+            gradle test --tests FolderLayoutTests --tests ConsistencyTests
       - run:
           name: Save validation results
           command: |
             mkdir -p test-results/junit/
             find . -type f -regex ".*/build/test-results/.*" -exec cp {} test-results/junit/ \;
-            find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
-            find . -type f -regex ".*/sgov-named-graphs.txt" -exec cp {} sgov-named-graphs.txt \;
           when: always
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-results/junit
-      - store_artifacts:
-          path: sgov.trig
-      - store_artifacts:
-          path: sgov-named-graphs.txt
   deploy-to-etl-and-graphdb:
     docker:
       # specify the version you desire here
@@ -63,19 +58,61 @@ jobs:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
+      # https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz
+      PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY: https://xn--slovnk-7va.gov.cz/prohlizime/sluzby/db-server/repositories/termit
+      ASSEMBLY_LINE_REPOSITORY: https://xn--slovnk-7va.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+      ASSEMBLY_LINE_DEV_REPOSITORY: https://xn--slovnk-test-scb.mvcr.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+      CONTAINER: https://slovník.gov.cz
     steps:
       - checkout
       - run:
           name: Generate TRIG
-          no_output_timeout: 20m
           command: |
-            gradle test --tests cz.gov.ssp.Export --tests cz.gov.ssp.validation.*
+            gradle test --tests ExportSGoV --tests GenerateCanonicalContainer
+      - run:
+          name: Create a list of named graphs to remove from slovník.gov.cz
+          command: |
+            SGOV_SPARQL_SERVICE="https://xn--slovnk-7va.gov.cz/sparql" SGOV_SPARQL_SERVICE_NAMED_GRAPHS_FILE="../named-graphs-slovník-gov-cz.ttl" gradle test --tests cz.gov.ssp.ExportNamedGraphs
+      - run:
+          name: Save exported files
+          command: |
+            find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
+            find . -type f -regex ".*/sgov-graph-per-vocabulary.trig" -exec cp {} ~/sgov-graph-per-vocabulary.trig \;
+            find . -type f -regex ".*/sgov-canonical-container.trig" -exec cp {} ~/sgov-canonical-container.trig \;
+            find . -type f -regex ".*/named-graphs-slovník-gov-cz.ttl" -exec cp {} ~/named-graphs-slovník-gov-cz.ttl \;
+          when: always
+      - store_artifacts:
+          path: sgov.trig
+      - store_artifacts:
+          path: named-graphs-slovník-gov-cz.ttl
+      - store_artifacts:
+          path: sgov-canonical-container.trig
+      - store_artifacts:
+          path: sgov-graph-per-vocabulary.trig
+      - run:
+          name: GraphDB - Download the repo
+          command: |
+            curl --location --request POST "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}?infer=false" -o default.ttl \
+            --header 'Content-Type: application/sparql-query' \
+            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
+            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+      - run:
+          name: GraphDB - Clear repository
+          command: |
+            bash bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - run:
+          name: GraphDB - Publish new version
+          command: |
+            curl --location --request PUT "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements" \
+                 --header 'Content-Type: application/trig' \
+                 --data-binary '@./sgov-graph-per-vocabulary.trig' \
+                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - run:
           name: ETL - Clear named graphs
           command: |
             curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592406645132' \
             -u ${USERNAME}:${PASSWORD} \
-            --form 'input=@./sgov-named-graphs.ttl'
+            --form 'input=@./named-graphs-slovník-gov-cz.ttl'
       - run:
           name: ETL - Publish new version
           command: |
@@ -83,58 +120,21 @@ jobs:
             -u ${USERNAME}:${PASSWORD} \
             --form 'input=@./sgov.trig'
       - run:
-          name: GraphDB - Download default graph
+          name: (DEV) AL - Clear cache
           command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz?infer=false' -o default.ttl \
-            --header 'Content-Type: application/sparql-query' \
-            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
-            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
-          name: GraphDB - Clear repository
+          name: (DEV) AL - Uploading cache
           command: |
-            curl --location --request DELETE 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/statements' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}    
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - run:
-          name: GraphDB - Publish new version
+          name: (PROD) AL - Clear cache
           command: |
-            curl --location --request PUT 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/statements' \
-                 --header 'Content-Type: application/trig' \
-                 --data-binary '@./sgov-graph-per-vocabulary.trig' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}     
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} ${QUERY}
       - run:
-          name: GraphDB - Upload default graph
+          name: (PROD) AL - Uploading cache
           command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz/rdf-graphs/service?default' \
-                 --header 'Content-Type: text/turtle' \
-                 --data-binary '@./default.ttl' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-      - run:
-          name: GraphDB - Download default graph TEST
-          command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test?infer=false' -o default.ttl \
-            --header 'Content-Type: application/sparql-query' \
-            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
-            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-      - run:
-          name: GraphDB - Clear repository TEST
-          command: |
-            curl --location --request DELETE 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test/statements' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-      - run:
-          name: GraphDB - Publish new version TEST
-          command: |
-            curl --location --request PUT 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test/statements' \
-                 --header 'Content-Type: application/trig' \
-                 --data-binary '@./sgov-graph-per-vocabulary.trig' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}                             
-      - run:
-          name: GraphDB - Upload default graph TEST
-          command: |
-            curl --location --request POST 'https://graphdb.onto.fel.cvut.cz/repositories/kodi-slovnik-gov-cz-test/rdf-graphs/service?default' \
-                 --header 'Content-Type: text/turtle' \
-                 --data-binary '@./default.ttl' \
-                 -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}           
-
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
 workflows:
   version: 2
   validate:
