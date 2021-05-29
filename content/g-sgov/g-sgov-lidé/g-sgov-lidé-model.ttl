@@ -39,29 +39,32 @@ z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>
   a owl:Class .
 
-g-sgov-lidé-pojem:člověk a owl:Class, z-sgov-pojem:typ-objektu .
+g-sgov-lidé-pojem:člověk a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel> .
 
 g-sgov-lidé-pojem:tituly-před-jménem a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
   rdfs:domain g-sgov-lidé-pojem:člověk;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/pohlaví> a owl:Class .
 
 g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
   rdfs:domain g-sgov-lidé-pojem:člověk;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ];
   rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
@@ -84,17 +87,15 @@ g-sgov-lidé-pojem:má-pohlaví a owl:Class, owl:ObjectProperty, z-sgov-pojem:ty
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/pohlaví>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/pohlaví>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/pohlaví>
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
-
-<https://slovník.gov.cz/generický/číselníky/pojem/pohlaví> a owl:Class .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .

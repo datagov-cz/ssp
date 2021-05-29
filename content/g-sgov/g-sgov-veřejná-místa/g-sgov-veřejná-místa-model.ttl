@@ -1,0 +1,187 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-veřejná-místa: <https://slovník.gov.cz/generický/veřejná-místa/> .
+@prefix g-sgov-veřejná-místa-pojem: <https://slovník.gov.cz/generický/veřejná-místa/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-veřejná-místa:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-10-28";
+  dcterms:title "Generický slovník veřejných míst - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-veřejná-místa-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/veřejná-místa/pojem/";
+  owl:imports <https://slovník.gov.cz/generický/bezbariérové-přístupy/model>, <https://slovník.gov.cz/generický/kontakty/model>,
+    <https://slovník.gov.cz/generický/lidé/model>, <https://slovník.gov.cz/generický/osoby/model>,
+    <https://slovník.gov.cz/generický/umístění/model>, g-sgov-veřejná-místa:glosář, <https://slovník.gov.cz/generický/vstupné/model>,
+    <https://slovník.gov.cz/generický/čas/model>, <https://slovník.gov.cz/veřejný-sektor/model>;
+  owl:versionIRI <https://slovník.gov.cz/generický/veřejná-místa/model/verze/0.0.1> .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+<https://slovník.gov.cz/generický/vstupné/pojem/vstupné> a owl:Class .
+
+<https://slovník.gov.cz/generický/osoby/pojem/osoba> a owl:Class .
+
+<https://slovník.gov.cz/generický/kontakty/pojem/kontakt> a owl:Class .
+
+<https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>
+  a owl:Class .
+
+<https://slovník.gov.cz/generický/lidé/pojem/člověk> a owl:Class .
+
+g-sgov-veřejná-místa-pojem:provozovatel a owl:Class, z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+<https://slovník.gov.cz/generický/čas/pojem/časová-specifikace> a owl:Class .
+
+g-sgov-veřejná-místa-pojem:má-bezbariérový-přístup a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-veřejná-místa-pojem:veřejné-místo;
+  rdfs:range <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-veřejná-místa-pojem:veřejné-místo a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/umístění/pojem/místo> .
+
+g-sgov-veřejná-místa-pojem:má-provozovatele a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-veřejná-místa-pojem:veřejné-místo;
+  rdfs:range g-sgov-veřejná-místa-pojem:provozovatel;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:provozovatel
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:provozovatel;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-veřejná-místa-pojem:má-vstupné a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-veřejná-místa-pojem:veřejné-místo;
+  rdfs:range <https://slovník.gov.cz/generický/vstupné/pojem/vstupné>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/vstupné/pojem/vstupné>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/vstupné/pojem/vstupné>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-veřejná-místa-pojem:má-otevírací-dobu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-veřejná-místa-pojem:veřejné-místo;
+  rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časová-specifikace>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časová-specifikace>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-veřejná-místa-pojem:vlastník a owl:Class, z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+g-sgov-veřejná-místa-pojem:má-kontakt a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-veřejná-místa-pojem:veřejné-místo;
+  rdfs:range <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-veřejná-místa-pojem:má-vlastníka a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-veřejná-místa-pojem:veřejné-místo;
+  rdfs:range g-sgov-veřejná-místa-pojem:vlastník;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:vlastník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:vlastník
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-veřejná-místa-pojem:veřejné-místo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+<https://slovník.gov.cz/generický/umístění/pojem/místo> a owl:Class .
+
+g-sgov-veřejná-místa-pojem:provozovatel-jako-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/osoby/pojem/osoba>, g-sgov-veřejná-místa-pojem:provozovatel .
+
+g-sgov-veřejná-místa-pojem:provozovatel-jako-člověk a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/lidé/pojem/člověk>, g-sgov-veřejná-místa-pojem:provozovatel .
+
+g-sgov-veřejná-místa-pojem:vlastník-jako-osoba a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/osoby/pojem/osoba>, g-sgov-veřejná-místa-pojem:vlastník .
+
+g-sgov-veřejná-místa-pojem:vlastník-jako-člověk a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/lidé/pojem/člověk>, g-sgov-veřejná-místa-pojem:vlastník .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
