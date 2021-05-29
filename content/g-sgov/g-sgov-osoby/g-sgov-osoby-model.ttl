@@ -38,27 +38,28 @@ z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba> a owl:Class .
 
+<https://slovník.gov.cz/generický/číselníky/pojem/stát> a owl:Class .
+
 g-sgov-osoby-pojem:osoba a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba> .
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba>,
+    <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba> .
 
 g-sgov-osoby-pojem:stát-registrace a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
   rdfs:domain g-sgov-osoby-pojem:osoba;
   rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/stát>;
   rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-osoby-pojem:osoba
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/stát>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-osoby-pojem:osoba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-osoby-pojem:osoba
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/stát>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-osoby-pojem:osoba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ];
   rdfs:subPropertyOf z-sgov-pojem:vztah .
-
-<https://slovník.gov.cz/generický/číselníky/pojem/stát> a owl:Class .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .
