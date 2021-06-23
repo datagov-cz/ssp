@@ -4,8 +4,6 @@ CONTAINER=${2}
 USERNAME=${3}
 PASSWORD=${4}
 
-# echo "CLEARING CACHE in ${REPOSITORY}"
-
 curl --location --request POST "${REPOSITORY}" \
   -o vocabularyContexts.csv \
   --header "Content-Type: application/sparql-query" \

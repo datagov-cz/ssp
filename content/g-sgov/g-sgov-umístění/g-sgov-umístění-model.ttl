@@ -1,0 +1,382 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-umístění: <https://slovník.gov.cz/generický/umístění/> .
+@prefix g-sgov-umístění-pojem: <https://slovník.gov.cz/generický/umístění/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-umístění:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-10-28";
+  dcterms:title "Generický slovník umístění - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-umístění-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/umístění/pojem/";
+  owl:imports g-sgov-umístění:glosář, <https://slovník.gov.cz/generický/věci/model>,
+    <https://slovník.gov.cz/veřejný-sektor/model>;
+  owl:versionIRI <https://slovník.gov.cz/generický/umístění/model/verze/0.0.1> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> a owl:Class .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+g-sgov-umístění-pojem:místo a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> .
+
+g-sgov-umístění-pojem:má-zahraniční-adresu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:zahraniční-adresa
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:zahraniční-adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:zahraniční-adresa;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
+
+g-sgov-umístění-pojem:má-geografický-identifikátor a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:geografický-identifikátor
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:geografický-identifikátor;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:geografický-identifikátor;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-vztah-k-prostorovému-objektu> .
+
+g-sgov-umístění-pojem:má-místnost a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:místnost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místnost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
+
+g-sgov-umístění-pojem:má-adresu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf g-sgov-umístění-pojem:má-geografický-identifikátor, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/adresa>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf g-sgov-umístění-pojem:má-geografický-identifikátor .
+
+g-sgov-umístění-pojem:má-patro a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:patro
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:patro;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:patro;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
+
+g-sgov-umístění-pojem:má-budovu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:budova
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:budova;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:budova;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem> .
+
+g-sgov-umístění-pojem:má-geografický-název a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-názvem>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/geografický-název>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-umístění-pojem:geografický-identifikátor a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-vyjádřená-prostorovým-objektem> .
+
+g-sgov-umístění-pojem:má-popis-umístění a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-lokalizaci-popisem>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:popis-umístění
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:popis-umístění;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:popis-umístění;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+g-sgov-umístění-pojem:má-geometrii a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-geometrii>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:místo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:místo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/geometrie>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/geometrie>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/geometrie>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:geometrický-objekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:geometrický-objekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:geometrický-objekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-umístění-pojem:popis-umístění a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> .
+
+g-sgov-umístění-pojem:zahraniční-adresa a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> .
+
+g-sgov-umístění-pojem:místnost a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> .
+
+g-sgov-umístění-pojem:patro a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> .
+
+g-sgov-umístění-pojem:budova a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-popisem> .
+
+g-sgov-umístění-pojem:geometrický-objekt a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/geometrie>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-umístění-pojem:souřadnice
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:souřadnice;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
+
+g-sgov-umístění-pojem:bod a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-umístění-pojem:geometrický-objekt .
+
+g-sgov-umístění-pojem:polygon a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-umístění-pojem:geometrický-objekt .
+
+g-sgov-umístění-pojem:linie a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-umístění-pojem:geometrický-objekt .
+
+g-sgov-umístění-pojem:multibod a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-umístění-pojem:geometrický-objekt .
+
+g-sgov-umístění-pojem:multipolygon a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-umístění-pojem:geometrický-objekt .
+
+g-sgov-umístění-pojem:multilinie a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf g-sgov-umístění-pojem:geometrický-objekt .
+
+g-sgov-umístění-pojem:souřadnice a z-sgov-pojem:typ-vlastnosti .
+
+g-sgov-umístění-pojem:má-souřadnicový-referenční-systém a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-umístění-pojem:geometrický-objekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:geometrický-objekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:geometrický-objekt;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-umístění-pojem:souřadnicový-referenční-systém
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-umístění-pojem:souřadnicový-referenční-systém;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-umístění-pojem:souřadnicový-referenční-systém;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-umístění-pojem:souřadnicový-referenční-systém a z-sgov-pojem:typ-objektu .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .

@@ -36,98 +36,7 @@ z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
 z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
   rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
 
-<https://slovník.gov.cz/generický/číselníky/pojem/sport> a owl:Class .
-
-<https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště> a owl:Class .
-
 <https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo> a owl:Class .
-
-d-sgov-sportoviště-pojem:doplňková-služba a owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
-  rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
-  rdfs:range rdfs:Literal;
-  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
-
-d-sgov-sportoviště-pojem:sportoviště a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo> .
-
-d-sgov-sportoviště-pojem:má-doplňkovou-službu a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-sportoviště-pojem:služba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom d-sgov-sportoviště-pojem:služba
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-sportoviště-pojem:služba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-sportoviště-pojem:sportoviště;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-sportoviště-pojem:sportoviště;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sportoviště-pojem:služba;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-sportoviště-pojem:má-provozovaný-sport a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
-  rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
-  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/sport>;
-  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/sport>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/sport>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ];
-  rdfs:subPropertyOf z-sgov-pojem:vztah .
-
-d-sgov-sportoviště-pojem:má-typ-sportoviště a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
-  rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
-  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště>;
-  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště>
-    ];
-  rdfs:subPropertyOf z-sgov-pojem:vztah .
-
-d-sgov-sportoviště-pojem:podmínky-užívání a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
-  rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
-  rdfs:range rdfs:Literal;
-  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ];
-  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
 
 d-sgov-sportoviště-pojem:provozní-řád a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
   rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
@@ -143,10 +52,27 @@ d-sgov-sportoviště-pojem:provozní-řád a owl:Class, owl:DatatypeProperty, z-
 
 d-sgov-sportoviště-pojem:služba a z-sgov-pojem:typ-objektu .
 
-d-sgov-sportoviště-pojem:má-umístění a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
+d-sgov-sportoviště-pojem:má-doplňkovou-službu rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-sportoviště-pojem:služba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sportoviště-pojem:služba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-sportoviště-pojem:služba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-sportoviště-pojem:sportoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-sportoviště-pojem:služba
     ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
@@ -154,24 +80,91 @@ d-sgov-sportoviště-pojem:má-umístění a z-sgov-pojem:typ-vztahu;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass d-sgov-sportoviště-pojem:sportoviště;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-sportoviště-pojem:má-typ-sportoviště a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+d-sgov-sportoviště-pojem:podmínky-užívání a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+d-sgov-sportoviště-pojem:sportoviště a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo> .
+
+d-sgov-sportoviště-pojem:má-provozovaný-sport a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain d-sgov-sportoviště-pojem:sportoviště;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/sport>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/sport>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/sport>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/typ-sportoviště> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/sport> a owl:Class .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
+
+d-sgov-sportoviště-pojem:má-umístění rdfs:subClassOf [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass d-sgov-sportoviště-pojem:sportoviště;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-sportoviště-pojem:sportoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-sportoviště-pojem:sportoviště;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-sportoviště-pojem:sportoviště
     ] .
-
-skos:prefLabel rdfs:subPropertyOf rdfs:label .
