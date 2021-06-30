@@ -20,18 +20,107 @@ d-sgov-číselníky:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports d-sgov-číselníky:glosář;
   owl:versionIRI "https://slovník.gov.cz/datový/číselníky/model/verze/1.0.0" .
 
+d-sgov-číselníky-pojem:eviduje-položku-číselníku a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/eviduje-položku-evidenčního-systému>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-číselníky-pojem:číselník a z-sgov-pojem:mixin, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> .
+
+d-sgov-číselníky-pojem:akronym-číselníku a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+d-sgov-číselníky-pojem:definice-číselníku a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+d-sgov-číselníky-pojem:má-administrativní-platnost-číselníku a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost>, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-číselníky-pojem:název-číselníku a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
+    ] .
+
 d-sgov-číselníky-pojem:položka-číselníku a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému> .
 
-d-sgov-číselníky-pojem:číselník a z-sgov-pojem:mixin, z-sgov-pojem:typ-objektu ;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> .
-
-d-sgov-číselníky-pojem:název-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
+d-sgov-číselníky-pojem:kód-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
+      owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
+    ] .
+
+d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
       owl:onProperty z-sgov-pojem:je-vlastností
@@ -39,8 +128,29 @@ d-sgov-číselníky-pojem:název-položky-číselníku a z-sgov-pojem:typ-vlastn
       owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
+    ] .
+
+d-sgov-číselníky-pojem:název-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
+      owl:onProperty z-sgov-pojem:je-vlastností
     ] .
 
 d-sgov-číselníky-pojem:popis-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
@@ -53,151 +163,40 @@ d-sgov-číselníky-pojem:popis-položky-číselníku a z-sgov-pojem:typ-vlastno
       owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
       owl:onProperty z-sgov-pojem:je-vlastností
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:je-vlastností;
       owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-d-sgov-číselníky-pojem:eviduje-položku-číselníku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/eviduje-položku-evidenčního-systému>,
-    [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-číselníky-pojem:kód-položky-číselníku a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom d-sgov-číselníky-pojem:položka-číselníku
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:položka-číselníku;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-d-sgov-číselníky-pojem:název-číselníku a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-d-sgov-číselníky-pojem:akronym-číselníku a z-sgov-pojem:typ-vlastnosti ;
-  rdfs:subClassOf  [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-
-d-sgov-číselníky-pojem:definice-číselníku a z-sgov-pojem:typ-vlastnosti ;
-  rdfs:subClassOf  [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
-      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:je-vlastností
-    ] .
-
-d-sgov-číselníky-pojem:má-administrativní-platnost-číselníku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost>, [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-číselníky-pojem:číselník
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ] .
 
 d-sgov-číselníky-pojem:pokrývá-oblast a z-sgov-pojem:typ-vztahu;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-číselníky-pojem:číselník;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
       owl:someValuesFrom d-sgov-číselníky-pojem:číselník
     ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-číselníky-pojem:číselník;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-číselníky-pojem:číselník;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
     ], [ a owl:Restriction;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
       owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
       owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
     ] .
