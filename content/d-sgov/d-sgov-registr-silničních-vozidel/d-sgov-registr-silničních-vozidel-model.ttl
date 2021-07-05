@@ -1,0 +1,173 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-registr-silničních-vozidel: <https://slovník.gov.cz/datový/registr-silničních-vozidel/> .
+@prefix d-sgov-registr-silničních-vozidel-pojem: <https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-registr-silničních-vozidel:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-06-30T20:32:51.631Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Datový slovník registru silničních vozidel - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-registr-silničních-vozidel-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/";
+  owl:imports d-sgov-registr-silničních-vozidel:glosář;
+  owl:versionIRI "https://slovník.gov.cz/datový/registr-silničních-vozidel/model/verze/1.0.0" .
+
+d-sgov-registr-silničních-vozidel-pojem:počítačové-číslo-vozidla a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-registr-silničních-vozidel-pojem:aktuální-stav-vozidla a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-registr-silničních-vozidel-pojem:aktuální-vyřazení-silničního-vozidla-z-provozu
+  a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/vyřazení-silničního-vozidla-z-provozu> .
+
+d-sgov-registr-silničních-vozidel-pojem:má-aktuální-technický-průkaz a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/má-technický-průkaz>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-registr-silničních-vozidel-pojem:má-aktuální-osvědčení-o-registraci a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/má-osvědčení-o-registraci>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-registr-silničních-vozidel-pojem:značka-silničního-vozidla-jako-položka-číselníku
+  a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/značka-silničního-vozidla> .
+
+d-sgov-registr-silničních-vozidel-pojem:má-druh-vozidla a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/má-druh-vozidla>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/druh-silničního-vozidla>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/druh-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/druh-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-registr-silničních-vozidel-pojem:má-druh-zvláštního-vozidla a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/má-druh-vozidla>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/druh-zvláštního-vozidla>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/druh-zvláštního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/druh-zvláštního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-registr-silničních-vozidel-pojem:druh-vozidla-jako-položka-číselníku a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/druh-vozidla> .
+
+d-sgov-registr-silničních-vozidel-pojem:kategorie-vozidla-jako-položka-číselníku a
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/kategorie-vozidla> .
+
+d-sgov-registr-silničních-vozidel-pojem:datum-první-registrace-silničního-vozidla-v-čr
+  a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+d-sgov-registr-silničních-vozidel-pojem:rok-výroby-silničního-vozidla a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/silniční-vozidlo>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+d-sgov-registr-silničních-vozidel-pojem:stanice-technické-kontroly-jako-položka-číselníku
+  a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/stanice-technické-kontroly> .
+
+d-sgov-registr-silničních-vozidel-pojem:datum-platnosti-technické-prohlídky-od a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+d-sgov-registr-silničních-vozidel-pojem:datum-platnosti-technické-prohlídky-do a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/technická-prohlídka>;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
