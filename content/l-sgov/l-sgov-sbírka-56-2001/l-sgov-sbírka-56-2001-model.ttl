@@ -1,0 +1,1044 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix l-sgov-sbírka-56-2001: <https://slovník.gov.cz/legislativní/sbírka/56/2001/> .
+@prefix l-sgov-sbírka-56-2001-pojem: <https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+l-sgov-sbírka-56-2001:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-07-28";
+  dcterms:title "Slovník zákona č. 56/2001 Sb. o podmínkách provozu vozidel na pozemních komunikacích a o změně zákona č. 168/1999 Sb., o pojištění odpovědnosti za škodu způsobenou provozem vozidla a o změně některých souvisejících zákonů (zákon o pojištění odpovědnosti z provozu vozidla), ve znění zákona č. 307/1999 Sb. - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-56-2001-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/56/2001/pojem/";
+  owl:imports l-sgov-sbírka-56-2001:glosář;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/56/2001/model/verze/0.0.1> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> a owl:Class .
+
+z-sgov-pojem:agent a owl:Class .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba> a owl:Class .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba> a owl:Class .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci> a owl:Class .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>
+  a owl:Class .
+
+<https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba>
+  a owl:Class .
+
+z-sgov-pojem:vznik-proměnného-prvku a owl:Class .
+
+l-sgov-sbírka-56-2001-pojem:údaje-o-vyřazení-silničního-vozidla-z-provozu a owl:Class,
+    owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/h>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:silniční-vozidlo a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/168/1999/pojem/vozidlo>,
+    <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/počítačové-číslo-vozidla>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/počítačové-číslo-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/aktuální-stav-vozidla>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/aktuální-stav-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:registrační-značka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:registrační-značka;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:vyřazení-silničního-vozidla-z-provozu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:vyřazení-silničního-vozidla-z-provozu;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/aktuální-vyřazení-silničního-vozidla-z-provozu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/registr-silničních-vozidel/pojem/aktuální-vyřazení-silničního-vozidla-z-provozu>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:má-závadu-v-technickém-stavu a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/37/1/a>,
+    <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/37/1/b>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:technicky-nezpůsobilé-silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:nebezpečná-závada;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:nebezpečná-závada
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:nebezpečná-závada;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technicky-nezpůsobilé-silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technicky-nezpůsobilé-silniční-vozidlo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:technicky-nezpůsobilé-silniční-vozidlo a owl:Class, z-sgov-pojem:fáze,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/37/1>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:silniční-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:nebezpečná-závada a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/49/c>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:závada .
+
+l-sgov-sbírka-56-2001-pojem:má-provozovatele-vozidla a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:provozovatel-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:provozovatel-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:provozovatel-vozidla
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:provozovatel-vozidla a owl:Class, z-sgov-pojem:mixin-rolí,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a>;
+  rdfs:subClassOf z-sgov-pojem:agent .
+
+l-sgov-sbírka-56-2001-pojem:má-typ-silničního-vozidla a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/c>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:typ-silničního-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:typ-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:typ-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:typ-silničního-vozidla a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/10>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+l-sgov-sbírka-56-2001-pojem:má-vlastníka-vozidla a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:vlastník-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:vlastník-vozidla
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:vlastník-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:vlastník-vozidla a owl:Class, z-sgov-pojem:mixin-rolí,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a>;
+  rdfs:subClassOf z-sgov-pojem:agent .
+
+l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/6/5/a/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-56-2001-pojem:identifikační-číslo-silničního-vozidla a owl:Class, owl:DatatypeProperty,
+    z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/d>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:právnická-osoba-jako-provozovatel-vozidla a owl:Class,
+    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a/3>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba>,
+    l-sgov-sbírka-56-2001-pojem:provozovatel-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:výrobní-číslo-podvozku-silničního-vozidla a owl:Class,
+    owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/d>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:má-technický-průkaz a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/c>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:vážná-závada a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/49/b>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:závada .
+
+l-sgov-sbírka-56-2001-pojem:osvědčení-o-registraci-silničního-vozidla a owl:Class,
+    z-sgov-pojem:typ-objektu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/7/1/b>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-56-2001-pojem:druh-zvláštního-vozidla a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/3>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:druh-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:má-schválení-technické-způsobilosti a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/m>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:technicky-způsobilé-silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:technická-způsobilost;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technická-způsobilost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technicky-způsobilé-silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technická-způsobilost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technicky-způsobilé-silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:má-místo-vydání-technického-průkazu-silničního-vozidla
+  a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/c>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:vydání-technického-průkazu-silničního-vozidla;
+  rdfs:range <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/místo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:provedena-na-stanici a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/47/1>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:stanice-technické-kontroly;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:stanice-technické-kontroly;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:stanice-technické-kontroly
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:nemotorové-vozidlo a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/nemotorové-vozidlo>,
+    l-sgov-sbírka-56-2001-pojem:silniční-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:má-provozovatele a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/54/c>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:stanice-technické-kontroly;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:provozovatel-stanice-technické-kontroly;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:stanice-technické-kontroly;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:stanice-technické-kontroly
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:provozovatel-stanice-technické-kontroly
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:provozovatel-stanice-technické-kontroly;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:číslo-technického-průkazu-silničního-vozidla a owl:Class,
+    owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/c>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:předání-provozovateli-zařízení-ke-sběru-autovraků a owl:Class,
+    z-sgov-pojem:typ-události;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/13/1/a/1>;
+  rdfs:subClassOf z-sgov-pojem:událost .
+
+l-sgov-sbírka-56-2001-pojem:kategorie-vozidla a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/8>, <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/1>,
+    <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/4>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+l-sgov-sbírka-56-2001-pojem:subjekt-údajů-vedený-v-registru-obyvatel-jako-provozovatel-vozidla
+  a owl:Class, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>,
+    l-sgov-sbírka-56-2001-pojem:provozovatel-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:má-značku-silničního-vozidla a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/c>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:značka-silničního-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:značka-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:značka-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:osobní-automobil a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/2/b>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:motorové-vozidlo .
+
+<https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo> a owl:Class .
+
+l-sgov-sbírka-56-2001-pojem:registrační-značka a owl:Class, owl:DatatypeProperty,
+    z-sgov-pojem:typ-vlastnosti;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/1/c>,
+    <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/b>;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:tabulka-s-přidělenou-registrační-značkou
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:tabulka-s-přidělenou-registrační-značkou;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:registrace-silničního-vozidla a owl:Class, z-sgov-pojem:typ-události;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/e>;
+  rdfs:subClassOf z-sgov-pojem:událost .
+
+l-sgov-sbírka-56-2001-pojem:podnikající-fyzická-osoba-jako-provozovatel-vozidla a
+    owl:Class, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a/2>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba>,
+    l-sgov-sbírka-56-2001-pojem:provozovatel-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:nákladní-automobil a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/2/d>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:motorové-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:kontrolováno-technickou-prohlídkou a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/47/1>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:autobus a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/2/c>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:motorové-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:technicky-způsobilé-silniční-vozidlo a owl:Class, z-sgov-pojem:fáze,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:silniční-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:závada a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/49>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-56-2001-pojem:značka-silničního-vozidla a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/c>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-56-2001-pojem:druh-silničního-vozidla a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/2>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:druh-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:stanice-technické-kontroly a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/54/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-56-2001-pojem:číslo-osvědčení-o-registraci-silničního-vozidla a owl:Class,
+    owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/d>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:osvědčení-o-registraci-silničního-vozidla;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:osvědčení-o-registraci-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:osvědčení-o-registraci-silničního-vozidla
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:technická-způsobilost a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/50/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-56-2001-pojem:má-druh-vozidla a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/1>, <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/b>;
+  rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:druh-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:druh-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:druh-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:motorové-vozidlo a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/motorové-vozidlo>,
+    l-sgov-sbírka-56-2001-pojem:silniční-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:motocykl a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/2/a>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:motorové-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:údaje-o-zániku-silničního-vozidla a owl:Class, owl:DatatypeProperty,
+    z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/h>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:lehká-závada a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/49/a>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:závada .
+
+l-sgov-sbírka-56-2001-pojem:zjištěna-technickou-prohlídkou a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/50/1>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:závada;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:závada;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:závada
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:ostatní-silniční-vozidlo a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/2/g>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:motorové-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:má-osvědčení-o-registraci a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:relation <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/d>,
+    <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/e>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:osvědčení-o-registraci-silničního-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:osvědčení-o-registraci-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:osvědčení-o-registraci-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:přípojné-vozidlo a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/2/f>, <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/3>;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:nemotorové-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:podnikající-fyzická-osoba-jako-vlastník-vozidla a owl:Class,
+    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a/2>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba>,
+    l-sgov-sbírka-56-2001-pojem:vlastník-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:subjekt-údajů-vedený-v-registru-obyvatel-jako-vlastník-vozidla
+  a owl:Class, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>,
+    l-sgov-sbírka-56-2001-pojem:vlastník-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:obchodní-název-silničního-vozidla a owl:Class, owl:DatatypeProperty,
+    z-sgov-pojem:typ-vlastnosti;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/c>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+l-sgov-sbírka-56-2001-pojem:právnická-osoba-jako-vlastník-vozidla a owl:Class, z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/2/a/3>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba>,
+    l-sgov-sbírka-56-2001-pojem:vlastník-vozidla .
+
+l-sgov-sbírka-56-2001-pojem:vydání-technického-průkazu-silničního-vozidla a owl:Class,
+    z-sgov-pojem:typ-události;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/33/1>;
+  rdfs:subClassOf z-sgov-pojem:vznik-proměnného-prvku, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:technická-prohlídka a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/47/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva> .
+
+l-sgov-sbírka-56-2001-pojem:druh-vozidla a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/1>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+l-sgov-sbírka-56-2001-pojem:provozovatel-stanice-technické-kontroly a owl:Class, z-sgov-pojem:mixin-rolí,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/54/c>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba> .
+
+l-sgov-sbírka-56-2001-pojem:prokázána-technickou-prohlídkou a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/50/1>;
+  rdfs:domain l-sgov-sbírka-56-2001-pojem:technická-způsobilost;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technická-prohlídka;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technická-způsobilost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technická-způsobilost;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+l-sgov-sbírka-56-2001-pojem:zvláštní-vozidlo a owl:Class, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/2/2>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/168/1999/pojem/vozidlo>,
+    <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo> .
+
+l-sgov-sbírka-56-2001-pojem:má-kategorii-vozidla a owl:Class, owl:ObjectProperty,
+    z-sgov-pojem:typ-vztahu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/3/4>, <https://esbirka.opendata.cz/zdroj/předpis/56/2001/sekce/4/3/b>;
+  rdfs:domain <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>;
+  rdfs:range l-sgov-sbírka-56-2001-pojem:kategorie-vozidla;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:kategorie-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:kategorie-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+<https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/motorové-vozidlo> a owl:Class .
+
+<https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/nemotorové-vozidlo> a owl:Class .
+
+l-sgov-sbírka-56-2001-pojem:vyřazení-silničního-vozidla-z-provozu a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/datum-vyřazení-silničního-vozidla>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/datum-vyřazení-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/datum-vyřazení-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/důvod-vyřazení-silničního-vozidla>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/důvod-vyřazení-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/důvod-vyřazení-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/počet-odevzdaných-tabulek-s-registrační-značkou>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/počet-odevzdaných-tabulek-s-registrační-značkou>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/počet-odevzdaných-tabulek-s-registrační-značkou>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/agendový/998/pojem/datum-ukončení-depozitu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/agendový/998/pojem/datum-ukončení-depozitu>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/agendový/998/pojem/datum-ukončení-depozitu>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/účel-využití-silničního-vozidla>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/účel-využití-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/343/2014/pojem/účel-využití-silničního-vozidla>;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:ukončení-vyřazení-silničního-vozidla-z-provozu a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:vyřazení-silničního-vozidla-z-provozu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:vyřazení-silničního-vozidla-z-provozu;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:přidělení-registrační-značky a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:registrační-značka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:registrační-značka;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:datum-vydání-technického-průkazu-silničního-vozidla a
+    z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:technický-průkaz-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:oznámení-o-ztrátě-zničení-nebo-odcizení-tabulky-s-přidělenou-registrační-značkou
+  a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:registrační-značka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:registrační-značka;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:silniční-vozidlo-vyřazené-z-provozu a z-sgov-pojem:fáze,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-56-2001-pojem:silniční-vozidlo .
+
+l-sgov-sbírka-56-2001-pojem:žádost-o-vyřazení-silničního-vozidla-z-provozu a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:vyřazení-silničního-vozidla-z-provozu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:vyřazení-silničního-vozidla-z-provozu;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:datum-první-registrace-silničního-vozidla a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:datum-první-registrace-silničního-vozidla-v-jiném-členském-státě
+  a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla a z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-56-2001-pojem:má-motor-silničního-vozidla a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:typ-motoru-silničního-vozidla a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:výkon-motoru-silničního-vozidla a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:zdvihový-objem-motoru-silničního-vozidla a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:palivo a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu .
+
+l-sgov-sbírka-56-2001-pojem:má-palivo a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:palivo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:palivo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:palivo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:výrobce a z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/osoba> .
+
+l-sgov-sbírka-56-2001-pojem:má-výrobce-silničního-vozidla a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf ""^^xsd:integer, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:výrobce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:výrobce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:výrobce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:má-výrobce-motoru a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:výrobce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:výrobce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:výrobce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:motor-silničního-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-56-2001-pojem:účel-určení-silničního-vozidla a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-2001-pojem:silniční-vozidlo;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
