@@ -1,0 +1,87 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix l-sgov-sbírka-129-2000: <https://slovník.gov.cz/legislativní/sbírka/129/2000/> .
+@prefix l-sgov-sbírka-129-2000-pojem: <https://slovník.gov.cz/legislativní/sbírka/129/2000/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+l-sgov-sbírka-129-2000:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-07-08T12:11:38.860Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Slovník zákona č. 129/2000 Sb. o krajích - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-129-2000-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/129/2000/pojem/";
+  owl:imports l-sgov-sbírka-129-2000:glosář;
+  owl:versionIRI "https://slovník.gov.cz/legislativní/sbírka/129/2000/model/verze/1.0.0" .
+
+l-sgov-sbírka-129-2000-pojem:kraj a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/správní-orgán> .
+
+l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf ""^^xsd:integer .
+
+l-sgov-sbírka-129-2000-pojem:vydává-právní-předpis a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-129-2000-pojem:kraj
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-129-2000-pojem:kraj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-129-2000-pojem:kraj;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+l-sgov-sbírka-129-2000-pojem:nařízení-kraje a z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje .
+
+l-sgov-sbírka-129-2000-pojem:obecně-závazná-vyhláška-kraje a z-sgov-pojem:poddruh,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje .
+
+l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje-zveřejněný-na-úřední-desce a z-sgov-pojem:role,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-129-2000-pojem:právní-předpis-kraje, <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/písemnost-zveřejněná-na-úřední-desce> .
+
+l-sgov-sbírka-129-2000-pojem:záměr-kraje a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/písemnost-zveřejněná-na-úřední-desce> .
+
+l-sgov-sbírka-129-2000-pojem:má-záměr a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/správní-orgán>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/správní-orgán>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/správní-orgán>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-129-2000-pojem:záměr-kraje
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-129-2000-pojem:záměr-kraje;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-129-2000-pojem:záměr-kraje;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
