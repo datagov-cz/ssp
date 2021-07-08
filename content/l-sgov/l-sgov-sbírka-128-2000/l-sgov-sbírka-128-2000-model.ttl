@@ -1,103 +1,166 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix l-sgov-sbírka-128-2000: <https://slovník.gov.cz/legislativní/sbírka/128/2000/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix l-sgov-sbírka-128-2000-pojem: <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
-l-sgov-sbírka-128-2000:model
-        a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
-        <http://purl.org/dc/terms/created>
-                "2020-06-29" ;
-        <http://purl.org/dc/terms/creator>
-                "Michal Med" ;
-        <http://purl.org/dc/terms/rights>
-                <https://creativecommons.org/licenses/by/4.0> ;
-        <http://purl.org/dc/terms/title>
-                "Slovník zákona č. 128/2000 Sb., o obcích (obecní zřízení). - model"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specification"@en , "Specifikace"@cs ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "l-sgov-sbírka-128-2000-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/" ;
-        owl:imports     l-sgov-sbírka-128-2000:glosář ;
-        owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/128/2000/model/verze/1.0.0> .
+l-sgov-sbírka-128-2000:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-06-29";
+  dcterms:creator "Michal Med";
+  dcterms:rights <https://creativecommons.org/licenses/by/4.0>;
+  dcterms:title "Slovník zákona č. 128/2000 Sb., o obcích (obecní zřízení). - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-128-2000-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/";
+  owl:imports l-sgov-sbírka-128-2000:glosář;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/128/2000/model/verze/1.0.0> .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
 
-l-sgov-sbírka-128-2000-pojem:veřejné-prostranství
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
 
-<https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        a       owl:ObjectProperty .
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
 
-<https://slovník.gov.cz/základní/pojem/je-vlastností>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
 
-l-sgov-sbírka-128-2000-pojem:území-obce
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        a                   owl:ObjectProperty ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
 
-l-sgov-sbírka-128-2000-pojem:název-obce
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  l-sgov-sbírka-128-2000-pojem:obec
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  l-sgov-sbírka-128-2000-pojem:obec ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
+l-sgov-sbírka-128-2000-pojem:část-obce a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/28/2>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
 
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
-        a       owl:ObjectProperty .
+l-sgov-sbírka-128-2000-pojem:veřejné-prostranství a owl:Class, z-sgov-pojem:druh,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/34>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+l-sgov-sbírka-128-2000-pojem:území-obce a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/18>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
 
 l-sgov-sbírka-128-2000-pojem:městský-obvod-a-městská-část-územně-členěného-statutárního-města
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+  a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/4/2>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        a                   owl:ObjectProperty ;
-        rdfs:subPropertyOf  <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+l-sgov-sbírka-128-2000-pojem:obec-s-rozšířenou-působností a owl:Class, z-sgov-pojem:druh,
+    z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/66/1>;
+  rdfs:subClassOf z-sgov-pojem:objekt .
 
-l-sgov-sbírka-128-2000-pojem:obec-s-rozšířenou-působností
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+l-sgov-sbírka-128-2000-pojem:název-obce a owl:Class, z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ] .
 
-l-sgov-sbírka-128-2000-pojem:část-obce
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+l-sgov-sbírka-128-2000-pojem:má-území-obce a owl:Class, z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:území-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:území-obce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ] .
 
-l-sgov-sbírka-128-2000-pojem:má-území-obce
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vztah> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> ;
-                           owl:someValuesFrom  l-sgov-sbírka-128-2000-pojem:území-obce
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  l-sgov-sbírka-128-2000-pojem:území-obce ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-                         ] ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> ;
-                           owl:someValuesFrom  l-sgov-sbírka-128-2000-pojem:obec
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  l-sgov-sbírka-128-2000-pojem:obec ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-                         ] .
+l-sgov-sbírka-128-2000-pojem:obec a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/1>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/správní-orgán>,
+    z-sgov-pojem:objekt .
 
-l-sgov-sbírka-128-2000-pojem:obec
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+l-sgov-sbírka-128-2000-pojem:právní-předpis-obce a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/písemnost-zveřejněná-na-úřední-desce>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
+
+l-sgov-sbírka-128-2000-pojem:nařízení-obce a z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-128-2000-pojem:právní-předpis-obce .
+
+l-sgov-sbírka-128-2000-pojem:vydává-právní-předpis a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-128-2000-pojem:záměr-obce a z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/písemnost-zveřejněná-na-úřední-desce> .
+
+l-sgov-sbírka-128-2000-pojem:má-záměr a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:záměr-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:záměr-obce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:záměr-obce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+l-sgov-sbírka-128-2000-pojem:obecně-závazná-vyhláška-obce a z-sgov-pojem:poddruh,
+    z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf l-sgov-sbírka-128-2000-pojem:právní-předpis-obce .
+
+l-sgov-sbírka-128-2000-pojem:vyhlášení-právního-předpisu-obce a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
