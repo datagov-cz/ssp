@@ -1,0 +1,222 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-ofn-úřední-desky: <https://slovník.gov.cz/datový/ofn-úřední-desky/> .
+@prefix d-sgov-ofn-úřední-desky-pojem: <https://slovník.gov.cz/datový/ofn-úřední-desky/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-ofn-úřední-desky:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-07-08T10:44:06.406Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Slovník OFN Úřední desky - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-ofn-úřední-desky-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/ofn-úřední-desky/pojem/";
+  owl:imports d-sgov-ofn-úřední-desky:glosář;
+  owl:versionIRI "https://slovník.gov.cz/datový/ofn-úřední-desky/model/verze/1.0.0" .
+
+d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/informace-zveřejněná-na-úřední-desce>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:označení-revize
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:označení-revize;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:schválení-informace a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:označení-revize a z-sgov-pojem:typ-vlastnosti .
+
+d-sgov-ofn-úřední-desky-pojem:je-veřejně-přístupná-v-místě a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/je-veřejně-přístupná-v-místě>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/umístění/pojem/místo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/umístění/pojem/místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/umístění/pojem/místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:úřední-deska
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:úřední-deska;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:úřední-deska;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:subjekt-informace a z-sgov-pojem:mixin-rolí, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/osoba> .
+
+d-sgov-ofn-úřední-desky-pojem:týká-se-subjektu-informace a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf ""^^xsd:integer, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:subjekt-informace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:subjekt-informace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:subjekt-informace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:týká-se-místa-informace a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/umístění/pojem/místo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/umístění/pojem/místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/umístění/pojem/místo>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:má-další-dokument a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:spadá-pod-agendu a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:agenda
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:agenda;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:agenda;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:agenda a z-sgov-pojem:typ-objektu .
+
+d-sgov-ofn-úřední-desky-pojem:úřední-deska a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/úřední-deska> .
+
+d-sgov-ofn-úřední-desky-pojem:relevantní-do a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+d-sgov-ofn-úřední-desky-pojem:sejmutí-informace a z-sgov-pojem:typ-události;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-účastníka;
+      owl:someValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-ofn-úřední-desky-pojem:informace-zveřejněná-na-úřední-desce;
+      owl:onProperty z-sgov-pojem:má-účastníka
+    ] .
