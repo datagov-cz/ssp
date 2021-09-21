@@ -1,0 +1,72 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-vocabulary-of-vehicle-registration: <https://slovník.gov.cz/datový/vocabulary-of-vehicle-registration/> .
+@prefix d-sgov-vocabulary-of-vehicle-registration-pojem: <https://slovník.gov.cz/datový/vocabulary-of-vehicle-registration/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-vocabulary-of-vehicle-registration:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-08-04T11:55:29.037Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "vocabulary of vehicle registration - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-vocabulary-of-vehicle-registration-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/vocabulary-of-vehicle-registration/pojem/";
+  owl:imports d-sgov-vocabulary-of-vehicle-registration:glosář;
+  owl:versionIRI "https://slovník.gov.cz/datový/vocabulary-of-vehicle-registration/model/verze/1.0.0" .
+
+d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla a z-sgov-pojem:typ-objektu .
+
+d-sgov-vocabulary-of-vehicle-registration-pojem:první-datum-registrace a z-sgov-pojem:typ-vlastnosti;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/council-directive-1999-37-ec/pojem/datum-první-registrace-vozidla>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ] .
+
+d-sgov-vocabulary-of-vehicle-registration-pojem:agent a z-sgov-pojem:typ-objektu .
+
+d-sgov-vocabulary-of-vehicle-registration-pojem:má-držitele a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/council-directive-1999-37-ec/pojem/má-držitele-registračního-certifikátu>,
+    [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom d-sgov-vocabulary-of-vehicle-registration-pojem:agent
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-vocabulary-of-vehicle-registration-pojem:agent;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-vocabulary-of-vehicle-registration-pojem:agent;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-vocabulary-of-vehicle-registration-pojem:evidence-registrace-vozidla;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ] .
+
+d-sgov-vocabulary-of-vehicle-registration-pojem:agent-jako-držitel-registračního-certifikátu
+  a z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/council-directive-1999-37-ec/pojem/držitel-registračního-certifikátu>,
+    d-sgov-vocabulary-of-vehicle-registration-pojem:agent .
