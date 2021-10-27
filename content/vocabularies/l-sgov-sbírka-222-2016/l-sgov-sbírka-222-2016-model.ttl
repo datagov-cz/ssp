@@ -1,0 +1,108 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix l-sgov-sbírka-222-2016: <https://slovník.gov.cz/legislativní/sbírka/222/2016/> .
+@prefix l-sgov-sbírka-222-2016-pojem: <https://slovník.gov.cz/legislativní/sbírka/222/2016/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+l-sgov-sbírka-222-2016:model a a-popis-dat-pojem:model, owl:NamedIndividual, owl:Ontology;
+  dcterms:created "2020-10-14T15:38:24.172+02:00"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Slovník Zákona č. 222/2016 Sb. (o Sbírce zákonů a mezinárodních smluv) - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-222-2016-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/222/2016/pojem/";
+  owl:imports l-sgov-sbírka-222-2016:glosář, <https://slovník.gov.cz/veřejný-sektor/verze/1.0.0>;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/222/2016/model/verze/1.0.0> .
+
+dcterms:source a owl:AnnotationProperty .
+
+l-sgov-sbírka-222-2016-pojem:částka a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/pasivní-objekt> .
+
+l-sgov-sbírka-222-2016-pojem:má-přílohu a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:právní-předpis-ve-znění-novely
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:právní-předpis-ve-znění-novely;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu
+    ] .
+
+l-sgov-sbírka-222-2016-pojem:nařízení-vlády a owl:Class, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2016-222#p2-1-d>;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:právní-předpis .
+
+l-sgov-sbírka-222-2016-pojem:právní-předpis a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2016-222#f5841481>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/právní-předpis-ze-sbírky-zákonů> .
+
+l-sgov-sbírka-222-2016-pojem:obsahuje a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/znění-právního-předpisu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:částka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:částka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/znění-právního-předpisu>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+l-sgov-sbírka-222-2016-pojem:obsahuje-novelu a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:obsahuje, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/novela-právního-předpisu>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/novela-právního-předpisu>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu
+    ] .
+
+l-sgov-sbírka-222-2016-pojem:prováděcí-právní-předpis a owl:Class, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2016-222#p2-1-e>;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:právní-předpis .
+
+l-sgov-sbírka-222-2016-pojem:právní-předpis-ve-znění-novely a owl:Class, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/konsolidované-znění-právního-předpisu> .
+
+l-sgov-sbírka-222-2016-pojem:zákon a owl:Class, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2016-222#p2-1-b>;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:právní-předpis .
+
+l-sgov-sbírka-222-2016-pojem:zákonné-opatření-senátu a owl:Class, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2016-222#p2-1-c>;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:právní-předpis .
+
+l-sgov-sbírka-222-2016-pojem:ústavní-zákon a owl:Class, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  dcterms:source <https://www.zakonyprolidi.cz/cs/2016-222#p2-1-a>;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:právní-předpis .
+
+l-sgov-sbírka-222-2016-pojem:částka-s-novelou-právního-předpisu a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf l-sgov-sbírka-222-2016-pojem:částka .
