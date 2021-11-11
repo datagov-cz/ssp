@@ -1,0 +1,37 @@
+name: Deploy
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+env:
+  USERNAME: ${{ github.actor }}
+  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  JVM_OPTS: -Xmx3200m
+jobs:
+  rdflint:
+    runs-on: openjdk:8-jdk
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: RDF Lint
+        run: |
+          .rdflint/check-vocabulary.sh content/z-sgov
+          .rdflint/check-vocabulary.sh content/v-sgov
+  sgov-validate:
+    runs-on: openjdk:8-jdk
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: SGoV Validation
+        run: |
+          gradle test --tests FolderLayoutTests --tests ConsistencyTests
+#          no_output_timeout: 30m
+      - name: Save validation results
+        run: |
+          mkdir -p test-results/junit/
+          find . -type f -regex ".*/build/test-results/.*" -exec cp {} test-results/junit/ \;
+#       when: always
+#      - store_test_results:
+#          path: test-results
+#      - store_artifacts:
+#          path: test-results/junit
