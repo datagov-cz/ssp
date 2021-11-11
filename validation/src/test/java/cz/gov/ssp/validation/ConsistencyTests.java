@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -81,33 +82,26 @@ public class ConsistencyTests {
             JenaUtil.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, null);
 
         OntDocumentManager.getInstance().setProcessImports(false);
-        Arrays.stream(new File(folder)
-            .listFiles((dir, name) -> name.matches(regex)))
+        Arrays.stream(Objects.requireNonNull(new File(folder)
+                .listFiles((dir, name) -> name.matches(regex))))
             .forEach(f -> {
                 log.info("Loading " + f);
                 dataModel.read(f.getAbsolutePath(), null, FileUtils.langTurtle);
             });
 
         final ValidationReport r = validator.validate(dataModel, rules);
-        r.results().forEach(result -> {
-            getLoggingMethod(result).accept(MessageFormat
-                .format("[{0}] Node {1} failing for value {2} with message: {3} ",
-                    result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
-                    result.getMessage()));
-        });
+        r.results().forEach(result -> getLoggingMethod(result).accept(MessageFormat
+            .format("[{0}] Node {1} failing for value {2} with message: {3} ",
+                result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
+                result.getMessage())));
         Assertions.assertTrue(r.results().stream().allMatch(
             res -> res.getSeverity().equals(SH.Warning) || res.getSeverity().equals(SH.Info)));
     }
 
     private Consumer<String> getLoggingMethod(final ValidationResult result) {
-        if (result.getSeverity().equals(SH.Violation)) {
-            return (s) -> log.error(s);
-        } else if (result.getSeverity().equals(SH.Warning)) {
-            return (s) -> log.warn(s);
-        } else if (result.getSeverity().equals(SH.Info)) {
-            return (s) -> log.info(s);
-        } else {
-            throw new IllegalArgumentException(result.getSeverity().getLocalName());
-        }
+        if (result.getSeverity().equals(SH.Violation)) return log::error;
+        else if (result.getSeverity().equals(SH.Warning)) return log::warn;
+        else if (result.getSeverity().equals(SH.Info)) return log::info;
+        else throw new IllegalArgumentException(result.getSeverity().getLocalName());
     }
 }

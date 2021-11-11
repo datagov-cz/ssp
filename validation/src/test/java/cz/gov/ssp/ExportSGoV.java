@@ -31,7 +31,7 @@ public class ExportSGoV {
                 addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.glossary);
                 addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.model);
                 addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.vocabulary);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.diagram);
+                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.prilohy);
                 addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.mapping);
             } catch (Exception e) {
                 log.error("Error during processing of " + vocabularyFolder, e);
