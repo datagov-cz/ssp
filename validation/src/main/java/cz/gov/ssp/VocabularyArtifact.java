@@ -7,14 +7,14 @@ public enum VocabularyArtifact {
     vocabulary("slovník"),
     glossary("glosář"),
     model("model"),
-    diagram("diagram"),
+    prilohy("přílohy"),
     mapping("mapování");
 
     private String artifactIriLocalName;
 
     private Resource resource;
 
-    VocabularyArtifact(String artifactIriLocalName) {
+    VocabularyArtifact(final String artifactIriLocalName) {
         this.artifactIriLocalName = artifactIriLocalName;
         this.resource = ResourceFactory.createResource(
             "http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/"+
