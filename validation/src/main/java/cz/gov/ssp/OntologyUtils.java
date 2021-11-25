@@ -51,7 +51,7 @@ public class OntologyUtils {
     public static List<String> addTypeToModel(final Dataset dataset,
                                       final String vocabularyFolder,
                                       final VocabularyFile type) throws IOException {
-        final Model model = createModel(vocabularyFolder, type.getLocalName());
+        final Model model = createModel(vocabularyFolder, type.name());
         final ResIterator st = model.listSubjectsWithProperty(RDF.type, type.getResource());
         if (!st.hasNext()) {
             log.warn("No {} found for {}", type, vocabularyFolder);
@@ -72,7 +72,7 @@ public class OntologyUtils {
     public static void addVocabularyAttachmentsToModel(final Dataset dataset,
                                                        final String vocabularyIri,
                                                        final String vocabularyFolder) throws IOException {
-        final Model model = createModel(vocabularyFolder, "přílohy");
+        final Model model = createModel(vocabularyFolder, VocabularyFile.přílohy.name());
         dataset.addNamedModel(model.createResource(vocabularyIri + "/přílohy").getURI(), model);
     }
 
@@ -87,7 +87,7 @@ public class OntologyUtils {
     public static void addAttachmentToModel(final Dataset dataset,
                                       final String vocabularyFolder,
                                       final AttachmentFile type) throws IOException {
-        final Model model = createModel(vocabularyFolder, type.getLocalName());
+        final Model model = createModel(vocabularyFolder, type.name());
         final ResIterator st = model.listSubjectsWithProperty(RDF.type, type.getResource());
         if (!st.hasNext()) {
             log.warn("No {} found for {}", type, vocabularyFolder);

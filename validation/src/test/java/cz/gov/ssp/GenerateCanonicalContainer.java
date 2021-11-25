@@ -49,9 +49,9 @@ public class GenerateCanonicalContainer {
         Layout.getVocabularyFolders().forEach(vocabularyFolder -> {
             try {
                 final Model vocModel = OntologyUtils.createModel(vocabularyFolder,
-                    VocabularyFile.slovnik.getLocalName());
+                    VocabularyFile.slovník.name());
                 final StmtIterator it = vocModel
-                    .listStatements(null, RDF.type, VocabularyFile.slovnik.getResource());
+                    .listStatements(null, RDF.type, VocabularyFile.slovník.getResource());
                 while (it.hasNext()) {
                     final Resource vocabularyIri = it.nextStatement().getSubject();
                     LOG.debug("Adding reference to vocabulary {}.", vocabularyIri);

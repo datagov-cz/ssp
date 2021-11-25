@@ -31,16 +31,16 @@ public class ExportSGoV {
         final Dataset dataset = DatasetFactory.create();
         Layout.getVocabularyFolders().forEach(folder -> {
             try {
-                final List<String> vocabularyIris = addTypeToModel(dataset, folder, VocabularyFile.slovnik);
-                addTypeToModel(dataset, folder, VocabularyFile.glosar);
+                final List<String> vocabularyIris = addTypeToModel(dataset, folder, VocabularyFile.slovník);
+                addTypeToModel(dataset, folder, VocabularyFile.glosář);
                 addTypeToModel(dataset, folder, VocabularyFile.model);
-                addTypeToModel(dataset, folder, VocabularyFile.mapovani);
+                addTypeToModel(dataset, folder, VocabularyFile.mapování);
 
                 if ( vocabularyIris.size() != 1) {
                     throw new Exception("Exactly one vocabulary must be present in the vocabulary file, but found " + vocabularyIris.size());
                 }
 
-                addVocabularyAttachmentsToModel(dataset, TestUtils.getVocabularyBase(vocabularyIris.get(0)), folder);
+                addVocabularyAttachmentsToModel(dataset, new SGoVIri(vocabularyIris.get(0)).extractBase(), folder);
             } catch (Exception e) {
                 log.error("Error during processing of " + folder, e);
                 fail();
@@ -48,7 +48,7 @@ public class ExportSGoV {
         });
         Layout.getAttachmentFolders().forEach(folder -> {
             try {
-                addAttachmentToModel(dataset, folder, AttachmentFile.priloha);
+                addAttachmentToModel(dataset, folder, AttachmentFile.příloha);
             } catch (Exception e) {
                 log.error("Error during processing of " + folder, e);
                 fail();
@@ -62,7 +62,7 @@ public class ExportSGoV {
     private void exportGraphPerVocabulary(final Dataset fullDataset) throws FileNotFoundException {
         final Map<String, Model> map = new HashMap<>();
         fullDataset.listNames().forEachRemaining(name -> {
-            final String base = TestUtils.getVocabularyBase(name);
+            final String base = new SGoVIri(name).extractBase();
             map.putIfAbsent(base, ModelFactory.createDefaultModel());
             map.get(base).add(fullDataset.getNamedModel(name));
         });
