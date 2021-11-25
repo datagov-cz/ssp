@@ -23,6 +23,9 @@ public class ExportNamedGraphs {
 
     private static final String gsp = "http://plugins.linkedpipes.com/ontology/x-graphStorePurger#";
 
+    private static final String queryString = "SELECT DISTINCT ?graph\n"
+        + "WHERE { GRAPH ?graph { ?s ?p ?o . } } ORDER BY DESC(?graph)";
+
     private static String service;
 
     private static String outputFile;
@@ -45,19 +48,11 @@ public class ExportNamedGraphs {
 
     @Test
     public void export() throws IOException {
-        String queryString = "SELECT DISTINCT ?graph\n"
-            + "WHERE { \n"
-            + "  GRAPH ?graph {\n"
-            + "    ?s ?p ?o . \n"
-            + "  }\n"
-            + "} \n"
-            + "ORDER BY DESC(?graph)";
-        QueryExecution
-            qexec = QueryExecutionFactory.sparqlService(service, queryString);
-        ResultSet results = qexec.execSelect();
-        Model model = ModelFactory.createDefaultModel();
-        Resource task = ResourceFactory.createResource(gsp + "Task");
-        Property graph = ResourceFactory.createProperty(gsp + "graph");
+        final QueryExecution qexec = QueryExecutionFactory.sparqlService(service, queryString);
+        final ResultSet results = qexec.execSelect();
+        final Model model = ModelFactory.createDefaultModel();
+        final Resource task = ResourceFactory.createResource(gsp + "Task");
+        final Property graph = ResourceFactory.createProperty(gsp + "graph");
         while (results.hasNext()) {
             final QuerySolution n = results.next();
             final Resource r =

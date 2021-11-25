@@ -6,16 +6,16 @@ import java.util.stream.Collectors;
 
 public class TestUtils {
 
-    public static String getVocabularyBase(String g) {
-        final List<VocabularyArtifact>
+    public static String getVocabularyBase(final String g) {
+        final List<VocabularyFile>
             artifacts = Arrays
-            .stream(VocabularyArtifact.values())
-            .filter(v -> !VocabularyArtifact.vocabulary.equals(v)).collect(
+            .stream(VocabularyFile.values())
+            .filter(v -> !VocabularyFile.slovnik.equals(v)).collect(
             Collectors.toList());
 
-        for (VocabularyArtifact va : artifacts) {
-            if (g.contains(va.getArtifactIriLocalName())) {
-                return g.substring(0, g.lastIndexOf("/" + va.getArtifactIriLocalName()));
+        for (VocabularyFile va : artifacts) {
+            if (g.contains(va.getLocalName())) {
+                return g.substring(0, g.lastIndexOf("/" + va.getLocalName()));
             }
         }
         return g;

@@ -1,5 +1,7 @@
 package cz.gov.ssp;
 
+import static cz.gov.ssp.OntologyUtils.addAttachmentToModel;
+import static cz.gov.ssp.OntologyUtils.addVocabularyAttachmentsToModel;
 import static cz.gov.ssp.OntologyUtils.addTypeToModel;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -8,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
@@ -26,15 +29,28 @@ public class ExportSGoV {
     @Test
     public void export() throws IOException {
         final Dataset dataset = DatasetFactory.create();
-        Layout.getVocabularyFolders().forEach(vocabularyFolder -> {
+        Layout.getVocabularyFolders().forEach(folder -> {
             try {
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.glossary);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.model);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.vocabulary);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.prilohy);
-                addTypeToModel(dataset, vocabularyFolder, VocabularyArtifact.mapping);
+                final List<String> vocabularyIris = addTypeToModel(dataset, folder, VocabularyFile.slovnik);
+                addTypeToModel(dataset, folder, VocabularyFile.glosar);
+                addTypeToModel(dataset, folder, VocabularyFile.model);
+                addTypeToModel(dataset, folder, VocabularyFile.mapovani);
+
+                if ( vocabularyIris.size() != 1) {
+                    throw new Exception("Exactly one vocabulary must be present in the vocabulary file, but found " + vocabularyIris.size());
+                }
+
+                addVocabularyAttachmentsToModel(dataset, TestUtils.getVocabularyBase(vocabularyIris.get(0)), folder);
             } catch (Exception e) {
-                log.error("Error during processing of " + vocabularyFolder, e);
+                log.error("Error during processing of " + folder, e);
+                fail();
+            }
+        });
+        Layout.getAttachmentFolders().forEach(folder -> {
+            try {
+                addAttachmentToModel(dataset, folder, AttachmentFile.priloha);
+            } catch (Exception e) {
+                log.error("Error during processing of " + folder, e);
                 fail();
             }
         });
@@ -45,16 +61,10 @@ public class ExportSGoV {
 
     private void exportGraphPerVocabulary(final Dataset fullDataset) throws FileNotFoundException {
         final Map<String, Model> map = new HashMap<>();
-        fullDataset.listNames().forEachRemaining(g -> {
-            String base = TestUtils.getVocabularyBase(g);
-            Model m;
-            if (map.containsKey(base)) {
-                m = map.get(base);
-            } else {
-                m = ModelFactory.createDefaultModel();
-                map.put(base, m);
-            }
-            m.add(fullDataset.getNamedModel(g));
+        fullDataset.listNames().forEachRemaining(name -> {
+            final String base = TestUtils.getVocabularyBase(name);
+            map.putIfAbsent(base, ModelFactory.createDefaultModel());
+            map.get(base).add(fullDataset.getNamedModel(name));
         });
         final Dataset datasetSingle = DatasetFactory.create();
         datasetSingle.setDefaultModel(fullDataset.getDefaultModel());
