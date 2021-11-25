@@ -1,5 +1,8 @@
 package cz.gov.ssp;
 
+import static cz.gov.ssp.Constants.CONTAINER_IRI;
+import static cz.gov.ssp.Constants.CONTAINER_TYPE;
+import static cz.gov.ssp.Constants.REFERENCES_CONTEXT_PROPERTY;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -24,11 +27,6 @@ import org.slf4j.LoggerFactory;
  * The canonical container is used to represent the SSP cache in the assembly line.
  */
 public class GenerateCanonicalContainer {
-
-    private static final String BASE = "https://slovník.gov.cz/datový/pracovní-prostor/pojem/";
-    private static final String CONTAINER_TYPE = BASE + "kanonický-kontejner";
-    private static final String REFERENCES_CONTEXT_PROPERTY = BASE + "odkazuje-na-kontext";
-    public static final String CONTAINER_IRI = "https://slovník.gov.cz";
 
     private static final Logger LOG = LoggerFactory.getLogger(GenerateCanonicalContainer.class);
 

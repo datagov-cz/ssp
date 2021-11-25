@@ -6,12 +6,10 @@ import org.apache.jena.rdf.model.ResourceFactory;
 public enum AttachmentFile {
     příloha;
 
-    private static final String BASE = "http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/";
-
     private Resource resource;
 
     AttachmentFile() {
-        this.resource = ResourceFactory.createResource(BASE + name());
+        this.resource = ResourceFactory.createResource(Constants.POPIS_DAT_BASE + name());
     }
 
     public Resource getResource() {

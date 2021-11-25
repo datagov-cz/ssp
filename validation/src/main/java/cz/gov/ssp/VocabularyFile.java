@@ -10,12 +10,10 @@ public enum VocabularyFile {
     mapování,
     přílohy;
 
-    private static final String BASE = "http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/";
-
     private Resource resource;
 
     VocabularyFile() {
-        this.resource = ResourceFactory.createResource(BASE + name());
+        this.resource = ResourceFactory.createResource(Constants.POPIS_DAT_BASE + name());
     }
 
     public Resource getResource() {

@@ -1,16 +1,17 @@
 package cz.gov.ssp;
 
+import static cz.gov.ssp.Constants.SLOVNIK_GOV_CZ_BASE;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SGoVIri {
 
-    private final static String BASE = "https://slovník.gov.cz/";
 
     private final static Pattern regexMain =
-        Pattern.compile("^" + BASE + "(.+)/(glosář|model|mapování(/.*)?|přílohy)$");
+        Pattern.compile("^" + SLOVNIK_GOV_CZ_BASE + "(.+)/(glosář|model|mapování(/.*)?|přílohy)$");
 
-    private final static Pattern regexVocabulary = Pattern.compile("^" + BASE + "(.+)$");
+    private final static Pattern regexVocabulary = Pattern.compile("^" + SLOVNIK_GOV_CZ_BASE + "(.+)$");
 
     private final Matcher m;
 
@@ -26,7 +27,7 @@ public class SGoVIri {
     }
 
     public String extractBase() {
-        return BASE + m.group(1);
+        return SLOVNIK_GOV_CZ_BASE + m.group(1);
     }
 
     public String extractVocabularyId() {
