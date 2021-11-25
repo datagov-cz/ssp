@@ -17,10 +17,10 @@ public class Layout {
     }
 
     public static Set<String> getVocabularyFolders() throws IOException {
-        return getSubdirectories("../obsah/slovníky");
+        return getSubdirectories("../content/vocabularies");
     }
 
     public static Set<String> getAttachmentFolders() throws IOException {
-        return getSubdirectories("../obsah/přílohy");
+        return getSubdirectories("../content/attachments");
     }
 }
