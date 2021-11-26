@@ -12,16 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: RDF Lint
         run: |
-          .rdflint/check-vocabulary.sh content/z-sgov
-          .rdflint/check-vocabulary.sh content/v-sgov
+          .rdflint/check-vocabulary.sh ../content/z-sgov
+          .rdflint/check-vocabulary.sh ../content/v-sgov
   sgov-validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: SGoV Validation
         run: |
           gradle test --tests FolderLayoutTests --tests ConsistencyTests
