@@ -1,24 +1,5 @@
 version: 2.1
 jobs:
-  rdflint:
-    docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
-      
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
-      TERM: dumb
-
-    steps:
-      - checkout
-      - run:
-          name: RDF Lint
-          command: |
-            .rdflint/check-vocabulary.sh content/z-sgov
-            .rdflint/check-vocabulary.sh content/v-sgov
   sgov-validate:
     docker:
       # specify the version you desire here
@@ -139,7 +120,6 @@ workflows:
   version: 2
   validate:
     jobs:
-      - rdflint
       - sgov-validate
   build-and-deploy:
     jobs:
