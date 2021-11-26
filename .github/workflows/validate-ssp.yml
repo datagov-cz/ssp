@@ -28,13 +28,13 @@ jobs:
         run: |
           mkdir -p test-results/junit/
           find . -type f -regex ".*/build/test-results/.*" -exec cp {} test-results/junit/ \;
-      - name: Archive code coverage results
-          uses: actions/upload-artifact@v2
-          with:
-            name: results
-            path: test-results
-      - name: Archive code coverage results JUnit
-          uses: actions/upload-artifact@v2
-          with:
-            name: results
-            path: test-results/junit
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: test-results
+      - name: Archive testresults JUnit
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: test-results/junit
