@@ -1,7 +1,8 @@
-name: Deploy
+name: Deploy SSP
 on:
-  pull_request:
-    branches: [ master ]
+  push:
+    branches:
+      - master
   workflow_dispatch:
 env:
   USERNAME: ${{ github.actor }}
@@ -11,7 +12,6 @@ env:
   ASSEMBLY_LINE_REPOSITORY: https://xn--slovnk-7va.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
   ASSEMBLY_LINE_DEV_REPOSITORY: https://xn--slovnk-test-scb.mvcr.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
   CONTAINER: https://slovník.gov.cz
-
 jobs:
   build:
     runs-on: ubuntu-latest
