@@ -1,34 +1,5 @@
 version: 2.1
 jobs:
-  sgov-validate:
-    docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
-      
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
-      TERM: dumb
-
-    steps:
-      - checkout
-      - run:
-          name: SGoV Validation
-          no_output_timeout: 30m
-          command: |
-            gradle test --tests FolderLayoutTests --tests ConsistencyTests
-      - run:
-          name: Save validation results
-          command: |
-            mkdir -p test-results/junit/
-            find . -type f -regex ".*/build/test-results/.*" -exec cp {} test-results/junit/ \;
-          when: always
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-results/junit
   deploy-to-etl-and-graphdb:
     docker:
       # specify the version you desire here
@@ -118,9 +89,6 @@ jobs:
             bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
 workflows:
   version: 2
-  validate:
-    jobs:
-      - sgov-validate
   build-and-deploy:
     jobs:
       - deploy-to-etl-and-graphdb:
