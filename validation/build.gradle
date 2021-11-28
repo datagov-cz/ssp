@@ -1,25 +1,32 @@
 plugins {
     id 'java'
+    id 'io.freefair.lombok' version '6.3.0'
 }
 
 group 'cz.gov.ssp.validator'
 version '1.0-SNAPSHOT'
 
 test {
+    maxHeapSize = '4G'
     useJUnitPlatform()
 }
 
 repositories {
     mavenCentral()
-    flatDir {
-        dirs 'libs'
+    maven {
+        name = 'GitHubPackages'
+        url = uri('https://maven.pkg.github.com/opendata-mvcr/sgov-validator')
+        credentials {
+            username = project.findProperty('gpr.user') ?: System.getenv('USERNAME')
+            password = project.findProperty('gpr.key') ?: System.getenv('TOKEN')
+        }
     }
 }
 
 dependencies {
-    implementation 'org.topbraid:shacl:1.3.1'
-    implementation 'org.slf4j:slf4j-simple:1.7.30'
-    implementation name: 'sgov-validator-20210205180400'
+    implementation 'org.topbraid:shacl:1.3.2'
+    implementation 'org.slf4j:slf4j-simple:1.7.32'
+    implementation 'com.github.sgov:sgov-validator:1.6.5'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }

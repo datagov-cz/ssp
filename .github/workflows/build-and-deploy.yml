@@ -1,0 +1,89 @@
+name: Deploy SSP
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+env:
+  USERNAME_LP: ${{ secrets.USERNAME_LP }}
+  PASSWORD_LP: ${{ secrets.PASSWORD_LP }}
+  USERNAME_GRAPHDB: ${{ secrets.USERNAME_GRAPHDB }}
+  PASSWORD_GRAPHDB: ${{ secrets.PASSWORD_GRAPHDB }}
+  JVM_OPTS: -Xmx3200m
+  PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY: https://xn--slovnk-7va.gov.cz/prohlizime/sluzby/db-server/repositories/termit
+  ASSEMBLY_LINE_REPOSITORY: https://xn--slovnk-7va.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+  ASSEMBLY_LINE_DEV_REPOSITORY: https://xn--slovnk-test-scb.mvcr.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+  CONTAINER: https://slovník.gov.cz
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate TRIG
+        run: gradle test --tests ExportSGoV --tests GenerateCanonicalContainer
+      - name: Create a list of named graphs to remove from slovník.gov.cz
+        run: SGOV_SPARQL_SERVICE="https://xn--slovnk-7va.gov.cz/sparql" SGOV_SPARQL_SERVICE_NAMED_GRAPHS_FILE="../named-graphs-slovník-gov-cz.ttl" gradle test --tests cz.gov.ssp.ExportNamedGraphs
+      - name: Save exported files
+        run: |
+          find . -type f -regex ".*/sgov.trig" -exec cp {} ~/sgov.trig \;
+          find . -type f -regex ".*/sgov-graph-per-vocabulary.trig" -exec cp {} ~/sgov-graph-per-vocabulary.trig \;
+          find . -type f -regex ".*/sgov-canonical-container.trig" -exec cp {} ~/sgov-canonical-container.trig \;
+          find . -type f -regex ".*/named-graphs-slovník-gov-cz.ttl" -exec cp {} ~/named-graphs-slovník-gov-cz.ttl \;
+#       when: always
+      - name: Store sgov.trig
+        uses: actions/upload-artifact@v2
+        with:
+          name: sgov.trig
+          path: sgov.trig
+      - name: Store named-graphs-slovník-gov-cz.ttl
+        uses: actions/upload-artifact@v2
+        with:
+          name: named-graphs-slovník-gov-cz.ttl
+          path: named-graphs-slovník-gov-cz.ttl
+      - name: Store sgov-canonical-container.trig
+        uses: actions/upload-artifact@v2
+        with:
+          name: sgov-canonical-container.trig
+          path: sgov-canonical-container.trig
+      - name: Store sgov-graph-per-vocabulary.trig
+        uses: actions/upload-artifact@v2
+        with:
+          name: sgov-graph-per-vocabulary.trig
+          path: sgov-graph-per-vocabulary.trig
+      - name: GraphDB - Download the repo
+        run: |
+            curl --location --request POST "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}?infer=false" -o default.ttl \
+            --header 'Content-Type: application/sparql-query' \
+            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
+            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+      - name: GraphDB - Clear repository
+        run: |
+            bash bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - name: GraphDB - Publish new version
+        run: |
+            curl --location --request PUT "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements" \
+            --header 'Content-Type: application/trig' \
+            --data-binary '@./sgov-graph-per-vocabulary.trig' \
+            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+      - name: ETL - Clear named graphs
+        run: |
+            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592406645132' \
+            -u ${USERNAME}:${PASSWORD} \
+            --form 'input=@./named-graphs-slovník-gov-cz.ttl'
+      - name: ETL - Publish new version
+        run: |
+            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592398255883' \
+            -u ${USERNAME}:${PASSWORD} \
+            --form 'input=@./sgov.trig'
+      - name: (DEV) AL - Clear cache
+        run: |
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - name: (DEV) AL - Uploading cache
+        run: |
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - name: (PROD) AL - Clear cache
+        run: |
+            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} ${QUERY}
+      - name: (PROD) AL - Uploading cache
+        run: |
+            bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}

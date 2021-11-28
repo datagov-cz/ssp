@@ -1,0 +1,40 @@
+name: Validate SSP
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+env:
+  USERNAME: ${{ github.actor }}
+  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  JVM_OPTS: -Xmx3200m
+jobs:
+  rdflint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: RDF Lint
+        run: |
+          .rdflint/check-vocabulary.sh content/vocabularies/z-sgov
+          .rdflint/check-vocabulary.sh content/vocabularies/v-sgov
+  sgov-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: SGoV Validation
+        run: |
+          gradle test --tests FolderLayoutTests --tests ConsistencyTests
+#          no_output_timeout: 30m
+      - name: Save validation results
+        run: |
+          mkdir -p test-results/junit/
+          find . -type f -regex ".*/build/test-results/.*" -exec cp {} test-results/junit/ \;
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: test-results
+      - name: Archive testresults JUnit
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: test-results/junit
