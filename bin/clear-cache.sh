@@ -4,7 +4,12 @@ CONTAINER=${2}
 USERNAME=${3}
 PASSWORD=${4}
 
-curl --location --request POST "${REPOSITORY}" \
+echo "REPO: $REPOSITORY"
+echo "CONT: $CONTAINER"
+echo "USER: $USERNAME"
+echo "PASS: ${#PASSWORD}"
+
+curl -v --location "${REPOSITORY}" \
   -o vocabularyContexts.csv \
   --header "Content-Type: application/sparql-query" \
   --header "Accept: text/csv" \
