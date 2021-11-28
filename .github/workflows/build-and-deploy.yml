@@ -58,6 +58,9 @@ jobs:
             --header 'Content-Type: application/sparql-query' \
             --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
             -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+      - name: DEBUG
+        run: |
+          echo $PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY
       - name: GraphDB - Clear repository
         run: |
             bash bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
