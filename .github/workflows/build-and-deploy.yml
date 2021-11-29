@@ -71,12 +71,12 @@ jobs:
       - name: ETL - Clear named graphs
         run: |
             curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592406645132' \
-            -u ${USERNAME}:${PASSWORD} \
+            -u ${USERNAME_LP}:${PASSWORD_LP} \
             --form 'input=@./named-graphs-slovník-gov-cz.ttl'
       - name: ETL - Publish new version
         run: |
             curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592398255883' \
-            -u ${USERNAME}:${PASSWORD} \
+            -u ${USERNAME_LP}:${PASSWORD_LP} \
             --form 'input=@./sgov.trig'
       - name: (DEV) AL - Clear cache
         run: |
