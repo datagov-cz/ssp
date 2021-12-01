@@ -2,12 +2,14 @@ package cz.gov.ssp;
 
 import static cz.gov.ssp.Constants.CONTAINER_IRI;
 import static cz.gov.ssp.Constants.CONTAINER_TYPE;
+import static cz.gov.ssp.Constants.REFERENCES_ATTACHMENT_CONTEXT_PROPERTY;
 import static cz.gov.ssp.Constants.REFERENCES_CONTEXT_PROPERTY;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Set;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
@@ -38,26 +40,46 @@ public class GenerateCanonicalContainer {
         wsModel.add(wsModel.createResource(CONTAINER_IRI), RDF.type,
             wsModel.createResource(CONTAINER_TYPE));
         generateVocabularyReferences(wsModel);
+        generateAttachmentReferences(wsModel);
         dataset.addNamedModel(CONTAINER_IRI, wsModel);
         RDFDataMgr.write(new FileOutputStream("../sgov-canonical-container.trig"), dataset,
             RDFFormat.TRIG);
     }
 
     private void generateVocabularyReferences(Model wsModel) throws IOException {
-        Layout.getVocabularyFolders().forEach(vocabularyFolder -> {
+        generateReferences(wsModel,
+            Layout.getVocabularyFolders(),
+            VocabularyFile.slovník.name(),
+            VocabularyFile.slovník.getResource(),
+            REFERENCES_CONTEXT_PROPERTY );
+    }
+
+    private void generateAttachmentReferences(Model wsModel) throws IOException {
+        generateReferences(wsModel,
+            Layout.getAttachmentFolders(),
+            AttachmentFile.příloha.name(),
+            AttachmentFile.příloha.getResource(),
+            REFERENCES_ATTACHMENT_CONTEXT_PROPERTY );
+    }
+
+    private void generateReferences(Model wsModel, final Set<String> folders,
+                                    String typeName,
+                                    Resource type,
+                                    String property) {
+        folders.forEach(folder -> {
             try {
-                final Model vocModel = OntologyUtils.createModel(vocabularyFolder,
-                    VocabularyFile.slovník.name());
+                final Model vocModel = OntologyUtils.createModel(folder,
+                    typeName);
                 final StmtIterator it = vocModel
-                    .listStatements(null, RDF.type, VocabularyFile.slovník.getResource());
+                    .listStatements(null, RDF.type, type);
                 while (it.hasNext()) {
-                    final Resource vocabularyIri = it.nextStatement().getSubject();
-                    LOG.debug("Adding reference to vocabulary {}.", vocabularyIri);
+                    final Resource iri = it.nextStatement().getSubject();
+                    LOG.debug("Adding reference to {}.", iri);
                     wsModel.add(wsModel.createResource(CONTAINER_IRI),
-                        wsModel.createProperty(REFERENCES_CONTEXT_PROPERTY), vocabularyIri);
+                        wsModel.createProperty(property), iri);
                 }
             } catch (Exception e) {
-                LOG.error("Error during processing of " + vocabularyFolder, e);
+                LOG.error("Error during processing of " + folder, e);
                 fail();
             }
         });
