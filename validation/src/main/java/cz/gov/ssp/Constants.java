@@ -3,7 +3,7 @@ package cz.gov.ssp;
 public class Constants {
 
     public final static String SLOVNIK_GOV_CZ_BASE = "https://slovník.gov.cz/";
-    public static final String POPIS_DAT_BASE = "http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/";
+    public static final String POPIS_DAT_BASE = "http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/";
     public static final String PRACOVNI_PROSTOR_BASE = "https://slovník.gov.cz/datový/pracovní-prostor/pojem/";
     public static final String REFERENCES_CONTEXT_PROPERTY = PRACOVNI_PROSTOR_BASE + "odkazuje-na-kontext";
     public static final String REFERENCES_ATTACHMENT_CONTEXT_PROPERTY = PRACOVNI_PROSTOR_BASE + "odkazuje-na-přílohový-kontext";
