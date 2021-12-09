@@ -1,0 +1,173 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix a-sgov-slovn-k-ava-k-da: <https://slovník.gov.cz/agendový/slovn-k-ava-k-da/> .
+@prefix a-sgov-slovn-k-ava-k-da-pojem: <https://slovník.gov.cz/agendový/slovn-k-ava-k-da/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+a-sgov-slovn-k-ava-k-da:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2021-09-30T09:37:58.026Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Slovník Ava Káda - model"@cs;
+  bibo:status "Specifikace"@cs;
+  vann:preferredNamespacePrefix "a-sgov-slovn-k-ava-k-da-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/agendový/slovn-k-ava-k-da/pojem/";
+  owl:imports a-sgov-slovn-k-ava-k-da:glosář;
+  owl:versionIRI "https://slovník.gov.cz/agendový/slovn-k-ava-k-da/model/verze/1.0.0" .
+
+<http://onto.fel.cvut.cz/ontologies/zdroj/dokument-zákona-č.-56-2001-sbírky> a a-popis-dat-pojem:dokument;
+  a-popis-dat-pojem:má-soubor <http://onto.fel.cvut.cz/ontologies/zdroj/dokument-zákona-č.-56-2001-sbírky/soubor/zakonyprolidi_cs_2001_056_v20210101.html>;
+  dcterms:description "Dokument zákona č. 56/2001 sbírky, o podmínkách provozu vozidel na pozemních komunikacích pro použití ve slovníku Ava Káda."@cs;
+  dcterms:title "Dokument zákona č. 56/2001 sbírky"@cs .
+
+<http://onto.fel.cvut.cz/ontologies/zdroj/dokument-zákona-č.-56-2001-sbírky/soubor/zakonyprolidi_cs_2001_056_v20210101.html>
+  a a-popis-dat-pojem:soubor;
+  dcterms:title "zakonyprolidi_cs_2001_056_v20210101.html"@cs .
+
+a-sgov-slovn-k-ava-k-da-pojem:silniční-vozidlo a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+a-sgov-slovn-k-ava-k-da-pojem:motorové-vozidlo a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  dcterms:source "Paragraf 2 odstavec (1) zákona č. 56/2001 sbírky" .
+
+a-sgov-slovn-k-ava-k-da-pojem:nemotorové-vozidlo a <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  dcterms:source "Paragraf 2 odstavec (1) zákona č. 56/2001 sbírky" .
+
+a-sgov-slovn-k-ava-k-da-pojem:kategorie-vozidla a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  dcterms:source "Paragraf 2 odstavec (8) zákona č. 56/2001 sbírky" .
+
+a-sgov-slovn-k-ava-k-da-pojem:provozovatel-vozidla a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  dcterms:source "Paragraf 2 odstavec (15) zákona č. 56/2001 sbírky";
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        ];
+      owl:someValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+a-sgov-slovn-k-ava-k-da-pojem:stanice-technické-kontroly <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft>
+    true .
+
+a-sgov-slovn-k-ava-k-da-pojem:prodejní-místo <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft>
+    true;
+  dcterms:source "Odstavec (13) paragrafu 2 zákona č. 56/2001 sbírky" .
+
+a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  dcterms:title "test provozovaného vozidla"@cs;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozovatel-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozovatel-vozidla;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass a-sgov-slovn-k-ava-k-da-pojem:provozovatel-vozidla;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+a-sgov-slovn-k-ava-k-da-pojem:typ-silničního-vozidla a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+a-sgov-slovn-k-ava-k-da-pojem:má-typ-silničního-vozidla a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
+
+<https://slovník.gov.cz/legislativní/sbírka/361/2000/pojem/vozidlo> rdfs:subClassOf
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass a-sgov-slovn-k-ava-k-da-pojem:provozuje-vozidlo;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
