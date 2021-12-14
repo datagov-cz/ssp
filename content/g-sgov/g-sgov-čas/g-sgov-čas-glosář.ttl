@@ -1,0 +1,222 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-čas: <https://slovník.gov.cz/generický/čas/> .
+@prefix g-sgov-čas-pojem: <https://slovník.gov.cz/generický/čas/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-čas:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník pro čas - glosář"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-čas-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/čas/pojem/";
+  owl:versionIRI <https://slovník.gov.cz/generický/čas/glosář/verze/0.0.1>;
+  skos:hasTopConcept g-sgov-čas-pojem:datum, g-sgov-čas-pojem:datum-a-čas, g-sgov-čas-pojem:den-v-měsíci,
+    g-sgov-čas-pojem:do, g-sgov-čas-pojem:hodina, g-sgov-čas-pojem:je-nespecifikovaný,
+    g-sgov-čas-pojem:minuta, g-sgov-čas-pojem:má-den-v-týdnu, g-sgov-čas-pojem:má-frekvenci,
+    g-sgov-čas-pojem:má-jinou-časovou-specifikaci, g-sgov-čas-pojem:má-konec, g-sgov-čas-pojem:má-specifickou-frekvenci,
+    g-sgov-čas-pojem:má-začátek, g-sgov-čas-pojem:má-časovou-dobu, g-sgov-čas-pojem:má-časové-období,
+    g-sgov-čas-pojem:má-časový-interval, g-sgov-čas-pojem:má-časový-okamžik, g-sgov-čas-pojem:od,
+    g-sgov-čas-pojem:počet-opakování, g-sgov-čas-pojem:rok-v-desetiletí, g-sgov-čas-pojem:rok-ve-století,
+    g-sgov-čas-pojem:specifická-frekvence, g-sgov-čas-pojem:týden-v-měsíci, g-sgov-čas-pojem:týden-v-roce,
+    g-sgov-čas-pojem:výjimka, g-sgov-čas-pojem:čas, g-sgov-čas-pojem:časová-doba, g-sgov-čas-pojem:časová-platnost,
+    g-sgov-čas-pojem:časová-specifikace, g-sgov-čas-pojem:časový-interval, g-sgov-čas-pojem:časový-okamžik .
+
+g-sgov-čas-pojem:časová-specifikace a skos:Concept;
+  skos:broader <https://slovník.gov.cz/generický/věci/pojem/věc>, z-sgov-pojem:typ-objektu,
+    z-sgov-pojem:časová-specifikace, z-sgov-pojem:časový-prvek;
+  skos:definition "Časová specifikace určuje množinu časových úseků pomocí různých způsobů (časový interval, specifický časový interval, frekvence a další). Výsledná množina časových úseků je průnikem těchto množin. Kromě níže specifikovaných vlastností a vazeb je možné u této třídy použít také vlastnosti a vazby třídy Věc."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "Časová specifikace"@cs .
+
+g-sgov-čas-pojem:časový-interval a skos:Concept;
+  skos:broader z-sgov-pojem:typ-objektu, z-sgov-pojem:časový-interval;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "Časový interval"@cs;
+  skos:scopeNote "Pro reprezentaci časových intervalů je potřeba buď uvést jejich začátek a konec, a nebo pouze jeden údaj, pokud ten druhý není znám, ale je známo, že se jedná o interval. Časový interval začíná a končí časovým okamžikem."@cs .
+
+g-sgov-čas-pojem:časový-okamžik a skos:Concept;
+  skos:broader z-sgov-pojem:typ-objektu, z-sgov-pojem:časový-okamžik;
+  skos:definition "Pro reprezentaci časových okamžiků lze použít datum, čas a nebo kombinací data a času. Pokud je jasné, který datový typ je v daném místě vhodný, použije se konkrétní datový typ, tedy datum, čas či datum a čas. Často ale při tvorbě OFN není předem známo, jaká úroveň detailu bude pro určení okamžiku k dispozici. Aby se zabránilo různým reprezentacím této situace v různých OFN, je specifikována třída Časový okamžik."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "Časový okamžik"@cs .
+
+g-sgov-čas-pojem:čas a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Konkrétní čas."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "čas"@cs;
+  skos:scopeNote "čas okamžiku"@cs .
+
+g-sgov-čas-pojem:časová-doba a skos:Concept;
+  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:definition "Určuje opakující se čas nebo dobu ohraničenou různými údaji o čase. Příkladem může být otevírací doba v určitý den, nebo čas vývozu kontejneru."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "Časová doba"@cs .
+
+g-sgov-čas-pojem:má-frekvenci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Frekvence určuje opakování. Např. čtrnáctidenní frekvence v kombinaci s časovým intervalem od 1.1.2020 do 31.12.2020 znamená \"každých čtrnáct dní v roce 2020\". Hodnoty této vlastnosti jsou z číselníku Frequency publikované jako číselník EU Vocabularies. V příkladu je uvedena čtrnáctidenní frekvence."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má frekvenci"@cs .
+
+g-sgov-čas-pojem:datum-a-čas a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Datum a čas začátku okamžiku."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "datum a čas"@cs;
+  skos:scopeNote "datum a čas okamžiku"@cs .
+
+g-sgov-čas-pojem:rok-ve-století a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Rok, kdy časová specifikace v každém století je definována."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "rok ve století"@cs .
+
+g-sgov-čas-pojem:specifická-frekvence a skos:Concept;
+  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:definition "Specifická frekvence umožňuje specifikovat opakování, které není pokryto frekvencí. Například specifická frekvence hodina v kombinaci s časovým intervalem od 1.1.2020 do 31.12.2020 specifikuje každou hodinu v daném časovém intervalu."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "Specifická frekvence"@cs .
+
+g-sgov-čas-pojem:má-den-v-týdnu a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Hodnoty této vlastnosti jsou z Číselníku pro dny v týdnu publikovaného jako číselník v Národním katalogu otevřených dat. V příkladu je uvedena prezentace pondělí. Tuto vlastnost lze také využít pro vyjádření opakování dané události v konkrétním dnu v týdnu. Pokud je použita bez časového intervalu, znamená to, že specifikujeme například každé pondělí."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má den v týdnu"@cs .
+
+g-sgov-čas-pojem:den-v-měsíci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Den, kdy časová specifikace v každém měsíci je definována. Pokud daný den v měsíci není (krátký měsíc), tak specifikace v daném měsíci není definována."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "den v měsíci"@cs .
+
+g-sgov-čas-pojem:od a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Začátek časového vymezení."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "od"@cs .
+
+g-sgov-čas-pojem:týden-v-roce a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Týden, kdy časová specifikace v každém roce je definována. Pokud daný týden v roce není (krátký rok), tak specifikace v daném roce není definována."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "týden v roce"@cs .
+
+g-sgov-čas-pojem:má-konec a skos:Concept;
+  skos:definition "Okamžik konce intervalu."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má konec"@cs .
+
+g-sgov-čas-pojem:má-časové-období a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Časové období specifikuje například každý říjen. V kombinaci s časovým intervalem, např. od 1.1.2020 do 31.12.2021, můžeme specifikovat každý říjen v tomto intervalu - jsou dva. Hodnoty této vlastnosti jsou z číselníku Time period publikovaného jako číselník EU Vocabularies."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má časové období"@cs .
+
+g-sgov-čas-pojem:má-začátek a skos:Concept;
+  skos:definition "Okamžik začátku intervalu."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má začátek"@cs .
+
+g-sgov-čas-pojem:má-jinou-časovou-specifikaci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Jiná časová specifikace se použije pro situace typu \"v případě dobrého/špatného počasí\" apod. Hodnoty této vlastnosti jsou z Číselníku pro jinou časovou specifikaci publikovaného jako číselník v Národním katalogu otevřených dat. V příkladu je uvedena prezentace \"dobré počasí\". Tuto vlastnost lze také využít pro vyjádření opakování dané aktivity v konkrétním případě."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má jinou časovou specifikaci"@cs .
+
+g-sgov-čas-pojem:minuta a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Minuta, kdy časová specifikace v každé hodině je definována."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "minuta"@cs .
+
+g-sgov-čas-pojem:datum a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Datum okamžiku."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "datum"@cs;
+  skos:scopeNote "datum okamžiku"@cs .
+
+g-sgov-čas-pojem:má-časový-interval a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Časový interval určuje začátek a konec daného časového intervalu. Lze kombinovat např. s výčtem konkrétních dnů v týdnu."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má časový interval"@cs .
+
+g-sgov-čas-pojem:týden-v-měsíci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Týden, kdy časová specifikace v každém měsíci je definována. Pokud daný týden v měsíci není (krátký měsíc), tak specifikace v daném měsíci není definována."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "týden v měsíci"@cs .
+
+g-sgov-čas-pojem:má-specifickou-frekvenci a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má specifickou frekvenci"@cs .
+
+g-sgov-čas-pojem:časová-platnost a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Časová platnost určuje, kdy je časová specifikace platná. Časová platnost se vyjadřuje stejně jako časová specfikace, např. jako časová platnost specifikace otevírací doby."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "časová platnost"@cs .
+
+g-sgov-čas-pojem:hodina a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Hodina, kdy časová specifikace v každém dni je definována."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "hodina"@cs .
+
+g-sgov-čas-pojem:má-časovou-dobu a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Určuje opakující se čas nebo dobu ohraničenou různými údaji o čase. Příkladem může být otevírací doba v určitý den, nebo čas vývozu kontejneru."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má časovou dobu"@cs .
+
+g-sgov-čas-pojem:je-nespecifikovaný a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "je nespecifikovaný"@cs;
+  skos:scopeNote "Nespecifikovaný časový okamžik, u kterého se ví, že jeho hodnota je neznámá. Jedná se o pro interoperabilitu výrazně lepší variantu, než si neznámou hodnotou uměle stanovit na 3333-03-03 či 9999-09-09 apod. nebo hodnotu vynechat."@cs .
+
+g-sgov-čas-pojem:má-časový-okamžik a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Časový okamžik určuje konkrétní okamžik v čase pomocí data nebo data a času. Pokud je časový okamžik definován pomocí data a času nemá smysl danou definici kombinovat s jinými způsoby specifikace."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "má časový okamžik"@cs .
+
+g-sgov-čas-pojem:rok-v-desetiletí a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Rok, kdy časová specifikace v každém desetiletí je definována."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "rok v desetiletí"@cs .
+
+g-sgov-čas-pojem:do a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Konec časového vymezení."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "do"@cs .
+
+g-sgov-čas-pojem:počet-opakování a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:definition "Počet opakování určuje počet opakování konkrétní události nebo situace v čase. Pokud je použit pouze počet opakování, znamená to, že se událost uskuteční např. 3x, ale není řečeno v jakém časovém intervalu. Pokud je ve stejném okamžiku specifikován i časový interval, znamená to, že se daná událost opakuje 3x v daném časovém intervalu. Obdobně to platí ve spojení s dalšími oblastmi časové specifikace (3x v pondělí, 3x v týdnu apod.). Pokud chcete uvést, že se udáslost/situace uskuteční 3x v konkrétní den nebo týden, tak je nutné specifikovat časový interval, ve kterém se tak stane."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "počet opakování"@cs;
+  skos:scopeNote "datum okamžiku"@cs .
+
+g-sgov-čas-pojem:výjimka a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:definition "Výjimka z dané časové specifikace. Od množiny časových úseků dle časové specifikace se odečítá množina časových úseků, které jsou definovány specifikovány výjimkou."@cs;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "výjimka"@cs .
+
+g-sgov-čas-pojem:den-v-týdnu a skos:Concept;
+  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:inScheme g-sgov-čas:glosář;
+  skos:prefLabel "Den v týdnu"@cs .
