@@ -1,0 +1,3223 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-čas: <https://slovník.gov.cz/generický/čas/> .
+@prefix g-sgov-čas-pojem: <https://slovník.gov.cz/generický/čas/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-čas:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník pro čas - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-čas-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/čas/pojem/";
+  owl:imports g-sgov-čas:glosář, <https://slovník.gov.cz/základní/model/plný>;
+  owl:versionIRI <https://slovník.gov.cz/generický/čas/model/verze/0.0.1> .
+
+z-sgov-pojem:je-vlastností a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
+
+z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
+
+z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
+  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
+
+z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
+  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
+
+z-sgov-pojem:časový-prvek a owl:Class .
+
+z-sgov-pojem:časový-okamžik a owl:Class .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+z-sgov-pojem:časová-specifikace a owl:Class .
+
+z-sgov-pojem:časový-interval a owl:Class .
+
+g-sgov-čas-pojem:časová-specifikace a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, z-sgov-pojem:časová-specifikace,
+    z-sgov-pojem:časový-prvek .
+
+g-sgov-čas-pojem:časový-interval a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:časový-interval, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1
+        ]
+    ] .
+
+g-sgov-čas-pojem:časový-okamžik a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:časový-okamžik, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-čas-pojem:datum
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:datum;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:datum;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:datum;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-čas-pojem:datum-a-čas
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:datum-a-čas;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:datum-a-čas;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:datum-a-čas;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vlastnost;
+      owl:someValuesFrom g-sgov-čas-pojem:je-nespecifikovaný
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:je-nespecifikovaný;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:je-nespecifikovaný;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:je-nespecifikovaný;
+      owl:onProperty z-sgov-pojem:má-vlastnost
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-začátek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-začátek;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:má-konec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:má-konec;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2
+        ]
+    ] .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/frekvence> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/den-v-týdnu> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/časové-období> a owl:Class .
+
+g-sgov-čas-pojem:čas a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:časová-doba;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:časová-doba a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+g-sgov-čas-pojem:má-frekvenci a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/frekvence>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:datum-a-čas a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:časový-okamžik;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:datum-a-čas, z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:rok-ve-století a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:specifická-frekvence a owl:Class, z-sgov-pojem:typ-objektu;
+  rdfs:subClassOf z-sgov-pojem:objekt .
+
+g-sgov-čas-pojem:má-den-v-týdnu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/den-v-týdnu>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:den-v-týdnu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:den-v-týdnu
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:den-v-týdnu;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:den-v-měsíci a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:od a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:časová-doba;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:týden-v-roce a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:má-konec a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-čas-pojem:má-časové-období a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/časové-období>
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:má-začátek a z-sgov-pojem:typ-vztahu;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ] .
+
+g-sgov-čas-pojem:má-jinou-časovou-specifikaci a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jiná-časová-specifikace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:minuta a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:datum a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:časový-okamžik;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:datum, z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:má-časový-interval a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range g-sgov-čas-pojem:časový-interval;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-interval;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-interval
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:týden-v-měsíci a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:má-specifickou-frekvenci a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:časová-platnost a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range g-sgov-čas-pojem:časová-specifikace;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:hodina a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:má-časovou-dobu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range g-sgov-čas-pojem:časová-doba;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:je-nespecifikovaný a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:časový-okamžik;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ];
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty [
+          owl:inverseOf z-sgov-pojem:má-vlastnost
+        ]
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:má-časový-okamžik a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range g-sgov-čas-pojem:časový-okamžik;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časový-okamžik;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časový-okamžik
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:rok-v-desetiletí a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:specifická-frekvence;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:specifická-frekvence;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:specifická-frekvence
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:do a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:časová-doba;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-doba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-doba;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:počet-opakování a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:je-vlastností
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:je-vlastností;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+
+g-sgov-čas-pojem:výjimka a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
+  rdfs:domain g-sgov-čas-pojem:časová-specifikace;
+  rdfs:range g-sgov-čas-pojem:časová-specifikace;
+  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-čas-pojem:časová-specifikace;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+    ], [ a owl:Restriction;
+      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
+      owl:someValuesFrom g-sgov-čas-pojem:časová-specifikace
+    ];
+  rdfs:subPropertyOf z-sgov-pojem:vztah .
+
+g-sgov-čas-pojem:den-v-týdnu a z-sgov-pojem:typ-objektu .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vlastnost .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-1 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
+
+[] owl:inverseOf z-sgov-pojem:má-vztažený-prvek-2 .
