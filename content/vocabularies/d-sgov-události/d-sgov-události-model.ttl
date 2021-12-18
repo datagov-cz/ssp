@@ -1,0 +1,388 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix d-sgov-události: <https://slovník.gov.cz/datový/události/> .
+@prefix d-sgov-události-pojem: <https://slovník.gov.cz/datový/události/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu> a owl:Class .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> a owl:ObjectProperty;
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> a owl:ObjectProperty;
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+<https://slovník.gov.cz/generický/vstupné/pojem/vstupné> a owl:Class .
+
+<https://slovník.gov.cz/generický/osoby/pojem/osoba> a owl:Class .
+
+<https://slovník.gov.cz/generický/kontakty/pojem/kontakt> a owl:Class .
+
+<https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>
+  a owl:Class .
+
+<https://slovník.gov.cz/generický/lidé/pojem/člověk> a owl:Class .
+
+d-sgov-události-pojem:má-záštitu a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range d-sgov-události-pojem:partner;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-události-pojem:partner
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:partner;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:událost a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
+
+d-sgov-události-pojem:partner a owl:Class, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
+
+d-sgov-události-pojem:dlouhý-popis a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+d-sgov-události-pojem:pořadatel-jako-právnická-osoba a owl:Class, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf d-sgov-události-pojem:pořadatel, <https://slovník.gov.cz/generický/osoby/pojem/osoba> .
+
+d-sgov-události-pojem:pořadatel a owl:Class, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
+
+d-sgov-události-pojem:má-typ-události a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/typ-události>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-události>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/typ-události>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/typ-události> a owl:Class .
+
+<https://slovník.gov.cz/generický/číselníky/pojem/téma-události> a owl:Class .
+
+d-sgov-události-pojem:má-pořadatele a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range d-sgov-události-pojem:pořadatel;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-události-pojem:pořadatel
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:pořadatel;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:partner-jako-fyzická-osoba a owl:Class, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf d-sgov-události-pojem:partner, <https://slovník.gov.cz/generický/lidé/pojem/člověk> .
+
+d-sgov-události-pojem:partner-jako-právnická-osoba a owl:Class, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf d-sgov-události-pojem:partner, <https://slovník.gov.cz/generický/osoby/pojem/osoba> .
+
+d-sgov-události-pojem:vhodné-pro-zvířata a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+<https://slovník.gov.cz/generický/čas/pojem/časový-interval> a owl:Class .
+
+d-sgov-události-pojem:má-mediálního-partnera a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range d-sgov-události-pojem:partner;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-události-pojem:partner
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:partner;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:pořadatel-jako-fyzická-osoba a owl:Class, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf d-sgov-události-pojem:pořadatel, <https://slovník.gov.cz/generický/lidé/pojem/člověk> .
+
+d-sgov-události-pojem:má-hlavního-sponzora a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range d-sgov-události-pojem:partner;
+  rdfs:subClassOf d-sgov-události-pojem:má-sponzora, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-události-pojem:partner
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:partner;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ];
+  rdfs:subPropertyOf d-sgov-události-pojem:má-sponzora .
+
+d-sgov-události-pojem:má-vstupné a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range <https://slovník.gov.cz/generický/vstupné/pojem/vstupné>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/vstupné/pojem/vstupné>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/vstupné/pojem/vstupné>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:má-trvání a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-interval>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-interval>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-interval>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:má-umístění a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/lokalizace-prostorového-objektu>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:má-kontakt a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/kontakty/pojem/kontakt>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:má-dílčí-událost a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range d-sgov-události-pojem:událost;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:vhodné-pro-děti a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+d-sgov-události-pojem:má-téma a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/téma-události>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/téma-události>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/téma-události>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:má-bezbariérový-přístup a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/bezbariérové-přístupy/pojem/bezbariérový-přístup>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:má-sponzora a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range d-sgov-události-pojem:partner;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:partner;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-události-pojem:partner
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:má-zaštiťující-událost a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range d-sgov-události-pojem:událost;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
+
+d-sgov-události-pojem:registrace a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:domain d-sgov-události-pojem:událost;
+  rdfs:range rdfs:Literal;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom d-sgov-události-pojem:událost
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-události-pojem:událost;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+d-sgov-události:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-10-28";
+  dcterms:title "Datový slovník OFN událostí - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "d-sgov-události-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/události/pojem/";
+  owl:imports d-sgov-události:glosář, <https://slovník.gov.cz/generický/lidé/model>,
+    <https://slovník.gov.cz/generický/osoby/model>, <https://slovník.gov.cz/generický/veřejná-místa/model>,
+    <https://slovník.gov.cz/generický/věci/model>, <https://slovník.gov.cz/veřejný-sektor/model>;
+  owl:versionIRI <https://slovník.gov.cz/datový/události/model/verze/0.0.1> .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
