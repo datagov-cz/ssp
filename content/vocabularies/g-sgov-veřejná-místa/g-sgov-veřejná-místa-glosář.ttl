@@ -8,7 +8,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
 g-sgov-veřejná-místa:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2020-10-28";
@@ -24,19 +23,22 @@ g-sgov-veřejná-místa:glosář a a-popis-dat-pojem:glosář, owl:Ontology, sko
   skos:hasTopConcept g-sgov-veřejná-místa-pojem:má-bezbariérový-přístup, g-sgov-veřejná-místa-pojem:má-kontakt,
     g-sgov-veřejná-místa-pojem:má-otevírací-dobu, g-sgov-veřejná-místa-pojem:má-provozovatele,
     g-sgov-veřejná-místa-pojem:má-vlastníka, g-sgov-veřejná-místa-pojem:má-vstupné, g-sgov-veřejná-místa-pojem:provozovatel,
-    g-sgov-veřejná-místa-pojem:provozovatel-jako-osoba, g-sgov-veřejná-místa-pojem:provozovatel-jako-člověk,
-    g-sgov-veřejná-místa-pojem:veřejné-místo, g-sgov-veřejná-místa-pojem:vlastník, g-sgov-veřejná-místa-pojem:vlastník-jako-osoba,
+    g-sgov-veřejná-místa-pojem:provozovatel-jako-podnikající-fyzická-osoba, g-sgov-veřejná-místa-pojem:provozovatel-jako-právnická-osoba,
+    g-sgov-veřejná-místa-pojem:provozovatel-jako-člověk, g-sgov-veřejná-místa-pojem:veřejné-místo,
+    g-sgov-veřejná-místa-pojem:vlastník, g-sgov-veřejná-místa-pojem:vlastník-jako-osoba,
+    g-sgov-veřejná-místa-pojem:vlastník-jako-podnikající-fyzická-osoba, g-sgov-veřejná-místa-pojem:vlastník-jako-právnická-osoba,
     g-sgov-veřejná-místa-pojem:vlastník-jako-člověk .
 
 g-sgov-veřejná-místa-pojem:provozovatel a skos:Concept;
-  skos:broader z-sgov-pojem:mixin-rolí, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/mixin-rolí>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Provozovatel veřejného místa."@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
   skos:prefLabel "Provozovatel"@cs .
 
 g-sgov-veřejná-místa-pojem:má-bezbariérový-přístup a skos:Concept;
   skos:altLabel "bezbariérovost"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Popis typu bezbariérového přístupu a formy přístupnosti veřejného místa."@cs;
   skos:hiddenLabel "dostupnost pro hendikepované"@cs, "dostupnost pro osoby s omezením"@cs,
     "dostupnost pro postižené"@cs, "přístupnost pro hendikepované"@cs, "přístupnost pro osoby s omezením"@cs,
@@ -46,7 +48,7 @@ g-sgov-veřejná-místa-pojem:má-bezbariérový-přístup a skos:Concept;
   skos:scopeNote ""@cs .
 
 g-sgov-veřejná-místa-pojem:veřejné-místo a skos:Concept;
-  skos:broader <https://slovník.gov.cz/generický/umístění/pojem/místo>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/generický/umístění/pojem/místo>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Tato třída reprezentuje veřejně dostupné místo, které je bodem zájmu návštěvníků."@cs;
   skos:hiddenLabel "bod zájmu"@cs, "lákadlo"@cs, "místo zajímavé pro návštěvníky"@cs,
     "místo zájmu"@cs, "návštěvnicky zajímavé místo"@cs, "veřejná lokalita"@cs, "veřejně dostupná lokalita"@cs,
@@ -57,24 +59,32 @@ g-sgov-veřejná-místa-pojem:veřejné-místo a skos:Concept;
 
 g-sgov-veřejná-místa-pojem:má-provozovatele a skos:Concept;
   skos:altLabel "provozovatel"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Provozovatel veřejného místa."@cs;
   skos:hiddenLabel "správce"@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
   skos:prefLabel "má provozovatele"@cs;
   skos:scopeNote ""@cs .
 
+g-sgov-veřejná-místa-pojem:vlastník-jako-právnická-osoba a skos:Concept;
+  skos:inScheme g-sgov-veřejná-místa:glosář;
+  skos:prefLabel "Vlastník jako právnická osoba"@cs .
+
 g-sgov-veřejná-místa-pojem:má-vstupné a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Specifikace vstupného na veřejné místo."@cs;
   skos:hiddenLabel "poplatek"@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
   skos:prefLabel "má vstupné"@cs;
   skos:scopeNote ""@cs .
 
+g-sgov-veřejná-místa-pojem:provozovatel-jako-právnická-osoba a skos:Concept;
+  skos:inScheme g-sgov-veřejná-místa:glosář;
+  skos:prefLabel "Provozovatel jako právnická osoba"@cs .
+
 g-sgov-veřejná-místa-pojem:má-otevírací-dobu a skos:Concept;
   skos:altLabel "otevírací doba"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Strukturovaná specifikace otevírací doby veřejného místa."@cs;
   skos:hiddenLabel "čas veřejné přístupnosti"@cs, "časová dostupnost"@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
@@ -82,14 +92,15 @@ g-sgov-veřejná-místa-pojem:má-otevírací-dobu a skos:Concept;
   skos:scopeNote ""@cs .
 
 g-sgov-veřejná-místa-pojem:vlastník a skos:Concept;
-  skos:broader z-sgov-pojem:mixin-rolí, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/mixin-rolí>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Vlastník veřejného místa."@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
   skos:prefLabel "Vlastník"@cs .
 
 g-sgov-veřejná-místa-pojem:má-kontakt a skos:Concept;
   skos:altLabel "kontakt"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Údaje pro kontaktování zástupce veřejného místa, např. provozovatele."@cs;
   skos:hiddenLabel "kontaktní údaje"@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
@@ -98,16 +109,11 @@ g-sgov-veřejná-místa-pojem:má-kontakt a skos:Concept;
 
 g-sgov-veřejná-místa-pojem:má-vlastníka a skos:Concept;
   skos:altLabel "vlastník"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Vlastník veřejného místa."@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
   skos:prefLabel "má vlastníka"@cs;
   skos:scopeNote ""@cs .
-
-g-sgov-veřejná-místa-pojem:provozovatel-jako-osoba a skos:Concept;
-  skos:definition "Provozovatel veřejného místa, který je právnickou osobou nebo podnikající fyzickou osobou."@cs;
-  skos:inScheme g-sgov-veřejná-místa:glosář;
-  skos:prefLabel "Provozovatel jako osoba"@cs .
 
 g-sgov-veřejná-místa-pojem:provozovatel-jako-člověk a skos:Concept;
   skos:definition "Provozovatel veřejného místa, který je nepodnikající fyzickou osobou."@cs;
@@ -123,3 +129,11 @@ g-sgov-veřejná-místa-pojem:vlastník-jako-člověk a skos:Concept;
   skos:definition "Vlastník veřejného místa, který je nepodnikající fyzickou osobou."@cs;
   skos:inScheme g-sgov-veřejná-místa:glosář;
   skos:prefLabel "Vlastník jako člověk"@cs .
+
+g-sgov-veřejná-místa-pojem:provozovatel-jako-podnikající-fyzická-osoba a skos:Concept;
+  skos:inScheme g-sgov-veřejná-místa:glosář;
+  skos:prefLabel "Provozovatel jako podnikající fyzická osoba"@cs .
+
+g-sgov-veřejná-místa-pojem:vlastník-jako-podnikající-fyzická-osoba a skos:Concept;
+  skos:inScheme g-sgov-veřejná-místa:glosář;
+  skos:prefLabel "Vlastník jako podnikající fyzická osoba"@cs .
