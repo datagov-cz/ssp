@@ -8,7 +8,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-lidé-pojem:člověk a skos:Concept;
+  skos:broader <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  skos:definition "Fyzická osoba"@cs;
+  skos:inScheme g-sgov-lidé:glosář;
+  skos:prefLabel "Člověk"@cs;
+  skos:scopeNote "Fyzická osoba (člověk) ve smyslu občanského zákoníku."@cs .
 
 g-sgov-lidé:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2020-07-28";
@@ -17,31 +24,24 @@ g-sgov-lidé:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptSc
   vann:preferredNamespacePrefix "g-sgov-lidé-pojem";
   vann:preferredNamespaceUri "https://slovník.gov.cz/generický/lidé/pojem/";
   owl:versionIRI <https://slovník.gov.cz/generický/lidé/glosář/verze/0.0.1>;
-  skos:hasTopConcept g-sgov-lidé-pojem:celé-jméno, g-sgov-lidé-pojem:má-pohlaví, g-sgov-lidé-pojem:tituly-před-jménem,
-    g-sgov-lidé-pojem:tituly-za-jménem, g-sgov-lidé-pojem:člověk .
-
-g-sgov-lidé-pojem:člověk a skos:Concept;
-  skos:broader <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>,
-    z-sgov-pojem:typ-objektu;
-  skos:definition "Fyzická osoba"@cs;
-  skos:inScheme g-sgov-lidé:glosář;
-  skos:prefLabel "Člověk"@cs;
-  skos:scopeNote "Fyzická osoba (člověk) ve smyslu občanského zákoníku."@cs .
+  skos:hasTopConcept g-sgov-lidé-pojem:celé-jméno, g-sgov-lidé-pojem:eviduje-pohlaví,
+    g-sgov-lidé-pojem:má-pohlaví, g-sgov-lidé-pojem:pohlaví, g-sgov-lidé-pojem:tituly-před-jménem,
+    g-sgov-lidé-pojem:tituly-za-jménem, g-sgov-lidé-pojem:člověk, g-sgov-lidé-pojem:číselník-pohlaví .
 
 g-sgov-lidé-pojem:tituly-před-jménem a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Akademické či jiné tituly psané před jménem."@cs;
   skos:inScheme g-sgov-lidé:glosář;
   skos:prefLabel "tituly před jménem"@cs .
 
 g-sgov-lidé-pojem:tituly-za-jménem a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Akademické či jiné tituly psané za jménem."@cs;
   skos:inScheme g-sgov-lidé:glosář;
   skos:prefLabel "tituly za jménem"@cs .
 
 g-sgov-lidé-pojem:celé-jméno a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Celé jméno jako jeden řetězec."@cs;
   skos:hiddenLabel "křestní jméno a příjmení"@cs;
   skos:inScheme g-sgov-lidé:glosář;
@@ -49,8 +49,23 @@ g-sgov-lidé-pojem:celé-jméno a skos:Concept;
   skos:scopeNote "Může obsahovat křestní (osobní) jméno, příjmení,  další jména a tituly člověka."@cs .
 
 g-sgov-lidé-pojem:má-pohlaví a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Určení pohlaví člověka."@cs;
   skos:inScheme g-sgov-lidé:glosář;
   skos:prefLabel "má pohlaví"@cs;
   skos:scopeNote "Dostupný jazyk v místě turistického objektu vycházející ze specifikace Evropského číselníku jazyků."@cs .
+
+g-sgov-lidé-pojem:pohlaví a skos:Concept;
+  skos:definition "Pohlaví člověka reprezentované jako položka číselníku pohlaví."@cs;
+  skos:inScheme g-sgov-lidé:glosář;
+  skos:prefLabel "Pohlaví"@cs .
+
+g-sgov-lidé-pojem:číselník-pohlaví a skos:Concept;
+  skos:definition "Číselník pohlaví, jehož položky reprezentují jednotlivá pohlaví lidí."@cs;
+  skos:inScheme g-sgov-lidé:glosář;
+  skos:prefLabel "Číselník pohlaví"@cs .
+
+g-sgov-lidé-pojem:eviduje-pohlaví a skos:Concept;
+  skos:definition "Zařazení pohlaví jako položky číselníku pohlaví."@cs;
+  skos:inScheme g-sgov-lidé:glosář;
+  skos:prefLabel "eviduje pohlaví"@cs .
