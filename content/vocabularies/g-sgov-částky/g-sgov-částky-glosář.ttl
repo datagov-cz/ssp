@@ -8,7 +8,12 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+g-sgov-částky-pojem:částka a skos:Concept;
+  skos:definition "Specifikace peněžní částky v podobě výše částky a měny částky."@cs;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Částka"@cs;
+  skos:scopeNote ""@cs .
 
 g-sgov-částky:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2020-07-28";
@@ -17,18 +22,14 @@ g-sgov-částky:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:Concep
   vann:preferredNamespacePrefix "g-sgov-částky-pojem";
   vann:preferredNamespaceUri "https://slovník.gov.cz/generický/částky/pojem/";
   owl:versionIRI <https://slovník.gov.cz/generický/částky/glosář/verze/0.0.1>;
-  skos:hasTopConcept g-sgov-částky-pojem:má-jednotku, g-sgov-částky-pojem:má-měnu, g-sgov-částky-pojem:výše-částky,
-    g-sgov-částky-pojem:částka .
-
-g-sgov-částky-pojem:částka a skos:Concept;
-  skos:definition "Specifikace peněžní částky v podobě výše částky a měny částky."@cs;
-  skos:inScheme g-sgov-částky:glosář;
-  skos:prefLabel "Částka"@cs;
-  skos:scopeNote ""@cs .
+  skos:hasTopConcept g-sgov-částky-pojem:eviduje-jednotku, g-sgov-částky-pojem:eviduje-měnu,
+    g-sgov-částky-pojem:jednotka, g-sgov-částky-pojem:má-jednotku, g-sgov-částky-pojem:má-měnu,
+    g-sgov-částky-pojem:měna, g-sgov-částky-pojem:výše-částky, g-sgov-částky-pojem:částka,
+    g-sgov-částky-pojem:číselník-jednotek, g-sgov-částky-pojem:číselník-měn .
 
 g-sgov-částky-pojem:má-jednotku a skos:Concept;
   skos:altLabel "jednotka"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Jednotka částky."@cs;
   skos:inScheme g-sgov-částky:glosář;
   skos:prefLabel "má jednotku"@cs;
@@ -36,7 +37,7 @@ g-sgov-částky-pojem:má-jednotku a skos:Concept;
 
 g-sgov-částky-pojem:má-měnu a skos:Concept;
   skos:altLabel "měna"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Měna částky."@cs;
   skos:inScheme g-sgov-částky:glosář;
   skos:prefLabel "má měnu"@cs;
@@ -44,14 +45,46 @@ g-sgov-částky-pojem:má-měnu a skos:Concept;
 
 g-sgov-částky-pojem:výše-částky a skos:Concept;
   skos:altLabel "výše částky"@cs;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Výše částky."@cs;
   skos:inScheme g-sgov-částky:glosář;
   skos:prefLabel "Výše částky"@cs;
   skos:scopeNote "Peněžní hodnota částky"@cs .
 
 g-sgov-částky-pojem:jednotková-částka a skos:Concept;
-  skos:broader g-sgov-částky-pojem:částka, z-sgov-pojem:typ-objektu;
+  skos:broader g-sgov-částky-pojem:částka, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Specifikace peněžní částky v podobě výše částky, měny částky a jednotky, za kterou je částka uvedena."@cs;
   skos:inScheme g-sgov-částky:glosář;
   skos:prefLabel "Jednotková částka"@cs .
+
+g-sgov-částky-pojem:měna a skos:Concept;
+  skos:definition "Měna reprezentovaná jako položka číselníku měn."@cs;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Měna"@cs .
+
+g-sgov-částky-pojem:číselník-měn a skos:Concept;
+  skos:definition "Číselník, jehož položky reprezentují jednotlivé světové měny."@cs;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Číselník měn"@cs .
+
+g-sgov-částky-pojem:eviduje-měnu a skos:Concept;
+  skos:altLabel "eviduje"@cs;
+  skos:definition "Přiřazení měny do číselníku měn."@cs;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "eviduje měnu"@cs .
+
+g-sgov-částky-pojem:jednotka a skos:Concept;
+  skos:definition "Jednotka reprezentovaná jako položka číselníku jednotek."@cs;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Jednotka"@cs .
+
+g-sgov-částky-pojem:eviduje-jednotku a skos:Concept;
+  skos:altLabel "eviduje"@cs;
+  skos:definition "Přiřazuje jednotku do číselníku jednotek."@cs;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "eviduje jednotku"@cs .
+
+g-sgov-částky-pojem:číselník-jednotek a skos:Concept;
+  skos:definition "Číselník, jehož položky reprezentují jednotlivé jednotky."@cs;
+  skos:inScheme g-sgov-částky:glosář;
+  skos:prefLabel "Číselník jednotek"@cs .
