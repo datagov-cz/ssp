@@ -8,7 +8,18 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+l-sgov-sbírka-111-2009-pojem:má-kód-adresního-místa a skos:Concept;
+  skos:definition "Referenční vazba na referenční údaj o adrese v registru územní identifikace."@cs;
+  skos:inScheme l-sgov-sbírka-111-2009:glosář;
+  skos:prefLabel "Má kód adresního místa"@cs .
+
+l-sgov-sbírka-111-2009-pojem:adresní-místo a skos:Concept;
+  skos:broader l-sgov-sbírka-111-2009-pojem:základní-územní-prvek, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  skos:definition "Adresním místem se rozumí takové místo v terénu, kterému lze ve vztahu ke stavebnímu objektu jednoznačně přiřadit adresu."@cs;
+  skos:inScheme l-sgov-sbírka-111-2009:glosář;
+  skos:prefLabel "adresní místo"@cs .
 
 l-sgov-sbírka-111-2009:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2020-06-29", "2020-12-16";
@@ -154,86 +165,76 @@ l-sgov-sbírka-111-2009:glosář a a-popis-dat-pojem:glosář, owl:Ontology, sko
     l-sgov-sbírka-111-2009-pojem:číslo-orientační, l-sgov-sbírka-111-2009-pojem:číslo-popisné,
     l-sgov-sbírka-111-2009-pojem:číslo-popisné-nebo-evidenční .
 
-l-sgov-sbírka-111-2009-pojem:má-kód-adresního-místa a skos:Concept;
-  skos:definition "Referenční vazba na referenční údaj o adrese v registru územní identifikace."@cs;
-  skos:inScheme l-sgov-sbírka-111-2009:glosář;
-  skos:prefLabel "Má kód adresního místa"@cs .
-
-l-sgov-sbírka-111-2009-pojem:adresní-místo a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:základní-územní-prvek, z-sgov-pojem:druh,
-    z-sgov-pojem:typ-objektu;
-  skos:definition "Adresním místem se rozumí takové místo v terénu, kterému lze ve vztahu ke stavebnímu objektu jednoznačně přiřadit adresu."@cs;
-  skos:inScheme l-sgov-sbírka-111-2009:glosář;
-  skos:prefLabel "adresní místo"@cs .
-
 l-sgov-sbírka-111-2009-pojem:základní-územní-prvek a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:prvek-obsažený-v-rúian, l-sgov-sbírka-111-2009-pojem:územní-prvek,
-    z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/kategorie>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "základní územní prvek"@cs .
 
 l-sgov-sbírka-111-2009-pojem:územní-prvek a skos:Concept;
-  skos:broader z-sgov-pojem:kategorie, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/kategorie>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Územním prvkem se rozumí 1. část zemského povrchu vymezená hranicí nebo výčtem jiných územních prvků, které ji dohromady tvoří, 2. adresní místo, nebo 3. stavební objekt."@cs;
   skos:hiddenLabel "Základní územní prvek"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Územní prvek"@cs .
 
 l-sgov-sbírka-111-2009-pojem:prvek-obsažený-v-rúian a skos:Concept;
-  skos:broader z-sgov-pojem:kategorie, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/kategorie>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "prvek obsažený v rúian"@cs .
 
 l-sgov-sbírka-111-2009-pojem:elektronická-forma-úkonu a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Elektronická forma úkonu"@cs;
   skos:scopeNote "Elektronická forma úkonu z číselníku elektronických forem úkonu. Vyjadřuje, zda úkon má či nemá elektronickou formu. Ano - elektronicky lze žádat pro všechny varianty úkonu a bez ohledu na potřebné náležitosti, Za určitých podmínek - elektronické podání platí jen pro některou variantu úkonu bez ohledu na prostředek elektronické komunikace/identifikace, Ne - nelze žádat elektronicky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-poskytován a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je poskytován"@cs;
   skos:scopeNote "Přiřazuje k úkonu způsoby jeho poskytování. Způsobů poskytování jednoho úkonu může být více."@cs .
 
 l-sgov-sbírka-111-2009-pojem:úkon a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-jednání>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Úkon"@cs;
   skos:scopeNote "Soubor úkonů vykonávaných v rámci agendy tvoří činnost. Úkon orgánu veřejné moci je vykonáván v rámci agendy jako úkon vůči subjektu, který není orgánem veřejné moci. Úkon subjektu, který není orgánem veřejné moci, je vykonáván v rámci agendy vůči orgánu veřejné moci."@cs .
 
 l-sgov-sbírka-111-2009-pojem:poskytování-úkonu a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Poskytování úkonu"@cs;
   skos:scopeNote "Konkrétní poskytování úkonu definované jako dvojice poskytovat úkonu a příslušná činnost agendy, v rámci které je úkon poskytovatelem poskytován."@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-vykonáván-v-agendě a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je vykonáván v agendě"@cs;
   skos:scopeNote "Přiřazuje úkon do agendy, v rámci které je vykonáván. Úkon je vždy vykonáván v právě jedné agendě. V jedné agendě může být vykonáváno více úkonů."@cs .
 
 l-sgov-sbírka-111-2009-pojem:agenda a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Ucelená oblast působnosti orgánu veřejné moci nebo ucelená oblast působení soukromoprávního uživatele údajů."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Agenda"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-elektronickou-formu-úkonu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má elektronickou formu úkonu"@cs;
   skos:scopeNote "Určuje, zda má úkon i elektronickou formu. Odpovídá na otázku zda v případě, že žadatel disponuje nezbytnými prostředky elektronické komunikace/identifikace (např. datová schránka, zaručený elektronický podpis), může s těmito prostředky požádat o výkon úkonu, aniž by následně kvůli podání žádosti musel fyzicky navštívit poskytovatele."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikátor-úkonu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má identifikátor úkonu"@cs;
   skos:scopeNote "Jedinečný identifikátor úkonu. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-poskytovatele a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má poskytovatele"@cs;
   skos:scopeNote "Určuje poskytovatele úkonu, kterým je vždy orgán veřejné moci nebo jejich kategorie. Jeden úkon může mít více poskytovatelů. Jeden poskytovatel může poskytovat více úkonů."@cs .
@@ -250,28 +251,30 @@ l-sgov-sbírka-111-2009-pojem:datum-zániku-právnické-osoby a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce-nebo-vojenského-újezdu,
-    z-sgov-pojem:typ-vztahu;
+    <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazené území obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce-nebo-vojenského-újezdu a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazené území obce nebo vojenského újezdu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy a skos:Concept;
-  skos:broader z-sgov-pojem:druh, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "technickoekonomické atributy"@cs .
 
 l-sgov-sbírka-111-2009-pojem:fyzická-osoba a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba>, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/fyzická-osoba>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Fyzická osoba"@cs .
 
 l-sgov-sbírka-111-2009-pojem:adresa a skos:Concept;
-  skos:broader z-sgov-pojem:druh, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "adresa"@cs;
@@ -279,109 +282,110 @@ l-sgov-sbírka-111-2009-pojem:adresa a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:má-datum-narození a skos:Concept;
   skos:altLabel "datum narození"@cs;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má datum narození"@cs;
   skos:scopeNote "Datum, ke kterému soukromoprávní uživatel údajů vznikl nebo byl zapsán do evidence, je-li se zápisem do evidence spojen vznik soukromoprávního uživatele údajů."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-místa-pobytu a skos:Concept;
   skos:altLabel "místo pobytu"@cs;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:definition "Adresa sídla osoby; jde-li o stavební objekt vedený v registru územní identifikace, vede se tento údaj ve formě referenční vazby (kódu adresního místa) na referenční údaj o adrese v registru územní identifikace"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má adresu místa pobytu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:lokalizační-údaje a skos:Concept;
-  skos:broader z-sgov-pojem:druh, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizačními údaji územního prvku nebo územně evidenční jednotky se rozumí údaje, které jednoznačně vymezují jejich umístění v terénu, vyjádřené souřadnicemi v souřadnicovém systému Jednotné trigonometrické sítě katastrální (S-JTSK)."@cs;
   skos:hiddenLabel "lokalizační údaje územního prvku nebo územně evidenční jednotky"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "lokalizační údaje"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má adresu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:jméno-fyzické-osoby a skos:Concept;
   skos:altLabel "jméno"@cs;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno>, z-sgov-pojem:typ-vlastnosti;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "jméno fyzické osoby"@cs;
   skos:scopeNote "Pojmenovává osobu jménem popřípadě jmény, které jsou spolu s příjmením jejím oficiálním pojmenováním. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikátor-datové-schránky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má identifikátor datové schránky"@cs;
   skos:scopeNote "Jednoznačný identifikátor datové schránky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-okresu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název okresu"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-katastrálního-území a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název katastrálního území"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-místo-narození a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:definition "Adresa sídla osoby; jde-li o stavební objekt vedený v registru územní identifikace, vede se tento údaj ve formě referenční vazby (kódu adresního místa) na referenční údaj o adrese v registru územní identifikace"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má místo narození"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-typ-datové-schránky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má typ datové schránky"@cs;
   skos:scopeNote "Určuje typ datové schránky z číselníku typů datových schránek."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-části-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název části obce"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:příjmení-fyzické-osoby a skos:Concept;
   skos:altLabel "příjmení"@cs;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení>, z-sgov-pojem:typ-vlastnosti;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "příjmení fyzické osoby"@cs;
   skos:scopeNote "Pojmenovává osobu příjmením, které je spolu se jménem popřípadě jmény jejím oficiálním pojmenováním. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:právnická-osoba a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:osoba, <https://slovník.gov.cz/veřejný-sektor/pojem/právnická-osoba>,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Právnická osoba"@cs;
   skos:scopeNote "Právnická osoba je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:osoba a skos:Concept;
   skos:altLabel "Osoba v registru osob"@cs;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>, z-sgov-pojem:mixin-rolí,
-    z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>, <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Subjekty, o nichž se vedou v registru osob údaje (dále jen „osoba“), jsou a) právnická osoba, b) organizační složka a organizační jednotka právnické osoby, c) organizační složka státu, d) vnitřní organizační jednotka organizační složky státu, pokud je této vnitřní organizační jednotce zákonem svěřena vlastní působnost, e) podnikající fyzická osoba, f) zahraniční osoba a organizační složka zahraniční osoby, g) svěřenský fond, pokud jsou zapsány do evidence podle tohoto zákona nebo jiného právního předpisu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Osoba"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-osoby-neevidovanou-v-rúian a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Adresa sídla osoby; jde-li o stavební objekt vedený v registru územní identifikace, vede se tento údaj ve formě referenční vazby (kódu adresního místa) na referenční údaj o adrese v registru územní identifikace"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má adresu sídla osoby neevidovanou v RÚIAN"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má datovou schránku osoby"@cs;
   skos:scopeNote "Datová schránka osoby evidovaná v Registru osob."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-osoby a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:definition "Adresa sídla osoby; jde-li o stavební objekt vedený v registru územní identifikace, vede se tento údaj ve formě referenční vazby (kódu adresního místa) na referenční údaj o adrese v registru územní identifikace"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má adresu sídla osoby"@cs .
@@ -389,24 +393,24 @@ l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-osoby a skos:Concept;
 l-sgov-sbírka-111-2009-pojem:území-vojenského-újezdu a skos:Concept;
   skos:broader <https://slovník.gov.cz/generický/adresy/pojem/území-obce-nebo-vojenského-újezdu>,
     l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území vojenského újezdu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údaji a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Oprávnění k přístupu k údaji"@cs;
   skos:scopeNote "Oprávnění k přístupu k jednomu údaji definované v rámci oprávnění role k přístupu údajům z poskytující agendy."@cs .
 
 l-sgov-sbírka-111-2009-pojem:zařazení-do-kategorie a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Zařazení do kategorie"@cs;
   skos:scopeNote "Zařazení orgánu veřejné moci nebo soukromoprávního uživatele údajů do kategorie"@cs .
 
 l-sgov-sbírka-111-2009-pojem:registrace-pro-výkon-agendy a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Registrace pro výkon agendy"@cs;
   skos:scopeNote "Určuje orgány veřejné moci nebo soukromoprávní uživatele údajů, které byly pro výkon agendy registrovány."@cs .
@@ -414,32 +418,33 @@ l-sgov-sbírka-111-2009-pojem:registrace-pro-výkon-agendy a skos:Concept;
 l-sgov-sbírka-111-2009-pojem:příjmení-subjektu-údajů-vedeného-v-registru-obyvatel
   a skos:Concept;
   skos:altLabel "příjmení"@cs;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení>, z-sgov-pojem:typ-vlastnosti;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/příjmení>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "příjmení subjektu údajů vedeného v registru obyvatel"@cs;
   skos:scopeNote "Pojmenovává osobu příjmením, které je spolu se jménem popřípadě jmény jejím oficiálním pojmenováním. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:označení a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "označení"@cs;
   skos:scopeNote "Pojmenovává osobu označením, který je jejím oficiálním pojmenováním. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-osoby a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název osoby"@cs;
   skos:scopeNote "Pojmenovává osobu názvem, který je jejím oficiálním pojmenováním. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:obchodní-firma a skos:Concept;
   skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/jméno-právnické-osoby>,
-    z-sgov-pojem:typ-vlastnosti;
+    <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "obchodní firma"@cs;
   skos:scopeNote "Pojmenovává osobu obchodní firmou, který je jejím oficiálním pojmenováním. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
+  skos:definition "Identifikační číslo osoby je jednoznačné číslo, jehož přidělení je spojeno s registrací nebo evidencí osoby."@cs;
   skos:hiddenLabel "ičo"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "identifikační číslo osoby"@cs;
@@ -447,182 +452,187 @@ l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:jméno-subjektu-údajů-vedeného-v-registru-obyvatel a skos:Concept;
   skos:altLabel "jméno"@cs;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno>, z-sgov-pojem:typ-vlastnosti;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/křestní-jméno>, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "jméno subjektu údajů vedeného v registru obyvatel"@cs;
   skos:scopeNote "Pojmenovává osobu jménem popřípadě jmény, které jsou spolu s příjmením jejím oficiálním pojmenováním. Jedná se o referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby a skos:Concept;
   skos:altLabel "aifo"@cs;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "agendový identifikátor fyzické osoby"@cs;
   skos:scopeNote "Agendový identifikátor fyzické osoby je neveřejným identifikátorem, který je jednoznačně přiřazen záznamu o fyzické osobě v agendovém informačním systému nebo základním registru v rámci příslušné agendy, je odvozen ze zdrojového identifikátoru fyzické osoby a kódu agendy a je užíván výlučně k jednoznačnému určení fyzické osoby pro účely výkonu agendy, pro kterou byl přidělen. Z agendového identifikátoru fyzické osoby nelze odvodit zdrojový identifikátor fyzické osoby a nelze z něj ani dovodit osobní nebo jiné údaje o fyzické osobě, jíž byl přiřazen."@cs .
 
 l-sgov-sbírka-111-2009-pojem:vede-údaje-o-objektu-nebo-subjektu-údajů a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:definition "Přiřazuje k agendovému informačnímu systému výčet údajů vedených v základních registrech nebo jiných agendových informačních systémech zpřístupněných prostřednictvím informačního systému základních registrů pro výkon agendy nebo prostřednictvím referenčního rozhraní pro výkon dané agendy a rozsah oprávnění k přístupu k těmto údajům."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Vede údaje o objektu nebo subjektu údajů"@cs .
 
 l-sgov-sbírka-111-2009-pojem:služba-veřejné-správy a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Služba veřejné správy"@cs;
   skos:scopeNote "Služba veřejné správy představuje funkci (činnost) úřadu, která je vědomě poskytnuta konkrétním OVM konkrétnímu příjemci služby podle příslušného právního předpisu tak, že přináší příjemci vnímanou hodnotu, ať už v podobě benefitu nebo splnění zákonné povinnosti. Evidují se pouze takové služby VS, během nichž dochází k interakci mezi OVM a klientem či naopak, nikoli k interakci mezi OVM a OVM. Na službu VS lze také pohlížet jako na dosažení práva či naplnění povinnosti klienta, které nelze splnit jinak než interakcí či sérií interakcí mezi klientem a OVM. Služba se dělí podle toho, zdali je iniciována klientem nebo vykonávaná z moci úřední. Každá služba se skládá z nejméně jednoho úkonu."@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-okresu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku okresu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-regionu-soudržnosti a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku regionu soudržnosti"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-obce-s-pověřeným-obecním-úřadem a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku obce s pověřeným obecním úřadem"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-obce-s-rozšířenou-působností a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku obce s rozšířenou působností"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-městského-obvodu-a-městské-části a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku městského obvodu a městské části"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-kraje a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku kraje"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-městské-části-v-hlavním-městě-praze a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku městské části v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:charakter-základní-sídelní-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základní sídelní jednotce se vede doplňující údaj o jejím charakteru, který je dán převažujícím způsobem využití území a strukturou zástavby základní sídelní jednotky."@cs;
   skos:hiddenLabel "charakter ZSJ"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "charakter základní sídelní jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-katastrálního-území a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku katastrálního území"@cs .
 
 l-sgov-sbírka-111-2009-pojem:adresní-komponent a skos:Concept;
-  skos:broader z-sgov-pojem:mixin-rolí, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/mixin-rolí>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "adresní komponent"@cs;
   skos:scopeNote "Nemá definici v zákoně, slouyží k zastřešení všech rolí územních prvkůa územně evidenčních jednotek potřebných k vyjádření adresy.."@cs .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-městské-části-v-hlavním-městě-praze
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "K názvu území obce, území vojenského újezdu, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech, katastrálního území a části obce se vedou doplňující údaje vyjadřující mluvnické charakteristiky názvu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "mluvnické charakteristiky názvu městské části v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-městského-obvodu-nebo-městské-části-ve-statutárním-městě
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "K názvu území obce, území vojenského újezdu, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech, katastrálního území a části obce se vedou doplňující údaje vyjadřující mluvnické charakteristiky názvu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "mluvnické charakteristiky názvu městského obvodu nebo městské části ve statutárním městě"@cs .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-katastrálního-území a
     skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "K názvu území obce, území vojenského újezdu, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech, katastrálního území a části obce se vedou doplňující údaje vyjadřující mluvnické charakteristiky názvu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "mluvnické charakteristiky názvu katastrálního území"@cs .
 
 l-sgov-sbírka-111-2009-pojem:kód-územně-evidenční-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Identifikační údaje, kterými jsou kód a název."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Kód územně evidenční jednotky"@cs;
   skos:scopeNote "Kódem územního prvku nebo územně evidenční jednotky je číselný nebo abecedně číselný údaj, který je jim jako jedinečný přiřazen a je veden v registru územní identifikace. Kód územního prvku nebo územně evidenční jednotky, který byl přidělen, nelze užívat opakovaně, pokud jiný právní předpis nestanoví jinak."@cs .
 
 l-sgov-sbírka-111-2009-pojem:kód-katastrálního-území a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "kód katastrálního území"@cs;
   skos:scopeNote "Identifikační údaji o územním prvku, kterým je pozemek, jsou kód a název katastrálního území, ve kterém pozemek leží, a parcelní číslo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:kód-územního-prvku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Identifikační údaje, kterými jsou kód a název, pokud není v odstavci 3 stanoveno jinak."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Kód územního prvku"@cs;
   skos:scopeNote "Kódem územního prvku nebo územně evidenční jednotky je číselný nebo abecedně číselný údaj, který je jim jako jedinečný přiřazen a je veden v registru územní identifikace. Kód územního prvku nebo územně evidenční jednotky, který byl přidělen, nelze užívat opakovaně, pokud jiný právní předpis nestanoví jinak."@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-vymezena-hranicí-územního-prvku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "je vymezena hranicí územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:katastrální-území a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    <https://slovník.gov.cz/legislativní/sbírka/256/2013/pojem/katastrální-území>, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/legislativní/sbírka/256/2013/pojem/katastrální-území>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "katastrální území"@cs .
 
 l-sgov-sbírka-111-2009-pojem:identifikační-údaje a skos:Concept;
-  skos:broader z-sgov-pojem:druh, z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/objekt>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "identifikační údaje"@cs .
 
 l-sgov-sbírka-111-2009-pojem:druh-svislé-nosní-konstrukce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "druh svislé nosní konstrukce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:doplňující-údaje-o-znaku-a-vlajce a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition " O území obce, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech se v registru územní identifikace vedou doplňující údaje o znaku a vlajce, kterými jsou vyobrazení a popis znaku nebo vlajky."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "doplňující údaje o znaku a vlajce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:druh-pozemku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "druh pozemku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:definiční-bod-části-obce a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizační údaje, kterými jsou u části obce definiční bod a u ulice definiční čára."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "definiční bod části obce"@cs;
   skos:scopeNote "Definičním bodem územního prvku nebo územně evidenční jednotky je bod umístěný uvnitř územního prvku nebo územně evidenční jednotky poblíž jejich středu."@cs .
 
 l-sgov-sbírka-111-2009-pojem:definiční-čára-ulice a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizační údaje, kterými jsou u části obce definiční bod a u ulice definiční čára."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "definiční čára ulice"@cs;
@@ -630,442 +640,442 @@ l-sgov-sbírka-111-2009-pojem:definiční-čára-ulice a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-území-městského-obvodu-v-hlavním-městě-praze
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku území městského obvodu v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-základní-sídelní-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku základní sídelní jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-územně-evidenční-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku územně evidenční jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-vojenského-újezdu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku vojenského újezdu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-vyššího-územního-samosprávného-celku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku vyššího územního samosprávného celku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-správního-obvodu-v-hlavním-městě-praze a
     skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku správního obvodu v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:datum-vzniku-státu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základních územních prvcích uvedených v § 31 odst. 1 písm. a) až o) a o územně evidenční jednotce část obce se vede doplňující údaj o datu jejich vzniku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "datum vzniku státu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-městské-části-v-hlavním-městě-praze a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území městské části v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-městského-obvodu-a-městské-části-územně-členěného-ststutárního-města
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území městského obvodu a městské části územně členěného ststutárního města"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-zvláštní-údaje-pro-doručování a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má zvláštní údaje pro doručování"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-kraje a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území kraje"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má vazbu na adresní komponent"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-technickoekonomické-atributy-pozemku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má technickoekonomické atributy pozemku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-technickoekonomické-atributy-stavebního-objektu a
     skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má technickoekonomické atributy stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-správní-obvod-obce-s-pověřeným-obecním-úřadem a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má správní obvod obce s pověřeným obecním úřadem"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-správní-obvod-obce-s-rozšířenou-působností a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má správní obvod obce s rozšířenou působností"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-obce-nebo-vojenského-újezdu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název obce nebo vojenského újezdu"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-ulice a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název ulice"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-části-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má lokalizační údaje části obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-městského-obvodu-v-hlavním-městě-praze a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název městského obvodu v hlavním městě Praze"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-územního-prvku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má lokalizační údaje územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-územně-evidenční-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má lokalizační údaje územně evidenční jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-kód-a-název-katastrálního-území a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má kód a název katastrálního území"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-lokalizační-údaje-ulice a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má lokalizační údaje ulice"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-územního-prvku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má identifikační údaje územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-územně-evidenční-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má identifikační údaje územně evidenční jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-pozemku-příslušícímu-stavebnímu-objektu
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má identifikační údaje pozemku příslušícímu stavebnímu objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-stavebního-objektu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má identifikační údaje stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-hranici-územního-prvku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Lokalizační údaje, kterými jsou definiční bod, a nejde-li o adresní místo nebo stavební objekt, jehož hranice nejsou zobrazeny v katastrální mapě, též hranice."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má hranici územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-údaje-pozemku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má identifikační údaje pozemku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-definiční-čáru-ulice a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Lokalizační údaje, kterými jsou u části obce definiční bod a u ulice definiční čára."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má definiční čáru ulice"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-doplňující-údaje-o-znaku-a-vlajce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition " O území obce, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech se v registru územní identifikace vedou doplňující údaje o znaku a vlajce, kterými jsou vyobrazení a popis znaku nebo vlajky."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má doplňující údaje o znaku a vlajce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-definiční-bod-územního-prvku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Lokalizační údaje, kterými jsou definiční bod, a nejde-li o adresní místo nebo stavební objekt, jehož hranice nejsou zobrazeny v katastrální mapě, též hranice."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má definiční bod územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-definiční-bod-části-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Lokalizační údaje, kterými jsou u části obce definiční bod a u ulice definiční čára."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má definiční bod části obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-části-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "K názvu území obce, území vojenského újezdu, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech, katastrálního území a části obce se vedou doplňující údaje vyjadřující mluvnické charakteristiky názvu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "mluvnické charakteristiky názvu části obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresní-místo a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Stavební objekt, kterému bylo přiděleno číslo popisné nebo evidenční, má jedno nebo více adresních míst."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má adresní místo"@cs .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "K názvu území obce, území vojenského újezdu, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech, katastrálního území a části obce se vedou doplňující údaje vyjadřující mluvnické charakteristiky názvu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "mluvnické charakteristiky názvu obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:mluvnické-charakteristiky-názvu-vojenského-újezdu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "K názvu území obce, území vojenského újezdu, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech, katastrálního území a části obce se vedou doplňující údaje vyjadřující mluvnické charakteristiky názvu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "mluvnické charakteristiky názvu vojenského újezdu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:převažující-způsob-využití-území a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základní sídelní jednotce se vede doplňující údaj o jejím charakteru, který je dán převažujícím způsobem využití území a strukturou zástavby základní sídelní jednotky."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "převažující způsob využití území"@cs .
 
 l-sgov-sbírka-111-2009-pojem:počet-bytů a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "počet bytů"@cs .
 
 l-sgov-sbírka-111-2009-pojem:počet-nadzemních-a-podzemních-podlaží a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "počet nadzemních a podzemních podlaží"@cs .
 
 l-sgov-sbírka-111-2009-pojem:popis-znaku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "popis znaku"@cs;
   skos:scopeNote " O území obce, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech se v registru územní identifikace vedou doplňující údaje o znaku a vlajce, kterými jsou vyobrazení a popis znaku nebo vlajky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:pozemek-v-podobě-parcely a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    <https://slovník.gov.cz/legislativní/sbírka/256/2013/pojem/parcela>, z-sgov-pojem:druh,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/legislativní/sbírka/256/2013/pojem/parcela>, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:hiddenLabel "pozemek"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "pozemek v podobě parcely"@cs .
 
 l-sgov-sbírka-111-2009-pojem:popis-vlajky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "popis vlajky"@cs;
   skos:scopeNote " O území obce, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech se v registru územní identifikace vedou doplňující údaje o znaku a vlajce, kterými jsou vyobrazení a popis znaku nebo vlajky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:parcelní-číslo a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Identifikační údaji o územním prvku, kterým je pozemek, jsou kód a název katastrálního území, ve kterém pozemek leží, a parcelní číslo."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Parcelní číslo"@cs .
 
 l-sgov-sbírka-111-2009-pojem:podlahová-plocha a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "podlahová plocha"@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-části-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název části obce"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:obestavěný-prostor a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "obestavěný prostor"@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-územního-prvku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Identifikační údaje, kterými jsou kód a název, pokud není v odstavci 3 stanoveno jinak."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Název územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-územně-evidenční-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Identifikační údaje, kterými jsou kód a název."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Název územně evidenční jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-ulice-nebo-jiného-veřejného-prostranství a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:hiddenLabel "název ulice"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název ulice nebo jiného veřejného prostranství"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-vojenského-újezdu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název vojenského újezdu"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název obce"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-okresu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název okresu"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-městského-obvodu-nebo-městské-části a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název městského obvodu nebo městské části"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-městského-obvodu-v-hlavním-městě-praze a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název městského obvodu v hlavním městě Praze"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:název-katastrálního-území a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "název katastrálního území"@cs;
   skos:scopeNote "Identifikační údaji o územním prvku, kterým je pozemek, jsou kód a název katastrálního území, ve kterém pozemek leží, a parcelní číslo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:měsíc-dokončení-stavebního-objektu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "měsíc dokončení stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-část-obce-ke-které-stavební-objekt-přísluší a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Identifikační údaji o územním prvku, kterým je stavební objekt, jsou identifikační údaje pozemku, na kterém je stavební objekt postaven, a dále 1. údaj o jeho čísle popisném nebo evidenčním, pokud se přiděluje, a údaj o části obce, ke které stavební objekt přísluší."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má část obce ke které stavební objekt přísluší"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-vyššího-územního-samosprávního-celku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území vyššího územního samosprávního celku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-základní-sídelní-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území základní sídelní jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-regionu-soudržnosti a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území regionu soudržnosti"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-vojenského-újezdu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území vojenského újezdu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-městského-obvodu-v-hlavním-městě-praze a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území městského obvodu v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-území-okresu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má území okresu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:způsob-využití-stavebního-objektu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "způsob využití stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:způsob-vytápění a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "způsob vytápění"@cs .
 
 l-sgov-sbírka-111-2009-pojem:způsob-využití-pozemku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "způsob využití pozemku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:způsob-ochrany-pozemku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "způsob ochrany pozemku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:způsob-ochrany-stavebního-objektu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "způsob ochrany stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:výměra-parcely a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku, kterými jsou a) výměra parcely, b) údaj o bonitovaných půdně ekologických jednotkách (BPEJ) k parcele."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "výměra parcely"@cs .
 
 l-sgov-sbírka-111-2009-pojem:zastavěná-plocha a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "zastavěná plocha"@cs .
 
 l-sgov-sbírka-111-2009-pojem:vyobrazení-vlajky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "vyobrazení vlajky"@cs;
   skos:scopeNote " O území obce, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech se v registru územní identifikace vedou doplňující údaje o znaku a vlajce, kterými jsou vyobrazení a popis znaku nebo vlajky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:vyobrazení-znaku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "vyobrazení znaku"@cs;
   skos:scopeNote " O území obce, území městské části v hlavním městě Praze, území městského obvodu nebo městské části ve statutárních městech se v registru územní identifikace vedou doplňující údaje o znaku a vlajce, kterými jsou vyobrazení a popis znaku nebo vlajky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:vazba-územně-evidenčních-jednotek-na-územní-prvky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Vazbou územně evidenčních jednotek na územní prvky se rozumí vztah, vyjadřující jakých územních prvků je územně evidenční jednotka součástí (nadřazené územní prvky) a ze kterých územních prvků se územně evidenční jednotka skládá (podřazené územní prvky)."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Vazba územně evidenčních jednotek na územní prvky"@cs;
   skos:scopeNote "Údaje o vazbách na jiné územní prvky, případně na územně evidenční jednotky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:vybavení-výtahem a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "vybavení výtahem"@cs .
@@ -1073,38 +1083,38 @@ l-sgov-sbírka-111-2009-pojem:vybavení-výtahem a skos:Concept;
 l-sgov-sbírka-111-2009-pojem:ulice-nebo-jiné-veřejné-prostranství a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka,
     <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/veřejné-prostranství>,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:hiddenLabel "ulice"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "ulice nebo jiné veřejné prostranství"@cs .
 
 l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Vazbou mezi územními prvky se rozumí vztah, vyjadřující, do kterých územních prvků daný územní prvek náleží (nadřazené územní prvky) nebo z kterých územních prvků se daný územní prvek skládá (podřazené územní prvky)."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "vazba mezi územními prvky"@cs;
   skos:scopeNote "Údaje o vazbách na jiné územní prvky, případně na územně evidenční jednotky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:typ-ochrany-stavebního-objektu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "typ ochrany stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:typ-stavebního-objektu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "typ stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:typ-ochrany-pozemku a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "typ ochrany pozemku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:struktura-zástavby-základní-sídelní-jednotky a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O základní sídelní jednotce se vede doplňující údaj o jejím charakteru, který je dán převažujícím způsobem využití území a strukturou zástavby základní sídelní jednotky."@cs;
   skos:hiddenLabel "struktura zástavby ZSJ"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
@@ -1113,98 +1123,98 @@ l-sgov-sbírka-111-2009-pojem:struktura-zástavby-základní-sídelní-jednotky 
 l-sgov-sbírka-111-2009-pojem:správní-obvod-v-hlavním-městě-praze a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
     <https://slovník.gov.cz/legislativní/sbírka/131/2000/pojem/správní-obvod-v-hlavním-městě-praze->,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Správním obvodem v hlavním městě Prazese rozumí území, na němž vykonává úřad městské části hlavního města Prahy určený Statutem hlavního města Prahy některou přenesenou působnost26) z rozsahu svěřeného orgánu obce s rozšířenou působností."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "správní obvod v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:status-obce a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O území obce se v registru územní identifikace vede doplňující údaj o tom, zda obec je městys, město, statutární město nebo hlavní město (dále jen „status obce“)."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "status obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:připojení-na-vodovod a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "připojení na vodovod"@cs .
 
 l-sgov-sbírka-111-2009-pojem:rok-dokončení-stavebního-objektu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "rok dokončení stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:připojení-na-kanalizační-síť a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "připojení na kanalizační síť"@cs .
 
 l-sgov-sbírka-111-2009-pojem:připojení-na-rozvod-plynu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy, kterými jsou a) počet bytů u stavebního objektu s byty, b) zastavěná plocha v m2, c) obestavěný prostor v m3, d) podlahová plocha v m2, e) počet nadzemních a podzemních podlaží, f) druh svislé nosné konstrukce, g) připojení na vodovod, h) připojení na kanalizační síť, i) připojení na rozvod plynu, j) způsob vytápění a k) vybavení výtahem."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "připojení na rozvod plynu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:číslo-popisné a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Číslo popisné"@cs;
   skos:scopeNote "Identifikační údaji o územním prvku, kterým je stavební objekt, jsou identifikační údaje pozemku, na kterém je stavební objekt postaven, a dále 1. údaj o jeho čísle popisném nebo evidenčním, pokud se přiděluje, a údaj o části obce, ke které stavební objekt přísluší."@cs .
 
 l-sgov-sbírka-111-2009-pojem:číslo-popisné-nebo-evidenční a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Identifikační údaji o územním prvku, kterým je stavební objekt, jsou identifikační údaje pozemku, na kterém je stavební objekt postaven, a dále 1. údaj o jeho čísle popisném nebo evidenčním, pokud se přiděluje, a údaj o části obce, ke které stavební objekt přísluší."@cs;
   skos:hiddenLabel "Číslo domovní"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Číslo popisné nebo evidenční"@cs .
 
 l-sgov-sbírka-111-2009-pojem:číslo-evidenční a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Číslo evidenční"@cs;
   skos:scopeNote "Identifikační údaji o územním prvku, kterým je stavební objekt, jsou identifikační údaje pozemku, na kterém je stavební objekt postaven, a dále 1. údaj o jeho čísle popisném nebo evidenčním, pokud se přiděluje, a údaj o části obce, ke které stavební objekt přísluší."@cs .
 
 l-sgov-sbírka-111-2009-pojem:číslo-orientační a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Číslo orientační"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:část-obce a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka,
-    <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/část-obce>, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/část-obce>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "část obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-obce a skos:Concept;
   skos:broader <https://slovník.gov.cz/generický/adresy/pojem/území-obce-nebo-vojenského-újezdu>,
     l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/území-obce>, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/legislativní/sbírka/128/2000/pojem/území-obce>, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:údaj-o-bonitovaných-půdně-ekologických-jednotkách-k-parcele
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku, kterými jsou a) výměra parcely, b) údaj o bonitovaných půdně ekologických jednotkách (BPEJ) k parcele."@cs;
   skos:hiddenLabel "BPEJ"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "údaj o bonitovaných půdně ekologických jednotkách k parcele"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-vykonávána-agendovým-informačním-systémem a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je vykonávána agendovým informačním systémem"@cs;
   skos:scopeNote "Přiřazuje k agendě agendový informační systém, který slouží k výkonu agendy."@cs .
 
 l-sgov-sbírka-111-2009-pojem:kategorie-orgánů-veřejné-moci a skos:Concept;
   skos:broader <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>,
-    l-sgov-sbírka-111-2009-pojem:kategorie, z-sgov-pojem:typ-objektu;
+    l-sgov-sbírka-111-2009-pojem:kategorie, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Kategorií orgánů veřejné moci se rozumí skupina orgánů veřejné moci, které vykonávají stejné činnosti."@cs;
   skos:hiddenLabel "Kategorie OVM"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
@@ -1212,111 +1222,111 @@ l-sgov-sbírka-111-2009-pojem:kategorie-orgánů-veřejné-moci a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:kategorie a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie,
-    <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Kategorií se rozumí skupina orgánů veřejné moci nebo soukromoprávních uživatelů údajů, kteří vykonávají stejné činnosti."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Kategorie"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-vykonávána-v-agendě a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Propojuje danou činnost s agendou, ve které má být činnost vykonávána."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je vykonávána v agendě"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-vymezena-ustanovením a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je vymezena ustanovením"@cs;
   skos:scopeNote "Určuje právní předpis a jeho ustanovení, které vymezuje danou kategorii."@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-vnitřní-organizační-jednotkou a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Údaj o tom, zda je orgán veřejné moci vnitřní organizační jednotkou organizační složky státu, které byla zákonem svěřena vlastní působnost. Jedná se o referenční údaj."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je vnitřní organizační jednotkou"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-vykonávána-na-základě-ustanovení a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Určuje právní předpis a označení jeho ustanovení, na jehož základě orgány veřejné moci vykonávají svoji působnost, tj. agendu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je vykonávána na základě ustanovení"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-součástí-právního-předpisu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je součástí právního předpisu"@cs;
   skos:scopeNote "Přiřazuje ustanovení do právního předpisu."@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-veden-nebo-vytvářen-v-rámci-agendy a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je veden nebo vytvářen v rámci agendy"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-oprávněn-k-využívání-údajů-ná-základě-ustanovení a
     skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je oprávněn k využívání údajů ná základě ustanovení"@cs;
   skos:scopeNote "Určuje právní předpis a označení jeho ustanovení, na jehož základě je soukromoprávní uživatel údajů oprávněn k využívání údajů ze základních registrů nebo z agendových informačních systémů."@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-oprávněním-pro-roli a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Je oprávněním pro roli"@cs;
   skos:scopeNote "Určuje roli, pro kterou je oprávnění k přístupu k údajům definováno. Oprávnění k přístupu k údajům může být definováno pro více rolí. Jedna role může mít definováno více oprávnění."@cs .
 
 l-sgov-sbírka-111-2009-pojem:datová-schránka a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Datová schránka"@cs;
   skos:scopeNote "Datová schránka tak, jak je definována v zákoně č. 300/2008 Sb."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-rok-právního-předpisu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má rok právního předpisu"@cs;
   skos:scopeNote "Rok vydání právního předpisu ve Sbírce zákonů České republiky.\"@cs"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-právní-formu-osoby a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má právní formu osoby"@cs;
   skos:scopeNote "Určuje právní formu osoby z číselníku právních forem."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-příjmení-osoby-stojící-v-čele-orgánu-veřejné-moci
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má příjmení osoby stojící v čele orgánu veřejné moci"@cs;
   skos:scopeNote "Příjmení osoby stojící v čele orgánu veřejné moci vedené v registru obyvatel"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-pracoviště-vykonávající-úkon a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má pracoviště vykonávající úkon"@cs;
   skos:scopeNote "Přiřazuje orgánu veřejné moci pracoviště, na kterém vykonává úkony. K danému orgánu veřejné moci může být uvedeno více pracovišť. Jedno pracoviště patří k právě jednomu orgánu veřejné moci."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-právního-předpisu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má název právního předpisu"@cs;
   skos:scopeNote "Název právního předpisu uvedený ve Sbírce zákonů České republiky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-agendy a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má název agendy"@cs;
   skos:scopeNote "Název agendy je referenčním údajem o agendě vedený v Registru práv a povinností"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-kategorie a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:hiddenLabel "jméno kategorie"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má název kategorie"@cs;
   skos:scopeNote "Jednoznačně pojmenovává kategorii, ale není použit jako její identifikátor. Název kategorie je referenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-kód-agendy a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Kód agendy je veřejným identifikátorem, který je jednoznačně přiřazen záznamu o agendě v číselníku agend v registru práv a povinností."@cs;
   skos:hiddenLabel "veřejný identifikátor agendy"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
@@ -1324,33 +1334,33 @@ l-sgov-sbírka-111-2009-pojem:má-kód-agendy a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:má-jméno-a-příjmení-osoby-stojící-v-čele-orgánu-veřejné-moci
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má jméno a příjmení osoby stojící v čele orgánu veřejné moci"@cs;
   skos:scopeNote "Plné jméno osoby stojicí v čele orgánu veřejné moci převzaté z registru obyvatel."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-jméno-osoby-stojící-v-čele-orgánu-veřejné-moci a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má jméno osoby stojící v čele orgánu veřejné moci"@cs;
   skos:scopeNote "Křestní jméno osoby stojicí v čele orgánu veřejné moci převzaté z registru obyvatel."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikátor-orgánu-veřejné-moci a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:hiddenLabel "identifikátor OVM"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má identifikátor orgánu veřejné moci"@cs;
   skos:scopeNote "Jednoznačný identifikátor orgánu veřejné moci v rámci všech orgánů veřejné moci. Identifikátor je referenčním údajem."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikátor-soukromoprávního-uživatele-údajů a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:hiddenLabel "identifikátor SPUÚ"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má identifikátor soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Jednoznačný identifikátor soukromoprávního uživatele údajů. Identifikátor je referenčním údajem."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikátor-kategorie a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:hiddenLabel "id kategorie"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má identifikátor kategorie"@cs;
@@ -1358,150 +1368,150 @@ l-sgov-sbírka-111-2009-pojem:má-identifikátor-kategorie a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:má-datum-zahájení-výkonu-působnosti-orgánu-veřejné-moci
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Datum, od kterého orgán veřejné moci vykonává působnost"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má datum zahájení výkonu působnosti orgánu veřejné moci"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-datum-zániku-soukromoprávního-uživatele-údajů a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má datum zániku soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Datum, ke kterému soukromoprávní uživatel údajů zanikl nebo byl vymazán z evidence, je-li s výmazem z evidence spojen zánik soukromoprávního uživatele údajů."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-datum-vzniku-soukromoprávního-uživatele-údajů a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má datum vzniku soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Datum, ke kterému soukromoprávní uživatel údajů vznikl nebo byl zapsán do evidence, je-li se zápisem do evidence spojen vznik soukromoprávního uživatele údajů."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-orgánu-veřejné-moci a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má adresu sídla orgánu veřejné moci"@cs;
   skos:scopeNote "Adresa sídla orgánu veřejné moci, pokud takovou adresu má. Adresa sídla je referenční údaj. Je vyjádřena referencí do Registru územní identifikace, adres a nemovitostí. Je převzata z registru osob nebo z registru obyvatel. Jeden orgán veřejné moci může mít nejvýše jednu adresu sídla."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-sídla-soukromoprávního-uživatele-údajů a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má adresu sídla soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Adresa sídla soukromoprávního uživatele údajů, pokud takovou adresu má. Adresa sídla je referenční údaj. Je vyjádřena referencí do Registru územní identifikace, adres a nemovitostí. Je převzata z registru osob. Jeden soukromoprávní uživatel údajů může mít nejvýše jednu adresu místa sídla."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-pracoviště a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má adresu pracoviště"@cs;
   skos:scopeNote "Přiřazuje pracovišti orgánu veřejné moci jeho adresu v podobě reference na adresní místo vedené v registru územní identifikace, adres a nemovitostí."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-místa-pobytu-orgánu-veřejné-moci a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má adresu místa pobytu orgánu veřejné moci"@cs;
   skos:scopeNote "Adresa místa pobytu orgánu veřejné moci, pokud takovou adresu má. Adresa místa pobytu je referenční údaj. Je vyjádřena referencí do Registru územní identifikace, adres a nemovitostí. Je převzata z registru osob nebo z registru obyvatel. Jeden orgán veřejné moci může mít nejvýše jednu adresu místa pobytu."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-adresu-místa-podnikání-soukromoprávního-uživatele-údajů
   a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má adresu místa podnikání soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Adresa místa podnikání soukromoprávního uživatele údajů, pokud takovou adresu má. Adresa místa podnikání je referenční údaj. Je vyjádřena referencí do Registru územní identifikace, adres a nemovitostí. Je převzata z registru osob. Jeden soukromoprávní uživatel údajů může mít nejvýše jednu adresu místa podnikání."@cs .
 
 l-sgov-sbírka-111-2009-pojem:činnost a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Činností se rozumí soubor úkonů vykonávaných v rámci agendy."@cs;
   skos:hiddenLabel "agendová činnost"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Činnost"@cs .
 
 l-sgov-sbírka-111-2009-pojem:zpřístupňuje-údaje-na-základě-ustanovení a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Zpřístupňuje údaje na základě ustanovení"@cs;
   skos:scopeNote "Určuje právní předpisu a označení jeho ustanovení, na jehož základě jsou údaje v rámci oprávnění k přístupu k údajům zpřístupněny."@cs .
 
 l-sgov-sbírka-111-2009-pojem:údaj a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Údaj"@cs;
   skos:scopeNote "Údaj vedený v základních registrech nebo v jiných agendových informačních systémech zpřístupněný prostřednictvím informačního systému základních registrů nebo referenčních rozhraní pro výkon agend. Nejedná se o specifikaci hodnoty konkrétního objektu či subjektu údajů, ale o specifikaci na úrovni typu údaje vedeného o objektu či subjektu údajů."@cs .
 
 l-sgov-sbírka-111-2009-pojem:vykonává-činnost a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:definition "Přiřazuje roli do výčtu rolí pro danou činnost."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Vykonává činnost"@cs .
 
 l-sgov-sbírka-111-2009-pojem:zpřístupňuje-údaj a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Zpřístupňuje údaj"@cs;
   skos:scopeNote "Určuje zpřístupněný údaj v rámci oprávnění přístupu k údaji."@cs .
 
 l-sgov-sbírka-111-2009-pojem:vykonává-agendu a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:definition "Určuje agendu, kterou vykonává daný orgán veřejné moci nebo soukromoprávní uživateli údajů nebo jejich kategorie."@cs;
   skos:hiddenLabel "vykonavatel agendy"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Vykonává agendu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:vykonává-působnost-na-základě-ustanovení a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Vykonává působnost na základě ustanovení"@cs;
   skos:scopeNote "Určuje právní předpis a označení jeho ustanovení, na jehož základě orgán veřejné moci vykonává svoji působnost."@cs .
 
 l-sgov-sbírka-111-2009-pojem:typ-datové-schránky a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Typ datové schránky"@cs;
   skos:scopeNote "Typ datové schránky z číselníku typů datových schránek."@cs .
 
 l-sgov-sbírka-111-2009-pojem:ustanovení-právního-předpisu a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Ustanovení právního předpisu"@cs;
   skos:scopeNote "Ustanovení právního předpisu je identifikovatelná součást právního předpisu, např. jeho paragraf, odstavec nebo písmeno."@cs .
 
 l-sgov-sbírka-111-2009-pojem:stojí-v-čele-orgánu-veřejné-moci a skos:Concept;
   skos:altLabel "Má osobu v čele"@cs;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Stojí v čele orgánu veřejné moci"@cs;
   skos:scopeNote "Určuje osobu stojící v čele orgánu veřejné moci, pokud lze pro daný orgán veřejné moci takový údaj zveřejnit. Pro každý orgán veřejné moci je zveřejněna nejvýše jedna osoba."@cs .
 
 l-sgov-sbírka-111-2009-pojem:právní-předpis a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Právní předpis"@cs;
   skos:scopeNote "Právního předpis vydaný ve Sbírce zákonů České republiky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:role a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Rolí se rozumí souhrn oprávnění fyzické osoby, která vykonává určitou činnost, k přístupu k referenčním údajům v základních registrech nebo k údajům v agendových informačních systémech. Role je definována jako vazba mezi činností a orgánem veřejné moci či soukromoprávního uživatele údajů, nebo jejich kategorie. Role pak určuje jaké činnosti mohou úřední osoby (jako fyzické osoby) daného orgánu veřejné moci, soukromoprávního uživatele údajů či jejich kategorie vykonávat. "@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Role"@cs .
 
 l-sgov-sbírka-111-2009-pojem:pracoviště a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Pracoviště"@cs;
   skos:scopeNote "Pracoviště, na kterém orgán veřejné moci vykonává úkony."@cs .
 
 l-sgov-sbírka-111-2009-pojem:právní-forma a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Právní forma"@cs;
   skos:scopeNote "Právní forma osoby z číselníku právních forem."@cs .
 
 l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie
   a skos:Concept;
-  skos:broader z-sgov-pojem:objekt, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Orgánem veřejné moci se rozumí státní orgán, územní samosprávný celek a fyzická nebo právnická osoba, byla-li jí svěřena působnost v oblasti veřejné správy. Soukromoprávním uživatelem údajů se rozumí podnikající fyzická osoba nebo právnická osoba, která není orgánem veřejné moci a je podle jiného právního předpisu oprávněna využívat údaje ze základního registru nebo z agendového informačního systém. Kategorií se rozumí skupina orgánů veřejné moci nebo soukromoprávních uživatelů údajů, kteří vykonávají stejné činnosti."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Orgán veřejné moci nebo soukromoprávní uživatel údajů nebo jejich kategorie"@cs .
 
 l-sgov-sbírka-111-2009-pojem:oprávnění-k-přístupu-k-údajům a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, z-sgov-pojem:typ-objektu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/objekt-práva>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Oprávnění k přístupu k údajům"@cs;
   skos:scopeNote "Oprávnění fyzické osoby čerpat při výkonu agendy údaje v základních registrech nebo údaje v agendových informačních systémech vedené v jiné agendě. První agendu nazýváme čerpající, druhou poskytující. Oprávnění není definováno pro konkrétní fyzickou osobu ale pro roli."@cs .
@@ -1510,281 +1520,285 @@ l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci a skos:Concept;
   skos:broader <https://slovník.gov.cz/agendový/104/pojem/orgán-veřejné-moci-nebo-kategorie>,
     l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů,
     l-sgov-sbírka-111-2009-pojem:osoba, <https://slovník.gov.cz/veřejný-sektor/pojem/orgán-veřejné-moci>,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Orgánem veřejné moci se rozumí státní orgán, územní samosprávný celek a fyzická nebo právnická osoba, byla-li jí svěřena působnost v oblasti veřejné správy."@cs;
   skos:hiddenLabel "OVM"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Orgán veřejné moci"@cs .
 
 l-sgov-sbírka-111-2009-pojem:ohlašuje-agendu a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:definition "Určuje agendu, pro níž je daný orgán veřejné moci ohlašovatelem"@cs;
   skos:hiddenLabel "ohlašovatel agendy"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Ohlašuje agendu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:ohlašuje-kategorii a skos:Concept;
-  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, z-sgov-pojem:typ-vztahu;
+  skos:broader <https://slovník.gov.cz/veřejný-sektor/pojem/právní-vztah>, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Ohlašuje kategorii"@cs;
   skos:scopeNote "Určuje ústřední správní úřad (orgán veřejné moci), který ohlašuje kategorii."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-úplné-označení-ustanovení-včetně-označení-právního-předpisu
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má úplné označení ustanovení včetně označení právního předpisu"@cs;
   skos:scopeNote "Úplné označení ustanovení je řetězec, který obsahuje označení samotného předpisu dle jeho označení ve Sbírce zákonů a dále označení samotného ustanovení v rámci předpisu. Jeho vnitřní struktura není nijak předepsána."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-číslo-právního-předpisu a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má číslo právního předpisu"@cs;
   skos:scopeNote "Číslo právního předpisu v rámci jeho roku vydání uvedeně ve Sbírce zákonů České republiky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-souhrn-oprávnění-definovaných-rolí a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má souhrn oprávnění definovaných rolí"@cs;
   skos:scopeNote "Přiřazuje orgánu veřejné moci, soukromoprávnímu uživateli údajů či jejich kategorii roli, která určuje souhrn oprávnění úředních osob pro výkon činnosti."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřejné-moci-do
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má přerušený výkon působnosti orgánu veřejné moci do"@cs;
   skos:scopeNote "Datum, do kterého má nebo měl orgán veřejné moci přerušen výkon působnosti."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přerušený-výkon-působnosti-orgánu-veřejné-moci-od
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má přerušený výkon působnosti orgánu veřejné moci od"@cs;
   skos:scopeNote "Datum, od kterého má nebo měl orgán veřejné moci přerušen výkon působnosti."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přerušené-působení-soukromoprávního-uživatele-údajů-do
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má přerušené působení soukromoprávního uživatele údajů do"@cs;
   skos:scopeNote "Datum, od kterého má soukromoprávní uživatel údajů přerušené působení."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přerušené-působení-soukromoprávního-uživatele-údajů-od
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má přerušené působení soukromoprávního uživatele údajů od"@cs;
   skos:scopeNote "Datum, do kterého má soukromoprávní uživatel údajů přerušené působení."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-pozastavený-výkon-působnosti-orgánu-veřejné-moci-do
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má pozastavený výkon působnosti orgánu veřejné moci do"@cs;
   skos:scopeNote "Datum, do kterého má nebo měl orgán veřejné moci pozastaven výkon působnosti."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-pozastavený-výkon-působnosti-orgánu-veřejné-moci-od
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má pozastavený výkon působnosti orgánu veřejné moci od"@cs;
   skos:scopeNote "Datum, od kterého má nebo měl orgán veřejné moci pozastaven výkon působnosti."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-pozastavené-působení-soukromoprávního-uživatele-údajů-do
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má pozastavené působení soukromoprávního uživatele údajů do"@cs;
   skos:scopeNote "Datum, do kterého má soukromoprávní uživatel údajů pozastavené působení."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-pozastavené-působení-soukromoprávního-uživatele-údajů-od
   a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má pozastavené působení soukromoprávního uživatele údajů od"@cs;
   skos:scopeNote "Datum, od kterého má soukromoprávní uživatel údajů pozastavené působení."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-číslo-domovní a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má číslo domovní"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Subjekty, o nichž se vedou v registru osob údaje (dále jen „osoba“), jsou a) právnická osoba, b) organizační složka a organizační jednotka právnické osoby, c) organizační složka státu, d) vnitřní organizační jednotka organizační složky státu, pokud je této vnitřní organizační jednotce zákonem svěřena vlastní působnost, e) podnikající fyzická osoba, f) zahraniční osoba a organizační složka zahraniční osoby, g) svěřenský fond, pokud jsou zapsány do evidence podle tohoto zákona nebo jiného právního předpisu."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Subjekt údajů vedený v registru obyvatel"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-obce a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-název-obce-nebo-vojenského-újezdu, z-sgov-pojem:typ-vlastnosti;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-název-obce-nebo-vojenského-újezdu, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název obce"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-vojenského-újezdu a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-název-obce-nebo-vojenského-újezdu, z-sgov-pojem:typ-vlastnosti;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-název-obce-nebo-vojenského-újezdu, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má název vojenského újezdu"@cs;
   skos:scopeNote "Adresou se rozumí kombinace názvu okresu, názvu obce nebo vojenského újezdu, názvu části obce nebo v případě hlavního města Prahy názvu katastrálního území a názvu městského obvodu, čísla popisného nebo evidenčního, názvu ulice a čísla orientačního a dále zvláštních údajů pro doručování prostřednictvím poštovních služeb, která jednoznačně určuje adresní místo."@cs .
 
 l-sgov-sbírka-111-2009-pojem:stavební-objekt a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:základní-územní-prvek,
-    z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Stavebním objektem se rozumí dokončená budova zapisovaná do katastru nemovitostí, která je samostatnou věcí, nebo budova, která je součástí pozemku nebo součástí práva stavby a údaje o ní se do katastru nemovitostí zapisují k pozemku nebo k právu stavby, nebo jiná dokončená stavba, která se do katastru nemovitostí nezapisuje, ale bylo jí přiděleno číslo popisné nebo evidenční."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "stavební objekt"@cs .
 
 l-sgov-sbírka-111-2009-pojem:územně-evidenční-jednotka a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:prvek-obsažený-v-rúian, z-sgov-pojem:druh,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:prvek-obsažený-v-rúian, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Územně evidenční jednotkou se rozumí jednotka sloužící pro evidenci územních prvků stejného druhu, která nemá hranici."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Územně evidenční jednotka"@cs .
 
 l-sgov-sbírka-111-2009-pojem:účelový-územní-prvek a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:prvek-obsažený-v-rúian, l-sgov-sbírka-111-2009-pojem:územní-prvek,
-    z-sgov-pojem:kategorie, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/kategorie>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Registr územní identifikace obsahuje též údaje o účelových územních prvcích, pomocí kterých je vyjádřeno území jiným právním předpisem, pokud jiný právní předpis stanoví, že se tyto údaje do registru územní identifikace zapisují, a pokud tyto účelové územní prvky jsou bezezbytku skladebné alespoň z některých základních prvků podle odstavce 1 nebo do některého z nich."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Účelový územní prvek"@cs .
 
 l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří
   a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:základní-územní-prvek, z-sgov-pojem:druh,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:základní-územní-prvek, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "část zemského povrchu vymezená hranicí nebo výčtem jiných územních prvků, které ji dohromady tvoří"@cs .
 
 l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby-v-registru-osob
   a skos:Concept;
   skos:altLabel "aifo"@cs, "aifo rob"@cs;
-  skos:broader l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby, z-sgov-pojem:typ-vlastnosti;
+  skos:broader l-sgov-sbírka-111-2009-pojem:agendový-identifikátor-fyzické-osoby, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "agendový identifikátor fyzické osoby v registru osob"@cs;
   skos:scopeNote "Agendový identifikátor fyzické osoby pro agendu registru osob reprezentuje referenční vazbu na referenční údaj o fyzické osobě v registru obyvatel. Vazba není modelována přímo, protože přímá vazba neexistuje. Vždy jen pouze prostřednicvím agendového identifikátoru fyzické osoby."@cs .
 
 l-sgov-sbírka-111-2009-pojem:fyzická-osoba-v-registru-osob a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Fyzická osoba v registru osob"@cs .
 
 l-sgov-sbírka-111-2009-pojem:cizinec-pod-ochranou a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Cizinec pod ochranou"@cs;
   skos:scopeNote "Subjekty údajů vedených v registru obyvatel jsou cizinci, kterým byla na území České republiky udělena mezinárodní ochrana formou azylu nebo doplňkové ochrany."@cs .
 
 l-sgov-sbírka-111-2009-pojem:cizinec-s-dlouhodobým-pobytem a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Cizinec s dlouhodobým pobytem"@cs;
   skos:scopeNote "Subjekty údajů vedených v registru obyvatel jsou cizinci, kteří pobývají na území České republiky na základě dlouhodobého víza nebo povolení k dlouhodobému pobytu."@cs .
 
 l-sgov-sbírka-111-2009-pojem:cizinec-s-trvalým-pobytem a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Cizinec s trvalým pobytem"@cs;
   skos:scopeNote "Subjekty údajů vedených v registru obyvatel jsou cizinci, kteří pobývají na území České republiky v rámci trvalého pobytu."@cs .
 
 l-sgov-sbírka-111-2009-pojem:jiná-fyzická-osoba-s-identifikátorem a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Jiná fyzická osoba s identifikátorem"@cs;
   skos:scopeNote "Subjekty údajů vedených v registru obyvatel jsou jiné fyzické osoby, u nichž jiný právní předpis vyžaduje agendový identifikátor fyzické osoby a stanoví, že tyto fyzické osoby budou vedeny v registru obyvatel."@cs .
 
 l-sgov-sbírka-111-2009-pojem:občan-jiného-členského-státu a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Občan jiného členského státu"@cs;
   skos:scopeNote "Subjekty údajů vedených v registru obyvatel jsou občané jiných členských států Evropské unie."@cs .
 
 l-sgov-sbírka-111-2009-pojem:státní-občan-české-republiky a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:subjekt-údajů-vedený-v-registru-obyvatel,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Státní občan České republiky"@cs;
   skos:scopeNote "Subjekty údajů vedených v registru obyvatel jsou státní občané české republiky."@cs .
 
 l-sgov-sbírka-111-2009-pojem:definiční-bod-územního-prvku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizační údaje, kterými jsou definiční bod, a nejde-li o adresní místo nebo stavební objekt, jehož hranice nejsou zobrazeny v katastrální mapě, též hranice."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "definiční bod územního prvku"@cs;
   skos:scopeNote "Definiční bod územního prvku leží uvnitř tohoto územního prvku; pokud má územní prvek hranici, musí být definiční bod uvnitř polygonu územního prvku, zpravidla v blízkosti jeho těžiště. Pokud hranice územního prvku není spojitá, pak každá plocha územního prvku obsahuje vlastní definiční bod."@cs .
 
 l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "O každém územním prvku se v registru územní identifikace vedou lokalizační údaje, kterými jsou definiční bod, a nejde-li o adresní místo nebo stavební objekt, jehož hranice nejsou zobrazeny v katastrální mapě, též hranice."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Lokalizační údaje územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:hranice-územního-prvku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územního-prvku, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizační údaje, kterými jsou definiční bod, a nejde-li o adresní místo nebo stavební objekt, jehož hranice nejsou zobrazeny v katastrální mapě, též hranice."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "hranice územního prvku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:identifikační-údaje-pozemku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku, z-sgov-pojem:druh,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Identifikační údaji o územním prvku, kterým je pozemek, jsou kód a název katastrálního území, ve kterém pozemek leží, a parcelní číslo."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "identifikační údaje pozemku"@cs;
   skos:scopeNote "Identifikační údaji o územním prvku, kterým je stavební objekt, jsou identifikační údaje pozemku, na kterém je stavební objekt postaven."@cs .
 
 l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "O každém územním prvku se v registru územní identifikace vedou a) identifikační údaje, kterými jsou kód a název, pokud není v odstavci 3 stanoveno jinak, b) lokalizační údaje, kterými jsou definiční bod, a nejde-li o adresní místo nebo stavební objekt, jehož hranice nejsou zobrazeny v katastrální mapě, též hranice, c) údaje o vazbách na jiné územní prvky, případně na územně evidenční jednotky."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "identifikační údaje územního prvku"@cs;
   skos:scopeNote "\" Identifikačními údaji o územním prvku, kterým je a) pozemek, jsou kód a název katastrálního území, ve kterém pozemek leží, a parcelní číslo, b) stavební objekt, jsou identifikační údaje pozemku, na kterém je stavební objekt postaven, a dále 1. údaj o jeho čísle popisném nebo evidenčním, pokud se přiděluje, a údaj o části obce, ke které stavební objekt přísluší, nebo 2. údaj o tom, že se jedná o stavební objekt, kterému se popisné ani evidenční číslo nepřiděluje.\"@&s"@cs .
 
 l-sgov-sbírka-111-2009-pojem:identifikační-údaje-stavebního-objektu a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územního-prvku, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Identifikační údaji o územním prvku, kterým je stavební objekt, jsou identifikační údaje pozemku, na kterém je stavební objekt postaven, a dále 1. údaj o jeho čísle popisném nebo evidenčním, pokud se přiděluje, a údaj o části obce, ke které stavební objekt přísluší, nebo 2. údaj o tom, že se jedná o stavební objekt, kterému se popisné ani evidenční číslo nepřiděluje."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "identifikační údaje stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:identifikační-údaje-územně-evidenční-jednotky a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje, z-sgov-pojem:druh,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-údaje, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Identifikační údaje, kterými jsou kód a název."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "identifikační údaje územně evidenční jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-součástí-územního-prvku a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:vazba-územně-evidenčních-jednotek-na-územní-prvky,
-    z-sgov-pojem:typ-vztahu;
+    <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "je součástí územního prvku"@cs;
   skos:scopeNote "Vazbou územně evidenčních jednotek na územní prvky se rozumí vztah, vyjadřující jakých územních prvků je územně evidenční jednotka součástí (nadřazené územní prvky) a ze kterých územních prvků se územně evidenční jednotka skládá (podřazené územní prvky)."@cs .
 
 l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-ulice a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územně-evidenční-jednotky,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizační údaje, kterými jsou u části obce definiční bod a u ulice definiční čára."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "lokalizační údaje ulice"@cs .
 
 l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územně-evidenční-jednotky a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizační údaje, kterými jsou u části obce definiční bod a u ulice definiční čára."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "lokalizační údaje územně evidenční jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-územně-evidenční-jednotky,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Lokalizační údaje, kterými jsou u části obce definiční bod a u ulice definiční čára."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "lokalizační údaje části obce"@cs .
@@ -1792,69 +1806,72 @@ l-sgov-sbírka-111-2009-pojem:lokalizační-údaje-části-obce a skos:Concept;
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
   a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:má-technickoekonomické-atributy-stavebního-objektu,
-    z-sgov-pojem:typ-vztahu;
+    <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má technickoekonomické atributy stavebního objektu s č. p. nebo č. ev."@cs;
   skos:scopeNote "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy."@cs .
 
 l-sgov-sbírka-111-2009-pojem:nadřazený-územní-prvek a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:územní-prvek, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:územní-prvek, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Nadřazený územní prvek"@cs .
 
 l-sgov-sbírka-111-2009-pojem:náleží-do-jiného-územního-prvku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "náleží do jiného územního prvku"@cs;
   skos:scopeNote "Vazbou mezi územními prvky se rozumí vztah, vyjadřující, do kterých územních prvků daný územní prvek náleží (nadřazené územní prvky) nebo z kterých územních prvků se daný územní prvek skládá (podřazené územní prvky)."@cs .
 
 l-sgov-sbírka-111-2009-pojem:podřazený-územní-prvek a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:územní-prvek, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:územní-prvek, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Podřazený územní prvek"@cs .
 
 l-sgov-sbírka-111-2009-pojem:skládá-se-z-jiného-územního-prvku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:vazba-mezi-územními-prvky, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "skládá se z jiného územního prvku"@cs;
   skos:scopeNote "Vazbou mezi územními prvky se rozumí vztah, vyjadřující, do kterých územních prvků daný územní prvek náleží (nadřazené územní prvky) nebo z kterých územních prvků se daný územní prvek skládá (podřazené územní prvky)."@cs .
 
 l-sgov-sbírka-111-2009-pojem:skládá-se-z-územního-prvku a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:vazba-územně-evidenčních-jednotek-na-územní-prvky,
-    z-sgov-pojem:typ-vztahu;
+    <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "skládá se z územního prvku"@cs;
   skos:scopeNote "Vazbou územně evidenčních jednotek na územní prvky se rozumí vztah, vyjadřující jakých územních prvků je územně evidenční jednotka součástí (nadřazené územní prvky) a ze kterých územních prvků se územně evidenční jednotka skládá (podřazené územní prvky)."@cs .
 
 l-sgov-sbírka-111-2009-pojem:správní-obvod-obce-s-pověřeným-obecním-úřadem a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "správní obvod obce s pověřeným obecním úřadem"@cs .
 
 l-sgov-sbírka-111-2009-pojem:správní-obvod-obce-s-rozšířenou-působností a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "správní obvod obce s rozšířenou působností"@cs .
 
 l-sgov-sbírka-111-2009-pojem:stavební-objekt-s-číslem-popisným-nebo-evidenčním a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:stavební-objekt, z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:stavební-objekt, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:hiddenLabel "stavební objekt s č. p. nebo č. ev."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "stavební objekt s číslem popisným nebo evidenčním"@cs;
   skos:scopeNote "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy."@cs .
 
 l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-pozemku a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy, z-sgov-pojem:poddruh,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "O pozemku se dále v registru územní identifikace vedou údaje o druhu a způsobu využití pozemku, typu a způsobu jeho ochrany a technickoekonomické atributy tohoto pozemku, kterými jsou a) výměra parcely, b) údaj o bonitovaných půdně ekologických jednotkách (BPEJ) k parcele."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "technickoekonomické atributy pozemku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy, z-sgov-pojem:poddruh,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "O stavebním objektu se dále v registru územní identifikace vedou údaje o typu stavebního objektu, způsobu jeho využití a o typu a způsobu jeho ochrany a technickoekonomický atribut měsíc a rok dokončení."@cs;
   skos:hiddenLabel "technickoekonomické atributy SO"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
@@ -1863,7 +1880,7 @@ l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu 
 <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/technickoekonomické-atributy-stavebního-objektu-s-č.-p.-nebo-č.-ev.>
   a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu,
-    z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/poddruh>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "O stavebním objektu s číslem popisným nebo evidenčním se dále vedou technickoekonomické atributy."@cs;
   skos:hiddenLabel "technickoekonomické atributy SO s č. p. nebo č. ev."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
@@ -1872,7 +1889,7 @@ l-sgov-sbírka-111-2009-pojem:technickoekonomické-atributy-stavebního-objektu 
 l-sgov-sbírka-111-2009-pojem:zvláštní-údaje-pro-doručování-prostřednictvím-poštovních-služeb
   a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:prvek-obsažený-v-rúian,
-    z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Registr územní identifikace obsahuje i zvláštní údaje pro doručování prostřednictvím poštovních služeb."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "zvláštní údaje pro doručování prostřednictvím poštovních služeb"@cs;
@@ -1880,130 +1897,132 @@ l-sgov-sbírka-111-2009-pojem:zvláštní-údaje-pro-doručování-prostřednict
 
 l-sgov-sbírka-111-2009-pojem:území-kraje a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území kraje"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-městské-části-v-hlavním-městě-praze a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území městské části v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-v-hlavním-městě-praze a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:hiddenLabel "území mop"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území městského obvodu v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-okresu a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:adresní-komponent, l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území okresu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-regionu-soudržnosti a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území regionu soudržnosti"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-státu a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území státu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-vyššího-územního-samosprávního-celku a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území vyššího územního samosprávního celku"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-základní-sídelní-jednotky a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území základní sídelní jednotky"@cs .
 
 l-sgov-sbírka-111-2009-pojem:organizační-část-osoby a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:osoba, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:osoba, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Organizační část osoby"@cs;
   skos:scopeNote "Organizační složka právnické osoby je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:organizační-jednotka-právnické-osoby a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Organizační jednotka právnické osoby"@cs;
   skos:scopeNote "Organizační jednotka právnické osoby je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:organizační-složka-právnické-osoby a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Organizační složka právnické osoby"@cs;
   skos:scopeNote "Organizační složka právnické osoby je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:organizační-složka-státu a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Organizační složka státu"@cs;
   skos:scopeNote "Organizační složka státu je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:organizační-složka-zahraniční-osoby a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Organizační složka zahraniční osoby"@cs;
   skos:scopeNote "Organizační složka zahraniční osoby je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:svěřenský-fond a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:osoba, z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:osoba, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Svěřenský fond"@cs;
   skos:scopeNote "Svěřenský fond je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:podnikající-fyzická-osoba a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba-v-registru-osob, l-sgov-sbírka-111-2009-pojem:osoba,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Podnikající fyzická osoba"@cs;
   skos:scopeNote "Podnikající fyzická osoba je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:vnitřní-organizační-jednotka-organizační-složky-státu
   a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, z-sgov-pojem:role,
-    z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:organizační-část-osoby, <https://slovník.gov.cz/základní/pojem/role>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Vnitřní organizační jednotka organizační složky státu"@cs;
   skos:scopeNote "Vnitřní organizační jednotka organizační složky státu je typ osoby, o níž se vedou v registru osob údaje. Jedná se pouze o ty vnitřní organizační jednotky, kterým  je zákone svěřena vlastní působnost."@cs .
 
 l-sgov-sbírka-111-2009-pojem:zahraniční-osoba a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba-v-registru-osob, l-sgov-sbírka-111-2009-pojem:osoba,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Zahraniční osoba"@cs;
   skos:scopeNote "Zahraniční osoba je typ osoby, o níž se vedou v registru osob údaje."@cs .
 
 l-sgov-sbírka-111-2009-pojem:soukromoprávní-uživatel-údajů a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů,
-    l-sgov-sbírka-111-2009-pojem:osoba, z-sgov-pojem:typ-objektu;
+    l-sgov-sbírka-111-2009-pojem:osoba, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Soukromoprávním uživatelem údajů se rozumí podnikající fyzická osoba nebo právnická osoba, která není orgánem veřejné moci a je podle jiného právního předpisu oprávněna využívat údaje ze základního registru nebo z agendového informačního systému."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Soukromoprávní uživatel údajů"@cs .
 
 l-sgov-sbírka-111-2009-pojem:kategorie-soukromoprávních-uživatelů-údajů a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:kategorie, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:kategorie, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Kategorií soukromoprávních uživatelů údajů se rozumí skupina soukromoprávních uživatelů údajů, kteří vykonávají stejné činnosti."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Kategorie soukromoprávních uživatelů údajů"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-orgánu-veřejné-moci a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:hiddenLabel "datová schránka OVM"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má datovou schránku orgánu veřejné moci"@cs;
@@ -2011,13 +2030,13 @@ l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-orgánu-veřejné-moci a sko
 
 l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-soukromoprávního-uživatele-údajů
   a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-datovou-schránku-osoby, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má datovou schránku soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Určuje datovou schránku soukromoprávního uživatele údajů. Datová schránka soukromoprávního uživatele údajů vedená v Registru práv a povinností je referenčním údajem a je převzata z registru osob. Soukromoprávní uživatel údajů může mít více datových schránek a má alespoň jednu. Jedna datová schránka patří nejvýše jednomu soukromoprávnímu uživateli údajů."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-číslo-osoby-orgánu-veřejné-moci a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby, z-sgov-pojem:typ-vlastnosti;
+  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:definition "Identifikační číslo osoby orgánu veřejné moci, bylo-li přiděleno. Identifikační číslo je referenčním údajem."@cs;
   skos:hiddenLabel "ičo OVM"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
@@ -2025,14 +2044,14 @@ l-sgov-sbírka-111-2009-pojem:má-identifikační-číslo-osoby-orgánu-veřejn�
 
 l-sgov-sbírka-111-2009-pojem:má-identifikační-číslo-osoby-soukromoprávního-uživatele-údajů
   a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby, z-sgov-pojem:typ-vlastnosti;
+  skos:broader l-sgov-sbírka-111-2009-pojem:identifikační-číslo-osoby, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:hiddenLabel "ičo SPUÚ"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má identifikační číslo osoby soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Identifikační číslo osoby soukromoprávního uživatele údajů. Jedná se o refrenční údaj."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-název-orgánu-veřejné-moci a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:obchodní-firma, z-sgov-pojem:typ-vlastnosti;
+  skos:broader l-sgov-sbírka-111-2009-pojem:obchodní-firma, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:hiddenLabel "jméno OVM"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má název orgánu veřejné moci"@cs;
@@ -2040,14 +2059,14 @@ l-sgov-sbírka-111-2009-pojem:má-název-orgánu-veřejné-moci a skos:Concept;
 
 l-sgov-sbírka-111-2009-pojem:má-obchodní-firmu-nebo-název-nebo-označení-osoby-nebo-jméno-nebo--popřípadně-jména-nebo--a-příjmení-soukromoprávního-uživatele-údajů
   a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:obchodní-firma, z-sgov-pojem:typ-vlastnosti;
+  skos:broader l-sgov-sbírka-111-2009-pojem:obchodní-firma, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   skos:hiddenLabel "pojmenování SPUÚ"@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Má obchodní firmu nebo název nebo označení osoby nebo jméno nebo  popřípadně jména nebo  a příjmení soukromoprávního uživatele údajů"@cs;
   skos:scopeNote "Pojmenovává soukromprávního uživatele údajů názvem, který je oficiálním pojmenováním soukromoprávního uživatele údajů. Jedná se o referenční údaj převzatý z registru osob."@cs .
 
 l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Ústřední správní úřad"@cs;
   skos:scopeNote "Ústřední správní úřad je orgánem veřejné moci, který ohlašuje nějakou kategorii."@cs .
@@ -2055,58 +2074,58 @@ l-sgov-sbírka-111-2009-pojem:ústřední-správní-úřad a skos:Concept;
 l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů
   a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:orgán-veřejné-moci-nebo-soukromoprávní-uživatel-údajů-nebo-jejich-kategorie,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:definition "Orgánem veřejné moci se rozumí státní orgán, územní samosprávný celek a fyzická nebo právnická osoba, byla-li jí svěřena působnost v oblasti veřejné správy. Soukromoprávním uživatelem údajů se rozumí podnikající fyzická osoba nebo právnická osoba, která není orgánem veřejné moci a je podle jiného právního předpisu oprávněna využívat údaje ze základního registru nebo z agendového informačního systém."@cs;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Orgán veřejné moci nebo soukromoprávní uživatel údajů"@cs .
 
 l-sgov-sbírka-111-2009-pojem:osoba-stojící-v-čele-orgánu-veřejné-moci a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba, z-sgov-pojem:typ-objektu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:fyzická-osoba, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "Osoba stojící v čele orgánu veřejné moci"@cs;
   skos:scopeNote "Osoba stojící v čele orgánu veřejné moci."@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-vojenského-újezdu a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-obce-nebo-vojenského-újezdu,
-    z-sgov-pojem:typ-vztahu;
+    <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazené území vojenského újezdu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:je-adresou-stavebního-objektu a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "je adresou stavebního objektu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazenou-ulici a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazenou ulici"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazenou-část-obce a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazenou část obce"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-katastrální-území a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazené katastrální území"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-městského-obvodu-v-hlavním-městě-praze
   a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazené území městského obvodu v hlavním městě Praze"@cs .
 
 l-sgov-sbírka-111-2009-pojem:má-přiřazené-území-okresu a skos:Concept;
-  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, z-sgov-pojem:typ-vztahu;
+  skos:broader l-sgov-sbírka-111-2009-pojem:má-vazbu-na-adresní-komponent, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "má přiřazené území okresu"@cs .
 
 l-sgov-sbírka-111-2009-pojem:území-městského-obvodu-a-městské-části-územně-členěného-statutárního-města
   a skos:Concept;
   skos:broader l-sgov-sbírka-111-2009-pojem:část-zemského-povrchu-vymezená-hranicí-nebo-výčtem-jiných-územních-prvků-které-ji-dohromady-tvoří,
-    z-sgov-pojem:role, z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme l-sgov-sbírka-111-2009:glosář;
   skos:prefLabel "území městského obvodu a městské části územně členěného statutárního města"@cs .
 

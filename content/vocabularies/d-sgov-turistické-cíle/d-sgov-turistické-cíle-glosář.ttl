@@ -8,7 +8,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
 d-sgov-turistické-cíle:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2020-10-28";
@@ -18,14 +17,15 @@ d-sgov-turistické-cíle:glosář a a-popis-dat-pojem:glosář, owl:Ontology, sk
   vann:preferredNamespaceUri "https://slovník.gov.cz/datový/turistické-cíle/pojem/";
   owl:imports <https://slovník.gov.cz/generický/veřejná-místa/glosář>, <https://slovník.gov.cz/generický/číselníky/glosář>;
   owl:versionIRI <https://slovník.gov.cz/datový/turistické-cíle/glosář/verze/0.0.1>;
-  skos:hasTopConcept d-sgov-turistické-cíle-pojem:kapacita, d-sgov-turistické-cíle-pojem:kouření-povoleno,
-    d-sgov-turistické-cíle-pojem:má-dostupný-jazyk, d-sgov-turistické-cíle-pojem:má-typ-turistického-cíle,
-    d-sgov-turistické-cíle-pojem:má-umístění, d-sgov-turistické-cíle-pojem:turistický-cíl,
-    d-sgov-turistické-cíle-pojem:veřejná-přístupnost .
+  skos:hasTopConcept d-sgov-turistické-cíle-pojem:eviduje-typ-turistického-cíle, d-sgov-turistické-cíle-pojem:kapacita,
+    d-sgov-turistické-cíle-pojem:kouření-povoleno, d-sgov-turistické-cíle-pojem:má-dostupný-jazyk,
+    d-sgov-turistické-cíle-pojem:má-typ-turistického-cíle, d-sgov-turistické-cíle-pojem:má-umístění,
+    d-sgov-turistické-cíle-pojem:turistický-cíl, d-sgov-turistické-cíle-pojem:typ-turistického-cíle,
+    d-sgov-turistické-cíle-pojem:veřejná-přístupnost, d-sgov-turistické-cíle-pojem:číselník-typů-turistických-cílů .
 
 d-sgov-turistické-cíle-pojem:má-typ-turistického-cíle a skos:Concept;
   skos:altLabel "typ turistického cíle"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Určuje, zda se jedná o přírodní nebo kulturní turistický cíl."@cs;
   skos:inScheme d-sgov-turistické-cíle:glosář;
   skos:prefLabel "má typ turistického cíle"@cs;
@@ -33,21 +33,21 @@ d-sgov-turistické-cíle-pojem:má-typ-turistického-cíle a skos:Concept;
 
 d-sgov-turistické-cíle-pojem:turistický-cíl a skos:Concept;
   skos:broader <https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo>,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme d-sgov-turistické-cíle:glosář;
   skos:prefLabel "Turistický cíl"@cs;
   skos:scopeNote "Samostatný turistický cíl"@cs .
 
 d-sgov-turistické-cíle-pojem:má-dostupný-jazyk a skos:Concept;
   skos:altLabel "dostupný jazyk"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Dostupný jazyk v místě turistického objektu."@cs;
   skos:inScheme d-sgov-turistické-cíle:glosář;
   skos:prefLabel "má dostupný jazyk"@cs;
   skos:scopeNote ""@cs .
 
 d-sgov-turistické-cíle-pojem:veřejná-přístupnost a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Určuje, zda je turistický cíl veřejně přístupný."@cs;
   skos:hiddenLabel "omezení přístupnosti"@cs;
   skos:inScheme d-sgov-turistické-cíle:glosář;
@@ -55,7 +55,7 @@ d-sgov-turistické-cíle-pojem:veřejná-přístupnost a skos:Concept;
   skos:scopeNote "Turistický cíl je veřejné místo, ale veřejný vstup může být omezen např. jen na určité dny v roce, registrací ke vstupu, rezervací u provozovatele, apod. Potom se nejedná o veřejně přístupné místo, ale o místo, jehož přístupnost je nějakým způsobem omezena."@cs .
 
 d-sgov-turistické-cíle-pojem:kouření-povoleno a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Určuje, zda je možné v turistickém cíli kouření tabákových výrobků."@cs;
   skos:hiddenLabel "zákaz kouření"@cs;
   skos:inScheme d-sgov-turistické-cíle:glosář;
@@ -63,9 +63,24 @@ d-sgov-turistické-cíle-pojem:kouření-povoleno a skos:Concept;
   skos:scopeNote ""@cs .
 
 d-sgov-turistické-cíle-pojem:kapacita a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Kapacita turistického cíle určující, kolik návštěvníků najednou se do objektu turistického cíle vejde."@cs;
   skos:hiddenLabel "maximální počet osob"@cs;
   skos:inScheme d-sgov-turistické-cíle:glosář;
   skos:prefLabel "kapacita"@cs;
   skos:scopeNote ""@cs .
+
+d-sgov-turistické-cíle-pojem:typ-turistického-cíle a skos:Concept;
+  skos:definition "Typ turistického cíle (např. přírodní nebo kulturní) reprezentovaný jako položka číselníku typů turistických cílů."@cs;
+  skos:inScheme d-sgov-turistické-cíle:glosář;
+  skos:prefLabel "Typ turistického cíle"@cs .
+
+d-sgov-turistické-cíle-pojem:číselník-typů-turistických-cílů a skos:Concept;
+  skos:definition "Číselník, jehož položky reprezentují jednotlivé typy turistických cílů."@cs;
+  skos:inScheme d-sgov-turistické-cíle:glosář;
+  skos:prefLabel "Číselník typů turistických cílů"@cs .
+
+d-sgov-turistické-cíle-pojem:eviduje-typ-turistického-cíle a skos:Concept;
+  skos:definition "Zařazení typu turistického cíle do číselníku typů turistických cílů."@cs;
+  skos:inScheme d-sgov-turistické-cíle:glosář;
+  skos:prefLabel "eviduje typ turistického cíle"@cs .

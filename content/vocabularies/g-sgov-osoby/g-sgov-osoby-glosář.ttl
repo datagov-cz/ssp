@@ -8,7 +8,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
 g-sgov-osoby:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2020-07-28";
@@ -17,17 +16,19 @@ g-sgov-osoby:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptSc
   vann:preferredNamespacePrefix "g-sgov-osoby-pojem";
   vann:preferredNamespaceUri "https://slovník.gov.cz/generický/osoby/pojem/";
   owl:versionIRI <https://slovník.gov.cz/generický/osoby/glosář/verze/0.0.1>;
-  skos:hasTopConcept g-sgov-osoby-pojem:osoba, g-sgov-osoby-pojem:stát-registrace .
-
-g-sgov-osoby-pojem:osoba a skos:Concept;
-  skos:broader <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba>, z-sgov-pojem:typ-objektu;
-  skos:definition "Právnická osoba."@cs;
-  skos:inScheme g-sgov-osoby:glosář;
-  skos:prefLabel "Osoba"@cs;
-  skos:scopeNote "Právnická osoba ve smyslu občanského zákoníku. Může jít i o zahraniční právnickou osobu."@cs .
+  skos:hasTopConcept g-sgov-osoby-pojem:podnikající-fyzická-osoba, g-sgov-osoby-pojem:právnická-osoba,
+    g-sgov-osoby-pojem:stát-registrace .
 
 g-sgov-osoby-pojem:stát-registrace a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Stát registrace právnické osoby v případě, že se jedná o osobu registrovanou v zahraničí."@cs;
   skos:inScheme g-sgov-osoby:glosář;
   skos:prefLabel "stát registrace"@cs .
+
+g-sgov-osoby-pojem:právnická-osoba a skos:Concept;
+  skos:inScheme g-sgov-osoby:glosář;
+  skos:prefLabel "Právnická osoba"@cs .
+
+g-sgov-osoby-pojem:podnikající-fyzická-osoba a skos:Concept;
+  skos:inScheme g-sgov-osoby:glosář;
+  skos:prefLabel "Podnikající fyzická osoba"@cs .
