@@ -39,17 +39,32 @@ g-sgov-osoby:model a a-popis-dat-pojem:model, owl:Ontology;
 
 <https://slovník.gov.cz/generický/číselníky/pojem/stát> a owl:Class .
 
+g-sgov-osoby-pojem:osoba a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba> .
+
 g-sgov-osoby-pojem:stát-registrace a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:domain g-sgov-osoby-pojem:osoba;
   rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/stát>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-osoby-pojem:právnická-osoba
+      owl:allValuesFrom <https://slovník.gov.cz/datový/státy/pojem/stát>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-osoby-pojem:právnická-osoba;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/stát>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/státy/pojem/stát>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/státy/pojem/stát>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-osoby-pojem:právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-osoby-pojem:právnická-osoba;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
@@ -59,22 +74,11 @@ g-sgov-osoby-pojem:stát-registrace a owl:Class, owl:ObjectProperty, <https://sl
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom <https://slovník.gov.cz/datový/státy/pojem/stát>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/datový/státy/pojem/stát>;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/státy/pojem/stát>;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/státy/pojem/stát>;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/stát>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/stát>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-osoby-pojem:právnická-osoba
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
 
@@ -101,32 +105,8 @@ g-sgov-osoby-pojem:právnická-osoba a <https://slovník.gov.cz/základní/pojem
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-osoby-pojem:stát-registrace;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-osoby-pojem:stát-registrace;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-osoby-pojem:stát-registrace;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-osoby-pojem:stát-registrace;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
@@ -137,8 +117,32 @@ g-sgov-osoby-pojem:právnická-osoba a <https://slovník.gov.cz/základní/pojem
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-osoby-pojem:stát-registrace;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-osoby-pojem:stát-registrace;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-osoby-pojem:stát-registrace;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-osoby-pojem:stát-registrace;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
@@ -160,15 +164,15 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
     ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-osoby-pojem:stát-registrace;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-osoby-pojem:stát-registrace
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-osoby-pojem:stát-registrace;
@@ -181,12 +185,12 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
