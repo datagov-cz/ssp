@@ -20,7 +20,7 @@ Můžete si prostudovat [Koncepci sémantického slovníku pojmů](https://opend
 
 Můžete:
 * si [prohlédnout pojmy v publikovaných slovnících](https://slovník.gov.cz/prohlížíme/#/public/vocabularies)
-* se podívat třeba na pojem [Osoba (Zákon o základních registrech)](https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba) a od něj začít prozkoumávat další pojmy sémantického slovníku, které s ním jsou propojeny vztahy,
+* se podívat třeba na pojem [Osoba (Zákon o základních registrech)](https://xn--slovnk-7va.gov.cz/prohl%C3%AD%C5%BE%C3%ADme/vocabularies/2009/terms/osoba?namespace=https://slovn%C3%ADk.gov.cz/legislativn%C3%AD/sb%C3%ADrka/111/) a od něj začít prozkoumávat další pojmy sémantického slovníku, které s ním jsou propojeny vztahy,
 * si pohrát s [SPARQL endpointem](https://slovník.gov.cz/sparql), ve kterém je vždy aktuální verze slovníku dostupná,
 * prohlédnout slovník pomocí [staršího facetového prohlížeče](https://slovník.gov.cz/prohlížeč) - na jehož nové verzi pracujeme.
 
