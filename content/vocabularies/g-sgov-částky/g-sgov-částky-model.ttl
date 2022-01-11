@@ -9,7 +9,41 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> a owl:ObjectProperty;
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> a owl:ObjectProperty;
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> .
+
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
+
+g-sgov-částky-pojem:částka a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-částky-pojem:výše-částky
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:výše-částky;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:výše-částky;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:výše-částky;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ] .
 
 g-sgov-částky:model a a-popis-dat-pojem:model, owl:Ontology;
   dcterms:created "2020-07-28";
@@ -20,79 +54,488 @@ g-sgov-částky:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports g-sgov-částky:glosář;
   owl:versionIRI <https://slovník.gov.cz/generický/částky/model/verze/0.0.1> .
 
-z-sgov-pojem:je-vlastností a owl:ObjectProperty;
-  owl:inverseOf z-sgov-pojem:má-vlastnost .
-
-z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
-
-z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
-
-z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
-  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
-
-z-sgov-pojem:má-vztažený-prvek-1 a owl:ObjectProperty;
-  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
-
-z-sgov-pojem:má-vztažený-prvek-2 a owl:ObjectProperty;
-  rdfs:subPropertyOf z-sgov-pojem:má-vztažený-prvek .
-
-<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
-
-<https://slovník.gov.cz/generický/číselníky/pojem/měna> a owl:Class .
-
-<https://slovník.gov.cz/generický/číselníky/pojem/jednotka> a owl:Class .
-
-g-sgov-částky-pojem:má-jednotku a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
-  rdfs:domain g-sgov-částky-pojem:jednotková-částka;
-  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/jednotka>;
-  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jednotka>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/jednotka>
+g-sgov-částky-pojem:má-jednotku a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-částky-pojem:jednotková-částka
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-částky-pojem:jednotková-částka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-částky-pojem:jednotková-částka
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-částky-pojem:jednotka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ];
-  rdfs:subPropertyOf z-sgov-pojem:vztah .
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
 
-g-sgov-částky-pojem:má-měnu a owl:Class, owl:ObjectProperty, z-sgov-pojem:typ-vztahu;
-  rdfs:domain g-sgov-částky-pojem:částka;
-  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/měna>;
-  rdfs:subClassOf z-sgov-pojem:vztah, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-částky-pojem:částka;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/měna>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/číselníky/pojem/měna>
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom g-sgov-částky-pojem:částka
-    ];
-  rdfs:subPropertyOf z-sgov-pojem:vztah .
-
-g-sgov-částky-pojem:výše-částky a owl:Class, owl:DatatypeProperty, z-sgov-pojem:typ-vlastnosti;
-  rdfs:domain g-sgov-částky-pojem:částka, [ a owl:Class;
-      owl:unionOf (g-sgov-částky-pojem:jednotková-částka g-sgov-částky-pojem:částka)
-    ];
-  rdfs:range rdfs:Literal;
-  rdfs:subClassOf z-sgov-pojem:vlastnost, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-vlastností;
+g-sgov-částky-pojem:má-měnu a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  dcterms:title "měna"@cs;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-částky-pojem:částka
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-částky-pojem:částka;
-      owl:onProperty z-sgov-pojem:je-vlastností
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:částka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:částka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-částky-pojem:měna
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:měna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:měna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:měna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ];
-  rdfs:subPropertyOf z-sgov-pojem:vlastnost .
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
 
-g-sgov-částky-pojem:jednotková-částka a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf g-sgov-částky-pojem:částka .
+g-sgov-částky-pojem:výše-částky a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:částka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom g-sgov-částky-pojem:částka
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:částka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:částka;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:částka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:částka;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:částka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:částka;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:částka;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:částka;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ];
+  rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
+
+g-sgov-částky-pojem:jednotková-částka a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf g-sgov-částky-pojem:částka, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+g-sgov-částky-pojem:měna a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:má-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+g-sgov-částky-pojem:číselník-měn a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník>, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-měnu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:eviduje-měnu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+g-sgov-částky-pojem:eviduje-měnu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  dcterms:title "eviduje"@cs;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/eviduje-položku-číselníku>,
+    [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-částky-pojem:měna
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:měna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:měna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:měna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-částky-pojem:číselník-měn
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:číselník-měn;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:číselník-měn;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:číselník-měn;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+g-sgov-částky-pojem:jednotka a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:má-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:má-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:má-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+g-sgov-částky-pojem:eviduje-jednotku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  dcterms:title "eviduje"@cs;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/eviduje-položku-číselníku>,
+    [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-částky-pojem:jednotka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-částky-pojem:číselník-jednotek
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:číselník-jednotek;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:číselník-jednotek;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:číselník-jednotek;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+g-sgov-částky-pojem:číselník-jednotek a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník>, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-částky-pojem:eviduje-jednotku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-částky-pojem:eviduje-jednotku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .
