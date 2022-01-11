@@ -45,8 +45,6 @@ g-sgov-částky-pojem:částka a owl:Class, <https://slovník.gov.cz/základní/
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ] .
 
-<https://slovník.gov.cz/generický/číselníky/pojem/měna> a owl:Class .
-
 g-sgov-částky:model a a-popis-dat-pojem:model, owl:Ontology;
   dcterms:created "2020-07-28";
   dcterms:title "Generický slovník peněžních částek - model"@cs;
@@ -56,11 +54,7 @@ g-sgov-částky:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports g-sgov-částky:glosář;
   owl:versionIRI <https://slovník.gov.cz/generický/částky/model/verze/0.0.1> .
 
-<https://slovník.gov.cz/generický/číselníky/pojem/jednotka> a owl:Class .
-
 g-sgov-částky-pojem:má-jednotku a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  rdfs:domain g-sgov-částky-pojem:jednotková-částka;
-  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/jednotka>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-částky-pojem:jednotková-částka
@@ -82,8 +76,6 @@ g-sgov-částky-pojem:má-jednotku a owl:Class, owl:ObjectProperty, <https://slo
 
 g-sgov-částky-pojem:má-měnu a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   dcterms:title "měna"@cs;
-  rdfs:domain g-sgov-částky-pojem:částka;
-  rdfs:range <https://slovník.gov.cz/generický/číselníky/pojem/měna>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-částky-pojem:částka
@@ -116,12 +108,11 @@ g-sgov-částky-pojem:má-měnu a owl:Class, owl:ObjectProperty, <https://slovn�
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-částky-pojem:výše-částky a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
-  rdfs:domain g-sgov-částky-pojem:částka, [ a owl:Class;
+    [ a owl:Class;
       owl:unionOf (g-sgov-částky-pojem:jednotková-částka g-sgov-částky-pojem:částka)
     ], [ a owl:Class;
       owl:unionOf (g-sgov-částky-pojem:jednotková-částka g-sgov-částky-pojem:částka)
     ];
-  rdfs:range rdfs:Literal;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
       owl:allValuesFrom g-sgov-částky-pojem:částka;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
