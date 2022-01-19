@@ -5,7 +5,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -23,8 +22,9 @@ d-sgov-číselníky-pojem:číselník a skos:Concept;
   skos:prefLabel "Číselník"@cs .
 
 d-sgov-číselníky-pojem:akronym-číselníku a skos:Concept;
+  dcterms:title "akronym"@cs;
   skos:altLabel "akronym"@cs;
-  skos:definition "Zkratka číselníku používaná i jako jeho identifikátor."@cs;
+  skos:definition "Zkrácené označení číselníku používané i jako jeho identifikátor v rámci sady číselníků spravovaných daným správcem. Nejedná se tedy o globálně jednoznačnou identifikaci číselníku."@cs;
   skos:inScheme d-sgov-číselníky:glosář;
   skos:prefLabel "akronym číselníku"@cs .
 
@@ -65,13 +65,6 @@ d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku a skos:Concept
   skos:inScheme d-sgov-číselníky:glosář;
   skos:prefLabel "zkrácený název položky číselníku"@cs .
 
-d-sgov-číselníky-pojem:název-položky-číselníku a skos:Concept;
-  rdfs:subPropertyOf skos:prefLabel;
-  skos:altLabel "název"@cs;
-  skos:definition "Název (hodnota) položky číselníku."@cs;
-  skos:inScheme d-sgov-číselníky:glosář;
-  skos:prefLabel "název položky číselníku"@cs .
-
 d-sgov-číselníky:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2021-01-03T23:22:43.856+02:00"^^xsd:dateTime;
   dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
@@ -83,11 +76,11 @@ d-sgov-číselníky:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:Co
   skos:hasTopConcept d-sgov-číselníky-pojem:akronym-číselníku, d-sgov-číselníky-pojem:alternativní-název-položky-číselníku,
     d-sgov-číselníky-pojem:definice-položky-číselníku, d-sgov-číselníky-pojem:definice-číselníku,
     d-sgov-číselníky-pojem:eviduje-položku-číselníku, d-sgov-číselníky-pojem:kód-položky-číselníku,
-    d-sgov-číselníky-pojem:má-administrativní-platnost-položky-číselníku, d-sgov-číselníky-pojem:má-administrativní-platnost-číselníku,
-    d-sgov-číselníky-pojem:název-položky-číselníku, d-sgov-číselníky-pojem:název-číselníku,
-    d-sgov-číselníky-pojem:položka-číselníku, d-sgov-číselníky-pojem:popis-položky-číselníku,
-    d-sgov-číselníky-pojem:popis-číselníku, d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku,
-    d-sgov-číselníky-pojem:číselník .
+    d-sgov-číselníky-pojem:kód-číselníku, d-sgov-číselníky-pojem:má-administrativní-platnost-položky-číselníku,
+    d-sgov-číselníky-pojem:má-administrativní-platnost-číselníku, d-sgov-číselníky-pojem:název-číselníku,
+    d-sgov-číselníky-pojem:plný-název-položky-číselníku, d-sgov-číselníky-pojem:položka-číselníku,
+    d-sgov-číselníky-pojem:popis-položky-číselníku, d-sgov-číselníky-pojem:popis-číselníku,
+    d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku, d-sgov-číselníky-pojem:číselník .
 
 d-sgov-číselníky-pojem:popis-položky-číselníku a skos:Concept;
   skos:altLabel "popis"@cs;
@@ -116,7 +109,22 @@ d-sgov-číselníky-pojem:má-administrativní-platnost-položky-číselníku a 
   skos:prefLabel "má administrativní platnost položky číselníku"@cs .
 
 d-sgov-číselníky-pojem:definice-položky-číselníku a skos:Concept;
+  dcterms:title "definice"@cs;
   skos:altLabel "definice"@cs;
-  skos:definition "Definice položky číselníku přesně specifikuje její význam. Pokud není možné poskytnout přesnou definici položky, je možné využít popis k opisu jejího významu."@cs;
+  skos:definition "Definice položky číselníku přesně specifikuje její význam. Pokud není možné poskytnout přesnou definici položky, je možné využít popis položky číselníku."@cs;
   skos:inScheme d-sgov-číselníky:glosář;
   skos:prefLabel "definice položky číselníku"@cs .
+
+d-sgov-číselníky-pojem:kód-číselníku a skos:Concept;
+  dcterms:title "kód"@cs;
+  skos:altLabel "kód"@cs;
+  skos:definition "Kód číselníku identifikuje číselník v rámci sady číselníků spravovaných daným správcem. Nejedná se tedy o globálně jednoznačnou identifikaci číselníku."@cs;
+  skos:inScheme d-sgov-číselníky:glosář;
+  skos:prefLabel "kód číselníku"@cs .
+
+d-sgov-číselníky-pojem:plný-název-položky-číselníku a skos:Concept;
+  dcterms:title "plný název"@cs;
+  skos:altLabel "plný název"@cs;
+  skos:definition "Plný (tj. úplný) název (hodnota) položky číselníku."@cs;
+  skos:inScheme d-sgov-číselníky:glosář;
+  skos:prefLabel "plný název položky číselníku"@cs .
