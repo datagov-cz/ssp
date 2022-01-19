@@ -11,6 +11,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 d-sgov-číselníky-pojem:eviduje-položku-číselníku a skos:Concept;
+  dcterms:title "eviduje"@cs;
   skos:altLabel "eviduje"@cs;
   skos:definition "Zařazuje položku do číselníku. Číselník může obsahovat více různých položek. Položka může patřit do více číselníků."@cs;
   skos:inScheme d-sgov-číselníky:glosář;
@@ -34,6 +35,7 @@ d-sgov-číselníky-pojem:definice-číselníku a skos:Concept;
   skos:prefLabel "definice číselníku"@cs .
 
 d-sgov-číselníky-pojem:má-administrativní-platnost-číselníku a skos:Concept;
+  dcterms:title "platnost"@cs;
   skos:altLabel "platnost"@cs;
   skos:definition "Přiřazuje číselníku časový interval, ve kterém byl, je nebo bude platný. Použití položek číselníku mimo časový kontext tohoto intervalu nedává smysl. Pro snazší strojové zpracování se doporučuje nespoléhat na to, že uživatel aplikuje platnost číselníku i na jednotlivé položky. Je doporučeno platnost položek uvést přímo pro jednotlivé položky."@cs;
   skos:inScheme d-sgov-číselníky:glosář;
@@ -50,6 +52,25 @@ d-sgov-číselníky-pojem:položka-číselníku a skos:Concept;
   skos:definition "Položka číselníku reprezentuje jednu přípustnou hodnotu datového prvku z množiny všech přípustných hodnot, které jsou kódovány číselníkem, do kterého položka patří."@cs;
   skos:inScheme d-sgov-číselníky:glosář;
   skos:prefLabel "Položka číselníku"@cs .
+
+d-sgov-číselníky-pojem:kód-položky-číselníku a skos:Concept;
+  skos:altLabel "kód"@cs;
+  skos:definition "Unikátní kód položky číselníku v rámci číselníku, do kterého položka patří."@cs;
+  skos:inScheme d-sgov-číselníky:glosář;
+  skos:prefLabel "kód položky číselníku"@cs .
+
+d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku a skos:Concept;
+  skos:altLabel "zkrácený název"@cs;
+  skos:definition "Zkrácený název (hodnota) položky číselníku."@cs;
+  skos:inScheme d-sgov-číselníky:glosář;
+  skos:prefLabel "zkrácený název položky číselníku"@cs .
+
+d-sgov-číselníky-pojem:název-položky-číselníku a skos:Concept;
+  rdfs:subPropertyOf skos:prefLabel;
+  skos:altLabel "název"@cs;
+  skos:definition "Název (hodnota) položky číselníku."@cs;
+  skos:inScheme d-sgov-číselníky:glosář;
+  skos:prefLabel "název položky číselníku"@cs .
 
 d-sgov-číselníky:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2021-01-03T23:22:43.856+02:00"^^xsd:dateTime;
@@ -68,36 +89,11 @@ d-sgov-číselníky:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:Co
     d-sgov-číselníky-pojem:popis-číselníku, d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku,
     d-sgov-číselníky-pojem:číselník .
 
-d-sgov-číselníky-pojem:název-položky-číselníku a skos:Concept;
-  rdfs:subPropertyOf skos:prefLabel;
-  skos:altLabel "název"@cs;
-  skos:definition "Název (hodnota) položky číselníku."@cs;
-  skos:inScheme d-sgov-číselníky:glosář;
-  skos:prefLabel "název položky číselníku"@cs .
-
 d-sgov-číselníky-pojem:popis-položky-číselníku a skos:Concept;
   skos:altLabel "popis"@cs;
   skos:definition "Popis položky číselníku, který blíže vysvětluje položku číselníku. Oproti definici je méně formální a více vysvětlující."@cs;
   skos:inScheme d-sgov-číselníky:glosář;
   skos:prefLabel "popis položky číselníku"@cs .
-
-d-sgov-číselníky-pojem:zkrácený-název-položky-číselníku a skos:Concept;
-  skos:altLabel "zkrácený název"@cs;
-  skos:definition "Zkrácený název (hodnota) položky číselníku."@cs;
-  skos:inScheme d-sgov-číselníky:glosář;
-  skos:prefLabel "zkrácený název položky číselníku"@cs .
-
-d-sgov-číselníky-pojem:kód-položky-číselníku a skos:Concept;
-  skos:altLabel "kód"@cs;
-  skos:definition "Unikátní kód položky číselníku v rámci číselníku, do kterého položka patří."@cs;
-  skos:inScheme d-sgov-číselníky:glosář;
-  skos:prefLabel "kód položky číselníku"@cs .
-
-d-sgov-číselníky-pojem:definice-položky-číselníku a skos:Concept;
-  skos:altLabel "definice"@cs;
-  skos:definition "Definice položky číselníku přesně specifikuje její význam. Pokud není možné poskytnout přesnou definici položky, je možné využít popis k opisu jejího významu."@cs;
-  skos:inScheme d-sgov-číselníky:glosář;
-  skos:prefLabel "definice položky číselníku"@cs .
 
 d-sgov-číselníky-pojem:popis-číselníku a skos:Concept;
   skos:altLabel "popis"@cs;
@@ -106,14 +102,21 @@ d-sgov-číselníky-pojem:popis-číselníku a skos:Concept;
   skos:inScheme d-sgov-číselníky:glosář;
   skos:prefLabel "popis číselníku"@cs .
 
-d-sgov-číselníky-pojem:má-administrativní-platnost-položky-číselníku a skos:Concept;
-  skos:altLabel "platnost"@cs;
-  skos:definition "Přiřazuje položce číselníku časový interval, ve kterém byla, je nebo bude platná. Použití položky číselníku mimo časový kontext tohoto intervalu nedává smysl."@cs;
-  skos:inScheme d-sgov-číselníky:glosář;
-  skos:prefLabel "má administrativní platnost položky číselníku"@cs .
-
 d-sgov-číselníky-pojem:alternativní-název-položky-číselníku a skos:Concept;
   skos:altLabel "alternativní název"@cs;
   skos:definition "Alternativní název (hodnota) položky číselníku."@cs;
   skos:inScheme d-sgov-číselníky:glosář;
   skos:prefLabel "alternativní název položky číselníku"@cs .
+
+d-sgov-číselníky-pojem:má-administrativní-platnost-položky-číselníku a skos:Concept;
+  dcterms:title "platnost"@cs;
+  skos:altLabel "platnost"@cs;
+  skos:definition "Přiřazuje položce číselníku časový interval, ve kterém byla, je nebo bude platná. Použití položky číselníku mimo časový kontext tohoto intervalu nedává smysl."@cs;
+  skos:inScheme d-sgov-číselníky:glosář;
+  skos:prefLabel "má administrativní platnost položky číselníku"@cs .
+
+d-sgov-číselníky-pojem:definice-položky-číselníku a skos:Concept;
+  skos:altLabel "definice"@cs;
+  skos:definition "Definice položky číselníku přesně specifikuje její význam. Pokud není možné poskytnout přesnou definici položky, je možné využít popis k opisu jejího významu."@cs;
+  skos:inScheme d-sgov-číselníky:glosář;
+  skos:prefLabel "definice položky číselníku"@cs .
