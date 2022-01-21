@@ -73,7 +73,10 @@ public class ConsistencyTests {
     public void testVocabulary(String folder) throws IOException {
         testFolder(folder,
             ".*-(glosář|slovník)(-[a-zA-Z0-9]+)?[.]ttl$",
-            validator.getVocabularyRules()
+            validator.getVocabularyRules().stream()
+                .filter(r -> !r.getPath().contains("s2.ttl"))
+                .collect(
+                    Collectors.toSet())
         );
     }
 
