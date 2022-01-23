@@ -39,27 +39,43 @@ g-sgov-lidé:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:versionIRI <https://slovník.gov.cz/generický/lidé/model/verze/0.0.1> .
 
 g-sgov-lidé-pojem:člověk a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>,
+  rdfs:subClassOf <https://slovník.gov.cz/generický/lidé-a-osoby/pojem/člověk-či-osoba>,
+    <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/subjekt-údajů-vedený-v-registru-obyvatel>,
     [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:tituly-za-jménem;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-lidé-pojem:tituly-před-jménem
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-lidé-pojem:celé-jméno
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:tituly-za-jménem;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:celé-jméno;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:má-pohlaví;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:allValuesFrom g-sgov-lidé-pojem:celé-jméno;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:tituly-za-jménem;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
-      owl:someValuesFrom g-sgov-lidé-pojem:tituly-před-jménem
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:tituly-před-jménem;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:celé-jméno;
@@ -76,38 +92,74 @@ g-sgov-lidé-pojem:člověk a owl:Class, <https://slovník.gov.cz/základní/poj
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:má-pohlaví
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
-      owl:someValuesFrom g-sgov-lidé-pojem:celé-jméno
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:tituly-za-jménem;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:tituly-před-jménem;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-lidé-pojem:tituly-za-jménem
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:tituly-před-jménem;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:má-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:tituly-před-jménem;
+      owl:onClass g-sgov-lidé-pojem:tituly-za-jménem;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:tituly-před-jménem;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:celé-jméno;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-    ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
-      owl:someValuesFrom g-sgov-lidé-pojem:tituly-za-jménem
     ] .
 
 g-sgov-lidé-pojem:tituly-před-jménem a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
@@ -116,6 +168,21 @@ g-sgov-lidé-pojem:tituly-před-jménem a owl:Class, owl:DatatypeProperty, <http
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
@@ -130,171 +197,105 @@ g-sgov-lidé-pojem:tituly-před-jménem a owl:Class, owl:DatatypeProperty, <http
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:člověk;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
@@ -302,6 +303,26 @@ g-sgov-lidé-pojem:tituly-před-jménem a owl:Class, owl:DatatypeProperty, <http
 
 g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
@@ -331,33 +352,34 @@ g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https:/
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
@@ -370,31 +392,6 @@ g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https:/
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
@@ -410,21 +407,6 @@ g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https:/
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
@@ -434,11 +416,6 @@ g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https:/
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty [
@@ -465,10 +442,15 @@ g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https:/
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
     ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
@@ -485,9 +467,28 @@ g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https:/
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
@@ -504,6 +505,16 @@ g-sgov-lidé-pojem:tituly-za-jménem a owl:Class, owl:DatatypeProperty, <https:/
 
 g-sgov-lidé-pojem:celé-jméno a owl:Class, owl:DatatypeProperty, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
@@ -511,72 +522,6 @@ g-sgov-lidé-pojem:celé-jméno a owl:Class, owl:DatatypeProperty, <https://slov
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:člověk;
@@ -604,20 +549,10 @@ g-sgov-lidé-pojem:celé-jméno a owl:Class, owl:DatatypeProperty, <https://slov
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty [
@@ -644,10 +579,20 @@ g-sgov-lidé-pojem:celé-jméno a owl:Class, owl:DatatypeProperty, <https://slov
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty [
@@ -657,7 +602,68 @@ g-sgov-lidé-pojem:celé-jméno a owl:Class, owl:DatatypeProperty, <https://slov
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
     ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:člověk
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:člověk;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ]
@@ -676,32 +682,21 @@ g-sgov-lidé-pojem:celé-jméno a owl:Class, owl:DatatypeProperty, <https://slov
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        ]
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
 g-sgov-lidé-pojem:má-pohlaví a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:pohlaví;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-lidé-pojem:pohlaví
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:člověk;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom g-sgov-lidé-pojem:pohlaví
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:člověk;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:pohlaví;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-lidé-pojem:člověk
@@ -710,8 +705,14 @@ g-sgov-lidé-pojem:má-pohlaví a owl:Class, owl:ObjectProperty, <https://slovn�
       owl:onClass g-sgov-lidé-pojem:pohlaví;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:člověk;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:pohlaví;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:pohlaví;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:člověk;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
@@ -719,6 +720,41 @@ g-sgov-lidé-pojem:má-pohlaví a owl:Class, owl:ObjectProperty, <https://slovn�
 g-sgov-lidé-pojem:pohlaví a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
     [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:má-pohlaví
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:má-pohlaví
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
@@ -744,52 +780,17 @@ g-sgov-lidé-pojem:pohlaví a <https://slovník.gov.cz/základní/pojem/typ-obje
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
     ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:má-pohlaví
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:má-pohlaví
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
@@ -805,6 +806,11 @@ g-sgov-lidé-pojem:pohlaví a <https://slovník.gov.cz/základní/pojem/typ-obje
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:eviduje-pohlaví;
       owl:onProperty [
@@ -815,55 +821,63 @@ g-sgov-lidé-pojem:pohlaví a <https://slovník.gov.cz/základní/pojem/typ-obje
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
       owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:má-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
     ] .
 
 g-sgov-lidé-pojem:číselník-pohlaví a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník>, [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:eviduje-pohlaví;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
+        ]
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-lidé-pojem:eviduje-pohlaví
     ] .
 
 g-sgov-lidé-pojem:eviduje-pohlaví a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/eviduje-položku-číselníku>,
     [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-lidé-pojem:číselník-pohlaví;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:pohlaví;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-lidé-pojem:číselník-pohlaví
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-lidé-pojem:číselník-pohlaví;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom g-sgov-lidé-pojem:pohlaví
     ], [ a owl:Restriction;
@@ -872,41 +886,16 @@ g-sgov-lidé-pojem:eviduje-pohlaví a <https://slovník.gov.cz/základní/pojem/
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-lidé-pojem:číselník-pohlaví;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:pohlaví;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:pohlaví;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-lidé-pojem:číselník-pohlaví;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-lidé-pojem:číselník-pohlaví;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-lidé-pojem:číselník-pohlaví
     ] .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
@@ -919,23 +908,7 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
@@ -957,6 +930,32 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
@@ -970,6 +969,66 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
@@ -985,47 +1044,11 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
@@ -1050,25 +1073,3 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
