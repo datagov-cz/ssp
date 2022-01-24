@@ -39,27 +39,22 @@ l-sgov-sbírka-128-2000:model a a-popis-dat-pojem:model, owl:Ontology;
 
 l-sgov-sbírka-128-2000-pojem:část-obce a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/28/2>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-128-2000-pojem:veřejné-prostranství a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/34>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-128-2000-pojem:území-obce a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/18>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-128-2000-pojem:městský-obvod-a-městská-část-územně-členěného-statutárního-města
   a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/4/2>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-128-2000-pojem:obec-s-rozšířenou-působností a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/66/1>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
 l-sgov-sbírka-128-2000-pojem:název-obce a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
@@ -69,18 +64,34 @@ l-sgov-sbírka-128-2000-pojem:název-obce a owl:Class, <https://slovník.gov.cz/
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
       owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
     ] .
 
 l-sgov-sbírka-128-2000-pojem:má-území-obce a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:území-obce
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:území-obce;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
@@ -88,30 +99,101 @@ l-sgov-sbírka-128-2000-pojem:má-území-obce a owl:Class, <https://slovník.go
 
 l-sgov-sbírka-128-2000-pojem:obec a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/128/2000/sekce/1>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/500/2004/pojem/správní-orgán>,
-    <https://slovník.gov.cz/základní/pojem/objekt> .
+    <https://slovník.gov.cz/základní/pojem/objekt>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:název-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:název-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:název-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:má-záměr a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:záměr-obce
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:záměr-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:záměr-obce;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-128-2000-pojem:obec;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-128-2000-pojem:záměr-obce;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:záměr-obce;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
@@ -134,11 +216,11 @@ l-sgov-sbírka-128-2000-pojem:právní-předpis-obce a <https://slovník.gov.cz/
 
 l-sgov-sbírka-128-2000-pojem:vyhlášení-právního-předpisu-obce a <https://slovník.gov.cz/základní/pojem/typ-události>;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-účastníka>
-    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-účastníka>;
       owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-účastníka>
     ] .
 
 l-sgov-sbírka-128-2000-pojem:obecně-závazná-vyhláška-obce a <https://slovník.gov.cz/základní/pojem/poddruh>,
@@ -157,81 +239,1691 @@ l-sgov-sbírka-128-2000-pojem:vydává-právní-předpis a <https://slovník.gov
       owl:onClass l-sgov-sbírka-128-2000-pojem:obec;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:právní-předpis-obce;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
 l-sgov-sbírka-128-2000-pojem:člen-zastupitelstva-obce a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  dcterms:source "§ 69, odst. 1 zákona o obcích" .
+  rdfs:subClassOf <https://slovník.gov.cz/generický/lidé/pojem/člověk>, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:hlasování a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-hlasování>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-hlasování>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-hlasování>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/výsledek>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/výsledek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/výsledek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-pro>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-pro>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-pro>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-proti>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-proti>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-proti>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/zdrželo-se>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/zdrželo-se>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/zdrželo-se>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:o-průběhu-zasedání-se-pořizuje-zápis a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:počet-přítomných-členů a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:pořad-jednání a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  dcterms:source "§ 94, odst. 1 zákona o obcích" .
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:usnesení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:usnesení;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:usnesení;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:usnesení;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:průběh-hlasování a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-průběh-hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-průběh-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-průběh-hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-průběh-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-průběh-hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-průběh-hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:usnesení a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  dcterms:source "§ 87, zákon o obcích" .
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/text-usnesení>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/text-usnesení>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/text-usnesení>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:uvádí-přijatá-usnesení a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:usnesení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:usnesení;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:usnesení;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:uvádí-průběh-hlasování a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
 
 l-sgov-sbírka-128-2000-pojem:uvádí-schválený-pořad-jednání a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:pořad-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:pořad-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:pořad-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:pořad-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:uvádí-výsledek-hlasování a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zápis-z-jednání;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  dcterms:source "§ 92, odst. 1 zákona o obcích" .
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-zasedání>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-zasedání>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-zasedání>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/datum-a-čas>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/datum-a-čas>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/čas/pojem/datum-a-čas>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  dcterms:source "§ 67, odst. 1 zákona o obcích" .
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:se-schází;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:se-schází;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:je-orgánem-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:zápis-z-jednání a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  dcterms:source "§ 95, odst. 1 zákona o obcích" .
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:počet-přítomných-členů
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:počet-přítomných-členů;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:počet-přítomných-členů;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/popis>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/popis>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/popis>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-bodu-pořadu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-bodu-pořadu>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-bodu-pořadu>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:přijato-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:proběhlo-v-rámci-bodu-pořadu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:je-členem-zastupitelstva-obce a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:člen-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:člen-zastupitelstva-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:člen-zastupitelstva-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:je-orgánem-obce a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:obec
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:obec;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 l-sgov-sbírka-128-2000-pojem:se-schází a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zastupitelstvo-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .
+
+<https://slovník.gov.cz/generický/čas/pojem/datum-a-čas> rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-bodu-pořadu>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-hlasování>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/číslo-zasedání>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:zasedání-zastupitelstva-obce;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-pro>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/počet-hlasů-proti>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/zdrželo-se> rdfs:subClassOf
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/popis> rdfs:subClassOf
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:bod-pořadu-jednání;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/text-usnesení>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:usnesení
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:usnesení;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:usnesení;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/hlasování-zastupitelstva-obce/pojem/výsledek> rdfs:subClassOf
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-128-2000-pojem:hlasování;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
