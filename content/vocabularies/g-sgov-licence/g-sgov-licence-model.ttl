@@ -1,41 +1,37 @@
-@prefix g-sgov-licence-pojem: <https://slovník.gov.cz/generický/licence/pojem/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix g-sgov-licence: <https://slovník.gov.cz/generický/licence/> .
+@prefix g-sgov-licence-pojem: <https://slovník.gov.cz/generický/licence/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        a       owl:ObjectProperty .
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
 
-g-sgov-licence:model  a  <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
-        <http://purl.org/dc/terms/created>
-                "2020-07-28" ;
-        <http://purl.org/dc/terms/title>
-                "Generický slovník licencí - model"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specifikace"@cs , "Specification"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "g-sgov-licence-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/generický/licence/pojem/" ;
-        owl:imports     g-sgov-licence:glosář ;
-        owl:versionIRI  <https://slovník.gov.cz/generický/licence/model/verze/0.0.1> .
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty .
 
-g-sgov-licence-pojem:licence
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/generický/věci/pojem/věc> .
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
 
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
-        a       owl:ObjectProperty .
+<https://slovník.gov.cz/generický/věci/pojem/věc> a owl:Class .
 
-<https://slovník.gov.cz/základní/pojem/je-vlastností>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+g-sgov-licence-pojem:licence a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/generický/věci/pojem/věc> .
 
-<https://slovník.gov.cz/generický/věci/pojem/věc>
-        a       owl:Class .
+g-sgov-licence:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník licencí - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-licence-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/licence/pojem/";
+  owl:imports g-sgov-licence:glosář;
+  owl:versionIRI <https://slovník.gov.cz/generický/licence/model/verze/0.0.1> .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .

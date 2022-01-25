@@ -1,412 +1,223 @@
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix g-sgov-digitální-objekty-pojem: <https://slovník.gov.cz/generický/digitální-objekty/pojem/> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix g-sgov-digitální-objekty: <https://slovník.gov.cz/generický/digitální-objekty/> .
+@prefix g-sgov-digitální-objekty-pojem: <https://slovník.gov.cz/generický/digitální-objekty/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-g-sgov-digitální-objekty-pojem:kurátor-jako-právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-digitální-objekty-pojem:kurátor , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Kurátor jako právnická osoba"@cs .
+g-sgov-digitální-objekty-pojem:digitální-objekt a skos:Concept;
+  skos:broader <https://slovník.gov.cz/generický/věci/pojem/věc>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  skos:definition "Digitální objekt je objekt existující pouze v digitálním světě (např. databáze nebo datová sada) příp. se jedná o plně digitalizovaný objekt reálného světa (např. dokument, obrázek nebo kniha)."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Digitální objekt"@cs .
 
-g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla-jako-fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Vykonavatel majetkových práv autorských u autorského díla jako fyzická osoba"@cs .
+g-sgov-digitální-objekty-pojem:kurátor a skos:Concept;
+  skos:definition "Kurátor je osoba, která např. datovou sadu nebo databázi spravuje. Může, ale nemusí disponovat některým z níže specifikovaných práv, resp. na daný digitální objekt se nemusí vztahovat některý z ochranných režimů uvedených dále v této specifikaci. Každý digitální objekt tedy má svého kurátora. Typicky se jedná o člověka či osobu, která s digitálním objektem, tj. obrázkem, datovou sadou, databází, atd., pracuje a podrobně \"se vyzná\" v její struktuře a obsahu."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Kurátor"@cs .
 
-g-sgov-digitální-objekty-pojem:správce-osobních-údajů
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Správce osobních údajů"@cs .
+g-sgov-digitální-objekty:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník digitálních objektů - glosář"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-digitální-objekty-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/digitální-objekty/pojem/";
+  owl:versionIRI <https://slovník.gov.cz/generický/digitální-objekty/glosář/verze/0.0.1>;
+  skos:hasTopConcept g-sgov-digitální-objekty-pojem:autor-díla, g-sgov-digitální-objekty-pojem:autor-originální-databáze,
+    g-sgov-digitální-objekty-pojem:databáze-chráněná-zvláštními-právy-pořizovatele-databáze,
+    g-sgov-digitální-objekty-pojem:digitální-objekt, g-sgov-digitální-objekty-pojem:eviduje-typ-média,
+    g-sgov-digitální-objekty-pojem:kurátor, g-sgov-digitální-objekty-pojem:licence-autorského-díla,
+    g-sgov-digitální-objekty-pojem:licence-originální-databáze, g-sgov-digitální-objekty-pojem:licence-pro-databázi-chráněnou-zvláštními-právy-pořizovatele-databáze,
+    g-sgov-digitální-objekty-pojem:má-autora-díla, g-sgov-digitální-objekty-pojem:má-autora-originální-databáze,
+    g-sgov-digitální-objekty-pojem:má-kurátora, g-sgov-digitální-objekty-pojem:má-podmínky-užití,
+    g-sgov-digitální-objekty-pojem:má-poskytovatele, g-sgov-digitální-objekty-pojem:má-pořizovatele-databáze,
+    g-sgov-digitální-objekty-pojem:má-správce-osobních-údajů, g-sgov-digitální-objekty-pojem:má-typ-média,
+    g-sgov-digitální-objekty-pojem:má-vykonavatele-majetkových-práv-autorských-u-autorského-díla,
+    g-sgov-digitální-objekty-pojem:má-vykonavatele-majetkových-práv-autorských-u-originální-databáze,
+    g-sgov-digitální-objekty-pojem:má-zpracovatele-osobních-údajů, g-sgov-digitální-objekty-pojem:obsahuje-autorské-dílo,
+    g-sgov-digitální-objekty-pojem:obsahuje-osobní-údaje, g-sgov-digitální-objekty-pojem:obsahuje-více-autorských-děl,
+    g-sgov-digitální-objekty-pojem:originální-databáze, g-sgov-digitální-objekty-pojem:podmínky-užití,
+    g-sgov-digitální-objekty-pojem:poskytovatel, g-sgov-digitální-objekty-pojem:pořizovatel-databáze,
+    g-sgov-digitální-objekty-pojem:správce-osobních-údajů, g-sgov-digitální-objekty-pojem:typ-média,
+    g-sgov-digitální-objekty-pojem:url-ke-stažení, g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských,
+    g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů, g-sgov-digitální-objekty-pojem:číselník-typů-médií .
+
+g-sgov-digitální-objekty-pojem:správce-osobních-údajů a skos:Concept;
+  skos:definition "Správce osobních údajů dle čl. 4 odst. 7 Nařízení Evropského parlamentu a Rady (EU) 2016/679 ze dne 27. dubna 2016 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů a o volném pohybu těchto údajů a o zrušení směrnice 95/46/ES (obecné nařízení o ochraně osobních údajů - GDPR)."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Správce osobních údajů"@cs .
 
 g-sgov-digitální-objekty-pojem:má-vykonavatele-majetkových-práv-autorských-u-originální-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má vykonavatele majetkových práv autorských u originální databáze"@cs .
-
-g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze-jako-fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Vykonavatel majetkových práv autorských u originální databáze jako fyzická osoba"@cs .
-
-g-sgov-digitální-objekty-pojem:licence-autorského-díla
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "licence autorského díla"@cs .
-
-g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů-jako-právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Zpracovatel osobních údajů jako právnická osoba"@cs .
-
-g-sgov-digitální-objekty:glosář
-        a               owl:Ontology , <http://www.w3.org/2004/02/skos/core#ConceptScheme> , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/glosář> ;
-        <http://purl.org/dc/terms/created>
-                "2020-07-28" ;
-        <http://purl.org/dc/terms/title>
-                "Generický slovník digitálních objektů - glosář"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specifikace"@cs , "Specification"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "g-sgov-digitální-objekty-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/generický/digitální-objekty/pojem/" ;
-        owl:versionIRI  <https://slovník.gov.cz/generický/digitální-objekty/glosář/verze/0.0.1> ;
-        <http://www.w3.org/2004/02/skos/core#hasTopConcept>
-                g-sgov-digitální-objekty-pojem:kurátor , g-sgov-digitální-objekty-pojem:má-zpracovatele-osobních-údajů , g-sgov-digitální-objekty-pojem:obsahuje-autorské-dílo , g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů , g-sgov-digitální-objekty-pojem:poskytovatel-jako-fyzická-osoba , g-sgov-digitální-objekty-pojem:správce-osobních-údajů-jako-právnická-osoba , g-sgov-digitální-objekty-pojem:správce-osobních-údajů , g-sgov-digitální-objekty-pojem:obsahuje-více-autorských-děl , g-sgov-digitální-objekty-pojem:poskytovatel , g-sgov-digitální-objekty-pojem:databáze-chráněná-zvláštními-právy-pořizovatele-databáze , g-sgov-digitální-objekty-pojem:má-pořizovatele-databáze , g-sgov-digitální-objekty-pojem:má-typ-média , g-sgov-digitální-objekty-pojem:licence-autorského-díla , g-sgov-digitální-objekty-pojem:má-správce-osobních-údajů , g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů-jako-právnická-osoba , g-sgov-digitální-objekty-pojem:pořizovatel-databáze-jako-právnická-osoba , g-sgov-digitální-objekty-pojem:správce-osobních-údajů-jako-fyzická-osoba , g-sgov-digitální-objekty-pojem:podmínky-užití , g-sgov-digitální-objekty-pojem:má-poskytovatele , g-sgov-digitální-objekty-pojem:má-vykonavatele-majetkových-práv-autorských-u-originální-databáze , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze-jako-fyzická-osoba , g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů-jako-fyzická-osoba , g-sgov-digitální-objekty-pojem:url-ke-stažení , g-sgov-digitální-objekty-pojem:obsahuje-osobní-údaje , g-sgov-digitální-objekty-pojem:autor-díla , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla-jako-fyzická-osoba , g-sgov-digitální-objekty-pojem:poskytovatel-jako-právnická-osoba , g-sgov-digitální-objekty-pojem:pořizovatel-databáze , g-sgov-digitální-objekty-pojem:autor-originální-databáze , g-sgov-digitální-objekty-pojem:pořizovatel-databáze-jako-fyzická-osoba , g-sgov-digitální-objekty-pojem:má-vykonavatele-majetkových-práv-autorských-u-autorského-díla , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze-jako-právnická-osoba , g-sgov-digitální-objekty-pojem:licence-originální-databáze , g-sgov-digitální-objekty-pojem:originální-databáze , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla-jako-právnická-osoba , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze , g-sgov-digitální-objekty-pojem:má-kurátora , g-sgov-digitální-objekty-pojem:digitální-objekt , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla , g-sgov-digitální-objekty-pojem:má-podmínky-užití , g-sgov-digitální-objekty-pojem:kurátor-jako-fyzická-osoba , g-sgov-digitální-objekty-pojem:licence-pro-databázi-chráněnou-zvláštními-právy-pořizovatele-databáze , g-sgov-digitální-objekty-pojem:kurátor-jako-právnická-osoba .
-
-g-sgov-digitální-objekty-pojem:má-poskytovatele
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má poskytovatele"@cs .
-
-g-sgov-digitální-objekty-pojem:má-pořizovatele-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má pořizovatele databáze"@cs .
-
-g-sgov-digitální-objekty-pojem:licence-originální-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "licence originální databáze"@cs .
-
-g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů-jako-fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Zpracovatel osobních údajů jako fyzická osoba"@cs .
-
-g-sgov-digitální-objekty-pojem:má-vykonavatele-majetkových-práv-autorských-u-autorského-díla
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má vykonavatele majetkových práv autorských u autorského díla"@cs .
-
-g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla-jako-právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Vykonavatel majetkových práv autorských u autorského díla jako právnická osoba"@cs .
-
-g-sgov-digitální-objekty-pojem:originální-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "originální databáze"@cs .
-
-g-sgov-digitální-objekty-pojem:licence-pro-databázi-chráněnou-zvláštními-právy-pořizovatele-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "licence pro databázi chráněnou zvláštními právy pořizovatele databáze"@cs .
-
-g-sgov-digitální-objekty-pojem:poskytovatel
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Poskytovatel"@cs .
+  a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Vykonavatele majetkových práv autorských daného digitálního objektu, který je originální databází. Typicky se bude jednat o zaměstnavatele autora (§ 58 zákona č. 121/2000 Sb, autorský zákon)."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má vykonavatele majetkových práv autorských u originální databáze"@cs .
 
 g-sgov-digitální-objekty-pojem:databáze-chráněná-zvláštními-právy-pořizovatele-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "databáze chráněná zvláštními právy pořizovatele databáze"@cs .
+  a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
+  skos:definition "Vyjádření, zda daný digitální objekt je či není chráněn zvláštními právy pořizovatele databáze."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "databáze chráněná zvláštními právy pořizovatele databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:pořizovatel-databáze-jako-právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-digitální-objekty-pojem:pořizovatel-databáze , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Pořizovatel databáze jako právnická osoba"@cs .
+g-sgov-digitální-objekty-pojem:autor-originální-databáze a skos:Concept;
+  skos:definition "Autor daného digitálního objektu, který je originální databází dle § 5 zákona č. 121/2000 Sb, autorský zákon."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Autor originální databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:má-kurátora
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má kurátora"@cs .
+g-sgov-digitální-objekty-pojem:poskytovatel a skos:Concept;
+  skos:definition "Poskytovatel je člověk či osoba, která poskytuje např. datovou sadu nebo databázi. Může, ale nemusí disponovat některým z níže specifikovaných práv, resp. na daný digitální objekt se nemusí vztahovat některý z ochranných režimů uvedených dále v této specifikaci. Každý digitální objekt tedy má svého poskytovatele. Typicky se jedná o člověka či osobu, která se rozhodla digitální objekt, tj. obrázek, datovou sadu, databázi, atd., poskytnout."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Poskytovatel"@cs .
 
-g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Zpracovatel osobních údajů"@cs .
+g-sgov-digitální-objekty-pojem:má-vykonavatele-majetkových-práv-autorských-u-autorského-díla
+  a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Přiřazuje k digitálnímu objektu vykonavatele majetkových práv autorských."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má vykonavatele majetkových práv autorských u autorského díla"@cs .
 
-g-sgov-digitální-objekty-pojem:má-zpracovatele-osobních-údajů
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má zpracovatele osobních údajů"@cs .
+g-sgov-digitální-objekty-pojem:obsahuje-více-autorských-děl a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
+  skos:definition "Vyjádření, že daný digitální objekt obsahuje více autorských děl, která nejsou originální databází. V takovém případě se má za to, že podmínky užití jednotlivých děl jsou upraveny uvnitř digitálního objektu."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "obsahuje více autorských děl"@cs .
 
-g-sgov-digitální-objekty-pojem:podmínky-užití
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Podmínky užití"@cs .
+g-sgov-digitální-objekty-pojem:má-správce-osobních-údajů a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "K digitálnímu objektu přiřazuje správce osobních údajů."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má správce osobních údajů"@cs .
 
-g-sgov-digitální-objekty-pojem:má-správce-osobních-údajů
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má správce osobních údajů"@cs .
+g-sgov-digitální-objekty-pojem:pořizovatel-databáze a skos:Concept;
+  skos:definition "Pořizovatel databáze dle § 89 zákona č. 121/2000 Sb, autorský zákon."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Pořizovatel databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:digitální-objekt
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/věci/pojem/věc> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Digitální objekt"@cs .
+g-sgov-digitální-objekty-pojem:autor-díla a skos:Concept;
+  skos:definition "Autor daného díla dle § 5 zákona č. 121/2000 Sb, autorský zákon."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Autor díla"@cs .
 
-g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Vykonavatel majetkových práv autorských u originální databáze"@cs .
+g-sgov-digitální-objekty-pojem:obsahuje-autorské-dílo a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
+  skos:definition "Vyjádření, zda daný digitální objekt je či není autorským dílem, které není originální databází."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "obsahuje autorské dílo"@cs .
 
-<http://www.w3.org/2004/02/skos/core#prefLabel>
-        rdfs:subPropertyOf  rdfs:label .
+g-sgov-digitální-objekty-pojem:má-podmínky-užití a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Specifikace podmínek užití digitálního objektu."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má podmínky užití"@cs .
 
-g-sgov-digitální-objekty-pojem:obsahuje-autorské-dílo
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "obsahuje autorské dílo"@cs .
+g-sgov-digitální-objekty-pojem:zpracovatel-osobních-údajů a skos:Concept;
+  skos:definition "Zpracovatel daných osobních údajů dle čl. 4 odst. 8 Nařízení Evropského parlamentu a Rady (EU) 2016/679 ze dne 27. dubna 2016 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů a o volném pohybu těchto údajů a o zrušení směrnice 95/46/ES (obecné nařízení o ochraně osobních údajů - GDPR)."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Zpracovatel osobních údajů"@cs .
 
-g-sgov-digitální-objekty-pojem:kurátor-jako-fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-digitální-objekty-pojem:kurátor , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Kurátor jako fyzická osoba"@cs .
+g-sgov-digitální-objekty-pojem:podmínky-užití a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/objekt>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Podmínky užití"@cs .
 
-g-sgov-digitální-objekty-pojem:poskytovatel-jako-právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-digitální-objekty-pojem:poskytovatel , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Poskytovatel jako právnická osoba"@cs .
+g-sgov-digitální-objekty-pojem:má-kurátora a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "K digitálnímu objektu přiřazuje jeho kurátora."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má kurátora"@cs .
 
-g-sgov-digitální-objekty-pojem:správce-osobních-údajů-jako-fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-digitální-objekty-pojem:správce-osobních-údajů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Správce osobních údajů jako fyzická osoba"@cs .
+g-sgov-digitální-objekty-pojem:má-poskytovatele a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "K digitálnímu objektu přiřazuje jeho poskytovatele."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má poskytovatele"@cs .
 
-g-sgov-digitální-objekty-pojem:poskytovatel-jako-fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-digitální-objekty-pojem:poskytovatel , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Poskytovatel jako fyzická osoba"@cs .
+g-sgov-digitální-objekty-pojem:má-zpracovatele-osobních-údajů a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Přiřazuje k digitálnímu dílu zpracovatele osobních údajů."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má zpracovatele osobních údajů"@cs .
 
-g-sgov-digitální-objekty-pojem:pořizovatel-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Pořizovatel databáze"@cs .
+g-sgov-digitální-objekty-pojem:originální-databáze a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
+  skos:definition "Vyjádření, zda daný digitální objekt je či není originální (autorskoprávně chráněnou) databází."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "originální databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:obsahuje-osobní-údaje
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "obsahuje osobní údaje"@cs .
+g-sgov-digitální-objekty-pojem:obsahuje-osobní-údaje a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
+  skos:definition "Vyjádření, zda daný digitální objekt obsahuje či neobsahuje osobní údaje."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "obsahuje osobní údaje"@cs .
 
-g-sgov-digitální-objekty-pojem:obsahuje-více-autorských-děl
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "obsahuje více autorských děl"@cs .
+g-sgov-digitální-objekty-pojem:má-typ-média a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Určuje, o jaký typ digitálního objektu se jedná ve smyslu typu digitálního média a jeho konkrétního formátu (např. datový soubor, obrázek, video, audio, apod.)."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má typ média"@cs .
 
-g-sgov-digitální-objekty-pojem:url-ke-stažení
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vlastnost> , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "url ke stažení"@cs .
+g-sgov-digitální-objekty-pojem:má-pořizovatele-databáze a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "K digitálnímu objektu, který je databází, přiřazuje pořizovatele  dané databáze."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má pořizovatele databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:autor-díla
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "autor díla"@cs .
+g-sgov-digitální-objekty-pojem:licence-autorského-díla a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Licence autorského díla, které není originální databází. Při nastavení podmínek užití doporučujeme řídit se dle doporučení pro Stanovení podmínek užití otevřených dat. Lze využít i vlastní licenci, která musí být uvedena odkazem na tuto licenci. Tato praxe je ale výrazně nedoporučována s ohledem na zajištění interoperability digitálních objektů."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "licence autorského díla"@cs .
 
-g-sgov-digitální-objekty-pojem:správce-osobních-údajů-jako-právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-digitální-objekty-pojem:správce-osobních-údajů , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Správce osobních údajů jako právnická osoba"@cs .
+g-sgov-digitální-objekty-pojem:url-ke-stažení a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "url ke stažení"@cs .
 
-g-sgov-digitální-objekty-pojem:autor-originální-databáze
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "autor originální databáze"@cs .
+g-sgov-digitální-objekty-pojem:licence-originální-databáze a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Licence originální databáze. Při nastavení podmínek užití doporučujeme řídit se dle doporučení pro Stanovení podmínek užití otevřených dat. Lze využít i vlastní licenci, která musí být uvedena odkazem na tuto licenci. Tato praxe je ale výrazně nedoporučována s ohledem na zajištění interoperability digitálních objektů."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "licence originální databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:kurátor
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Kurátor"@cs .
+g-sgov-digitální-objekty-pojem:licence-pro-databázi-chráněnou-zvláštními-právy-pořizovatele-databáze
+  a skos:Concept;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
+  skos:definition "Licence pro databázi chráněnou zvláštními právy pořizovatele databáze. Při nastavení podmínek užití doporučujeme řídit se dle doporučení pro Stanovení podmínek užití otevřených dat. Lze využít i vlastní licenci, která musí být uvedena odkazem na tuto licenci. Tato praxe je ale výrazně nedoporučována s ohledem na zajištění interoperability digitálních objektů."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "licence pro databázi chráněnou zvláštními právy pořizovatele databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:má-typ-média
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má typ média"@cs .
+g-sgov-digitální-objekty-pojem:má-autora-díla a skos:Concept;
+  skos:definition "K digitálnímu dílu přiřazuje jeho autora."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má autora díla"@cs .
 
-g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-autorského-díla
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/objekt> , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/mixin-rolí> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Vykonavatel majetkových práv autorských u autorského díla"@cs .
+g-sgov-digitální-objekty-pojem:má-autora-originální-databáze a skos:Concept;
+  skos:definition "K digitálnímu objektu, který je originální databází, přiřazuje jejího autora."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "má autora originální databáze"@cs .
 
-g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze-jako-právnická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/osoby/pojem/osoba> , g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských-u-originální-databáze , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Vykonavatel majetkových práv autorských u originální databáze jako právnická osoba"@cs .
+g-sgov-digitální-objekty-pojem:vykonavatel-majetkových-práv-autorských a skos:Concept;
+  skos:definition "Vykonavatelem majetkových práv autorských je typicky zaměstnavatel autora (§ 58 zákona č. 121/2000 Sb, autorský zákon)."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Vykonavatel majetkových práv autorských"@cs .
 
-g-sgov-digitální-objekty-pojem:má-podmínky-užití
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/základní/pojem/vztah> , <https://slovník.gov.cz/základní/pojem/typ-vztahu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "má podmínky užití"@cs .
+g-sgov-digitální-objekty-pojem:typ-média a skos:Concept;
+  skos:definition "Typy médií pro reprezentaci digitálních objektů distribuovaných po síti reprezentované jako položky číselníku typů médií."@en;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Typ média"@cs .
 
-g-sgov-digitální-objekty-pojem:pořizovatel-databáze-jako-fyzická-osoba
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/lidé/pojem/člověk> , g-sgov-digitální-objekty-pojem:pořizovatel-databáze , <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/role> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-digitální-objekty:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Pořizovatel databáze jako fyzická osoba"@cs .
+g-sgov-digitální-objekty-pojem:číselník-typů-médií a skos:Concept;
+  skos:definition "Číselník typů médií pro reprezentaci digitálních objektů."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "Číselník typů médií"@cs .
+
+g-sgov-digitální-objekty-pojem:eviduje-typ-média a skos:Concept;
+  skos:definition "Přiřazuje typ média do číselníku typu médií."@cs;
+  skos:inScheme g-sgov-digitální-objekty:glosář;
+  skos:prefLabel "eviduje typ média"@cs .
