@@ -1,34 +1,24 @@
-@prefix g-sgov-licence-pojem: <https://slovník.gov.cz/generický/licence/pojem/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix g-sgov-licence: <https://slovník.gov.cz/generický/licence/> .
+@prefix g-sgov-licence-pojem: <https://slovník.gov.cz/generický/licence/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-g-sgov-licence-pojem:licence
-        a       <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <https://slovník.gov.cz/generický/věci/pojem/věc> , <https://slovník.gov.cz/základní/pojem/typ-objektu> ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>
-                g-sgov-licence:glosář ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Licence"@cs .
+g-sgov-licence-pojem:licence a skos:Concept;
+  skos:broader <https://slovník.gov.cz/generický/věci/pojem/věc>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  skos:inScheme g-sgov-licence:glosář;
+  skos:prefLabel "Licence"@cs .
 
-<http://www.w3.org/2004/02/skos/core#prefLabel>
-        rdfs:subPropertyOf  rdfs:label .
-
-g-sgov-licence:glosář
-        a               <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/glosář> , owl:Ontology , <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-        <http://purl.org/dc/terms/created>
-                "2020-07-28" ;
-        <http://purl.org/dc/terms/title>
-                "Generický slovník licencí - glosář"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specification"@en , "Specifikace"@cs ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "g-sgov-licence-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/generický/licence/pojem/" ;
-        owl:versionIRI  <https://slovník.gov.cz/generický/licence/glosář/verze/0.0.1> ;
-        <http://www.w3.org/2004/02/skos/core#hasTopConcept>
-                g-sgov-licence-pojem:licence .
+g-sgov-licence:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
+  dcterms:created "2020-07-28";
+  dcterms:title "Generický slovník licencí - glosář"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "g-sgov-licence-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/licence/pojem/";
+  owl:versionIRI <https://slovník.gov.cz/generický/licence/glosář/verze/0.0.1>;
+  skos:hasTopConcept g-sgov-licence-pojem:licence .
