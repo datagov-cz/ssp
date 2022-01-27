@@ -8,7 +8,634 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+d-sgov-klasifikace-pojem:eviduje-položku-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/eviduje-položku-číselníku>,
+    <https://slovník.gov.cz/veřejný-sektor/pojem/eviduje-položku-evidenčního-systému>,
+    [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-klasifikace-pojem:klasifikace a <https://slovník.gov.cz/základní/pojem/mixin>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém>, [
+      a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:název-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:název-klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:definice-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:definice-klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikace;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+d-sgov-klasifikace-pojem:klasifikační-schéma a <https://slovník.gov.cz/základní/pojem/mixin>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník>, <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém>,
+    [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:počet-úrovní-klasifikačního-schématu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:definice-klasifikačního-schématu
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikačního-schématu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:definice-klasifikačního-schématu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:počet-úrovní-klasifikačního-schématu
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:název-klasifikačního-schématu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:název-klasifikačního-schématu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikačního-schématu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ] .
+
+d-sgov-klasifikace-pojem:akronym-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+d-sgov-klasifikace-pojem:akronym-klasifikačního-schématu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/akronym-číselníku> .
+
+d-sgov-klasifikace-pojem:definice-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+d-sgov-klasifikace-pojem:definice-klasifikačního-schématu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/definice-číselníku> .
+
+d-sgov-klasifikace-pojem:hloubka-úrovně-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+d-sgov-klasifikace-pojem:je-charakterizována-pojmem a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+d-sgov-klasifikace-pojem:je-mapována-na-obecnější-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
+
+d-sgov-klasifikace-pojem:je-mapována-na-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce .
+
+d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-klasifikace-pojem:je-mapována-na-přesně-odpovídající-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
+
+d-sgov-klasifikace-pojem:je-mapována-na-přibližně-odpovídající-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
+
+d-sgov-klasifikace-pojem:je-mapována-na-související-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
+
+d-sgov-klasifikace-pojem:je-příčinou-pro-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:souvisí-s-položkou .
+
+d-sgov-klasifikace-pojem:souvisí-s-položkou a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce .
+
+d-sgov-klasifikace-pojem:je-součástí-položky a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:má-přímo-nadřazenou-položku .
+
+d-sgov-klasifikace-pojem:má-přímo-nadřazenou-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:má-nadřazenou-položku .
+
+d-sgov-klasifikace-pojem:je-verzí-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikace
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikačního-schématu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/má-administrativní-platnost-číselníku>,
+    [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ] .
+
+d-sgov-klasifikace-pojem:má-administrativní-platnost-shody-mezi-klasifikačními-schématy
+  a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>
+    ] .
+
+d-sgov-klasifikace-pojem:má-administrativní-platnost-shody-položek-klasifikací a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+d-sgov-klasifikace-pojem:má-administrativní-platnost-úrovně-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+d-sgov-klasifikace-pojem:má-cílovou-položku-shody a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+d-sgov-klasifikace-pojem:má-nadřazenou-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce .
+
+d-sgov-klasifikace-pojem:má-vrchní-položku-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:eviduje-položku-klasifikace .
+
+d-sgov-klasifikace-pojem:má-zdrojovou-položku-shody a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-klasifikace-pojem:má-úroveň-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ] .
+
+d-sgov-klasifikace-pojem:nachází-se-za-položkou a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:souvisí-s-položkou .
+
+d-sgov-klasifikace-pojem:nahrazuje-verzi-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:následuje-verzi-klasifikace .
+
+d-sgov-klasifikace-pojem:následuje-verzi-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+d-sgov-klasifikace-pojem:následuje-po-položce a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:souvisí-s-položkou .
+
+d-sgov-klasifikace-pojem:název-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+d-sgov-klasifikace-pojem:název-klasifikačního-schématu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/název-číselníku> .
+
+d-sgov-klasifikace-pojem:název-úrovně-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+d-sgov-klasifikace-pojem:pokrývá-oblast a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-klasifikace-pojem:počet-úrovní-klasifikačního-schématu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+
+d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+d-sgov-klasifikace-pojem:shoda-položek-klasifikací a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+d-sgov-klasifikace-pojem:specializuje-položku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf d-sgov-klasifikace-pojem:má-přímo-nadřazenou-položku .
+
+d-sgov-klasifikace-pojem:srovnává-klasifikační-schéma-na-shodu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+d-sgov-klasifikace-pojem:tvořena-shodou-položek-klasifikací a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-klasifikace-pojem:zařazuje-položku-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
+    ] .
+
+d-sgov-klasifikace-pojem:úroveň-klasifikace a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:název-úrovně-klasifikace
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom d-sgov-klasifikace-pojem:hloubka-úrovně-klasifikace
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:název-úrovně-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-klasifikace-pojem:hloubka-úrovně-klasifikace;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ] .
 
 d-sgov-klasifikace:model a a-popis-dat-pojem:model, owl:Ontology;
   dcterms:created "2021-01-04T00:21:38.285+02:00"^^xsd:dateTime;
@@ -19,625 +646,3 @@ d-sgov-klasifikace:model a a-popis-dat-pojem:model, owl:Ontology;
   vann:preferredNamespaceUri "https://slovník.gov.cz/datový/klasifikace/pojem/";
   owl:imports d-sgov-klasifikace:glosář;
   owl:versionIRI "https://slovník.gov.cz/datový/klasifikace/model/verze/1.0.0" .
-
-d-sgov-klasifikace-pojem:eviduje-položku-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/eviduje-položku-číselníku>,
-    <https://slovník.gov.cz/veřejný-sektor/pojem/eviduje-položku-evidenčního-systému>,
-    [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:klasifikační-schéma a z-sgov-pojem:mixin, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník>, <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém>,
-    [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:název-klasifikačního-schématu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:název-klasifikačního-schématu;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:definice-klasifikačního-schématu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:definice-klasifikačního-schématu;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikačního-schématu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikačního-schématu;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:počet-úrovní-klasifikačního-schématu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:počet-úrovní-klasifikačního-schématu;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ] .
-
-d-sgov-klasifikace-pojem:klasifikace a z-sgov-pojem:mixin, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém>, [
-      a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:název-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:název-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:definice-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:definice-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:akronym-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ] .
-
-d-sgov-klasifikace-pojem:je-verzí-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-d-sgov-klasifikace-pojem:název-klasifikace a z-sgov-pojem:typ-vlastnosti .
-
-d-sgov-klasifikace-pojem:definice-klasifikace a z-sgov-pojem:typ-vlastnosti .
-
-d-sgov-klasifikace-pojem:akronym-klasifikace a z-sgov-pojem:typ-vlastnosti .
-
-d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost>, [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:je-ve-vztahu;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikace;
-      owl:onProperty z-sgov-pojem:je-ve-vztahu
-    ] .
-
-d-sgov-klasifikace-pojem:název-klasifikačního-schématu a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/název-číselníku> .
-
-d-sgov-klasifikace-pojem:definice-klasifikačního-schématu a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/definice-číselníku> .
-
-d-sgov-klasifikace-pojem:akronym-klasifikačního-schématu a z-sgov-pojem:typ-vlastnosti;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/akronym-číselníku> .
-
-d-sgov-klasifikace-pojem:následuje-verzi-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:nahrazuje-verzi-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:následuje-verzi-klasifikace .
-
-d-sgov-klasifikace-pojem:počet-úrovní-klasifikačního-schématu a z-sgov-pojem:typ-vlastnosti .
-
-d-sgov-klasifikace-pojem:úroveň-klasifikace a z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:název-úrovně-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:název-úrovně-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vlastnost;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:hloubka-úrovně-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:hloubka-úrovně-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vlastnost
-    ] .
-
-d-sgov-klasifikace-pojem:má-úroveň-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:název-úrovně-klasifikace a z-sgov-pojem:typ-vlastnosti .
-
-d-sgov-klasifikace-pojem:hloubka-úrovně-klasifikace a z-sgov-pojem:typ-vlastnosti .
-
-d-sgov-klasifikace-pojem:má-administrativní-platnost-úrovně-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/má-platnost>, [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-d-sgov-klasifikace-pojem:je-charakterizována-pojmem a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:má-vrchní-položku-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:eviduje-položku-klasifikace .
-
-d-sgov-klasifikace-pojem:zařazuje-položku-klasifikace a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:úroveň-klasifikace;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:srovnává-klasifikační-schéma-na-shodu a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy a z-sgov-pojem:typ-objektu .
-
-d-sgov-klasifikace-pojem:shoda-položek-klasifikací a z-sgov-pojem:typ-objektu .
-
-d-sgov-klasifikace-pojem:tvořena-shodou-položek-klasifikací a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:má-zdrojovou-položku-shody a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:má-cílovou-položku-shody a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:má-administrativní-platnost-shody-mezi-klasifikačními-schématy
-  a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-mezi-klasifikačními-schématy;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:má-administrativní-platnost-shody-položek-klasifikací a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/základní/pojem/časový-prvek>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:shoda-položek-klasifikací;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/základní/pojem/časový-prvek>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ] .
-
-d-sgov-klasifikace-pojem:má-nadřazenou-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce .
-
-d-sgov-klasifikace-pojem:má-přímo-nadřazenou-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:má-nadřazenou-položku .
-
-d-sgov-klasifikace-pojem:specializuje-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:má-přímo-nadřazenou-položku .
-
-d-sgov-klasifikace-pojem:je-součástí-položky a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:má-přímo-nadřazenou-položku .
-
-d-sgov-klasifikace-pojem:souvisí-s-položkou a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce .
-
-d-sgov-klasifikace-pojem:následuje-po-položce a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:souvisí-s-položkou .
-
-d-sgov-klasifikace-pojem:nachází-se-za-položkou a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:souvisí-s-položkou .
-
-d-sgov-klasifikace-pojem:je-příčinou-pro-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:souvisí-s-položkou .
-
-d-sgov-klasifikace-pojem:je-mapována-na-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:má-sémantický-vztah-k-položce .
-
-d-sgov-klasifikace-pojem:je-mapována-na-obecnější-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
-
-d-sgov-klasifikace-pojem:je-mapována-na-přesně-odpovídající-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
-
-d-sgov-klasifikace-pojem:je-mapována-na-přibližně-odpovídající-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
-
-d-sgov-klasifikace-pojem:je-mapována-na-související-položku a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf d-sgov-klasifikace-pojem:je-mapována-na-položku .
-
-d-sgov-klasifikace-pojem:má-administrativní-platnost-klasifikačního-schématu a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/má-administrativní-platnost-číselníku>,
-    [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
-
-d-sgov-klasifikace-pojem:pokrývá-oblast a z-sgov-pojem:typ-vztahu;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2;
-      owl:someValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/veřejný-sektor/pojem/položka-evidenčního-systému>;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-2
-    ], [ a owl:Restriction;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1;
-      owl:someValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-klasifikace-pojem:klasifikační-schéma;
-      owl:onProperty z-sgov-pojem:má-vztažený-prvek-1
-    ] .
