@@ -1,0 +1,72 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix d-sgov-mycardinalitytest: <https://slovník.gov.cz/datový/mycardinalitytest/> .
+@prefix d-sgov-mycardinalitytest-pojem: <https://slovník.gov.cz/datový/mycardinalitytest/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+d-sgov-mycardinalitytest:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2022-01-29T13:09:24.450Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "mycardinalitytest - model"@cs;
+  vann:preferredNamespacePrefix "d-sgov-mycardinalitytest-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/mycardinalitytest/pojem/";
+  owl:imports d-sgov-mycardinalitytest:glosář;
+  owl:versionIRI "https://slovník.gov.cz/datový/mycardinalitytest/model/verze/1.0.0" .
+
+d-sgov-mycardinalitytest-pojem:class a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ];
+      owl:someValuesFrom d-sgov-mycardinalitytest-pojem:attribute
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-mycardinalitytest-pojem:attribute;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ];
+      owl:someValuesFrom d-sgov-mycardinalitytest-pojem:attribute
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-mycardinalitytest-pojem:attribute;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-mycardinalitytest-pojem:attribute;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-mycardinalitytest-pojem:attribute;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ]
+    ] .
+
+d-sgov-mycardinalitytest-pojem:attribute a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom d-sgov-mycardinalitytest-pojem:class
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-mycardinalitytest-pojem:class;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-mycardinalitytest-pojem:class;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-mycardinalitytest-pojem:class;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
