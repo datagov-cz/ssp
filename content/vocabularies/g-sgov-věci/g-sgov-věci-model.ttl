@@ -30,32 +30,32 @@
 
 g-sgov-věci-pojem:věc a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/prvek>, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
-      owl:someValuesFrom g-sgov-věci-pojem:popis
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-věci-pojem:název;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-    ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:název;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+      owl:onClass g-sgov-věci-pojem:aktualizováno;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věci-pojem:aktualizováno;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:popis;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-věci-pojem:popis
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-věci-pojem:popis;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-věci-pojem:název;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:popis;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
-    ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
-      owl:someValuesFrom g-sgov-věci-pojem:název
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:popis;
+      owl:allValuesFrom g-sgov-věci-pojem:název;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
       owl:onProperty [
@@ -63,22 +63,22 @@ g-sgov-věci-pojem:věc a owl:Class, <https://slovník.gov.cz/základní/pojem/t
         ];
       owl:someValuesFrom g-sgov-věci-pojem:aktualizováno
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-věci-pojem:aktualizováno;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-věci-pojem:aktualizováno;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:aktualizováno;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
+      owl:onClass g-sgov-věci-pojem:popis;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-věci-pojem:název;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-věci-pojem:název
     ] .
 
 g-sgov-věci:model a a-popis-dat-pojem:model, owl:Ontology;
@@ -99,13 +99,13 @@ g-sgov-věci:model a a-popis-dat-pojem:model, owl:Ontology;
         ];
       owl:someValuesFrom g-sgov-věci-pojem:aktualizováno
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-věci-pojem:aktualizováno;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-věci-pojem:aktualizováno;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:aktualizováno;
+      owl:allValuesFrom g-sgov-věci-pojem:aktualizováno;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
@@ -127,11 +127,11 @@ g-sgov-věci-pojem:popis a owl:Class, owl:DatatypeProperty, <https://slovník.go
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range rdfs:Literal;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
-      owl:someValuesFrom g-sgov-věci-pojem:věc
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom g-sgov-věci-pojem:věc
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vlastnost> .
 
@@ -139,28 +139,28 @@ g-sgov-věci-pojem:aktualizováno a owl:Class, owl:ObjectProperty, <https://slov
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-věci-pojem:věc
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-věci-pojem:věc;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-věci-pojem:věc
+      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:věc;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
@@ -169,14 +169,7 @@ g-sgov-věci-pojem:zneplatněno a owl:Class, owl:ObjectProperty, <https://slovn�
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-věci-pojem:věc
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-věci-pojem:věc;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:věc;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
@@ -186,10 +179,17 @@ g-sgov-věci-pojem:zneplatněno a owl:Class, owl:ObjectProperty, <https://slovn�
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-věci-pojem:věc;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-věci-pojem:věc
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ];
@@ -199,18 +199,22 @@ g-sgov-věci-pojem:relevantní-do a owl:Class, owl:ObjectProperty, <https://slov
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-věci-pojem:věc
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-věci-pojem:věc;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-věci-pojem:věc;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
+      owl:allValuesFrom g-sgov-věci-pojem:věc;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-věci-pojem:věc
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
@@ -218,17 +222,21 @@ g-sgov-věci-pojem:relevantní-do a owl:Class, owl:ObjectProperty, <https://slov
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
 
 g-sgov-věci-pojem:má-přílohu a owl:Class, owl:ObjectProperty, <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věci-pojem:věc;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-věci-pojem:věc;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>
     ], [ a owl:Restriction;
@@ -236,18 +244,11 @@ g-sgov-věci-pojem:má-přílohu a owl:Class, owl:ObjectProperty, <https://slovn
       owl:onClass <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-věci-pojem:věc
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-věci-pojem:věc;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-věci-pojem:věc;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <https://slovník.gov.cz/generický/digitální-objekty/pojem/digitální-objekt>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-věci-pojem:věc
     ];
   rdfs:subPropertyOf <https://slovník.gov.cz/základní/pojem/vztah> .
 
@@ -255,12 +256,6 @@ g-sgov-věci-pojem:vytvořeno a owl:Class, owl:ObjectProperty, <https://slovník
   rdfs:domain g-sgov-věci-pojem:věc;
   rdfs:range <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
   rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vztah>, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
@@ -269,11 +264,17 @@ g-sgov-věci-pojem:vytvořeno a owl:Class, owl:ObjectProperty, <https://slovník
       owl:onClass <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-věci-pojem:věc;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-věci-pojem:věc
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-věci-pojem:věc;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/čas/pojem/časový-okamžik>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-věci-pojem:věc;
@@ -283,6 +284,406 @@ g-sgov-věci-pojem:vytvořeno a owl:Class, owl:ObjectProperty, <https://slovník
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
@@ -293,11 +694,45 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
@@ -307,185 +742,13 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
@@ -495,266 +758,4 @@ skos:prefLabel rdfs:subPropertyOf rdfs:label .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
-
-[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
