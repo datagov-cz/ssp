@@ -9,7 +9,42 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+<https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> a owl:Class .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+
+g-sgov-číselníky-pojem:měna a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
+
+g-sgov-číselníky-pojem:jednotka a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
+
+g-sgov-číselníky-pojem:stát a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
+
+g-sgov-číselníky-pojem:pohlaví a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
+
+g-sgov-číselníky-pojem:typ-události a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
+
+g-sgov-číselníky-pojem:téma-události a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
+
+g-sgov-číselníky-pojem:typ-turistického-cíle a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
+
+g-sgov-číselníky-pojem:jazyk a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
 g-sgov-číselníky:model a a-popis-dat-pojem:model, owl:Ontology;
   dcterms:created "2020-07-28";
@@ -20,88 +55,49 @@ g-sgov-číselníky:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports g-sgov-číselníky:glosář;
   owl:versionIRI <https://slovník.gov.cz/generický/číselníky/model/verze/0.0.1> .
 
-<https://slovník.gov.cz/veřejný-sektor/pojem/evidenční-systém> a owl:Class .
-
-z-sgov-pojem:je-vlastností a owl:ObjectProperty;
-  owl:inverseOf z-sgov-pojem:má-vlastnost .
-
-z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
-
-z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
-
-z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
-  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
-
-g-sgov-číselníky-pojem:měna a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:typ-sportoviště a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:jednotka a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:stát a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:pohlaví a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:typ-události a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:téma-události a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:typ-turistického-cíle a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:jazyk a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:typ-sportoviště a owl:Class, z-sgov-pojem:typ-objektu;
-  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
-
-g-sgov-číselníky-pojem:sport a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:sport a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
 g-sgov-číselníky-pojem:obor-isvav a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
-    z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.vyzkum.cz/FrontClanek.aspx?idsekce=1374>;
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
 g-sgov-číselníky-pojem:obor-frascati a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
-    z-sgov-pojem:typ-objektu;
-  dcterms:source <https://www.vyzkum.cz/FrontClanek.aspx?idsekce=799796&ad=1&attid=847693>;
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:typ-pracovního-vztahu a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:typ-pracovního-vztahu a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:stupeň-přístupnosti a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:stupeň-přístupnosti a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
 g-sgov-číselníky-pojem:míra-specifikace a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:frekvence a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:frekvence a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:jiná-časová-specifikace a owl:Class, z-sgov-pojem:typ-objektu;
-  dcterms:relation <https://data.mvcr.gov.cz/zdroj/datové-sady/číselníky/jiná-časová-specifikace>;
+g-sgov-číselníky-pojem:jiná-časová-specifikace a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:akademický-obor a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:akademický-obor a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:typ-pracoviště a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:typ-pracoviště a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:den-v-týdnu a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:den-v-týdnu a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník>, <https://slovník.gov.cz/generický/čas/pojem/den-v-týdnu> .
 
-g-sgov-číselníky-pojem:časové-období a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:časové-období a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
-g-sgov-číselníky-pojem:typ-média a owl:Class, z-sgov-pojem:typ-objektu;
+g-sgov-číselníky-pojem:typ-média a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník> .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .

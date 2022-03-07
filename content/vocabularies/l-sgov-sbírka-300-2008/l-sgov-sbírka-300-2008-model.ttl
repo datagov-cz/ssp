@@ -1,51 +1,44 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix l-sgov-sbírka-300-2008: <https://slovník.gov.cz/legislativní/sbírka/300/2008/> .
 @prefix l-sgov-sbírka-300-2008-pojem: <https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        a       owl:ObjectProperty .
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
 
-l-sgov-sbírka-300-2008:model
-        a               <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> , owl:Ontology ;
-        <http://purl.org/dc/terms/created>
-                "2020-07-28" ;
-        <http://purl.org/dc/terms/title>
-                "Slovník zákona č. 300/2008 Sb. o elektronických úkonech a autorizované konverzi dokumentů - model"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specifikace"@cs , "Specification"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "l-sgov-sbírka-300-2008-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/" ;
-        owl:imports     l-sgov-sbírka-300-2008:glosář ;
-        owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/300/2008/model/verze/0.0.1> .
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty .
 
-l-sgov-sbírka-300-2008-pojem:identifikátor-datové-schránky
-        a                owl:Class , <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/vlastnost> ;
-        rdfs:subClassOf  [ a                   owl:Restriction ;
-                           owl:onProperty      <https://slovník.gov.cz/základní/pojem/je-vlastností> ;
-                           owl:someValuesFrom  l-sgov-sbírka-300-2008-pojem:datová-schránka
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  l-sgov-sbírka-300-2008-pojem:datová-schránka ;
-                           owl:onProperty     <https://slovník.gov.cz/základní/pojem/je-vlastností>
-                         ] .
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
 
-l-sgov-sbírka-300-2008-pojem:datová-schránka
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+l-sgov-sbírka-300-2008-pojem:datová-schránka a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
-        a       owl:ObjectProperty .
+l-sgov-sbírka-300-2008:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-07-28";
+  dcterms:title "Slovník zákona č. 300/2008 Sb. o elektronických úkonech a autorizované konverzi dokumentů - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-300-2008-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/300/2008/pojem/";
+  owl:imports l-sgov-sbírka-300-2008:glosář;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/300/2008/model/verze/0.0.1> .
 
-<https://slovník.gov.cz/základní/pojem/je-vlastností>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+l-sgov-sbírka-300-2008-pojem:identifikátor-datové-schránky a owl:Class, <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/vlastnost>, [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-300-2008-pojem:datová-schránka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-300-2008-pojem:datová-schránka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
