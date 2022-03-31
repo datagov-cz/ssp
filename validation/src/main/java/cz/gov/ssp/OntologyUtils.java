@@ -17,6 +17,9 @@ import org.slf4j.LoggerFactory;
 
 public class OntologyUtils {
 
+    private OntologyUtils() {
+    }
+
     private static final Logger log = LoggerFactory.getLogger(OntologyUtils.class);
 
     /**
@@ -30,12 +33,22 @@ public class OntologyUtils {
     public static Model createModel(final String vocabularyFolder, final String localArtifactName)
         throws IOException {
         final Model model = ModelFactory.createDefaultModel();
-        final File[] files = new File(vocabularyFolder)
-            .listFiles(f -> f.getName().contains(localArtifactName));
-        for (File f : files) {
+        for (File f : getFiles(vocabularyFolder, localArtifactName)) {
             model.read(new FileReader(f), null, "TURTLE");
         }
         return model;
+    }
+
+    /**
+     * Get file references to a vocabulary artifact.
+     *
+     * @param vocabularyFolder  folder to look into
+     * @param localArtifactName local artifact name
+     * @return files where artefact is defined.
+     */
+    public static File[] getFiles(final String vocabularyFolder, final String localArtifactName) {
+        return new File(vocabularyFolder)
+            .listFiles(f -> f.getName().contains(localArtifactName));
     }
 
     /**
