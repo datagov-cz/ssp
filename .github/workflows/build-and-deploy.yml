@@ -61,7 +61,7 @@ jobs:
             -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
       - name: GraphDB - Clear repository
         run: |
-            bash bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+            bash -e bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - name: GraphDB - Publish new version
         run: |
             curl --location --request PUT "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements" \
@@ -80,13 +80,13 @@ jobs:
             --form 'input=@./sgov.trig'
       - name: (DEV) AL - Clear cache
         run: |
-            bash bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+            bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - name: (DEV) AL - Uploading cache
         run: |
-            bash bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+            bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - name: (PROD) AL - Clear cache
         run: |
-            bash bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} ${QUERY}
+            bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} ${QUERY}
       - name: (PROD) AL - Uploading cache
         run: |
-            bash bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+            bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
