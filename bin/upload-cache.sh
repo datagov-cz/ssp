@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 REPOSITORY=${1}
 USERNAME=${2}
 PASSWORD=${3}
