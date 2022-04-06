@@ -1,0 +1,81 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix l-sgov-sbírka-56-20011: <https://slovník.gov.cz/legislativní/sbírka/56/20011/> .
+@prefix l-sgov-sbírka-56-20011-pojem: <https://slovník.gov.cz/legislativní/sbírka/56/20011/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+l-sgov-sbírka-56-20011:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2022-04-06T11:12:59.964Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Zákon č. 56/20011 - model"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-56-20011-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/56/20011/pojem/";
+  owl:imports l-sgov-sbírka-56-20011:glosář;
+  owl:versionIRI "https://slovník.gov.cz/legislativní/sbírka/56/20011/model/verze/1.0.0" .
+
+l-sgov-sbírka-56-20011-pojem:silniční-vozidlo <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft>
+    true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-56-20011-pojem:vozidlo-má-typ
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-20011-pojem:vozidlo-má-typ;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-20011-pojem:vozidlo-má-typ;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+l-sgov-sbírka-56-20011-pojem:typ-silničního-vozidla <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft>
+    true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-56-20011-pojem:vozidlo-má-typ
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-20011-pojem:vozidlo-má-typ;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-20011-pojem:vozidlo-má-typ;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+l-sgov-sbírka-56-20011-pojem:vozidlo-má-typ a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-56-20011-pojem:silniční-vozidlo
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-20011-pojem:silniční-vozidlo;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-20011-pojem:silniční-vozidlo;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-56-20011-pojem:typ-silničního-vozidla
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-56-20011-pojem:typ-silničního-vozidla;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-56-20011-pojem:typ-silničního-vozidla;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
