@@ -1,10 +1,8 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 REPOSITORY=${1}
 CONTAINER=${2}
 USERNAME=${3}
 PASSWORD=${4}
-
-KEEP_TCP_ALIVE_IN_SECONDS=180
 
 curl --fail \
   --location "${REPOSITORY}" \
@@ -18,12 +16,12 @@ curl --fail \
   read
   while read p; do
     echo "Clearing canonical container metadata ${p}"
-    curl  --fail --keepalive-time $KEEP_TCP_ALIVE_IN_SECONDS --get -XDELETE "${REPOSITORY}/statements" \
+    curl --fail --get -XDELETE "${REPOSITORY}/statements" \
       --data-urlencode "context=<$p>" \
       -u ${USERNAME}:${PASSWORD}
   done
 } <vocabularyContexts.csv
 rm vocabularyContexts.csv
-curl --fail --keepalive-time $KEEP_TCP_ALIVE_IN_SECONDS --get -XDELETE "${REPOSITORY}/statements" \
+curl --fail --get -XDELETE "${REPOSITORY}/statements" \
   --data-urlencode "context=<${CONTAINER}>" \
   -u ${USERNAME}:${PASSWORD}
