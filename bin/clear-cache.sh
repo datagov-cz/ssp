@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 REPOSITORY=${1}
 CONTAINER=${2}
 USERNAME=${3}
