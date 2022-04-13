@@ -11,6 +11,8 @@ env:
   PASSWORD_LP: ${{ secrets.PASSWORD_LP }}
   USERNAME_GRAPHDB: ${{ secrets.USERNAME_GRAPHDB }}
   PASSWORD_GRAPHDB: ${{ secrets.PASSWORD_GRAPHDB }}
+  USERNAME_AL_GRAPHDB: ${{ secrets.USERNAME_AL_GRAPHDB }}
+  PASSWORD_AL_GRAPHDB: ${{ secrets.PASSWORD_AL_GRAPHDB }}
   JVM_OPTS: -Xmx3200m
   PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY: https://xn--slovnk-7va.gov.cz/prohlizime/sluzby/db-server/repositories/termit
   ASSEMBLY_LINE_REPOSITORY: https://xn--slovnk-7va.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
@@ -86,7 +88,7 @@ jobs:
             bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - name: (PROD) AL - Clear cache
         run: |
-            bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB} ${QUERY}
+            bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_AL_GRAPHDB} ${PASSWORD_AL_GRAPHDB} ${QUERY}
       - name: (PROD) AL - Uploading cache
         run: |
-            bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+            bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${USERNAME_AL_GRAPHDB} ${PASSWORD_AL_GRAPHDB}
