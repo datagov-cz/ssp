@@ -11,7 +11,23 @@
 
 l-sgov-sbírka-304-2013-pojem:fyzická-osoba a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/fyzická-osoba>,
-    <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/fyzická-osoba> .
+    <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/fyzická-osoba>, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:má-adresu-místa-pobytu-zapsané-fyzické-osoby a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-adresu-místa-pobytu>,
@@ -48,40 +64,40 @@ l-sgov-sbírka-304-2013-pojem:má-adresu-místa-pobytu-zapsané-fyzické-osoby a
 l-sgov-sbírka-304-2013-pojem:zapsaná-osoba a <https://slovník.gov.cz/základní/pojem/mixin-rolí>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/osoba>,
-    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva>, [ a owl:Restriction;
+    <https://slovník.gov.cz/veřejný-sektor/pojem/subjekt-práva> .
+
+l-sgov-sbírka-304-2013-pojem:právnická-osoba a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba>,
+    <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/právnická-osoba>, [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ];
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-opatrovníka
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-opatrovníka;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-opatrovníka;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-opatrovníka;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ] .
-
-l-sgov-sbírka-304-2013-pojem:právnická-osoba a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba>,
-    <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/právnická-osoba> .
 
 l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba-která-je-podnikatelem a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba>,
     l-sgov-sbírka-304-2013-pojem:zapsaná-fyzická-osoba, <https://slovník.gov.cz/legislativní/sbírka/89/2012/pojem/podnikatel> .
 
 l-sgov-sbírka-304-2013-pojem:má-člena-statutárního-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-statutárního-orgánu>,
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-člena-orgánu-právnické-osoby, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-statutárního-orgánu>,
     [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-statutárního-orgánu
@@ -125,7 +141,24 @@ l-sgov-sbírka-304-2013-pojem:obchodní-společnost a <https://slovník.gov.cz/z
 
 l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba a <https://slovník.gov.cz/základní/pojem/role>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:zapsaná-osoba .
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:právnická-osoba, l-sgov-sbírka-304-2013-pojem:zapsaná-osoba,
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-likvidátora
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-likvidátora;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-likvidátora;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:adresa-pro-doručování-podání-v-řízení-před-rozhodčí-komisí
   a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
@@ -166,8 +199,6 @@ l-sgov-sbírka-304-2013-pojem:má-člena-rozhodčí-komise a <https://slovník.g
 
 l-sgov-sbírka-304-2013-pojem:komanditní-suma a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
-l-sgov-sbírka-304-2013-pojem:má-způsob-jednání-statutárního-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
-
 l-sgov-sbírka-304-2013:model a a-popis-dat-pojem:model, owl:Ontology;
   dcterms:created "2020-12-01T16:58:28.996+02:00"^^xsd:dateTime;
   dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
@@ -196,46 +227,32 @@ l-sgov-sbírka-304-2013-pojem:den-vzniku-právnické-osoby a <https://slovník.g
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
     ] .
 
-l-sgov-sbírka-304-2013-pojem:účel-osoby a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:má-vymezen-účel-osoby;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:rozsah-splácení-základního-kapitálu-akciové-společnosti
-  a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ] .
+l-sgov-sbírka-304-2013-pojem:účel-osoby a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
 l-sgov-sbírka-304-2013-pojem:akciová-společnost a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost .
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/akciová-společnost> .
 
 l-sgov-sbírka-304-2013-pojem:zahraniční-fyzická-osoba a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba .
 
-l-sgov-sbírka-304-2013-pojem:likvidátor a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+l-sgov-sbírka-304-2013-pojem:likvidátor a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-likvidátora
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-likvidátora;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-likvidátora;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:název-rozhodčí-komise a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
   rdfs:subClassOf [ a owl:Restriction;
@@ -281,17 +298,33 @@ l-sgov-sbírka-304-2013-pojem:počet-členů-rozhodčí-komise a <https://slovn�
 l-sgov-sbírka-304-2013-pojem:má-právní-formu-právnické-osoby a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/má-právní-formu-osoby>,
     [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
 l-sgov-sbírka-304-2013-pojem:právní-forma-právnické-osoby a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
@@ -375,7 +408,7 @@ l-sgov-sbírka-304-2013-pojem:den-zániku-funkce-v-kontrolním-orgánu a <https:
     ] .
 
 l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-kontrolního-orgánu>,
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-člena-orgánu-právnické-osoby, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-člena-kontrolního-orgánu>,
     [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:člen-kontrolního-orgánu
@@ -533,9 +566,40 @@ l-sgov-sbírka-304-2013-pojem:rejstříkový-soud a <https://slovník.gov.cz/zá
 
 l-sgov-sbírka-304-2013-pojem:výše-vstupního-vkladu-družstva a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
 
-l-sgov-sbírka-304-2013-pojem:prokura a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
-
-l-sgov-sbírka-304-2013-pojem:identifikační-údaje-likvidátora a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+l-sgov-sbírka-304-2013-pojem:prokura a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:má-rozhodčí-komisi a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
@@ -569,6 +633,23 @@ l-sgov-sbírka-304-2013-pojem:má-rozhodčí-komisi a <https://slovník.gov.cz/z
     ] .
 
 l-sgov-sbírka-304-2013-pojem:pobočný-spolek a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+l-sgov-sbírka-304-2013-pojem:způsob-jednání-statutárního-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:statutární-orgán;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:statutární-orgán a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/statutární-orgán> .
@@ -618,15 +699,10 @@ l-sgov-sbírka-304-2013-pojem:odkaz-na-společenskou-smlouvu a <https://slovník
 
 l-sgov-sbírka-304-2013-pojem:komanditista a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
-l-sgov-sbírka-304-2013-pojem:oprávnění-likvidátora a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
-
 l-sgov-sbírka-304-2013-pojem:má-druh-akcií a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
 
 l-sgov-sbírka-304-2013-pojem:odborová-organizace a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:spolek .
-
-l-sgov-sbírka-304-2013-pojem:rozsah-splacení-základního-kapitálu-akciové-společnosti
-  a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
 
 l-sgov-sbírka-304-2013-pojem:prokurista a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
@@ -825,38 +901,11 @@ l-sgov-sbírka-304-2013-pojem:zapsaný-spolek a <https://slovník.gov.cz/základ
 
 l-sgov-sbírka-304-2013-pojem:obchodní-korporace a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
-l-sgov-sbírka-304-2013-pojem:výše-základního-kapitálu-společnosti-s-ručením-omezeným
-  a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ] .
-
 l-sgov-sbírka-304-2013-pojem:společnost-s-ručením-omezeným a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost .
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:obchodní-společnost, <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/společnost-s-ručením-omezeným> .
 
 <https://slovník.gov.cz/legislativní/sbírka/304/2013/pojem/zánik-závazku-ze-smluv-o-převodu,-zástavě,-nájmu-či-pachtu>
   a <https://slovník.gov.cz/základní/pojem/typ-události> .
-
-l-sgov-sbírka-304-2013-pojem:výše-základního-kapitálu-akciové-společnosti a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:akciová-společnost;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ] .
 
 l-sgov-sbírka-304-2013-pojem:společník-komanditní-společnosti a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
@@ -1003,7 +1052,18 @@ l-sgov-sbírka-304-2013-pojem:datum-narození-zapsané-fyzické-osoby a <https:/
 
 l-sgov-sbírka-304-2013-pojem:bydliště-fyzické-osoby a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
 
-l-sgov-sbírka-304-2013-pojem:pobočka a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+l-sgov-sbírka-304-2013-pojem:pobočka a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:společník-veřejné-obchodní-společnosti a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
@@ -1063,7 +1123,22 @@ l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce-ve-statutárním-orgánu a <http
   a <https://slovník.gov.cz/základní/pojem/typ-události> .
 
 l-sgov-sbírka-304-2013-pojem:výše-podílu-společníka-společnosti-s-ručením-omezeným
-  a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+  a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:pozastavení-výkonu-funkce-člena-orgánu-nebo-prokuristy-podle-zákona-upravujícího-právní-poměry-obchodních-společností-a-družstev
   a <https://slovník.gov.cz/základní/pojem/typ-události> .
@@ -1072,25 +1147,29 @@ l-sgov-sbírka-304-2013-pojem:údaj a <https://slovník.gov.cz/základní/pojem/
 
 l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-pobočku a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočka
+    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:pobočka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočka;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:pobočka
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:pobočka;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ] .
 
 l-sgov-sbírka-304-2013-pojem:další-skutečnost a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
@@ -1147,9 +1226,25 @@ l-sgov-sbírka-304-2013-pojem:je-zapsána-ve-veřejném-rejstříku a <https://s
 
 l-sgov-sbírka-304-2013-pojem:veřejný-rejstřík a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
-l-sgov-sbírka-304-2013-pojem:rozsah-splnění-vkladové-povinnosti a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
+l-sgov-sbírka-304-2013-pojem:rozsah-splnění-vkladové-povinnosti a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
 
-l-sgov-sbírka-304-2013-pojem:společník-společnosti-s-ručením-omezeným a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+l-sgov-sbírka-304-2013-pojem:společník-společnosti-s-ručením-omezeným a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/společník> .
 
 l-sgov-sbírka-304-2013-pojem:kusová-akcie a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
@@ -1160,25 +1255,29 @@ l-sgov-sbírka-304-2013-pojem:sociální-družstvo a <https://slovník.gov.cz/z�
 
 l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:závod
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:závod;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:závod;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:závod
-    ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:závod;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:prokura;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ] .
 
 l-sgov-sbírka-304-2013-pojem:má-zastupující-fyzickou-osobu-při-výkonu-funkce-ve-statutárním-orgánu
@@ -1236,7 +1335,22 @@ l-sgov-sbírka-304-2013-pojem:počet-členů-kontrolního-orgánu a <https://slo
 l-sgov-sbírka-304-2013-pojem:forma-akcií-akciové-společnosti a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
 
 l-sgov-sbírka-304-2013-pojem:druh-podílu-společníka-společnosti-s-ručením-omezeným
-  a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+  a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:propachtování-závodu a <https://slovník.gov.cz/základní/pojem/typ-události> .
 
@@ -1393,13 +1507,22 @@ l-sgov-sbírka-304-2013-pojem:má-zastupující-fyzickou-osobu-při-výkonu-funk
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ] .
 
-l-sgov-sbírka-304-2013-pojem:jmenovitá-hodnota-akcií-akciové-společnosti a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
-
 l-sgov-sbírka-304-2013-pojem:část-závodu a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
 
 l-sgov-sbírka-304-2013-pojem:určený-majetek-státního-podniku a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
 
-l-sgov-sbírka-304-2013-pojem:závod a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+l-sgov-sbírka-304-2013-pojem:závod a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:prokura-se-vztahuje-na-závod;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
 
 l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgánu a <https://slovník.gov.cz/základní/pojem/role>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
@@ -1408,8 +1531,6 @@ l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-člen-statutárního-orgán
 l-sgov-sbírka-304-2013-pojem:převod-části-závodu a <https://slovník.gov.cz/základní/pojem/typ-události> .
 
 l-sgov-sbírka-304-2013-pojem:výše-kmenového-jmění-státního-podniku a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
-
-l-sgov-sbírka-304-2013-pojem:jmenování-likvidátora a <https://slovník.gov.cz/základní/pojem/typ-události> .
 
 l-sgov-sbírka-304-2013-pojem:má-statutární-orgán a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-statutární-orgán>,
@@ -1487,8 +1608,6 @@ l-sgov-sbírka-304-2013-pojem:název-nejvyššího-orgánu a <https://slovník.g
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
     ] .
 
-l-sgov-sbírka-304-2013-pojem:počet-akcií-akciové-společnosti a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti> .
-
 l-sgov-sbírka-304-2013-pojem:má-právnickou-osobu-jako-člena-kontrolního-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:má-člena-kontrolního-orgánu, [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
@@ -1524,89 +1643,74 @@ l-sgov-sbírka-304-2013-pojem:umístění-závodu-nebo-odštěpného-závodu a <
 
 l-sgov-sbírka-304-2013-pojem:má-právní-formu-zahraniční-osoby a <https://slovník.gov.cz/základní/pojem/typ-vztahu> .
 
-l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:členství-v-orgánu .
 
 l-sgov-sbírka-304-2013-pojem:je-členstvím-ve-statutárním-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:statutární-orgán;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ] .
 
 l-sgov-sbírka-304-2013-pojem:členství-právnické-osoby-ve-statutárním-orgánu a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu .
 
-l-sgov-sbírka-304-2013-pojem:způsob-jednání-člena-statutárního-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
-    ] .
-
-l-sgov-sbírka-304-2013-pojem:členství-v-kontrolním-orgánu a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+l-sgov-sbírka-304-2013-pojem:členství-v-kontrolním-orgánu a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:členství-v-orgánu .
 
 l-sgov-sbírka-304-2013-pojem:je-členstvím-v-kontrolním-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
-    ], [ a owl:Restriction;
-      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onClass l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-kontrolním-orgánu
     ], [ a owl:Restriction;
       owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-kontrolním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-kontrolním-orgánu;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-kontrolním-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:kontrolní-orgán;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
@@ -1630,6 +1734,516 @@ l-sgov-sbírka-304-2013-pojem:den-provedení-zápisu a <https://slovník.gov.cz/
       owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
     ] .
 
+l-sgov-sbírka-304-2013-pojem:počet-akcií-se-jmenovitou-hodnotou a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:hodnota-akcií-se-jmenovitou-hodnotou a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/jmenovitá-hodnota-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:počet-kusových-akcií a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/kusová-akcie>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/kusová-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/kusová-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/kusová-akcie>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu-od a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-ve-statutárním-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:členství-v-orgánu a <https://slovník.gov.cz/základní/pojem/mixin>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:funkce-člena-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:funkce-člena-orgánu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:funkce-člena-orgánu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:funkce-člena-orgánu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:den-vzniku-funkce a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:den-zániku-funkce a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:členství-od a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:členství-do a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:kmenový-líst a <https://slovník.gov.cz/základní/pojem/typ-objektu> .
+
+l-sgov-sbírka-304-2013-pojem:má-vydaný-kmenový-list a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/podíl>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:kmenový-líst
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:kmenový-líst;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:kmenový-líst;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:kmenový-líst;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:výše-základního-kapitálu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:rozsah-splacení-základního-kapitálu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:hodnota-vkladu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/vklad>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:hodnota-základního-kapitálu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/základní-kapitál-korporace>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/částky/pojem/částka>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:má-člena-orgánu-právnické-osoby a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/člen-orgánu-právnické-osoby>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/člen-orgánu-právnické-osoby>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/člen-orgánu-právnické-osoby>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/člen-orgánu-právnické-osoby>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:funkce-člena-orgánu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/je-vlastností>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:má-likvidátora a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:likvidátor
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:likvidátor;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:likvidátor;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:likvidátor;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:zapsaná-právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:fyzická-osoba-jako-likvidátor a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, l-sgov-sbírka-304-2013-pojem:likvidátor .
+
+l-sgov-sbírka-304-2013-pojem:právnická-osoba-jako-likvidátor a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:likvidátor, l-sgov-sbírka-304-2013-pojem:právnická-osoba .
+
+l-sgov-sbírka-304-2013-pojem:má-jediného-akcionáře a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/90/2012/pojem/má-akcionáře> .
+
+l-sgov-sbírka-304-2013-pojem:opatrovník a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf l-sgov-sbírka-304-2013-pojem:fyzická-osoba, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:má-opatrovníka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:má-opatrovníka;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:má-opatrovníka;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:má-opatrovníka a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:právnická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:opatrovník
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:opatrovník;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:opatrovník;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:opatrovník;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+l-sgov-sbírka-304-2013-pojem:má-zastoupení-v-orgánu-právnické-osoby a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:členství-v-orgánu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-304-2013-pojem:fyzická-osoba;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
@@ -3069,3 +3683,885 @@ l-sgov-sbírka-304-2013-pojem:den-provedení-zápisu a <https://slovník.gov.cz/
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-vlastností> .
