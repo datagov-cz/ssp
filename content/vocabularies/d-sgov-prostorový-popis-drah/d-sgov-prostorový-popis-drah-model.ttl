@@ -568,11 +568,12 @@ d-sgov-prostorový-popis-drah-pojem:kolejová-dráha a <https://slovník.gov.cz/
   rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:dopravní-cesta .
 
 d-sgov-prostorový-popis-drah-pojem:kolej-obecně a <https://slovník.gov.cz/základní/pojem/objekt>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kolejová-dráha .
 
 d-sgov-prostorový-popis-drah-pojem:kolejové-vozidlo a <https://slovník.gov.cz/základní/pojem/objekt>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  rdfs:subClassOf [ a owl:Restriction;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kolej-obecně, [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ];
@@ -617,7 +618,9 @@ d-sgov-prostorový-popis-drah-pojem:tramvajová-dráha rdfs:subClassOf d-sgov-pr
 d-sgov-prostorový-popis-drah-pojem:speciální-dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy,
     d-sgov-prostorový-popis-drah-pojem:kolejová-dráha .
 
-d-sgov-prostorový-popis-drah-pojem:vlečka rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy .
+d-sgov-prostorový-popis-drah-pojem:vlečka a <https://slovník.gov.cz/základní/pojem/objekt>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy .
 
 d-sgov-prostorový-popis-drah-pojem:místní-dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy,
     d-sgov-prostorový-popis-drah-pojem:kolejová-dráha .
@@ -1031,7 +1034,8 @@ d-sgov-prostorový-popis-drah-pojem:podrobnější-členění a <https://slovní
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
-d-sgov-prostorový-popis-drah-pojem:železnice rdfs:subClassOf [ a owl:Restriction;
+d-sgov-prostorový-popis-drah-pojem:železnice rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kolejová-dráha,
+    [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
@@ -1117,17 +1121,33 @@ d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy rdfs:subClass
 
 d-sgov-prostorový-popis-drah-pojem:typ-železniční-dráhy rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:železniční-dráha .
 
-d-sgov-prostorový-popis-drah-pojem:regionální-dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy .
+d-sgov-prostorový-popis-drah-pojem:regionální-dráha a <https://slovník.gov.cz/základní/pojem/objekt>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy .
 
 d-sgov-prostorový-popis-drah-pojem:celostátní-dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:kategorie-železniční-dráhy .
 
-d-sgov-prostorový-popis-drah-pojem:adhezní-žel.-dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:typ-železniční-dráhy .
+d-sgov-prostorový-popis-drah-pojem:adhezní-žel.-dráha a <https://slovník.gov.cz/základní/pojem/objekt>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:typ-železniční-dráhy .
 
 d-sgov-prostorový-popis-drah-pojem:ozubnicová-žel.dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:typ-železniční-dráhy .
 
 d-sgov-prostorový-popis-drah-pojem:konvenční-žel.-dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:adhezní-žel.-dráha .
 
 d-sgov-prostorový-popis-drah-pojem:vysokorychlostní-žel.-dráha rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:adhezní-žel.-dráha .
+
+d-sgov-prostorový-popis-drah-pojem:speciální-drážní-vozidlo <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft>
+    true;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:drážní-vozidlo .
+
+d-sgov-prostorový-popis-drah-pojem:osobní-drážní-vozidlo <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft>
+    true;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:drážní-vozidlo .
+
+d-sgov-prostorový-popis-drah-pojem:nákladní-drážní-vozidlo <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft>
+    true;
+  rdfs:subClassOf d-sgov-prostorový-popis-drah-pojem:drážní-vozidlo .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
