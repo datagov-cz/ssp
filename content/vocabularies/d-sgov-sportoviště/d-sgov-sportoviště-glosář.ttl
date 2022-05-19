@@ -8,7 +8,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
 d-sgov-sportoviště:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:ConceptScheme;
   dcterms:created "2020-10-27";
@@ -18,13 +17,16 @@ d-sgov-sportoviště:glosář a a-popis-dat-pojem:glosář, owl:Ontology, skos:C
   vann:preferredNamespaceUri "https://slovník.gov.cz/datový/sportoviště/pojem/";
   owl:imports <https://slovník.gov.cz/generický/veřejná-místa/glosář>;
   owl:versionIRI <https://slovník.gov.cz/datový/sportoviště/glosář/verze/0.0.1>;
-  skos:hasTopConcept d-sgov-sportoviště-pojem:má-doplňkovou-službu, d-sgov-sportoviště-pojem:má-provozovaný-sport,
+  skos:hasTopConcept d-sgov-sportoviště-pojem:bezbariérovost, d-sgov-sportoviště-pojem:kapacita,
+    d-sgov-sportoviště-pojem:kontakt, d-sgov-sportoviště-pojem:má-doplňkovou-službu, d-sgov-sportoviště-pojem:má-provozovaný-sport,
     d-sgov-sportoviště-pojem:má-typ-sportoviště, d-sgov-sportoviště-pojem:má-umístění,
-    d-sgov-sportoviště-pojem:podmínky-užívání, d-sgov-sportoviště-pojem:provozní-řád,
-    d-sgov-sportoviště-pojem:služba, d-sgov-sportoviště-pojem:sportoviště .
+    d-sgov-sportoviště-pojem:otevírací-doba, d-sgov-sportoviště-pojem:podmínky-užívání,
+    d-sgov-sportoviště-pojem:provozní-řád, d-sgov-sportoviště-pojem:provozovatel, d-sgov-sportoviště-pojem:služba,
+    d-sgov-sportoviště-pojem:sport, d-sgov-sportoviště-pojem:sportoviště, d-sgov-sportoviště-pojem:typ-sportoviště,
+    d-sgov-sportoviště-pojem:umístění, d-sgov-sportoviště-pojem:vlastník, d-sgov-sportoviště-pojem:vstupné .
 
 d-sgov-sportoviště-pojem:provozní-řád a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Znění provozního řádu sportoviště."@cs;
   skos:inScheme d-sgov-sportoviště:glosář;
   skos:prefLabel "provozní řád"@cs;
@@ -37,21 +39,20 @@ d-sgov-sportoviště-pojem:služba a skos:Concept;
   skos:scopeNote " Jedná se například o masáže, kosmetiku, obchod, apod"@cs .
 
 d-sgov-sportoviště-pojem:má-doplňkovou-službu a skos:Concept;
+  dcterms:title "doplňková služba"@cs;
   skos:altLabel "doplňková služba"@cs;
   skos:definition "Druhy doplňkových služeb, které se nacházejí v areálu sportoviště."@cs;
   skos:inScheme d-sgov-sportoviště:glosář;
   skos:prefLabel "má doplňkovou službu"@cs .
 
 d-sgov-sportoviště-pojem:má-typ-sportoviště a skos:Concept;
-  skos:altLabel "typ sportoviště"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
-  skos:definition "Specifikuje, o jaký typ sportoviště se jedná, např. stadion nebo sportovní hala."@cs;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:inScheme d-sgov-sportoviště:glosář;
   skos:prefLabel "má typ sportoviště"@cs;
   skos:scopeNote "Hodnota této vlastnosti je z Číselníku pro typy turistických cílů publikovaného jako číselník v Národním katalogu otevřených dat. Typ turistického cíle nabývá hodnot přírodní a kulturní."@cs .
 
 d-sgov-sportoviště-pojem:podmínky-užívání a skos:Concept;
-  skos:broader z-sgov-pojem:typ-vlastnosti, z-sgov-pojem:vlastnost;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>, <https://slovník.gov.cz/základní/pojem/vlastnost>;
   skos:definition "Podmínky užívání sportoviště."@cs;
   skos:inScheme d-sgov-sportoviště:glosář;
   skos:prefLabel "podmínky užívání"@cs;
@@ -59,15 +60,55 @@ d-sgov-sportoviště-pojem:podmínky-užívání a skos:Concept;
 
 d-sgov-sportoviště-pojem:sportoviště a skos:Concept;
   skos:broader <https://slovník.gov.cz/generický/veřejná-místa/pojem/veřejné-místo>,
-    z-sgov-pojem:typ-objektu;
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   skos:inScheme d-sgov-sportoviště:glosář;
   skos:prefLabel "Sportoviště"@cs;
   skos:scopeNote "Samostatné sportoviště"@cs .
 
 d-sgov-sportoviště-pojem:má-provozovaný-sport a skos:Concept;
   skos:altLabel "sport"@cs;
-  skos:broader z-sgov-pojem:typ-vztahu, z-sgov-pojem:vztah;
+  skos:broader <https://slovník.gov.cz/základní/pojem/typ-vztahu>, <https://slovník.gov.cz/základní/pojem/vztah>;
   skos:definition "Sport, který může být provozovaný na sportovišti."@cs;
   skos:inScheme d-sgov-sportoviště:glosář;
   skos:prefLabel "má provozovaný sport"@cs;
   skos:scopeNote ""@cs .
+
+d-sgov-sportoviště-pojem:provozovatel a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "provozovatel"@cs .
+
+d-sgov-sportoviště-pojem:vlastník a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "vlastník"@cs .
+
+d-sgov-sportoviště-pojem:umístění a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "umístění"@cs .
+
+d-sgov-sportoviště-pojem:kontakt a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "kontakt"@cs .
+
+d-sgov-sportoviště-pojem:bezbariérovost a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "bezbariérovost"@cs .
+
+d-sgov-sportoviště-pojem:vstupné a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "vstupné"@cs .
+
+d-sgov-sportoviště-pojem:otevírací-doba a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "otevírací doba"@cs .
+
+d-sgov-sportoviště-pojem:sport a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "Sport"@cs .
+
+d-sgov-sportoviště-pojem:typ-sportoviště a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "Typ sportoviště"@cs .
+
+d-sgov-sportoviště-pojem:kapacita a skos:Concept;
+  skos:inScheme d-sgov-sportoviště:glosář;
+  skos:prefLabel "kapacita"@cs .
