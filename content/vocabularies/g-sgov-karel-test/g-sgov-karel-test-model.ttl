@@ -1,0 +1,60 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-karel-test: <https://slovník.gov.cz/generický/karel-test/> .
+@prefix g-sgov-karel-test-pojem: <https://slovník.gov.cz/generický/karel-test/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+g-sgov-karel-test:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2022-06-02T15:33:15.214Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Karel Test - model"@cs;
+  vann:preferredNamespacePrefix "g-sgov-karel-test-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/karel-test/pojem/";
+  owl:imports g-sgov-karel-test:glosář;
+  owl:versionIRI "https://slovník.gov.cz/generický/karel-test/model/verze/1.0.0" .
+
+g-sgov-karel-test-pojem:objekt a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-karel-test-pojem:vlastnost-objektu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-karel-test-pojem:vlastnost-objektu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-karel-test-pojem:vlastnost-objektu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-karel-test-pojem:vlastnost-objektu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+    ] .
+
+g-sgov-karel-test-pojem:vlastnost-objektu a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ];
+      owl:someValuesFrom g-sgov-karel-test-pojem:objekt
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-karel-test-pojem:objekt;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-karel-test-pojem:objekt;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-karel-test-pojem:objekt;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost>
+        ]
+    ] .
