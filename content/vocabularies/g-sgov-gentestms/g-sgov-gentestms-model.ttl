@@ -1,0 +1,85 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-gentestms: <https://slovník.gov.cz/generický/gentestms/> .
+@prefix g-sgov-gentestms-pojem: <https://slovník.gov.cz/generický/gentestms/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+g-sgov-gentestms:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2022-06-10T13:03:50.897Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "GenTestMS - model"@cs;
+  vann:preferredNamespacePrefix "g-sgov-gentestms-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/gentestms/pojem/";
+  owl:imports g-sgov-gentestms:glosář;
+  owl:versionIRI "https://slovník.gov.cz/generický/gentestms/model/verze/1.0.0" .
+
+g-sgov-gentestms-pojem:pojem1 a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-gentestms-pojem:testvztah
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-gentestms-pojem:testvztah;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-gentestms-pojem:testvztah;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+g-sgov-gentestms-pojem:pojem2 a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf g-sgov-gentestms-pojem:pojem3 .
+
+g-sgov-gentestms-pojem:pojem3 a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-gentestms-pojem:testvztah
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-gentestms-pojem:testvztah;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-gentestms-pojem:testvztah;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+g-sgov-gentestms-pojem:testvztah a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-gentestms-pojem:pojem3
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-gentestms-pojem:pojem3;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-gentestms-pojem:pojem3;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-gentestms-pojem:pojem1
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-gentestms-pojem:pojem1;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-gentestms-pojem:pojem1;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
