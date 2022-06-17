@@ -21,7 +21,7 @@ const PP_ATTACHMENT_TYPE_REGEX = new RegExp(
   ",\\s+<https://slovník.gov.cz/datový/pracovní-prostor/pojem/příloha>;",
   "g"
 );
-const PP_ATTACHMENT_TYPE_REPLACEMENT = ".";
+const PP_ATTACHMENT_TYPE_REPLACEMENT = ";";
 
 async function main() {
   for await (const vocabulary of expandGlob("./content/vocabularies/*")) {
