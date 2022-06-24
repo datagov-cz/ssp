@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 
 public class Layout {
 
+    private Layout() {
+    }
+
     private static Set<String> getSubdirectories(String directory) throws IOException {
         final Path path = Paths.get(directory);
         if (Files.exists(path)) {
@@ -17,7 +20,7 @@ public class Layout {
                 Files
                     .list(path)
                     .filter(Files::isDirectory)
-                    .map(f -> f.toString())
+                    .map(Path::toString)
                     .collect(Collectors.toSet());
         } else {
             return Collections.emptySet();
