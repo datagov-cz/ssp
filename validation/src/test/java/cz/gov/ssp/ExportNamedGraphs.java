@@ -48,7 +48,7 @@ public class ExportNamedGraphs {
     }
 
     @Test
-    public void export() throws IOException {
+    void export() throws IOException {
         final QueryExecution qexec = QueryExecutionFactory.sparqlService(service, queryString);
         final ResultSet results = qexec.execSelect();
         final Model model = ModelFactory.createDefaultModel();
