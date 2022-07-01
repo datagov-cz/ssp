@@ -47,7 +47,7 @@ class AttachmentsConsistencyTests {
     }
 
     @Test
-    void checkInvalidVocabularyReferencesToAttachments() throws IOException {
+    void vocabulariesReferenceOnlyExistingAttachments() throws IOException {
 
         Dataset attachmentsDataset = DatasetFactory.create();
         Layout.getAttachmentFolders().forEach(folder -> {
@@ -92,7 +92,7 @@ class AttachmentsConsistencyTests {
 
 
     @Test
-    void checkEmptyAttachments() throws IOException {
+    void attachmentFilesAreNotEmpty() throws IOException {
         Set<Path> emptyAttachments = getEmptyAttachments();
 
         boolean emptyAttachmentsExists = !emptyAttachments.isEmpty();
@@ -112,6 +112,10 @@ class AttachmentsConsistencyTests {
         }
     }
 
+
+    void attachmentReferenceFilesAreNotEmpty() {
+
+    }
 
     /**
      * List or empty attachment file paths.
