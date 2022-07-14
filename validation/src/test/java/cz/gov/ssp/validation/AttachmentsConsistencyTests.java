@@ -10,8 +10,6 @@ import cz.gov.ssp.Layout;
 import cz.gov.ssp.OntologyUtils;
 import cz.gov.ssp.VocabularyFile;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,8 +36,8 @@ import org.slf4j.LoggerFactory;
 class AttachmentsConsistencyTests {
 
     /**
-     *   If true tests might modify underlying data to fix found issues. This property
-     *   can be overridden by environment variable passed to the test.
+     * If true tests might modify underlying data to fix found issues. This property
+     * can be overridden by environment variable passed to the test.
      */
     private static boolean isFixErrors = false;
     private static final Logger log = LoggerFactory.getLogger(AttachmentsConsistencyTests.class);
@@ -121,7 +119,8 @@ class AttachmentsConsistencyTests {
     void attachmentReferenceFilesAreNotEmpty() throws IOException {
         boolean foundError = false;
         for (String vocabDir : Layout.getVocabularyFolders()) {
-            final File[] prilohyFiles = OntologyUtils.getFiles(vocabDir, VocabularyFile.přílohy.name());
+            final File[] prilohyFiles =
+                OntologyUtils.getFiles(vocabDir, VocabularyFile.přílohy.name());
             log.trace("Processing vocabulary from directory " + vocabDir + ".");
 
             for (File prilohyFile : prilohyFiles) {
@@ -220,7 +219,7 @@ class AttachmentsConsistencyTests {
      * Log error with appropriate log level. Method logs using warn level instead of level error
      * in case automatic fixes of errors are enabled.
      *
-     * @param message Message to log.
+     * @param message   Message to log.
      * @param arguments Arguments substituted to the message.
      */
     private void logError(String message, Object... arguments) {
