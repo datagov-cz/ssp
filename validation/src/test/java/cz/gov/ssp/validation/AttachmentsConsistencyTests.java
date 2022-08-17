@@ -10,8 +10,6 @@ import cz.gov.ssp.Layout;
 import cz.gov.ssp.OntologyUtils;
 import cz.gov.ssp.VocabularyFile;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -37,6 +35,10 @@ import org.slf4j.LoggerFactory;
 
 class AttachmentsConsistencyTests {
 
+    /**
+     * If true tests might modify underlying data to fix found issues. This property
+     * can be overridden by environment variable passed to the test.
+     */
     private static boolean isFixErrors = false;
     private static final Logger log = LoggerFactory.getLogger(AttachmentsConsistencyTests.class);
 
@@ -47,7 +49,7 @@ class AttachmentsConsistencyTests {
     }
 
     @Test
-    void checkInvalidVocabularyReferencesToAttachments() throws IOException {
+    void vocabulariesReferenceOnlyExistingAttachments() throws IOException {
 
         Dataset attachmentsDataset = DatasetFactory.create();
         Layout.getAttachmentFolders().forEach(folder -> {
@@ -73,9 +75,10 @@ class AttachmentsConsistencyTests {
             if (!stList.isEmpty()) {
 
                 foundError = true;
-                logError("Found reference from " + vocabDir
-                    + " to invalid attachments: "
-                    + stList.stream().map(Statement::getObject).collect(Collectors.toSet())
+                logError(
+                    "Found reference from {} to invalid attachments: {}",
+                    vocabDir,
+                    stList.stream().map(Statement::getObject).collect(Collectors.toSet())
                 );
 
                 // apply fix
@@ -92,13 +95,13 @@ class AttachmentsConsistencyTests {
 
 
     @Test
-    void checkEmptyAttachments() throws IOException {
+    void attachmentFilesAreNotEmpty() throws IOException {
         Set<Path> emptyAttachments = getEmptyAttachments();
 
         boolean emptyAttachmentsExists = !emptyAttachments.isEmpty();
 
         if (emptyAttachmentsExists) {
-            logError("Found empty attachments: " + emptyAttachments);
+            logError("Found empty attachments: {}", emptyAttachments);
 
             if (!isFixErrors) {
                 Assertions.fail();
@@ -112,6 +115,32 @@ class AttachmentsConsistencyTests {
         }
     }
 
+    @Test
+    void attachmentReferenceFilesAreNotEmpty() throws IOException {
+        boolean foundError = false;
+        for (String vocabDir : Layout.getVocabularyFolders()) {
+            final File[] prilohyFiles =
+                OntologyUtils.getFiles(vocabDir, VocabularyFile.přílohy.name());
+            log.trace("Processing vocabulary from directory " + vocabDir + ".");
+
+            for (File prilohyFile : prilohyFiles) {
+                if (isEmpty(prilohyFile.toPath())) {
+                    foundError = true;
+                    logError(
+                        "Found empty attachment reference file {}.",
+                        prilohyFile
+                    );
+                    if (isFixErrors) {
+                        log.info("Deleting empty attachment reference file {}.", prilohyFile);
+                        prilohyFile.delete();
+                    }
+                }
+            }
+        }
+        if (foundError && (!isFixErrors)) {
+            fail("Found empty attachment reference files, see errors above.");
+        }
+    }
 
     /**
      * List or empty attachment file paths.
@@ -175,7 +204,7 @@ class AttachmentsConsistencyTests {
         }
     }
 
-    private void savePrilohyModel(String vocabDir, Model model) throws FileNotFoundException {
+    private void savePrilohyModel(String vocabDir, Model model) throws IOException {
         File prilohyFile =
             Arrays.stream(
                     OntologyUtils.getFiles(vocabDir, VocabularyFile.přílohy.name()))
@@ -183,14 +212,21 @@ class AttachmentsConsistencyTests {
                     () -> new IllegalStateException("Could not access vocabulary artifact "
                         + VocabularyFile.přílohy.name() + " within " + vocabDir)
                 );
-        model.write(new FileOutputStream(prilohyFile), FileUtils.langTurtle);
+        model.write(Files.newOutputStream(prilohyFile.toPath()), FileUtils.langTurtle);
     }
 
-    private void logError(String message) {
+    /**
+     * Log error with appropriate log level. Method logs using warn level instead of level error
+     * in case automatic fixes of errors are enabled.
+     *
+     * @param message   Message to log.
+     * @param arguments Arguments substituted to the message.
+     */
+    private void logError(String message, Object... arguments) {
         if (isFixErrors) {
-            log.warn(message);
+            log.warn(message, arguments);
         } else {
-            log.error(message);
+            log.error(message, arguments);
         }
     }
 }
