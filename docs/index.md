@@ -1,8 +1,3 @@
----
-title: Sémantický slovník pojmů (SSP)
-layout: single
----
-
 <img src="https://user-images.githubusercontent.com/1140626/118179053-109e2c80-b435-11eb-9400-e960efecc284.png" alt="drawing" width="200" align="right"/>
 
 Výkon veřejné správy vychází z legislativních předpisů. Veškeré činnosti, včetně získávání, analýzy a zpracování dat, vychází z platných legislativních předpisů, včetně popisu samotných údajů. Pojmy použité v legislativě by tedy měly být jednoznačně definované. Ale je tomu skutečně tak?
