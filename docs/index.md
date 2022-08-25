@@ -10,7 +10,7 @@ Datové typy a atrobuty popsané v [otevřených formálních normách](https://
 
 ## Prohlížení, vytváření a využití sémantického slovníku pojmů
 
-<div style="width:30vw">[![](showit.png)](https://slovník.gov.cz/prohlížíme/) </div>  |  <div style="width:30vw">[![](mission.png)](https://slovník.gov.cz/modelujeme/)</div>  | <div style="width:30vw">[![](dataspecer.png)](https://slovník.gov.cz/generujeme/)</div>
+<div style="width:30vb">[![](showit.png)](https://slovník.gov.cz/prohlížíme/) </div> | <div style="width:30vb">[![](mission.png)](https://slovník.gov.cz/modelujeme/)</div>  | <div style="width:30vb">[![](dataspecer.png)](https://slovník.gov.cz/generujeme/)</div>
 :----------------:|:---------------:|:--------------:
 Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovníku pojmů. Pojmy sdružuje podle klíčových slov, ale i podle slovníků a podle jejich vzájemných vztahů. | Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků, TermIt pro tvorbu glosářů -- tedy seznamu pojmů patřících do jednoho slovníku, jejich podrobného popisu a základních vztahů mezi pojmy -- a OntoGrapher pro samotné modelování. | Na základě publikovaných slovníků je možné pomocí nástroje Dataspecer generovat datové specifikace. Datová specifikace obsahuje textovou část a konceptuální model a díky tomu, že vzniká na základě sémantických slovníků je dokonale lidsky i strojově čitelná.
 
