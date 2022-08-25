@@ -1,4 +1,4 @@
-<!-- <img src="https://user-images.githubusercontent.com/1140626/118179053-109e2c80-b435-11eb-9400-e960efecc284.png" alt="drawing" width="200" align="right"/> -->
+<img src="https://user-images.githubusercontent.com/1140626/118179053-109e2c80-b435-11eb-9400-e960efecc284.png" alt="drawing" width="200" align="right"/>
 
 Výkon veřejné správy vychází z legislativních předpisů. Veškeré činnosti, včetně získávání, analýzy a zpracování dat, vychází z platných legislativních předpisů, včetně popisu samotných údajů. Pojmy použité v legislativě by tedy měly být jednoznačně definované. Ale je tomu skutečně tak?
 
@@ -10,7 +10,7 @@ Datové typy a atrobuty popsané v [otevřených formálních normách](https://
 
 ## Prohlížení, vytváření a využití sémantického slovníku pojmů
 
-[![](showit.png)](https://slovník.gov.cz/prohlížíme/)  |  [![](mission.png)](https://slovník.gov.cz/modelujeme/)  | [![](dataspecer.png)](https://slovník.gov.cz/generujeme/)
+<div style="width:30vw">[![](showit.png)](https://slovník.gov.cz/prohlížíme/) </div>  |  <div style="width:30vw">[![](mission.png)](https://slovník.gov.cz/modelujeme/)</div>  | <div style="width:30vw">[![](dataspecer.png)](https://slovník.gov.cz/generujeme/)</div>
 :----------------:|:---------------:|:--------------:
 Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovníku pojmů. Pojmy sdružuje podle klíčových slov, ale i podle slovníků a podle jejich vzájemných vztahů. | Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků, TermIt pro tvorbu glosářů -- tedy seznamu pojmů patřících do jednoho slovníku, jejich podrobného popisu a základních vztahů mezi pojmy -- a OntoGrapher pro samotné modelování. | Na základě publikovaných slovníků je možné pomocí nástroje Dataspecer generovat datové specifikace. Datová specifikace obsahuje textovou část a konceptuální model a díky tomu, že vzniká na základě sémantických slovníků je dokonale lidsky i strojově čitelná.
 
@@ -24,3 +24,4 @@ Obsah celého S0mantického slovníku pojmů je přístupný i přes [SPARQL end
 ----
 Tato stránka je udržována v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0013983](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=F5E162B2-15EC-4BBE-9ABD-066388F3D412).
 ![image](opz_logo.a20771c7.svg)
+%
