@@ -1,3 +1,26 @@
+---
+title: Sémantický slovník pojmů (SSP)
+layout: wide
+
+feature_row:
+  - image_path: showit.png
+    excerpt: "Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovníku pojmů. Pojmy sdružuje podle klíčových slov, ale i podle slovníků a podle jejich vzájemných vztahů."
+    btn_label: "ShowIt"
+    btn_class: "btn--info"
+    url: https://slovník.gov.cz/prohlížíme/
+  - image_path: mission.png
+    excerpt: "Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků, TermIt pro tvorbu glosářů -- tedy seznamu pojmů patřících do jednoho slovníku, jejich podrobného popisu a základních vztahů mezi pojmy -- a OntoGrapher pro samotné modelování."
+    btn_label: "Výrobní linka"
+    btn_class: "btn--info"
+    url: https://slovník.gov.cz/modelujeme/
+  - image_path: dataspecer-png
+    excerpt: " Na základě publikovaných slovníků je možné pomocí nástroje Dataspecer generovat datové specifikace. Datová specifikace obsahuje textovou část a konceptuální model a díky tomu, že vzniká na základě sémantických slovníků je dokonale lidsky i strojově čitelná."
+    btn_label: "Open Mic"
+    btn_class: "btn--info"
+    url: https://slovník.gov.cz/generujeme/
+
+---
+
 <img src="https://user-images.githubusercontent.com/1140626/118179053-109e2c80-b435-11eb-9400-e960efecc284.png" alt="drawing" width="200" align="right"/>
 
 Výkon veřejné správy vychází z legislativních předpisů. Veškeré činnosti, včetně získávání, analýzy a zpracování dat, vychází z platných legislativních předpisů, včetně popisu samotných údajů. Pojmy použité v legislativě by tedy měly být jednoznačně definované. Ale je tomu skutečně tak?
@@ -10,7 +33,9 @@ Datové typy a atrobuty popsané v [otevřených formálních normách](https://
 
 ## Prohlížení, vytváření a využití sémantického slovníku pojmů
 
-<div style="width:30vb">[![](showit.png)](https://slovník.gov.cz/prohlížíme/) </div> | <div style="width:30vb">[![](mission.png)](https://slovník.gov.cz/modelujeme/)</div>  | <div style="width:30vb">[![](dataspecer.png)](https://slovník.gov.cz/generujeme/)</div>
+{% include feature_row %}
+
+<div style="width:30vb">[![](showit.png)](https://slovník.gov.cz/prohlížíme/) </div>| <div style="width:30vb">[![](mission.png)](https://slovník.gov.cz/modelujeme/)</div>  | <div style="width:30vb">[![](dataspecer.png)](https://slovník.gov.cz/generujeme/)</div>
 :----------------:|:---------------:|:--------------:
 Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovníku pojmů. Pojmy sdružuje podle klíčových slov, ale i podle slovníků a podle jejich vzájemných vztahů. | Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků, TermIt pro tvorbu glosářů -- tedy seznamu pojmů patřících do jednoho slovníku, jejich podrobného popisu a základních vztahů mezi pojmy -- a OntoGrapher pro samotné modelování. | Na základě publikovaných slovníků je možné pomocí nástroje Dataspecer generovat datové specifikace. Datová specifikace obsahuje textovou část a konceptuální model a díky tomu, že vzniká na základě sémantických slovníků je dokonale lidsky i strojově čitelná.
 
