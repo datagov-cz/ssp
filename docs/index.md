@@ -1,6 +1,6 @@
 ---
 title: Sémantický slovník pojmů (SSP)
-layout: wide
+layout: single
 ---
 
 <img src="https://user-images.githubusercontent.com/1140626/118179053-109e2c80-b435-11eb-9400-e960efecc284.png" alt="drawing" width="200" align="right"/>
