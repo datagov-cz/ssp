@@ -1,0 +1,295 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix d-sgov-popis-zmen: <https://slovník.gov.cz/datový/popis-zmen/> .
+@prefix d-sgov-popis-zmen-pojem: <https://slovník.gov.cz/datový/popis-zmen/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+d-sgov-popis-zmen:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2022-12-18T14:12:24.816Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Popis zmen - model"@cs;
+  vann:preferredNamespacePrefix "d-sgov-popis-zmen-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/datový/popis-zmen/pojem/";
+  owl:imports d-sgov-popis-zmen:glosář;
+  owl:versionIRI "https://slovník.gov.cz/datový/popis-zmen/model/verze/1.0.0" .
+
+d-sgov-popis-zmen-pojem:změna a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:v-kontextu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:v-kontextu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:v-kontextu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:v-kontextu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+d-sgov-popis-zmen-pojem:publikační-kontext a <http://onto.fel.cvut.cz/ontologies/ufo/object-type>,
+    <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/pracovní-prostor/pojem/kontext>, [
+      a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:z-projektu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:z-projektu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:z-projektu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:z-projektu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+d-sgov-popis-zmen-pojem:typ a <https://slovník.gov.cz/základní/pojem/kategorie>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:je-typu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:je-typu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:je-typu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+d-sgov-popis-zmen-pojem:vytvořeno a <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-popis-zmen-pojem:typ .
+
+d-sgov-popis-zmen-pojem:odstraněno a <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-popis-zmen-pojem:typ .
+
+d-sgov-popis-zmen-pojem:upraveno a <https://slovník.gov.cz/základní/pojem/druh>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-popis-zmen-pojem:typ .
+
+d-sgov-popis-zmen-pojem:vráceno-zpět a <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf d-sgov-popis-zmen-pojem:typ .
+
+<https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext/instance-08f808d9-40bc-45eb-b2c2-355b47ebc040>
+  a <https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext>;
+  a-popis-dat-pojem:má-typ-přílohy <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram>;
+  a-popis-dat-pojem:vychází-z-verze <https://slovník.gov.cz/příloha/instance-08f808d9-40bc-45eb-b2c2-355b47ebc040> .
+
+d-sgov-popis-zmen-pojem:je-typu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:změna
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:změna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:změna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:typ
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:typ;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:typ;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:typ;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-popis-zmen-pojem:má-změnu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:publikační-kontext
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:publikační-kontext;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:publikační-kontext;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:publikační-kontext;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:změna
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:změna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:změna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-popis-zmen-pojem:z-projektu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:publikační-kontext
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:publikační-kontext;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:publikační-kontext;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:publikační-kontext;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+d-sgov-popis-zmen-pojem:v-kontextu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:změna
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:změna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:změna;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/datový/pracovní-prostor/pojem/kontext>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/datový/pracovní-prostor/pojem/kontext>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/pracovní-prostor/pojem/kontext>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/datový/pracovní-prostor/pojem/kontext>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+<https://slovník.gov.cz/datový/pracovní-prostor/pojem/metadatový-kontext> rdfs:subClassOf
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:z-projektu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:z-projektu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:z-projektu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:z-projektu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/pracovní-prostor/pojem/kontext> rdfs:subClassOf [ a
+        owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom d-sgov-popis-zmen-pojem:v-kontextu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom d-sgov-popis-zmen-pojem:v-kontextu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-popis-zmen-pojem:v-kontextu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
