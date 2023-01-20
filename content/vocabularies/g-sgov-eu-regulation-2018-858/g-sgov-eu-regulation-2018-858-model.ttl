@@ -41,14 +41,14 @@ g-sgov-eu-regulation-2018-858-pojem:is-powered-by a <https://slovník.gov.cz/zá
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf <https://slovník.gov.cz/generický/eu-directive-1999-37-ec/pojem/má-motor>,
     [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:motor
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:motorové-vozidlo
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:motor;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:motorové-vozidlo
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:motor
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:motorové-vozidlo;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
@@ -57,17 +57,17 @@ g-sgov-eu-regulation-2018-858-pojem:is-powered-by a <https://slovník.gov.cz/zá
 g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:manufacturer
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:manufacturer;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
 g-sgov-eu-regulation-2018-858-pojem:maximum-net-power a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
@@ -75,16 +75,17 @@ g-sgov-eu-regulation-2018-858-pojem:maximum-net-power a <https://slovník.gov.cz
   rdfs:subClassOf <https://slovník.gov.cz/generický/eu-directive-1999-37-ec/pojem/nejvyšší-užitečný-výkon> .
 
 g-sgov-eu-regulation-2018-858-pojem:maximální-hodinový-výkon a <https://slovník.gov.cz/základní/pojem/typ-vlastnosti>;
-  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true .
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf 0 .
 
 g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:vehicle
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:vehicle;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:vehicle
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle
@@ -97,10 +98,25 @@ g-sgov-eu-regulation-2018-858-pojem:motor a <https://slovník.gov.cz/základní/
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf <https://slovník.gov.cz/generický/eu-directive-1999-37-ec/pojem/motor>,
     [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
       owl:onProperty [
@@ -121,30 +137,15 @@ g-sgov-eu-regulation-2018-858-pojem:motor a <https://slovník.gov.cz/základní/
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
     ] .
 
 g-sgov-eu-regulation-2018-858-pojem:motorové-vozidlo a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf g-sgov-eu-regulation-2018-858-pojem:vehicle, [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by
+        ]
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
       owl:onProperty [
@@ -166,11 +167,6 @@ g-sgov-eu-regulation-2018-858-pojem:motorové-vozidlo a <https://slovník.gov.cz
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ];
@@ -180,6 +176,11 @@ g-sgov-eu-regulation-2018-858-pojem:motorové-vozidlo a <https://slovník.gov.cz
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-powered-by
     ] .
 
 g-sgov-eu-regulation-2018-858-pojem:incomplete-vehicle a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
@@ -193,26 +194,26 @@ g-sgov-eu-regulation-2018-858-pojem:trailer a <https://slovník.gov.cz/základn�
 g-sgov-eu-regulation-2018-858-pojem:spalovací-motor a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf g-sgov-eu-regulation-2018-858-pojem:motor, [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:engine-capacity
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:engine-capacity;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:maximum-net-power;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:maximum-net-power
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:maximum-net-power;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:engine-capacity
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:engine-capacity;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>
     ] .
 
 g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
+        ]
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
       owl:onProperty [
@@ -224,36 +225,61 @@ g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle a <https://slovník.gov.cz/z
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
     ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
     ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
+    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
     ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
@@ -263,81 +289,16 @@ g-sgov-eu-regulation-2018-858-pojem:type-of-vehicle a <https://slovník.gov.cz/z
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
     ] .
 
 g-sgov-eu-regulation-2018-858-pojem:vehicle a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf <https://slovník.gov.cz/generický/eu-directive-1999-37-ec/pojem/vozidlo>,
     [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
       owl:onProperty [
@@ -349,10 +310,50 @@ g-sgov-eu-regulation-2018-858-pojem:vehicle a <https://slovník.gov.cz/základn�
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
     ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
@@ -364,28 +365,33 @@ g-sgov-eu-regulation-2018-858-pojem:vehicle a <https://slovník.gov.cz/základn�
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle
-    ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-type-of-vehicle;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
     ] .
 
 g-sgov-eu-regulation-2018-858-pojem:manufacturer a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
   rdfs:subClassOf [ a owl:Restriction;
       owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
       owl:onProperty [
@@ -393,25 +399,10 @@ g-sgov-eu-regulation-2018-858-pojem:manufacturer a <https://slovník.gov.cz/zák
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
       owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
       owl:onProperty [
@@ -428,10 +419,35 @@ g-sgov-eu-regulation-2018-858-pojem:manufacturer a <https://slovník.gov.cz/zák
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
     ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:has-manufacturer
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
       owl:onProperty [
@@ -442,21 +458,6 @@ g-sgov-eu-regulation-2018-858-pojem:manufacturer a <https://slovník.gov.cz/zák
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ];
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:is-responsible-for-type-of-vehicle;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
     ] .
 
 g-sgov-eu-regulation-2018-858-pojem:základní-vozidlo a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
@@ -473,14 +474,14 @@ g-sgov-eu-regulation-2018-858-pojem:has-manufacturer a <https://slovník.gov.cz/
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:manufacturer
     ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:manufacturer;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-eu-regulation-2018-858-pojem:vehicle
     ], [ a owl:Restriction;
       owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:vehicle;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-eu-regulation-2018-858-pojem:manufacturer;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
