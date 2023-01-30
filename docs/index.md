@@ -18,7 +18,7 @@ Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovn
 
 [![](mission.png)](https://slovník.gov.cz/modelujeme/)
 
- Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků, TermIt pro tvorbu glosářů -- tedy podroběn popsaných seznamů pojmů patřících do jednoho slovníku -- a OntoGrapher pro samotné modelování.
+ Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků, TermIt pro tvorbu glosářů -- tedy podrobně popsaných seznamů pojmů patřících do jednoho slovníku -- a OntoGrapher pro samotné modelování. V současné době provozujeme tři instance výrobní linky. Vedle produkční, která slouží k samotnému modelování máme ještě [testovací instanci](https://slovník-test.mvcr.gov.cz/modelujeme/), která slouží pro vývoj a [demo instanci](https://onto.fel.cvut.cz/modelujeme/), která slouží pro výuku uživatelů.
 
 [![](dataspecer.png)](https://slovník.gov.cz/generujeme/)
 
