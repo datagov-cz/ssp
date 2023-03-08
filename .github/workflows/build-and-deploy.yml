@@ -14,9 +14,9 @@ env:
   USERNAME_AL_GRAPHDB: ${{ secrets.USERNAME_AL_GRAPHDB }}
   PASSWORD_AL_GRAPHDB: ${{ secrets.PASSWORD_AL_GRAPHDB }}
   JVM_OPTS: -Xmx3200m
-  PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY: https://xn--slovnk-7va.gov.cz/prohlizime/sluzby/db-server/repositories/termit
-  ASSEMBLY_LINE_REPOSITORY: https://xn--slovnk-7va.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
-  ASSEMBLY_LINE_DEV_REPOSITORY: https://xn--slovnk-test-scb.mvcr.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+# PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY: https://xn--slovnk-7va.gov.cz/prohlizime/sluzby/db-server/repositories/termit
+  ASSEMBLY_LINE_REPOSITORY: https://onto.fel.cvut.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+# ASSEMBLY_LINE_DEV_REPOSITORY: https://xn--slovnk-test-scb.mvcr.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
   CONTAINER: https://slovník.gov.cz
 jobs:
   build:
@@ -55,37 +55,37 @@ jobs:
         with:
           name: sgov-graph-per-vocabulary.trig
           path: sgov-graph-per-vocabulary.trig
-      - name: GraphDB - Download the repo
-        run: |
-            curl --location --request POST "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}?infer=false" -o default.ttl \
-            --header 'Content-Type: application/sparql-query' \
-            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
-            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-      - name: GraphDB - Clear repository
-        run: |
-            bash -e bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-      - name: GraphDB - Publish new version
-        run: |
-            curl --location --request PUT "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements" \
-            --header 'Content-Type: application/trig' \
-            --data-binary '@./sgov-graph-per-vocabulary.trig' \
-            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
-      - name: ETL - Clear named graphs
-        run: |
-            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592406645132' \
-            -u ${USERNAME_LP}:${PASSWORD_LP} \
-            --form 'input=@./named-graphs-slovník-gov-cz.ttl'
-      - name: ETL - Publish new version
-        run: |
-            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592398255883' \
-            -u ${USERNAME_LP}:${PASSWORD_LP} \
-            --form 'input=@./sgov.trig'
-      - name: (DEV) AL - Clear cache
-        run: |
-            bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
-      - name: (DEV) AL - Uploading cache
-        run: |
-            bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+#      - name: GraphDB - Download the repo
+#        run: |
+#            curl --location --request POST "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}?infer=false" -o default.ttl \
+#            --header 'Content-Type: application/sparql-query' \
+#            --data-raw 'CONSTRUCT { ?s ?p ?o } FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o FILTER NOT EXISTS { GRAPH ?g { ?s ?p ?o } } }' \
+#            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+#      - name: GraphDB - Clear repository
+#        run: |
+#            bash -e bin/clear-cache.sh ${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+#      - name: GraphDB - Publish new version
+#        run: |
+#            curl --location --request PUT "${PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY}/statements" \
+#            --header 'Content-Type: application/trig' \
+#            --data-binary '@./sgov-graph-per-vocabulary.trig' \
+#            -u ${USERNAME_GRAPHDB}:${PASSWORD_GRAPHDB}
+#      - name: ETL - Clear named graphs
+#        run: |
+#            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592406645132' \
+#            -u ${USERNAME_LP}:${PASSWORD_LP} \
+#            --form 'input=@./named-graphs-slovník-gov-cz.ttl'
+#      - name: ETL - Publish new version
+#        run: |
+#            curl --location --request POST 'https://xn--slovnk-7va.gov.cz/etl/resources/executions?pipeline=https://slovn%C3%ADk.gov.cz/etl/resources/pipelines/1592398255883' \
+#            -u ${USERNAME_LP}:${PASSWORD_LP} \
+#            --form 'input=@./sgov.trig'
+#      - name: (DEV) AL - Clear cache
+#        run: |
+#            bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+#      - name: (DEV) AL - Uploading cache
+#        run: |
+#            bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - name: (PROD) AL - Clear cache
         run: |
             bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_AL_GRAPHDB} ${PASSWORD_AL_GRAPHDB} ${QUERY}
