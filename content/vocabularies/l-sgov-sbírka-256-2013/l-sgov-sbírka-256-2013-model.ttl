@@ -9,7 +9,16 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty .
+
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
 
 l-sgov-sbírka-256-2013:model a a-popis-dat-pojem:model, owl:Ontology;
   dcterms:created "2020-06-29";
@@ -22,30 +31,19 @@ l-sgov-sbírka-256-2013:model a a-popis-dat-pojem:model, owl:Ontology;
   owl:imports l-sgov-sbírka-256-2013:glosář;
   owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/256/2013/model/verze/1.0.0> .
 
-z-sgov-pojem:je-vlastností a owl:ObjectProperty;
-  owl:inverseOf z-sgov-pojem:má-vlastnost .
+l-sgov-sbírka-256-2013-pojem:katastrální-území a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
-z-sgov-pojem:má-vlastnost a owl:ObjectProperty .
-
-z-sgov-pojem:je-ve-vztahu a owl:ObjectProperty .
-
-z-sgov-pojem:má-vztažený-prvek a owl:ObjectProperty;
-  owl:inverseOf z-sgov-pojem:je-ve-vztahu .
-
-l-sgov-sbírka-256-2013-pojem:katastrální-území a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/sekce/2/h>;
-  rdfs:subClassOf z-sgov-pojem:objekt .
-
-l-sgov-sbírka-256-2013-pojem:parcela a owl:Class, z-sgov-pojem:poddruh, z-sgov-pojem:typ-objektu;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/sekce/2/b>;
+l-sgov-sbírka-256-2013-pojem:parcela a owl:Class, <https://slovník.gov.cz/základní/pojem/poddruh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf l-sgov-sbírka-256-2013-pojem:pozemek .
 
-l-sgov-sbírka-256-2013-pojem:pozemek a owl:Class, z-sgov-pojem:druh, z-sgov-pojem:typ-objektu;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/sekce/2/a>;
-  rdfs:subClassOf z-sgov-pojem:objekt .
-
-l-sgov-sbírka-256-2013-pojem:budova a z-sgov-pojem:typ-objektu;
-  dcterms:source <https://esbirka.opendata.cz/zdroj/předpis/256/2013/znění/předpis/256/2013/sekce/2/l>;
+l-sgov-sbírka-256-2013-pojem:budova a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf <https://slovník.gov.cz/veřejný-sektor/pojem/prostorový-objekt> .
+
+l-sgov-sbírka-256-2013-pojem:pozemek a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
 
 skos:prefLabel rdfs:subPropertyOf rdfs:label .
