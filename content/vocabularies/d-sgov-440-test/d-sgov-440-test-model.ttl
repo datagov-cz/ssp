@@ -19,11 +19,6 @@ d-sgov-440-test:model a a-popis-dat-pojem:model, owl:Ontology;
 
 d-sgov-440-test-pojem:artur a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ];
-      owl:someValuesFrom d-sgov-440-test-pojem:conan
-    ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-440-test-pojem:conan;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
@@ -34,22 +29,27 @@ d-sgov-440-test-pojem:artur a <https://slovník.gov.cz/základní/pojem/typ-obje
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom d-sgov-440-test-pojem:conan
     ] .
 
 d-sgov-440-test-pojem:doyle a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   rdfs:subClassOf [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass d-sgov-440-test-pojem:conan;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
       owl:someValuesFrom d-sgov-440-test-pojem:conan
     ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-440-test-pojem:conan;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
-        ]
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass d-sgov-440-test-pojem:conan;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ]
@@ -57,8 +57,8 @@ d-sgov-440-test-pojem:doyle a <https://slovník.gov.cz/základní/pojem/typ-obje
 
 d-sgov-440-test-pojem:conan a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom d-sgov-440-test-pojem:artur
+      owl:allValuesFrom d-sgov-440-test-pojem:doyle;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ], [ a owl:Restriction;
       owl:allValuesFrom d-sgov-440-test-pojem:artur;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
@@ -67,13 +67,13 @@ d-sgov-440-test-pojem:conan a <https://slovník.gov.cz/základní/pojem/typ-vzta
       owl:onClass d-sgov-440-test-pojem:artur;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ], [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-      owl:someValuesFrom d-sgov-440-test-pojem:doyle
-    ], [ a owl:Restriction;
-      owl:allValuesFrom d-sgov-440-test-pojem:doyle;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom d-sgov-440-test-pojem:artur
     ], [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass d-sgov-440-test-pojem:doyle;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom d-sgov-440-test-pojem:doyle
     ] .
