@@ -18,7 +18,7 @@ Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovn
 
 [![](mission.png)](https://slovník.gov.cz/modelujeme/)
 
- Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků, TermIt pro tvorbu glosářů -- tedy podrobně popsaných seznamů pojmů patřících do jednoho slovníku -- a OntoGrapher pro samotné modelování. V současné době provozujeme tři instance výrobní linky. Vedle produkční, která slouží k samotnému modelování máme ještě [testovací instanci](https://slovník-test.mvcr.gov.cz/modelujeme/), která slouží pro vývoj a [demo instanci](https://onto.fel.cvut.cz/modelujeme/), která slouží pro výuku uživatelů.
+ Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků a jejich kopií pro úpravy, TermIt pro tvorbu glosářů -- tedy podrobně popsaných seznamů pojmů patřících do jednoho slovníku -- a OntoGrapher pro samotné modelování. V současné době provozujeme tři instance výrobní linky. Vedle produkční, která slouží k samotnému modelování máme ještě vývojovou instanci pro potřeby vývojářů a [demo instanci](https://slovník-test.dia.gov.cz/modelujeme/), která slouží pro výuku uživatelů.
 
 [![](dataspecer.png)](https://slovník.gov.cz/generujeme/)
 
@@ -26,16 +26,18 @@ Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovn
 
 ## Často kladené dotazy (FAQ)
 
-* **Jaká je struktura sémantického slovníku pojmů?** Struktura sémantického slovníku pojmů a proces jeho publikace je popsán v dokumentu [Koncepce sémantického slovníku pojmů pro potřeby konceptuálního datového modelování agend](https://docs.google.com/document/d/1fm7Q75OtGw5G9RY4Y2KsIuFVvJFU34888Y3RaQMQtG8/edit?usp=sharing)
+* **Jaká je struktura sémantického slovníku pojmů?** Struktura sémantického slovníku pojmů a proces jeho publikace je popsán v dokumentu [Koncepce sémantického slovníku pojmů pro potřeby konceptuálního datového modelování agend](https://data.gov.cz/kodi/výstupy/C5V2.pdf)
 
-* **Jak mám vytvářet nebo spravovat slovníky?** V rámci projektu byl vytvořen dokument [Metodika tvorby a údržby sémantického slovníku pojmů veřejné správy](https://docs.google.com/document/d/1Kwrpv7HFBSIvem6hsajtCE_KeSdu8iVhOiQMNV7OxWE/edit?usp=sharing)
+* **Jak mám vytvářet nebo spravovat slovníky?** V rámci projektu byl vytvořen dokument [Metodika tvorby a údržby sémantického slovníku pojmů veřejné správy](https://data.gov.cz/kodi/výstupy/C5V4.pdf). K výuce modelování můžete využít [e-learningových videí k modelování významu dat ve veřejné správě](https://data.gov.cz/vzdělávání/e-learning/modelování-významu-dat-ve-veřejné-správě/).
 
 * **Mohu k datům přistupovat prostřednictvím SPARQL end-pointu?**
 Ano, obsah celého Sémantického slovníku pojmů je přístupný přes [SPARQL endpoint](https://slovník.gov.cz/sparql), ve kterém je dostupná vždy aktuální verze slovníku.
 
-* **Máte další otázky?** Sémantický slovník pojmů je udržován v repozitáři na GitHubu, ve kterém můžete [pokládat otázky a hlásit chyby](https://github.com/opendata-mvcr/ssp/issues).
+* **Kde získám přihlašovací údaje do výrobní linky?** Pro získání přístupových údajů k výrobní lince napište na mail data@dia.gov.cz. Do mailu uveďte, co chcete modelovat, zda máte s modelováním zkušenosti a ke které instanci chcete přistupovat.
+
+* **Máte další otázky?** Sémantický slovník pojmů je udržován v repozitáři na GitHubu, ve kterém můžete [pokládat otázky a hlásit chyby](https://github.com/datagov-cz/ssp/issues).
 
 ----
-Tato stránka je udržována v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0013983](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=F5E162B2-15EC-4BBE-9ABD-066388F3D412).
+Tato stránka byla vytvořena a udržována v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0013983](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=F5E162B2-15EC-4BBE-9ABD-066388F3D412).
 ![image](opz_logo.a20771c7.svg)
 %
