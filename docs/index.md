@@ -14,15 +14,15 @@ Jenom slovo "budova" se vyskytuje v zákonech v několika různých významech, 
 
 [![](showit.png)](https://slovník.gov.cz/prohlížíme/)
 
-Systém ShowIt umožňuje intuitivní vyhledávání pojmů Sémantického slovníku pojmů. Pojmy sdružuje podle klíčových slov, ale i podle slovníků a podle jejich vzájemných vztahů.
+[Systém ShowIt](https://slovník.gov.cz/prohlížíme/) umožňuje intuitivní vyhledávání pojmů Sémantického slovníku pojmů. Pojmy sdružuje podle klíčových slov, ale i podle slovníků a podle jejich vzájemných vztahů.
 
 [![](mission.png)](https://slovník.gov.cz/modelujeme/)
 
- Výrobní linka slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků a jejich kopií pro úpravy, TermIt pro tvorbu glosářů -- tedy podrobně popsaných seznamů pojmů patřících do jednoho slovníku -- a OntoGrapher pro samotné modelování. V současné době provozujeme tři instance výrobní linky. Vedle produkční, která slouží k samotnému modelování máme ještě vývojovou instanci pro potřeby vývojářů a [demo instanci](https://slovník-test.dia.gov.cz/modelujeme/), která slouží pro výuku uživatelů.
+ [Výrobní linka](https://slovník.gov.cz/modelujeme/) slouží k vytváření a editaci slovníků a k jejich následné publikaci. Součástí výrobní linky jsou v současné době nástroje Mission Control pro vytváření slovníků a jejich kopií pro úpravy, TermIt pro tvorbu glosářů -- tedy podrobně popsaných seznamů pojmů patřících do jednoho slovníku -- a OntoGrapher pro samotné modelování. V současné době provozujeme tři instance výrobní linky. Vedle produkčního nasazení, které slouží k samotnému modelování ve veřejné správě, spravujeme ještě vývojovou instanci pro potřeby vývojářů a [demo instanci](https://slovník-test.dia.gov.cz/modelujeme/), která slouží pro výuku uživatelů.
 
 [![](dataspecer.png)](https://slovník.gov.cz/generujeme/)
 
- Na základě publikovaných slovníků je možné pomocí nástroje Dataspecer automatizovaně generovat datové specifikace. Datová specifikace obsahuje textovou část a konceptuální model a díky tomu, že vzniká na základě sémantických slovníků je dokonale lidsky i strojově čitelná.
+ Na základě publikovaných slovníků je možné pomocí nástroje [Dataspecer](https://slovník.gov.cz/generujeme/) automatizovaně generovat datové specifikace. Datová specifikace obsahuje textovou část a konceptuální model a díky tomu, že vzniká na základě sémantických slovníků je dokonale lidsky i strojově čitelná.
 
 ## Často kladené dotazy (FAQ)
 
