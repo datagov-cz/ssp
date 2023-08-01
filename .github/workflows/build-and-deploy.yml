@@ -16,7 +16,8 @@ env:
   JVM_OPTS: -Xmx3200m
   PUBLIC_SLOVNIK_GOV_CZ_REPOSITORY: https://xn--slovnk-7va.gov.cz/prohlizime/sluzby/db-server/repositories/termit
   ASSEMBLY_LINE_REPOSITORY: https://xn--slovnk-7va.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
-  ASSEMBLY_LINE_DEV_REPOSITORY: https://xn--slovnk-test-scb.dia.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+  ASSEMBLY_LINE_TEST_REPOSITORY: https://xn--slovnk-test-scb.dia.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
+  ASSEMBLY_LINE_DEV_REPOSITORY: https://oha03.dia.gov.cz/modelujeme/sluzby/db-server/repositories/assembly-line
   CONTAINER: https://slovník.gov.cz
 jobs:
   build:
@@ -86,6 +87,12 @@ jobs:
       - name: (DEV) AL - Uploading cache
         run: |
             bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_DEV_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - name: (TEST) AL - Clear cache
+        run: |
+            bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_TEST_REPOSITORY} ${CONTAINER} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
+      - name: (TEST) AL - Uploading cache
+        run: |
+            bash -e bin/upload-cache.sh ${ASSEMBLY_LINE_TEST_REPOSITORY} ${USERNAME_GRAPHDB} ${PASSWORD_GRAPHDB}
       - name: (PROD) AL - Clear cache
         run: |
             bash -e bin/clear-cache.sh ${ASSEMBLY_LINE_REPOSITORY} ${CONTAINER} ${USERNAME_AL_GRAPHDB} ${PASSWORD_AL_GRAPHDB} ${QUERY}
