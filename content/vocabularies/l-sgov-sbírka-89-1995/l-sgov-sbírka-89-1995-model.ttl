@@ -1,43 +1,216 @@
-@prefix l-sgov-sbírka-89-1995-pojem: <https://slovník.gov.cz/legislativní/sbírka/89/1995/pojem/> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix l-sgov-sbírka-89-1995: <https://slovník.gov.cz/legislativní/sbírka/89/1995/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix l-sgov-sbírka-89-1995-pojem: <https://slovník.gov.cz/legislativní/sbírka/89/1995/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-l-sgov-sbírka-89-1995:model
-        a               owl:Ontology , <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/model> ;
-        <http://purl.org/dc/terms/created>
-                "2020-06-29" ;
-        <http://purl.org/dc/terms/creator>
-                "Michal Med" ;
-        <http://purl.org/dc/terms/rights>
-                <https://creativecommons.org/licenses/by/4.0> ;
-        <http://purl.org/dc/terms/title>
-                "Slovník zákona č. 89/1995 Sb., o státní statistické službě. - model"@cs ;
-        <http://purl.org/ontology/bibo/status>
-                "Specification"@en , "Specifikace"@cs ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "l-sgov-sbírka-89-1995-pojem" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "https://slovník.gov.cz/legislativní/sbírka/89/1995/pojem/" ;
-        owl:imports     l-sgov-sbírka-89-1995:glosář ;
-        owl:versionIRI  <https://slovník.gov.cz/legislativní/sbírka/89/1995/model/verze/1.0.0> .
+<https://slovník.gov.cz/základní/pojem/je-vlastností> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
-<https://slovník.gov.cz/základní/pojem/má-vlastnost>
-        a       owl:ObjectProperty .
+<https://slovník.gov.cz/základní/pojem/má-vlastnost> a owl:ObjectProperty .
 
-<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
+<https://slovník.gov.cz/základní/pojem/je-ve-vztahu> a owl:ObjectProperty .
 
-l-sgov-sbírka-89-1995-pojem:základní-sídelní-jednotka
-        a                <https://slovník.gov.cz/základní/pojem/typ-objektu> , <https://slovník.gov.cz/základní/pojem/druh> , owl:Class ;
-        rdfs:subClassOf  <https://slovník.gov.cz/základní/pojem/objekt> .
+<https://slovník.gov.cz/základní/pojem/má-vztažený-prvek> a owl:ObjectProperty;
+  owl:inverseOf <https://slovník.gov.cz/základní/pojem/je-ve-vztahu> .
 
-<https://slovník.gov.cz/základní/pojem/je-ve-vztahu>
-        a       owl:ObjectProperty .
+l-sgov-sbírka-89-1995:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2020-06-29";
+  dcterms:creator "Michal Med";
+  dcterms:rights <https://creativecommons.org/licenses/by/4.0>;
+  dcterms:title "Slovník zákona č. 89/1995 Sb., o státní statistické službě. - model"@cs;
+  bibo:status "Specification"@en, "Specifikace"@cs;
+  vann:preferredNamespacePrefix "l-sgov-sbírka-89-1995-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/legislativní/sbírka/89/1995/pojem/";
+  owl:imports l-sgov-sbírka-89-1995:glosář;
+  owl:versionIRI <https://slovník.gov.cz/legislativní/sbírka/89/1995/model/verze/1.0.0> .
 
-<https://slovník.gov.cz/základní/pojem/je-vlastností>
-        a              owl:ObjectProperty ;
-        owl:inverseOf  <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+l-sgov-sbírka-89-1995-pojem:základní-sídelní-jednotka a owl:Class, <https://slovník.gov.cz/základní/pojem/druh>,
+    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  rdfs:subClassOf <https://slovník.gov.cz/základní/pojem/objekt> .
+
+<https://slovník.gov.cz/příloha/instance-b03acb12-4de1-48f4-902b-fef6c7dd866e/verze/ef15c8c5-7dbf-41cc-8316-222f8896c44b>
+  a <https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext>;
+  a-popis-dat-pojem:má-typ-přílohy <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram>;
+  <https://slovník.gov.cz/datový/pracovní-prostor/pojem/vychází-z-verze> <https://slovník.gov.cz/příloha/instance-b03acb12-4de1-48f4-902b-fef6c7dd866e> .
+
+l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom <https://slovník.gov.cz/legislativní/sbírka/542/2020/pojem/základní-územní-jednotka-zařízení-ke-sběru-nebo-zpracování-vozidel-s-ukončenou-životností>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/legislativní/sbírka/542/2020/pojem/základní-územní-jednotka-zařízení-ke-sběru-nebo-zpracování-vozidel-s-ukončenou-životností>;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/legislativní/sbírka/542/2020/pojem/základní-územní-jednotka-zařízení-ke-sběru-nebo-zpracování-vozidel-s-ukončenou-životností>;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom <https://slovník.gov.cz/generický/maisoh-modul-autovraky-informačního-systému-odpadového-hospodářství/pojem/základní-územní-jednotka-má-hranici>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/maisoh-modul-autovraky-informačního-systému-odpadového-hospodářství/pojem/základní-územní-jednotka-má-hranici>;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/maisoh-modul-autovraky-informačního-systému-odpadového-hospodářství/pojem/základní-územní-jednotka-má-hranici>;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/maisoh-modul-autovraky-informačního-systému-odpadového-hospodářství/pojem/základní-územní-jednotka-má-hranici>;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+<https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext/instance-01f185ed-16bc-4d97-b855-dc58ab3bb828>
+  a <https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext>;
+  a-popis-dat-pojem:má-typ-přílohy <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram>;
+  <https://slovník.gov.cz/datový/pracovní-prostor/pojem/vychází-z-verze> <https://slovník.gov.cz/příloha/instance-01f185ed-16bc-4d97-b855-dc58ab3bb828> .
+
+skos:prefLabel rdfs:subPropertyOf rdfs:label .
+
+<https://slovník.gov.cz/legislativní/sbírka/542/2020/pojem/základní-územní-jednotka-zařízení-ke-sběru-nebo-zpracování-vozidel-s-ukončenou-životností>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ] .
+
+<https://slovník.gov.cz/generický/maisoh-modul-autovraky-informačního-systému-odpadového-hospodářství/pojem/základní-územní-jednotka-má-hranici>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka
+    ], [ a owl:Restriction;
+      owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+<https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext/instance-753117a9-ced5-441e-a372-8f9c667f3330>
+  a-popis-dat-pojem:má-typ-přílohy <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka .
+
+[] a owl:Restriction;
+  owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka .
+
+[] a owl:Restriction;
+  owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka .
+
+[] a owl:Restriction;
+  owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka .
+
+[] a owl:Restriction;
+  owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka .
+
+[] a owl:Restriction;
+  owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka .
+
+[] a owl:Restriction;
+  owl:allValuesFrom l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass l-sgov-sbírka-89-1995-pojem:základní-územní-jednotka;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
