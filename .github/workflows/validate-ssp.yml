@@ -31,10 +31,11 @@ jobs:
       - name: Archive test results
         uses: actions/upload-artifact@v4
         with:
-          name: results
+          name: results-${{ matrix.runs-on }}
           path: test-results
       - name: Archive testresults JUnit
         uses: actions/upload-artifact@v4
         with:
-          name: results
           path: test-results/junit
+          pattern: results-*
+          merge-multiple: true
