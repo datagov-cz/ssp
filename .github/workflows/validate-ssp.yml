@@ -19,7 +19,7 @@ jobs:
   sgov-validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: SGoV Validation
         run: |
           gradle test --tests FolderLayoutTests --tests ConsistencyTests --tests AttachmentsConsistencyTests
@@ -31,11 +31,10 @@ jobs:
       - name: Archive test results
         uses: actions/upload-artifact@v4
         with:
-          name: results-${{ matrix.runs-on }}
+          name: results
           path: test-results
       - name: Archive testresults JUnit
         uses: actions/upload-artifact@v4
         with:
+          name: results-junit
           path: test-results/junit
-          pattern: results-*
-          merge-multiple: true
