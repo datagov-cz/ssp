@@ -153,8 +153,7 @@ g-sgov-datový-slovník-registru-zastoupení-pojem:identifikátor-oprávnění-k
 
 g-sgov-datový-slovník-registru-zastoupení-pojem:zastupující a <https://slovník.gov.cz/základní/pojem/role>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>,
-    <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/fyzická-osoba>, [ a owl:Restriction;
+  rdfs:subClassOf [ a owl:Restriction;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-datový-slovník-registru-zastoupení-pojem:opravňuje-zastupovat;
       owl:onProperty [
@@ -201,8 +200,7 @@ g-sgov-datový-slovník-registru-zastoupení-pojem:opravňuje-zastupovat a <http
 
 g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený a <https://slovník.gov.cz/základní/pojem/role>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/12/2020/pojem/uživatel-služby>,
-    [ a owl:Restriction;
+  rdfs:subClassOf [ a owl:Restriction;
       owl:allValuesFrom g-sgov-datový-slovník-registru-zastoupení-pojem:opravňuje-být-zastoupen;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
@@ -246,14 +244,6 @@ g-sgov-datový-slovník-registru-zastoupení-pojem:opravňuje-být-zastoupen a <
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
       owl:someValuesFrom g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupení
     ] .
-
-g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-právnická-osoba a
-    <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený, <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/právnická-osoba> .
-
-g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-fyzická-osoba a <https://slovník.gov.cz/základní/pojem/role>,
-    <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený, <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/fyzická-osoba> .
 
 <https://slovník.gov.cz/příloha/instance-d4485b66-44aa-445e-a396-b96d534fcd17/verze/532f79b7-467c-482e-8e02-1378bb8e72b5>
   a <https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext>;
@@ -311,19 +301,6 @@ g-sgov-datový-slovník-registru-zastoupení-pojem:použité-zastoupení a <http
       owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
     ] .
-
-g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-podnikající-fyzická-osoba
-  a <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený, g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-fyzická-osoba,
-    <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/podnikající-fyzická-osoba> .
-
-g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-podnikající-fyzická-osoba-zapsaná-v-obchodním-rejstříku
-  a <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-podnikající-fyzická-osoba .
-
-g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-podnikající-fyzická-osoba-nezapsaná-v-obchodním-rejstříku
-  a <https://slovník.gov.cz/základní/pojem/role>, <https://slovník.gov.cz/základní/pojem/typ-objektu>;
-  rdfs:subClassOf g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-podnikající-fyzická-osoba .
 
 <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument>
   rdfs:subClassOf [ a owl:Restriction;
@@ -688,6 +665,32 @@ g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupený-jako-podnikajíc�
   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
   owl:onClass g-sgov-datový-slovník-registru-zastoupení-pojem:zastoupení;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/elektronický-dokument>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;

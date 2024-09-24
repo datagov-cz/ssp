@@ -41,9 +41,8 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:má-příjemce a <https://sl
 g-sgov-standard-pro-elektronické-formuláře-pojem:příjemce a <https://slovník.gov.cz/základní/pojem/role>,
     <https://slovník.gov.cz/základní/pojem/typ-objektu>;
   <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
-  rdfs:subClassOf <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/příjemce-jako-právnická-osoba>,
-    <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>, [
-      a owl:Restriction;
+  rdfs:subClassOf <https://slovník.gov.cz/legislativní/sbírka/111/2009/pojem/orgán-veřejné-moci>,
+    [ a owl:Restriction;
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
         ];
@@ -323,6 +322,28 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektro
       owl:onProperty [
           owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
         ]
+    ], [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
     ] .
 
 g-sgov-standard-pro-elektronické-formuláře-pojem:doručit-osvědčení-do-datové-schránky
@@ -369,16 +390,6 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:způsob-povedení-digitáln�
 g-sgov-standard-pro-elektronické-formuláře-pojem:má-způsob-provedení-digitálního-úkonu
   a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-      owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem
-    ], [ a owl:Restriction;
-      owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
-      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-    ], [ a owl:Restriction;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
       owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:způsob-povedení-digitálního-úkonu
     ], [ a owl:Restriction;
@@ -391,6 +402,43 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:má-způsob-provedení-digit
     ], [ a owl:Restriction;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:způsob-povedení-digitálního-úkonu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu>;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu>;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
     ] .
 
@@ -550,27 +598,6 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:hodnota-položky rdfs:subCla
         ]
     ] .
 
-<https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>
-  rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ], [ a owl:Restriction;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-      owl:onProperty [
-          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
-        ]
-    ] .
-
 g-sgov-standard-pro-elektronické-formuláře-pojem:název-položky rdfs:subClassOf [ a
         owl:Restriction;
       owl:onProperty [
@@ -703,6 +730,25 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
       owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
       owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+<https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu>
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:uživatel-služby;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
     ] .
 
 [] a owl:Restriction;
@@ -2624,11 +2670,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -2638,11 +2682,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -2652,19 +2694,15 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -2674,11 +2712,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -2688,11 +2724,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -2702,11 +2736,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -3502,11 +3534,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -3516,11 +3546,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -3530,11 +3558,9 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -3544,19 +3570,15 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel-jako-fyzická-osoba>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
@@ -5120,16 +5142,13 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
@@ -5146,21 +5165,17 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
@@ -5177,21 +5192,17 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
@@ -5213,39 +5224,31 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
-  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel> .
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/odesílatel>;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] a owl:Restriction;
@@ -6047,6 +6050,123 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
   owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:způsob-povedení-digitálního-úkonu;
   owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:doručit-osvědčení-do-datové-schránky .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:doručit-osvědčení-do-datové-schránky;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:doručit-osvědčení-do-datové-schránky;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-standard-pro-elektronické-formuláře-pojem:dokument-vytvořený-elektronickým-formulářem;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+  owl:someValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass <https://slovník.gov.cz/generický/standard-pro-elektronické-dokumenty/pojem/osoba-ve-vztahu-k-dokumentu>;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
@@ -6096,6 +6216,14 @@ g-sgov-standard-pro-elektronické-formuláře-pojem:typ-položky rdfs:subClassOf
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
 
 [] owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vlastnost> .
 
