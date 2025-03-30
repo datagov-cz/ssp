@@ -1,0 +1,210 @@
+@prefix :        <https://ofn.gov.cz/slovníky/draft/schemata/slovníky/>.
+@prefix time:    <http://www.w3.org/2006/time#>.
+@prefix časy:    <https://slovník.gov.cz/generický/čas/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#>.
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#>.
+
+<https://ofn.gov.cz/slovníky/draft/schemata/slovníky>
+    a                   owl:Ontology ;
+    dcterms:created     "2024-08-12"^^xsd:date ;
+    dcterms:modified    "2024-08-12"^^xsd:date ;
+    dcterms:title       "OFN Slovníky - SHACL omezení"@cs ;
+    dcterms:description "SHACL omezení reprezentující OFN Slovníky"@cs ;
+    owl:versionInfo     "0.0.1-SNAPSHOT" ;
+.
+
+:počet-slovníků-schéma
+    a             sh:NodeShape ;
+    sh:targetNode :počet-slovníků ; # A placeholder target node
+    sh:sparql     [ a          sh:SPARQLConstraint ;
+                    sh:message "There must be exactly one skos:ConceptScheme in the data." ;
+                    sh:select  """
+            prefix skos: <http://www.w3.org/2004/02/skos/core#>
+            SELECT $this
+            WHERE {
+              {
+                SELECT (COUNT(DISTINCT ?conceptScheme) AS ?count)
+                WHERE {
+                  ?conceptScheme a skos:ConceptScheme .
+                }
+              }
+              FILTER (?count != 1)
+            }
+        """ ; ] .
+
+
+:slovník-schéma
+    a              sh:NodeShape ;
+    dcterms:title  "Slovník - schéma"@cs ;
+    sh:targetClass skos:ConceptScheme ;
+    sh:property    :slovník-schéma-název ;
+    sh:property    :slovník-schéma-popis ;
+    sh:property    :slovník-schéma-vytvořeno ;
+    sh:property    :slovník-schéma-aktualizováno ;
+    sh:property    :slovník-schéma-obsahuje-pojem ;
+.
+
+:slovník-schéma-název
+    a                      sh:PropertyShape ;
+    dcterms:title          "Název slovníku"@cs ;
+    dcterms:description    "Název slovníku. Je unikátní v rámci názvů všech slovníků."@cs ;
+    sh:path                skos:prefLabel ;
+    sh:qualifiedValueShape [ sh:languageIn ( "cs" ) ] ;
+    sh:qualifiedMinCount   1 ;
+    sh:datatype            rdf:langString ;
+    sh:uniqueLang          true ;
+    sh:severity            sh:Violation ;
+.
+
+:slovník-schéma-popis
+    a                   sh:PropertyShape ;
+    dcterms:title       "Popis slovníku"@cs ;
+    dcterms:description "Popis slovníku."@cs ;
+    sh:path             dcterms:description ;
+    sh:datatype         rdf:langString ;
+    sh:uniqueLang       true ;
+    sh:severity         sh:Violation ;
+.
+
+:slovník-schéma-vytvořeno
+    a                   sh:PropertyShape ;
+    dcterms:title       "Vytvořeno"@cs ;
+    dcterms:description "Okamžik vytvoření."@cs ;
+    sh:path             dcterms:created ;
+    sh:maxCount         1 ;
+    sh:class            time:Instant ;
+    sh:severity         sh:Violation ;
+.
+
+:slovník-schéma-aktualizováno
+    a                   sh:PropertyShape ;
+    dcterms:title       "Aktualizováno"@cs ;
+    dcterms:description "Okamžik poslední změny."@cs ;
+    sh:path             dcterms:modified ;
+    sh:maxCount         1 ;
+    sh:class            time:Instant ;
+    sh:severity         sh:Violation ;
+.
+
+:slovník-schéma-obsahuje-pojem
+    a                   sh:PropertyShape ;
+    dcterms:title       "Obsahuje pojem"@cs ;
+    dcterms:description "Vazba propojující pojem a tezaurus, ve kterém je pojem definován."@cs ;
+    sh:path             [ sh:inversePath skos:inScheme ] ;
+    sh:class            skos:Concept ;
+    sh:severity         sh:Violation ;
+.
+
+:časový-okamžik-schéma
+    a              sh:NodeShape ;
+    dcterms:title  "Časový okamžik - schéma"@cs ;
+    sh:targetClass time:Instant ;
+    sh:or          ( :časový-okamžik-schéma-inXSDDate :časový-okamžik-schéma-inXSDDateTimeStamp
+                     :časový-okamžik-schéma-je-nespecifikovaný )
+.
+
+:časový-okamžik-schéma-inXSDDate
+    a           sh:PropertyShape ;
+    sh:path     time:inXSDDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+.
+
+:časový-okamžik-schéma-inXSDDateTimeStamp
+    a           sh:PropertyShape ;
+    sh:path     time:inXSDDateTimeStamp ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+.
+
+:časový-okamžik-schéma-je-nespecifikovaný
+    a           sh:PropertyShape ;
+    sh:path     časy:je-nespecifikovaný ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+.
+
+:pojem-schéma
+    a              sh:NodeShape ;
+    dcterms:title  "Pojem - schéma"@cs ;
+    sh:targetClass skos:Concept ;
+    sh:property    :pojem-schéma-název ;
+    sh:property    :pojem-schéma-popis ;
+    sh:property    :pojem-schéma-definice ;
+#    sh:property    :pojem-schéma-sdílení-údaje ;
+    sh:property    :pojem-schéma-nadřazený-pojem ;
+    sh:property    :pojem-schéma-ekvivalentní-pojem ;
+    sh:property    :pojem-schéma-INV-obsahuje-pojem ;
+.
+
+:pojem-schéma-název
+    a                      sh:PropertyShape ;
+    dcterms:title          "Název pojmu"@cs ;
+    dcterms:description    "Název pojmu. Je unikátní v rámci názvů pojmů ve slovníku."@cs ;
+    sh:path                skos:prefLabel ;
+    sh:qualifiedValueShape [ sh:languageIn ( "cs" ) ] ;
+    sh:qualifiedMinCount   1 ;
+    sh:datatype            rdf:langString ;
+    sh:uniqueLang          true ;
+    sh:severity            sh:Violation ;
+.
+
+:pojem-schéma-popis
+    a                   sh:PropertyShape ;
+    dcterms:title       "Popis pojmu"@cs ;
+    dcterms:description "Popis pojmu."@cs ;
+    sh:path             dcterms:description ;
+    sh:datatype         rdf:langString ;
+    sh:uniqueLang       true ;
+    sh:severity         sh:Violation ;
+.
+
+:pojem-schéma-definice
+    a                   sh:PropertyShape ;
+    dcterms:title       "Definice pojmu"@cs ;
+    dcterms:description "Definice pojmu. Je unikátní v rámci definic pojmů ve slovníku."@cs ;
+    sh:path             skos:definition ;
+    sh:datatype         rdf:langString ;
+    sh:uniqueLang       true ;
+    sh:severity         sh:Violation ;
+.
+
+:pojem-schéma-nadřazený-pojem
+    a                   sh:PropertyShape ;
+    dcterms:title       "Nadřazený pojem"@cs ;
+    dcterms:description "Významově širší pojem. Může se jednat o specializaci, instanciaci, partonomii, apod."@cs ;
+    sh:path             skos:broader ;
+    sh:nodeKind         sh:IRI ;
+    sh:severity         sh:Violation ;
+.
+
+:pojem-schéma-ekvivalentní-pojem
+    a             sh:PropertyShape ;
+    dcterms:title "Ekvivalentní pojem"@cs ;
+    dcterms:description
+                  "Významově ekvivalentní pojem. Typicky se jedná o pojem z jiného slovníku, který však má stejný význam."@cs ;
+    sh:path       skos:broader ;
+    sh:nodeKind   sh:IRI ;
+    sh:severity   sh:Violation ;
+.
+
+:pojem-schéma-INV-obsahuje-pojem
+    a             sh:PropertyShape ;
+    dcterms:title "je pojmem ve slovníku"@cs ;
+    sh:path       skos:inScheme ;
+    sh:minCount   1 ;
+    sh:nodeKind   sh:BlankNodeOrIRI ;
+    sh:class      skos:ConceptScheme ;
+    sh:severity   sh:Violation ;
+.
