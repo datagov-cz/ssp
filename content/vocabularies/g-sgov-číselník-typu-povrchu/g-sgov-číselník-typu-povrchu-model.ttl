@@ -1,0 +1,112 @@
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix g-sgov-číselník-typu-povrchu: <https://slovník.gov.cz/generický/číselník-typu-povrchu/> .
+@prefix g-sgov-číselník-typu-povrchu-pojem: <https://slovník.gov.cz/generický/číselník-typu-povrchu/pojem/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+g-sgov-číselník-typu-povrchu:model a a-popis-dat-pojem:model, owl:Ontology;
+  dcterms:created "2023-12-14T13:00:10.082Z"^^xsd:dateTime;
+  dcterms:rights <https://creativecommons.org/licenses/by-sa/4.0>;
+  dcterms:title "Číselník typu povrchu - model"@cs;
+  vann:preferredNamespacePrefix "g-sgov-číselník-typu-povrchu-pojem";
+  vann:preferredNamespaceUri "https://slovník.gov.cz/generický/číselník-typu-povrchu/pojem/";
+  owl:imports g-sgov-číselník-typu-povrchu:glosář;
+  owl:versionIRI "https://slovník.gov.cz/generický/číselník-typu-povrchu/model/verze/1.0.0" .
+
+g-sgov-číselník-typu-povrchu-pojem:číselník-typu-povrchu a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/číselník>, [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ];
+      owl:someValuesFrom g-sgov-číselník-typu-povrchu-pojem:má-položku-typu-povrchu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-číselník-typu-povrchu-pojem:má-položku-typu-povrchu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-číselník-typu-povrchu-pojem:má-položku-typu-povrchu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+        ]
+    ] .
+
+g-sgov-číselník-typu-povrchu-pojem:asfalt a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf g-sgov-číselník-typu-povrchu-pojem:položka-typu-povrchu .
+
+g-sgov-číselník-typu-povrchu-pojem:beton a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf g-sgov-číselník-typu-povrchu-pojem:položka-typu-povrchu .
+
+g-sgov-číselník-typu-povrchu-pojem:dlažba a <https://slovník.gov.cz/základní/pojem/typ-objektu>;
+  <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-draft> true;
+  rdfs:subClassOf g-sgov-číselník-typu-povrchu-pojem:položka-typu-povrchu .
+
+<https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext/instance-f4240247-af44-4bb0-be24-f1ef061052cd>
+  a <https://slovník.gov.cz/datový/pracovní-prostor/pojem/přílohový-kontext>;
+  a-popis-dat-pojem:má-typ-přílohy <http://onto.fel.cvut.cz/ontologies/application/ontoGrapher/diagram>;
+  <https://slovník.gov.cz/datový/pracovní-prostor/pojem/vychází-z-verze> <https://slovník.gov.cz/příloha/instance-f4240247-af44-4bb0-be24-f1ef061052cd> .
+
+g-sgov-číselník-typu-povrchu-pojem:má-položku-typu-povrchu a <https://slovník.gov.cz/základní/pojem/typ-vztahu>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/eviduje-položku-číselníku>,
+    [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>;
+      owl:someValuesFrom g-sgov-číselník-typu-povrchu-pojem:položka-typu-povrchu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-číselník-typu-povrchu-pojem:položka-typu-povrchu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-číselník-typu-povrchu-pojem:položka-typu-povrchu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+    ], [ a owl:Restriction;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+      owl:someValuesFrom g-sgov-číselník-typu-povrchu-pojem:číselník-typu-povrchu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-číselník-typu-povrchu-pojem:číselník-typu-povrchu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-číselník-typu-povrchu-pojem:číselník-typu-povrchu;
+      owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>
+    ] .
+
+g-sgov-číselník-typu-povrchu-pojem:položka-typu-povrchu a <https://slovník.gov.cz/veřejný-sektor/pojem/typ-subjektu-práva>;
+  rdfs:subClassOf <https://slovník.gov.cz/datový/číselníky/pojem/položka-číselníku>,
+    [ a owl:Restriction;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ];
+      owl:someValuesFrom g-sgov-číselník-typu-povrchu-pojem:má-položku-typu-povrchu
+    ], [ a owl:Restriction;
+      owl:allValuesFrom g-sgov-číselník-typu-povrchu-pojem:má-položku-typu-povrchu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ], [ a owl:Restriction;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+      owl:onClass g-sgov-číselník-typu-povrchu-pojem:má-položku-typu-povrchu;
+      owl:onProperty [
+          owl:inverseOf <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-2>
+        ]
+    ] .
+
+[] a owl:Restriction;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1>;
+  owl:someValuesFrom g-sgov-číselník-typu-povrchu-pojem:číselník-typu-povrchu .
+
+[] a owl:Restriction;
+  owl:allValuesFrom g-sgov-číselník-typu-povrchu-pojem:číselník-typu-povrchu;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
+
+[] a owl:Restriction;
+  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger;
+  owl:onClass g-sgov-číselník-typu-povrchu-pojem:číselník-typu-povrchu;
+  owl:onProperty <https://slovník.gov.cz/základní/pojem/má-vztažený-prvek-1> .
