@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Generate TRIG representation of SSP
-        run: gradle test --tests ExportSGoV --tests GenerateCanonicalContainer
+        run: ./gradlew test --tests ExportSGoV --tests GenerateCanonicalContainer
       - name: Create a list of named graphs to remove from slovník.gov.cz
         run: SGOV_SPARQL_SERVICE="https://xn--slovnk-7va.gov.cz/sparql" SGOV_SPARQL_SERVICE_NAMED_GRAPHS_FILE="../named-graphs-slovník-gov-cz.ttl" gradle test --tests cz.gov.ssp.ExportNamedGraphs
       - name: Save exported files
